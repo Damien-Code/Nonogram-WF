@@ -5,7 +5,7 @@ namespace Nonogram_WF
 		public Form1()
 		{
 			InitializeComponent();
-			//new login();
+			this.Controls.Remove(login1);
 		}
 
 		private void button1_Click(object sender, EventArgs e)
