@@ -22,13 +22,23 @@
 
 		#region Windows Form Designer generated code
 
+
 		/// <summary>
 		///  Required method for Designer support - do not modify
 		///  the contents of this method with the code editor.
 		/// </summary>
-		private void InitializeComponent()
-		{
-			login1 = new login();
+		
+
+
+
+
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+        private void InitializeComponent()
+        {
+          login1 = new login();
 			SuspendLayout();
 			// 
 			// login1
@@ -48,10 +58,36 @@
 			Name = "Form1";
 			Text = "Form1";
 			ResumeLayout(false);
-		}
+          
+            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            welcome2 = new Welcome();
+            SuspendLayout();
+            // 
+            // welcome2
+            // 
+            welcome2.BackColor = Color.White;
+            welcome2.Dock = DockStyle.Fill;
+            welcome2.Location = new Point(0, 0);
+            welcome2.Name = "welcome2";
+            welcome2.Size = new Size(1374, 854);
+            welcome2.TabIndex = 0;
+            // 
+            // Form1
+            // 
+            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleMode = AutoScaleMode.Font;
+            ClientSize = new Size(1374, 854);
+            Controls.Add(welcome2);
+            Name = "Form1";
+            Text = "Form1";
+            ResumeLayout(false);
+        }
 
-		#endregion
-
+        #endregion
 		private login login1;
-	}
+        private Welcome welcome1;
+        private System.ComponentModel.BackgroundWorker backgroundWorker1;
+        private Welcome welcome2;
+    }
+
 }

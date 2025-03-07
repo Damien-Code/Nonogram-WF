@@ -1,5 +1,6 @@
 namespace Nonogram_WF
 {
+
 	public partial class Form1 : Form
 	{
 		public Form1()
@@ -13,4 +14,5 @@ namespace Nonogram_WF
 			//panel1.Hide();
 		}
 	}
+
 }
