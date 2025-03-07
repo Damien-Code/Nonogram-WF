@@ -28,5 +28,10 @@ namespace Nonogram_WF
             this.Hide();
             Register.Show();
         }
+
+        private void Welcome_Load(object sender, EventArgs e)
+        {
+            this.Dock = DockStyle.Fill;
+        }
     }
 }

@@ -93,6 +93,7 @@
             Controls.Add(panelWelcome);
             Name = "Welcome";
             Size = new Size(1400, 925);
+            Load += Welcome_Load;
             panelWelcome.ResumeLayout(false);
             panelWelcome.PerformLayout();
             ResumeLayout(false);
