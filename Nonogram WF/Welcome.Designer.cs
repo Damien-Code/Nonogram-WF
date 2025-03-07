@@ -38,6 +38,7 @@
             // 
             // panelWelcome
             // 
+            panelWelcome.Anchor = AnchorStyles.None;
             panelWelcome.Controls.Add(buttonWelcomeRegister);
             panelWelcome.Controls.Add(buttonWelcomeLogin);
             panelWelcome.Controls.Add(label1);
@@ -73,7 +74,7 @@
             label1.Name = "label1";
             label1.Size = new Size(799, 166);
             label1.TabIndex = 1;
-            label1.Text = "Thank you for downloading nonogram! To use our services you first have to create an account. Your account can track your scores,playtimes and settings.";
+            label1.Text = "Thank you for downloading nonogram! To use our services you first have to create an account. Your account can track your scores, playtimes and settings.";
             // 
             // labelWelcome
             // 

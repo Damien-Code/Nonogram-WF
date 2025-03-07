@@ -12,15 +12,28 @@ namespace Nonogram_WF
 {
     public partial class Welcome : UserControl
     {
+        
+        //UserControl register;
+        //UserControl login;
         public Welcome()
         {
             InitializeComponent();
+            
+            //login = new login();
         }
 
         private void buttonWelcomeLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //Login.Show();
+            //this.Parent.Controls.Add(login);
+            //login.Dock = DockStyle.Fill;
+            //login.Show();
+            
+            // finds the form where the control is on.
+            // searches all the controls with the given name.
+            // shows the first control that is found.
+            FindForm().Controls.Find("login1", false).First().Show();
+            
         }
 
         private void buttonWelcomeRegister_Click(object sender, EventArgs e)
@@ -31,7 +44,7 @@ namespace Nonogram_WF
 
         private void Welcome_Load(object sender, EventArgs e)
         {
-            this.Dock = DockStyle.Fill;
+            //this.Dock = DockStyle.Fill;
         }
     }
 }

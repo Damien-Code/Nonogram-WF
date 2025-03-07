@@ -20,14 +20,14 @@
             base.Dispose(disposing);
         }
 
-		#region Windows Form Designer generated code
+        #region Windows Form Designer generated code
 
 
-		/// <summary>
-		///  Required method for Designer support - do not modify
-		///  the contents of this method with the code editor.
-		/// </summary>
-		
+        /// <summary>
+        ///  Required method for Designer support - do not modify
+        ///  the contents of this method with the code editor.
+        /// </summary>
+
 
 
 
@@ -38,30 +38,18 @@
         /// </summary>
         private void InitializeComponent()
         {
-          login1 = new login();
-			SuspendLayout();
-			// 
-			// login1
-			// 
-			login1.Dock = DockStyle.Fill;
-			login1.Location = new Point(0, 0);
-			login1.Name = "login1";
-			login1.Size = new Size(1378, 869);
-			login1.TabIndex = 0;
-			// 
-			// Form1
-			// 
-			AutoScaleDimensions = new SizeF(10F, 25F);
-			AutoScaleMode = AutoScaleMode.Font;
-			ClientSize = new Size(1378, 869);
-			Controls.Add(login1);
-			Name = "Form1";
-			Text = "Form1";
-			ResumeLayout(false);
-          
-            backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
+            login1 = new login();
             welcome2 = new Welcome();
             SuspendLayout();
+            // 
+            // login1
+            // 
+            login1.Dock = DockStyle.Fill;
+            login1.Location = new Point(0, 0);
+            login1.Margin = new Padding(4, 4, 4, 4);
+            login1.Name = "login1";
+            login1.Size = new Size(1388, 936);
+            login1.TabIndex = 0;
             // 
             // welcome2
             // 
@@ -69,14 +57,15 @@
             welcome2.Dock = DockStyle.Fill;
             welcome2.Location = new Point(0, 0);
             welcome2.Name = "welcome2";
-            welcome2.Size = new Size(1374, 854);
+            welcome2.Size = new Size(1388, 936);
             welcome2.TabIndex = 0;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1374, 854);
+            ClientSize = new Size(1388, 936);
+            Controls.Add(login1);
             Controls.Add(welcome2);
             Name = "Form1";
             Text = "Form1";
@@ -84,9 +73,8 @@
         }
 
         #endregion
-		private login login1;
+        private login login1;
         private Welcome welcome1;
-        private System.ComponentModel.BackgroundWorker backgroundWorker1;
         private Welcome welcome2;
     }
 

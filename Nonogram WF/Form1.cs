@@ -6,7 +6,8 @@ namespace Nonogram_WF
 		public Form1()
 		{
 			InitializeComponent();
-			this.Controls.Remove(login1);
+			login1.Hide();
+			//this.Controls.Remove(login1);
 		}
 
 		private void button1_Click(object sender, EventArgs e)
