@@ -20,13 +20,13 @@ namespace Nonogram_WF
         private void buttonWelcomeLogin_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Login.Show();
+            //Login.Show();
         }
 
         private void buttonWelcomeRegister_Click(object sender, EventArgs e)
         {
             this.Hide();
-            Register.Show();
+            //Register.Show();
         }
 
         private void Welcome_Load(object sender, EventArgs e)

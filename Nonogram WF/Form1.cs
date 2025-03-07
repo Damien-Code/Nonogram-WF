@@ -5,6 +5,7 @@ namespace Nonogram_WF
         public Form1()
         {
             InitializeComponent();
+            
         }
     }
 }
