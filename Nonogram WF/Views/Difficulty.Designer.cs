@@ -61,6 +61,7 @@
             buttonDifficultyPlayGame.TabIndex = 5;
             buttonDifficultyPlayGame.Text = "Play Game";
             buttonDifficultyPlayGame.UseVisualStyleBackColor = true;
+            buttonDifficultyPlayGame.Click += buttonDifficultyPlayGame_Click;
             // 
             // buttonDifficultyHelp
             // 

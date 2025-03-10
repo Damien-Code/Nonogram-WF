@@ -29,7 +29,14 @@ namespace Nonogram_WF.Views
 
         private void buttonDifficultyBack_Click(object sender, EventArgs e)
         {
+            this.Hide();
             FindForm().Controls.Find("Home", false).First().Show();
+        }
+
+        private void buttonDifficultyPlayGame_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("GameScreen", false).First().Show();
         }
     }
 }
