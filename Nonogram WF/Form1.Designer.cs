@@ -44,6 +44,7 @@
             Home = new Views.Home();
             Difficulty = new Views.Difficulty();
             GameScreen = new Views.GameScreen();
+            History = new Views.History();
             SuspendLayout();
             // 
             // login1
@@ -98,6 +99,13 @@
             GameScreen.Size = new Size(1489, 934);
             GameScreen.TabIndex = 4;
             // 
+            // History
+            // 
+            History.Location = new Point(0, 0);
+            History.Name = "History";
+            History.Size = new Size(1489, 934);
+            History.TabIndex = 5;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
@@ -109,6 +117,7 @@
             Controls.Add(Instructions);
             Controls.Add(login1);
             Controls.Add(GameScreen);
+            Controls.Add(History);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -122,6 +131,7 @@
         private Views.Difficulty difficulty1;
         private Views.Difficulty Difficulty;
         private Views.GameScreen GameScreen;
+        private Views.History History;
     }
 
 }

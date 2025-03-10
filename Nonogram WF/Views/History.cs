@@ -16,5 +16,11 @@ namespace Nonogram_WF.Views
         {
             InitializeComponent();
         }
+
+        private void buttonHistoryBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Home", false).First().Show();
+        }
     }
 }

@@ -27,5 +27,12 @@ namespace Nonogram_WF.Views
             this.Hide();
             FindForm().Controls.Find("Difficulty", false).First().Show();
         }
+
+        private void buttonHomeHistory_Click(object sender, EventArgs e)
+        {
+            this.Hide(); 
+            FindForm().Controls.Find("History", false).First().Show();
+
+        }
     }
 }

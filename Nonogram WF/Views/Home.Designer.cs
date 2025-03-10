@@ -54,6 +54,7 @@
             buttonHomeHistory.TabIndex = 1;
             buttonHomeHistory.Text = "History";
             buttonHomeHistory.UseVisualStyleBackColor = true;
+            buttonHomeHistory.Click += buttonHomeHistory_Click;
             // 
             // buttonHomeSettings
             // 
