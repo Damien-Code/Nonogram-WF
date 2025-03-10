@@ -16,5 +16,10 @@ namespace Nonogram_WF.Views
         {
             InitializeComponent();
         }
+
+        private void buttonHomeLogout_Click(object sender, EventArgs e)
+        {
+            Application.Exit();
+        }
     }
 }

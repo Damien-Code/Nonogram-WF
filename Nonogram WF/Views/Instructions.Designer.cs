@@ -30,11 +30,13 @@
         {
             labelGameInstructions = new Label();
             buttonGameInstructions = new Button();
+            panelInstructions = new Panel();
+            panelInstructions.SuspendLayout();
             SuspendLayout();
             // 
             // labelGameInstructions
             // 
-            labelGameInstructions.Location = new Point(435, 174);
+            labelGameInstructions.Location = new Point(372, 144);
             labelGameInstructions.Name = "labelGameInstructions";
             labelGameInstructions.Size = new Size(525, 249);
             labelGameInstructions.TabIndex = 0;
@@ -42,7 +44,7 @@
             // 
             // buttonGameInstructions
             // 
-            buttonGameInstructions.Location = new Point(539, 609);
+            buttonGameInstructions.Location = new Point(487, 552);
             buttonGameInstructions.Name = "buttonGameInstructions";
             buttonGameInstructions.Size = new Size(308, 94);
             buttonGameInstructions.TabIndex = 1;
@@ -50,14 +52,24 @@
             buttonGameInstructions.UseVisualStyleBackColor = true;
             buttonGameInstructions.Click += buttonGameInstructions_Click;
             // 
+            // panelInstructions
+            // 
+            panelInstructions.Anchor = AnchorStyles.None;
+            panelInstructions.Controls.Add(labelGameInstructions);
+            panelInstructions.Controls.Add(buttonGameInstructions);
+            panelInstructions.Location = new Point(0, 0);
+            panelInstructions.Name = "panelInstructions";
+            panelInstructions.Size = new Size(1377, 859);
+            panelInstructions.TabIndex = 2;
+            // 
             // Instructions
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(buttonGameInstructions);
-            Controls.Add(labelGameInstructions);
+            Controls.Add(panelInstructions);
             Name = "Instructions";
             Size = new Size(1377, 859);
+            panelInstructions.ResumeLayout(false);
             ResumeLayout(false);
         }
 
@@ -65,5 +77,6 @@
 
         private Label labelGameInstructions;
         private Button buttonGameInstructions;
+        private Panel panelInstructions;
     }
 }

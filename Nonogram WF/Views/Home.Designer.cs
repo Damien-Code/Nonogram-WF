@@ -31,6 +31,7 @@
             buttonHomePlayGame = new Button();
             buttonHomeHistory = new Button();
             buttonHomeSettings = new Button();
+            buttonHomeLogout = new Button();
             SuspendLayout();
             // 
             // buttonHomePlayGame
@@ -60,10 +61,21 @@
             buttonHomeSettings.Text = "Settings";
             buttonHomeSettings.UseVisualStyleBackColor = true;
             // 
+            // buttonHomeLogout
+            // 
+            buttonHomeLogout.Location = new Point(1152, 28);
+            buttonHomeLogout.Name = "buttonHomeLogout";
+            buttonHomeLogout.Size = new Size(150, 46);
+            buttonHomeLogout.TabIndex = 3;
+            buttonHomeLogout.Text = "Logout";
+            buttonHomeLogout.UseVisualStyleBackColor = true;
+            buttonHomeLogout.Click += buttonHomeLogout_Click;
+            // 
             // Home
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
+            Controls.Add(buttonHomeLogout);
             Controls.Add(buttonHomeSettings);
             Controls.Add(buttonHomeHistory);
             Controls.Add(buttonHomePlayGame);
@@ -77,5 +89,6 @@
         private Button buttonHomePlayGame;
         private Button buttonHomeHistory;
         private Button buttonHomeSettings;
+        private Button buttonHomeLogout;
     }
 }
