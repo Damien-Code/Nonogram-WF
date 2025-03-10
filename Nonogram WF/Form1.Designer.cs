@@ -45,6 +45,7 @@
             Difficulty = new Views.Difficulty();
             GameScreen = new Views.GameScreen();
             History = new Views.History();
+            Settings = new Views.Settings();
             SuspendLayout();
             // 
             // login1
@@ -98,6 +99,7 @@
             GameScreen.Name = "GameScreen";
             GameScreen.Size = new Size(1489, 934);
             GameScreen.TabIndex = 4;
+            GameScreen.Visible = false;
             // 
             // History
             // 
@@ -105,6 +107,16 @@
             History.Name = "History";
             History.Size = new Size(1489, 934);
             History.TabIndex = 5;
+            History.Visible = false;
+            // 
+            // Settings
+            // 
+            Settings.Anchor = AnchorStyles.None;
+            Settings.Location = new Point(0, 0);
+            Settings.Name = "Settings";
+            Settings.Size = new Size(1489, 934);
+            Settings.TabIndex = 6;
+            Settings.Visible = false;
             // 
             // Form1
             // 
@@ -118,6 +130,7 @@
             Controls.Add(login1);
             Controls.Add(GameScreen);
             Controls.Add(History);
+            Controls.Add(Settings);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -132,6 +145,7 @@
         private Views.Difficulty Difficulty;
         private Views.GameScreen GameScreen;
         private Views.History History;
+        private Views.Settings Settings;
     }
 
 }

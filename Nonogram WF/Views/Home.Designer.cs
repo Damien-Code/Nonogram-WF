@@ -64,6 +64,7 @@
             buttonHomeSettings.TabIndex = 2;
             buttonHomeSettings.Text = "Settings";
             buttonHomeSettings.UseVisualStyleBackColor = true;
+            buttonHomeSettings.Click += buttonHomeSettings_Click;
             // 
             // buttonHomeLogout
             // 
