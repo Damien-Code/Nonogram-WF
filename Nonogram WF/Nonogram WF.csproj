@@ -11,4 +11,13 @@
 	  <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
   </PropertyGroup>
 
+  <ItemGroup>
+    <Compile Update="Views\login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Welcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
+
 </Project>

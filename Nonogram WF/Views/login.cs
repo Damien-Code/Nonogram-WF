@@ -26,9 +26,11 @@ namespace Nonogram_WF
 		private void button1_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-			//add login func
 
-		}
+            FindForm().Controls.Find("Instructions", false).First().Show();
+			// add login functionality
+
+        }
 		private void buttonLoginRegister_Click(object sender, EventArgs e)
 		{
 			this.Hide();

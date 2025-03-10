@@ -40,16 +40,18 @@
         {
             login1 = new login();
             welcome2 = new Welcome();
+            Instructions = new Views.Instructions();
             SuspendLayout();
             // 
             // login1
             // 
             login1.Dock = DockStyle.Fill;
             login1.Location = new Point(0, 0);
-            login1.Margin = new Padding(4, 4, 4, 4);
+            login1.Margin = new Padding(4);
             login1.Name = "login1";
-            login1.Size = new Size(1388, 936);
+            login1.Size = new Size(1489, 934);
             login1.TabIndex = 0;
+            login1.Visible = false;
             // 
             // welcome2
             // 
@@ -57,14 +59,23 @@
             welcome2.Dock = DockStyle.Fill;
             welcome2.Location = new Point(0, 0);
             welcome2.Name = "welcome2";
-            welcome2.Size = new Size(1388, 936);
+            welcome2.Size = new Size(1489, 934);
             welcome2.TabIndex = 0;
+            // 
+            // Instructions
+            // 
+            Instructions.Location = new Point(0, 0);
+            Instructions.Name = "Instructions";
+            Instructions.Size = new Size(2754, 1718);
+            Instructions.TabIndex = 1;
+            Instructions.Visible = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1388, 936);
+            ClientSize = new Size(1489, 934);
+            Controls.Add(Instructions);
             Controls.Add(login1);
             Controls.Add(welcome2);
             Name = "Form1";
@@ -74,8 +85,8 @@
 
         #endregion
         private login login1;
-        private Welcome welcome1;
         private Welcome welcome2;
+        private Views.Instructions Instructions;
     }
 
 }
