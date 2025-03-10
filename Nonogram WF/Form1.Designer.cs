@@ -42,6 +42,7 @@
             welcome2 = new Welcome();
             Instructions = new Views.Instructions();
             Home = new Views.Home();
+            Difficulty = new Views.Difficulty();
             SuspendLayout();
             // 
             // login1
@@ -81,15 +82,24 @@
             Home.TabIndex = 2;
             Home.Visible = false;
             // 
+            // Difficulty
+            // 
+            Difficulty.Location = new Point(0, 0);
+            Difficulty.Name = "Difficulty";
+            Difficulty.Size = new Size(1489, 934);
+            Difficulty.TabIndex = 3;
+            Difficulty.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1489, 934);
+            Controls.Add(welcome2);
+            Controls.Add(Difficulty);
             Controls.Add(Home);
             Controls.Add(Instructions);
             Controls.Add(login1);
-            Controls.Add(welcome2);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -100,6 +110,8 @@
         private Welcome welcome2;
         private Views.Instructions Instructions;
         private Views.Home Home;
+        private Views.Difficulty difficulty1;
+        private Views.Difficulty Difficulty;
     }
 
 }

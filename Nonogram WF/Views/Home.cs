@@ -21,5 +21,11 @@ namespace Nonogram_WF.Views
         {
             Application.Exit();
         }
+
+        private void buttonHomePlayGame_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Difficulty", false).First().Show();
+        }
     }
 }

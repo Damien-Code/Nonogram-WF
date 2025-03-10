@@ -57,7 +57,7 @@
             panelInstructions.Anchor = AnchorStyles.None;
             panelInstructions.Controls.Add(labelGameInstructions);
             panelInstructions.Controls.Add(buttonGameInstructions);
-            panelInstructions.Location = new Point(0, 0);
+            panelInstructions.Location = new Point(-2, -1);
             panelInstructions.Name = "panelInstructions";
             panelInstructions.Size = new Size(1377, 859);
             panelInstructions.TabIndex = 2;
@@ -68,7 +68,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelInstructions);
             Name = "Instructions";
-            Size = new Size(1377, 859);
+            Size = new Size(1373, 856);
             panelInstructions.ResumeLayout(false);
             ResumeLayout(false);
         }
