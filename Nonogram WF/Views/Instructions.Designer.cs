@@ -48,6 +48,7 @@
             buttonGameInstructions.TabIndex = 1;
             buttonGameInstructions.Text = "Continue";
             buttonGameInstructions.UseVisualStyleBackColor = true;
+            buttonGameInstructions.Click += buttonGameInstructions_Click;
             // 
             // Instructions
             // 

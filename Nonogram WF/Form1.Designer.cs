@@ -41,6 +41,7 @@
             login1 = new login();
             welcome2 = new Welcome();
             Instructions = new Views.Instructions();
+            Home = new Views.Home();
             SuspendLayout();
             // 
             // login1
@@ -64,17 +65,28 @@
             // 
             // Instructions
             // 
+            Instructions.Dock = DockStyle.Fill;
             Instructions.Location = new Point(0, 0);
             Instructions.Name = "Instructions";
-            Instructions.Size = new Size(2754, 1718);
+            Instructions.Size = new Size(1489, 934);
             Instructions.TabIndex = 1;
             Instructions.Visible = false;
+            // 
+            // Home
+            // 
+            Home.Dock = DockStyle.Fill;
+            Home.Location = new Point(0, 0);
+            Home.Name = "Home";
+            Home.Size = new Size(1489, 934);
+            Home.TabIndex = 2;
+            Home.Visible = false;
             // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1489, 934);
+            Controls.Add(Home);
             Controls.Add(Instructions);
             Controls.Add(login1);
             Controls.Add(welcome2);
@@ -87,6 +99,7 @@
         private login login1;
         private Welcome welcome2;
         private Views.Instructions Instructions;
+        private Views.Home Home;
     }
 
 }

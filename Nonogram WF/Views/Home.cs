@@ -10,17 +10,11 @@ using System.Windows.Forms;
 
 namespace Nonogram_WF.Views
 {
-    public partial class Instructions : UserControl
+    public partial class Home : UserControl
     {
-        public Instructions()
+        public Home()
         {
             InitializeComponent();
-        }
-
-        private void buttonGameInstructions_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FindForm().Controls.Find("Home", false).First().Show();
         }
     }
 }

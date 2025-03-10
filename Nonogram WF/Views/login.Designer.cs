@@ -44,7 +44,7 @@
             panel1.Controls.Add(textBoxLoginPassword);
             panel1.Controls.Add(textBoxLoginEmail);
             panel1.Controls.Add(labelLogin);
-            panel1.Location = new Point(153, 113);
+            panel1.Location = new Point(98, 80);
             panel1.Margin = new Padding(4);
             panel1.Name = "panel1";
             panel1.Size = new Size(1495, 896);
@@ -110,7 +110,7 @@
             Controls.Add(panel1);
             Margin = new Padding(4);
             Name = "login";
-            Size = new Size(1820, 1184);
+            Size = new Size(1694, 1035);
             Load += login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
