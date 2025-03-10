@@ -38,7 +38,7 @@
         /// </summary>
         private void InitializeComponent()
         {
-            login1 = new login();
+            Login = new login();
             welcome2 = new Welcome();
             Instructions = new Views.Instructions();
             Home = new Views.Home();
@@ -49,15 +49,15 @@
             Registration = new Views.Registration();
             SuspendLayout();
             // 
-            // login1
+            // Login
             // 
-            login1.Dock = DockStyle.Fill;
-            login1.Location = new Point(0, 0);
-            login1.Margin = new Padding(4);
-            login1.Name = "login1";
-            login1.Size = new Size(1489, 934);
-            login1.TabIndex = 0;
-            login1.Visible = false;
+            Login.Dock = DockStyle.Fill;
+            Login.Location = new Point(0, 0);
+            Login.Margin = new Padding(4);
+            Login.Name = "Login";
+            Login.Size = new Size(1489, 934);
+            Login.TabIndex = 0;
+            Login.Visible = false;
             // 
             // welcome2
             // 
@@ -132,15 +132,15 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(1489, 934);
-            Controls.Add(Registration);
             Controls.Add(welcome2);
             Controls.Add(Difficulty);
             Controls.Add(Home);
             Controls.Add(Instructions);
-            Controls.Add(login1);
+            Controls.Add(Login);
             Controls.Add(GameScreen);
             Controls.Add(History);
             Controls.Add(Settings);
+            Controls.Add(Registration);
             Name = "Form1";
             Text = "Form1";
             ResumeLayout(false);
@@ -157,6 +157,7 @@
         private Views.History History;
         private Views.Settings Settings;
         private Views.Registration Registration;
+        private login Login;
     }
 
 }

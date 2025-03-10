@@ -34,7 +34,7 @@ namespace Nonogram_WF
 		private void buttonLoginRegister_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-            FindForm().Controls.Find("Register", false).First().Show();
+            FindForm().Controls.Find("Registration", false).First().Show();
 
         }
 	}

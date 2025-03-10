@@ -12,7 +12,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Update="Views\login.cs">
+    <Compile Update="Views\Login.cs">
       <SubType>UserControl</SubType>
     </Compile>
     <Compile Update="Views\Welcome.cs">

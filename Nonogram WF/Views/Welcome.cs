@@ -32,14 +32,14 @@ namespace Nonogram_WF
             // finds the form where the control is on.
             // searches all the controls with the given name.
             // shows the first control that is found.
-            FindForm().Controls.Find("login1", false).First().Show();
+            FindForm().Controls.Find("Login", false).First().Show();
             
         }
 
         private void buttonWelcomeRegister_Click(object sender, EventArgs e)
         {
             this.Hide();
-            //Register.Show();
+            FindForm().Controls.Find("Registration", false).First().Show();
         }
 
         private void Welcome_Load(object sender, EventArgs e)
