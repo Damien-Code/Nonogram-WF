@@ -55,7 +55,7 @@
             Login.Location = new Point(0, 0);
             Login.Margin = new Padding(4);
             Login.Name = "Login";
-            Login.Size = new Size(1489, 934);
+            Login.Size = new Size(1479, 907);
             Login.TabIndex = 0;
             Login.Visible = false;
             // 
@@ -65,7 +65,7 @@
             welcome2.Dock = DockStyle.Fill;
             welcome2.Location = new Point(0, 0);
             welcome2.Name = "welcome2";
-            welcome2.Size = new Size(1489, 934);
+            welcome2.Size = new Size(1479, 907);
             welcome2.TabIndex = 0;
             // 
             // Instructions
@@ -73,7 +73,7 @@
             Instructions.Dock = DockStyle.Fill;
             Instructions.Location = new Point(0, 0);
             Instructions.Name = "Instructions";
-            Instructions.Size = new Size(1489, 934);
+            Instructions.Size = new Size(1479, 907);
             Instructions.TabIndex = 1;
             Instructions.Visible = false;
             // 
@@ -82,7 +82,7 @@
             Home.Dock = DockStyle.Fill;
             Home.Location = new Point(0, 0);
             Home.Name = "Home";
-            Home.Size = new Size(1489, 934);
+            Home.Size = new Size(1479, 907);
             Home.TabIndex = 2;
             Home.Visible = false;
             // 
@@ -113,7 +113,7 @@
             // Settings
             // 
             Settings.Anchor = AnchorStyles.None;
-            Settings.Location = new Point(0, 0);
+            Settings.Location = new Point(-5, -14);
             Settings.Name = "Settings";
             Settings.Size = new Size(1489, 934);
             Settings.TabIndex = 6;
@@ -131,7 +131,7 @@
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(1489, 934);
+            ClientSize = new Size(1479, 907);
             Controls.Add(welcome2);
             Controls.Add(Difficulty);
             Controls.Add(Home);
