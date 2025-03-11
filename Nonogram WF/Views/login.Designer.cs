@@ -46,7 +46,7 @@
             panel1.Controls.Add(textBoxLoginEmail);
             panel1.Controls.Add(labelLogin);
             panel1.Location = new Point(0, 0);
-            panel1.Margin = new Padding(4);
+            panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1694, 1035);
             panel1.TabIndex = 0;
@@ -54,9 +54,9 @@
             // buttonLoginRegister
             // 
             buttonLoginRegister.Location = new Point(1052, 747);
-            buttonLoginRegister.Margin = new Padding(4);
+            buttonLoginRegister.Margin = new Padding(0);
             buttonLoginRegister.Name = "buttonLoginRegister";
-            buttonLoginRegister.Size = new Size(330, 92);
+            buttonLoginRegister.Size = new Size(258, 90);
             buttonLoginRegister.TabIndex = 4;
             buttonLoginRegister.Text = "Register";
             buttonLoginRegister.UseVisualStyleBackColor = true;
@@ -65,9 +65,9 @@
             // buttonLoginLogin
             // 
             buttonLoginLogin.Location = new Point(311, 747);
-            buttonLoginLogin.Margin = new Padding(4);
+            buttonLoginLogin.Margin = new Padding(0);
             buttonLoginLogin.Name = "buttonLoginLogin";
-            buttonLoginLogin.Size = new Size(330, 92);
+            buttonLoginLogin.Size = new Size(258, 90);
             buttonLoginLogin.TabIndex = 3;
             buttonLoginLogin.Text = "Login";
             buttonLoginLogin.UseVisualStyleBackColor = true;
@@ -76,7 +76,6 @@
             // textBoxLoginPassword
             // 
             textBoxLoginPassword.Location = new Point(569, 531);
-            textBoxLoginPassword.Margin = new Padding(4);
             textBoxLoginPassword.Multiline = true;
             textBoxLoginPassword.Name = "textBoxLoginPassword";
             textBoxLoginPassword.Size = new Size(540, 50);
@@ -86,7 +85,6 @@
             // textBoxLoginEmail
             // 
             textBoxLoginEmail.Location = new Point(569, 404);
-            textBoxLoginEmail.Margin = new Padding(4);
             textBoxLoginEmail.Multiline = true;
             textBoxLoginEmail.Name = "textBoxLoginEmail";
             textBoxLoginEmail.Size = new Size(540, 50);
@@ -96,11 +94,10 @@
             // labelLogin
             // 
             labelLogin.AutoSize = true;
-            labelLogin.Font = new Font("Segoe UI", 30F);
+            labelLogin.Font = new Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
             labelLogin.Location = new Point(720, 130);
-            labelLogin.Margin = new Padding(4, 0, 4, 0);
             labelLogin.Name = "labelLogin";
-            labelLogin.Size = new Size(241, 106);
+            labelLogin.Size = new Size(225, 100);
             labelLogin.TabIndex = 0;
             labelLogin.Text = "Login";
             // 
@@ -109,7 +106,6 @@
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Margin = new Padding(4);
             Name = "login";
             Size = new Size(1694, 1035);
             Load += login_Load;
