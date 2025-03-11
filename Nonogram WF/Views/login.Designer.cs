@@ -45,7 +45,7 @@
             panel1.Controls.Add(textBoxLoginPassword);
             panel1.Controls.Add(textBoxLoginEmail);
             panel1.Controls.Add(labelLogin);
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(-147, -55);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1694, 1035);
@@ -53,7 +53,7 @@
             // 
             // buttonLoginRegister
             // 
-            buttonLoginRegister.Location = new Point(1052, 747);
+            buttonLoginRegister.Location = new Point(1050, 750);
             buttonLoginRegister.Margin = new Padding(0);
             buttonLoginRegister.Name = "buttonLoginRegister";
             buttonLoginRegister.Size = new Size(258, 90);
@@ -64,7 +64,7 @@
             // 
             // buttonLoginLogin
             // 
-            buttonLoginLogin.Location = new Point(311, 747);
+            buttonLoginLogin.Location = new Point(300, 750);
             buttonLoginLogin.Margin = new Padding(0);
             buttonLoginLogin.Name = "buttonLoginLogin";
             buttonLoginLogin.Size = new Size(258, 90);
@@ -75,9 +75,10 @@
             // 
             // textBoxLoginPassword
             // 
-            textBoxLoginPassword.Location = new Point(569, 531);
+            textBoxLoginPassword.Location = new Point(569, 533);
             textBoxLoginPassword.Multiline = true;
             textBoxLoginPassword.Name = "textBoxLoginPassword";
+            textBoxLoginPassword.PasswordChar = '*';
             textBoxLoginPassword.Size = new Size(540, 50);
             textBoxLoginPassword.TabIndex = 2;
             textBoxLoginPassword.Text = "Password";
@@ -95,7 +96,7 @@
             // 
             labelLogin.AutoSize = true;
             labelLogin.Font = new Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelLogin.Location = new Point(720, 130);
+            labelLogin.Location = new Point(736, 168);
             labelLogin.Name = "labelLogin";
             labelLogin.Size = new Size(225, 100);
             labelLogin.TabIndex = 0;
@@ -107,7 +108,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
             Name = "login";
-            Size = new Size(1694, 1035);
+            Size = new Size(1400, 925);
             Load += login_Load;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();

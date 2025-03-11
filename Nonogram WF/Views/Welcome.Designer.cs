@@ -38,19 +38,19 @@
             // 
             // panelWelcome
             // 
-            panelWelcome.Anchor = AnchorStyles.None;
             panelWelcome.Controls.Add(buttonWelcomeRegister);
             panelWelcome.Controls.Add(buttonWelcomeLogin);
             panelWelcome.Controls.Add(label1);
             panelWelcome.Controls.Add(labelWelcome);
-            panelWelcome.Location = new Point(100, 85);
+            panelWelcome.Dock = DockStyle.Fill;
+            panelWelcome.Location = new Point(0, 0);
             panelWelcome.Name = "panelWelcome";
-            panelWelcome.Size = new Size(1150, 700);
+            panelWelcome.Size = new Size(1400, 925);
             panelWelcome.TabIndex = 0;
             // 
             // buttonWelcomeRegister
             // 
-            buttonWelcomeRegister.Location = new Point(751, 482);
+            buttonWelcomeRegister.Location = new Point(907, 635);
             buttonWelcomeRegister.Name = "buttonWelcomeRegister";
             buttonWelcomeRegister.Size = new Size(258, 90);
             buttonWelcomeRegister.TabIndex = 3;
@@ -60,7 +60,7 @@
             // 
             // buttonWelcomeLogin
             // 
-            buttonWelcomeLogin.Location = new Point(210, 482);
+            buttonWelcomeLogin.Location = new Point(210, 635);
             buttonWelcomeLogin.Name = "buttonWelcomeLogin";
             buttonWelcomeLogin.Size = new Size(258, 90);
             buttonWelcomeLogin.TabIndex = 2;
@@ -70,7 +70,7 @@
             // 
             // label1
             // 
-            label1.Location = new Point(210, 207);
+            label1.Location = new Point(299, 338);
             label1.Name = "label1";
             label1.Size = new Size(799, 166);
             label1.TabIndex = 1;
@@ -80,7 +80,7 @@
             // 
             labelWelcome.AutoSize = true;
             labelWelcome.Font = new Font("Arial", 36F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelWelcome.Location = new Point(381, 83);
+            labelWelcome.Location = new Point(471, 149);
             labelWelcome.Name = "labelWelcome";
             labelWelcome.Size = new Size(448, 107);
             labelWelcome.TabIndex = 0;

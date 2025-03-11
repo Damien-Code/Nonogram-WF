@@ -37,7 +37,7 @@
             // 
             // buttonSettingsLogout
             // 
-            buttonSettingsLogout.Location = new Point(1141, 46);
+            buttonSettingsLogout.Location = new Point(1218, 29);
             buttonSettingsLogout.Name = "buttonSettingsLogout";
             buttonSettingsLogout.Size = new Size(150, 46);
             buttonSettingsLogout.TabIndex = 0;
@@ -47,7 +47,7 @@
             // 
             // buttonSettingsBack
             // 
-            buttonSettingsBack.Location = new Point(34, 46);
+            buttonSettingsBack.Location = new Point(26, 29);
             buttonSettingsBack.Name = "buttonSettingsBack";
             buttonSettingsBack.Size = new Size(150, 46);
             buttonSettingsBack.TabIndex = 1;
@@ -93,7 +93,7 @@
             Controls.Add(buttonSettingsBack);
             Controls.Add(buttonSettingsLogout);
             Name = "Settings";
-            Size = new Size(1337, 882);
+            Size = new Size(1400, 925);
             ResumeLayout(false);
             PerformLayout();
         }

@@ -20,7 +20,7 @@ namespace Nonogram_WF.Views
         private void buttonRegisterRegister_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FindForm().Controls.Find("Home", false).First().Show();
+            FindForm().Controls.Find("Instructions", false).First().Show();
         }
 
         private void buttonRegisterLogin_Click(object sender, EventArgs e)

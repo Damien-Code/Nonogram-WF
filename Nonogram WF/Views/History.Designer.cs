@@ -36,7 +36,7 @@
             // 
             // buttonHistoryBack
             // 
-            buttonHistoryBack.Location = new Point(40, 54);
+            buttonHistoryBack.Location = new Point(33, 32);
             buttonHistoryBack.Name = "buttonHistoryBack";
             buttonHistoryBack.Size = new Size(150, 46);
             buttonHistoryBack.TabIndex = 0;
@@ -46,7 +46,7 @@
             // 
             // buttonHistoryLogout
             // 
-            buttonHistoryLogout.Location = new Point(1118, 54);
+            buttonHistoryLogout.Location = new Point(1222, 32);
             buttonHistoryLogout.Name = "buttonHistoryLogout";
             buttonHistoryLogout.Size = new Size(150, 46);
             buttonHistoryLogout.TabIndex = 1;
@@ -57,7 +57,7 @@
             // 
             labelHistory.AutoSize = true;
             labelHistory.Font = new Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelHistory.Location = new Point(484, 140);
+            labelHistory.Location = new Point(587, 145);
             labelHistory.Name = "labelHistory";
             labelHistory.Size = new Size(276, 100);
             labelHistory.TabIndex = 2;
@@ -66,7 +66,7 @@
             // label1
             // 
             label1.BackColor = SystemColors.ActiveCaption;
-            label1.Location = new Point(219, 278);
+            label1.Location = new Point(249, 296);
             label1.Name = "label1";
             label1.Size = new Size(931, 500);
             label1.TabIndex = 3;
@@ -81,7 +81,7 @@
             Controls.Add(buttonHistoryLogout);
             Controls.Add(buttonHistoryBack);
             Name = "History";
-            Size = new Size(1303, 863);
+            Size = new Size(1400, 925);
             ResumeLayout(false);
             PerformLayout();
         }

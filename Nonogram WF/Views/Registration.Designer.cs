@@ -42,7 +42,7 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(642, 91);
+            label1.Location = new Point(654, 149);
             label1.Margin = new Padding(0);
             label1.Name = "label1";
             label1.Size = new Size(308, 100);
@@ -75,7 +75,7 @@
             // 
             // buttonRegisterRegister
             // 
-            buttonRegisterRegister.Location = new Point(311, 747);
+            buttonRegisterRegister.Location = new Point(300, 750);
             buttonRegisterRegister.Margin = new Padding(0);
             buttonRegisterRegister.Name = "buttonRegisterRegister";
             buttonRegisterRegister.Size = new Size(258, 90);
@@ -86,12 +86,12 @@
             // 
             // buttonRegisterLogin
             // 
-            buttonRegisterLogin.Location = new Point(1052, 747);
+            buttonRegisterLogin.Location = new Point(1050, 750);
             buttonRegisterLogin.Margin = new Padding(0);
             buttonRegisterLogin.Name = "buttonRegisterLogin";
             buttonRegisterLogin.Size = new Size(258, 90);
             buttonRegisterLogin.TabIndex = 5;
-            buttonRegisterLogin.Text = "Login";
+            buttonRegisterLogin.Text = "Already have an account?";
             buttonRegisterLogin.UseVisualStyleBackColor = true;
             buttonRegisterLogin.Click += buttonRegisterLogin_Click;
             // 
@@ -104,7 +104,7 @@
             panel1.Controls.Add(buttonRegisterRegister);
             panel1.Controls.Add(textBoxRegisterPassword);
             panel1.Controls.Add(textBoxRegisterConfirm);
-            panel1.Location = new Point(0, 0);
+            panel1.Location = new Point(-147, -55);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1694, 1035);
@@ -117,7 +117,7 @@
             Controls.Add(panel1);
             Margin = new Padding(4);
             Name = "Registration";
-            Size = new Size(1694, 1035);
+            Size = new Size(1400, 925);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);

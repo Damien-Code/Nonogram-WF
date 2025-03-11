@@ -68,7 +68,7 @@
             // 
             // buttonHomeLogout
             // 
-            buttonHomeLogout.Location = new Point(1170, 26);
+            buttonHomeLogout.Location = new Point(1276, 26);
             buttonHomeLogout.Name = "buttonHomeLogout";
             buttonHomeLogout.Size = new Size(150, 46);
             buttonHomeLogout.TabIndex = 3;
@@ -83,7 +83,7 @@
             panel1.Controls.Add(buttonHomeLogout);
             panel1.Controls.Add(buttonHomeHistory);
             panel1.Controls.Add(buttonHomeSettings);
-            panel1.Location = new Point(11, 0);
+            panel1.Location = new Point(-56, 0);
             panel1.Name = "panel1";
             panel1.Size = new Size(1513, 930);
             panel1.TabIndex = 4;
@@ -94,7 +94,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
             Name = "Home";
-            Size = new Size(1534, 924);
+            Size = new Size(1400, 925);
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

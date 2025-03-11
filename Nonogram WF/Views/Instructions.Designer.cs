@@ -36,7 +36,7 @@
             // 
             // labelGameInstructions
             // 
-            labelGameInstructions.Location = new Point(372, 144);
+            labelGameInstructions.Location = new Point(454, 159);
             labelGameInstructions.Name = "labelGameInstructions";
             labelGameInstructions.Size = new Size(525, 249);
             labelGameInstructions.TabIndex = 0;
@@ -44,7 +44,7 @@
             // 
             // buttonGameInstructions
             // 
-            buttonGameInstructions.Location = new Point(487, 552);
+            buttonGameInstructions.Location = new Point(578, 606);
             buttonGameInstructions.Name = "buttonGameInstructions";
             buttonGameInstructions.Size = new Size(308, 94);
             buttonGameInstructions.TabIndex = 1;
@@ -54,12 +54,12 @@
             // 
             // panelInstructions
             // 
-            panelInstructions.Anchor = AnchorStyles.None;
             panelInstructions.Controls.Add(labelGameInstructions);
             panelInstructions.Controls.Add(buttonGameInstructions);
-            panelInstructions.Location = new Point(-2, -1);
+            panelInstructions.Dock = DockStyle.Fill;
+            panelInstructions.Location = new Point(0, 0);
             panelInstructions.Name = "panelInstructions";
-            panelInstructions.Size = new Size(1377, 859);
+            panelInstructions.Size = new Size(1400, 925);
             panelInstructions.TabIndex = 2;
             // 
             // Instructions
@@ -68,7 +68,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panelInstructions);
             Name = "Instructions";
-            Size = new Size(1373, 856);
+            Size = new Size(1400, 925);
             panelInstructions.ResumeLayout(false);
             ResumeLayout(false);
         }

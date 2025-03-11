@@ -29,11 +29,11 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            buttonGameScreenLogout = new Button();
-            buttonGameScreenBack = new Button();
-            label1 = new Label();
-            buttonGameScreenSolve = new Button();
             buttonGameScreenHint = new Button();
+            buttonGameScreenSolve = new Button();
+            label1 = new Label();
+            buttonGameScreenBack = new Button();
+            buttonGameScreenLogout = new Button();
             panel1.SuspendLayout();
             SuspendLayout();
             // 
@@ -47,17 +47,35 @@
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1481, 997);
+            panel1.Size = new Size(1400, 925);
             panel1.TabIndex = 0;
             // 
-            // buttonGameScreenLogout
+            // buttonGameScreenHint
             // 
-            buttonGameScreenLogout.Location = new Point(1277, 44);
-            buttonGameScreenLogout.Name = "buttonGameScreenLogout";
-            buttonGameScreenLogout.Size = new Size(150, 46);
-            buttonGameScreenLogout.TabIndex = 0;
-            buttonGameScreenLogout.Text = "Logout";
-            buttonGameScreenLogout.UseVisualStyleBackColor = true;
+            buttonGameScreenHint.Location = new Point(748, 801);
+            buttonGameScreenHint.Name = "buttonGameScreenHint";
+            buttonGameScreenHint.Size = new Size(220, 94);
+            buttonGameScreenHint.TabIndex = 4;
+            buttonGameScreenHint.Text = "Hint";
+            buttonGameScreenHint.UseVisualStyleBackColor = true;
+            // 
+            // buttonGameScreenSolve
+            // 
+            buttonGameScreenSolve.Location = new Point(130, 801);
+            buttonGameScreenSolve.Name = "buttonGameScreenSolve";
+            buttonGameScreenSolve.Size = new Size(220, 94);
+            buttonGameScreenSolve.TabIndex = 3;
+            buttonGameScreenSolve.Text = "Solve";
+            buttonGameScreenSolve.UseVisualStyleBackColor = true;
+            // 
+            // label1
+            // 
+            label1.BackColor = SystemColors.ActiveCaption;
+            label1.Location = new Point(468, 191);
+            label1.Name = "label1";
+            label1.Size = new Size(500, 500);
+            label1.TabIndex = 2;
+            label1.Text = "Insert grid";
             // 
             // buttonGameScreenBack
             // 
@@ -69,32 +87,14 @@
             buttonGameScreenBack.UseVisualStyleBackColor = true;
             buttonGameScreenBack.Click += buttonGameScreenBack_Click;
             // 
-            // label1
+            // buttonGameScreenLogout
             // 
-            label1.BackColor = SystemColors.ActiveCaption;
-            label1.Location = new Point(468, 191);
-            label1.Name = "label1";
-            label1.Size = new Size(500, 500);
-            label1.TabIndex = 2;
-            label1.Text = "Insert grid";
-            // 
-            // buttonGameScreenSolve
-            // 
-            buttonGameScreenSolve.Location = new Point(130, 801);
-            buttonGameScreenSolve.Name = "buttonGameScreenSolve";
-            buttonGameScreenSolve.Size = new Size(220, 94);
-            buttonGameScreenSolve.TabIndex = 3;
-            buttonGameScreenSolve.Text = "Solve";
-            buttonGameScreenSolve.UseVisualStyleBackColor = true;
-            // 
-            // buttonGameScreenHint
-            // 
-            buttonGameScreenHint.Location = new Point(748, 801);
-            buttonGameScreenHint.Name = "buttonGameScreenHint";
-            buttonGameScreenHint.Size = new Size(220, 94);
-            buttonGameScreenHint.TabIndex = 4;
-            buttonGameScreenHint.Text = "Hint";
-            buttonGameScreenHint.UseVisualStyleBackColor = true;
+            buttonGameScreenLogout.Location = new Point(1216, 44);
+            buttonGameScreenLogout.Name = "buttonGameScreenLogout";
+            buttonGameScreenLogout.Size = new Size(150, 46);
+            buttonGameScreenLogout.TabIndex = 0;
+            buttonGameScreenLogout.Text = "Logout";
+            buttonGameScreenLogout.UseVisualStyleBackColor = true;
             // 
             // GameScreen
             // 
@@ -102,7 +102,7 @@
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
             Name = "GameScreen";
-            Size = new Size(1481, 997);
+            Size = new Size(1400, 925);
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
