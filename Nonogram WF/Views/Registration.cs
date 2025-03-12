@@ -1,0 +1,32 @@
+﻿using System;
+using System.Collections.Generic;
+using System.ComponentModel;
+using System.Data;
+using System.Drawing;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using System.Windows.Forms;
+
+namespace Nonogram_WF.Views
+{
+    public partial class Registration : UserControl
+    {
+        public Registration()
+        {
+            InitializeComponent();
+        }
+
+        private void buttonRegisterRegister_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Instructions", false).First().Show();
+        }
+
+        private void buttonRegisterLogin_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Login", false).First().Show();
+        }
+    }
+}

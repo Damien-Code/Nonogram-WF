@@ -7,6 +7,17 @@
     <Nullable>enable</Nullable>
     <UseWindowsForms>true</UseWindowsForms>
     <ImplicitUsings>enable</ImplicitUsings>
+
+	  <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
   </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Update="Views\Login.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Update="Views\Welcome.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+  </ItemGroup>
 
 </Project>
