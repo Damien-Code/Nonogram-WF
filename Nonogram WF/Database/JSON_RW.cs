@@ -10,19 +10,35 @@ namespace Nonogram_WF.Database
 {
     public class JSON_RW
     {
-        private string _filePath = "../../../Database/data.json";
+        // The relative filepath so data can be stored in the data.json file in the database folder.
+        private static readonly string _filePath = "../../../Database/data.json";
 
-        public static void WriteFile(object obj, string fileName)
+        /// <summary>
+        /// Static method so it is possible to write to data.json everywhere
+        /// Serializes the object that is stored and the options
+        /// Writes the serialized content to the data.json 
+        /// </summary>
+        /// <param name="obj"></param>
+        public static void WriteFile(object obj)
         {
             string JsonString = JsonSerializer.Serialize(obj, _options);
-            File.WriteAllText(fileName, JsonString);
+            File.WriteAllText(_filePath, JsonString);
         }
 
+        /// <summary>
+        /// // Options for the data.json file
+        /// Indentation for better readability
+        /// </summary>
         private static readonly JsonSerializerOptions _options = new()
         {
             WriteIndented = true,
         };
-
+        /// <summary>
+        /// Creates new instance of streamreader so it is possible to read the whole data.json file
+        /// Deserialize json to Users object
+        /// </summary>
+        /// <param name="fileName"></param>
+        /// <returns type="Users"></returns>
         public static Users GetUsers(string fileName)
         {
             using StreamReader streamReader = new StreamReader(fileName);
