@@ -15,4 +15,4 @@ namespace Nonogram_WF
 		}
 	}
 
-}
+

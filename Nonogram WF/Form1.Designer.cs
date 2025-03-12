@@ -129,6 +129,7 @@
             Registration.TabIndex = 7;
             Registration.Visible = false;
             // 
+
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
