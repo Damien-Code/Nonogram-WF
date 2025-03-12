@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nonogram_WF.Database;
 
 namespace Nonogram_WF
 {
@@ -32,8 +33,7 @@ namespace Nonogram_WF
             // finds the form where the control is on.
             // searches all the controls with the given name.
             // shows the first control that is found.
-            FindForm().Controls.Find("Login", false).First().Show();
-            
+            FindForm().Controls.Find("Login", false).First().Show();    
         }
 
         private void buttonWelcomeRegister_Click(object sender, EventArgs e)
