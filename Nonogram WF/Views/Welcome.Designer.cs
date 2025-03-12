@@ -38,11 +38,11 @@
             // 
             // panelWelcome
             // 
+            panelWelcome.Anchor = AnchorStyles.None;
             panelWelcome.Controls.Add(buttonWelcomeRegister);
             panelWelcome.Controls.Add(buttonWelcomeLogin);
             panelWelcome.Controls.Add(label1);
             panelWelcome.Controls.Add(labelWelcome);
-            panelWelcome.Dock = DockStyle.Fill;
             panelWelcome.Location = new Point(0, 0);
             panelWelcome.Name = "panelWelcome";
             panelWelcome.Size = new Size(1400, 925);

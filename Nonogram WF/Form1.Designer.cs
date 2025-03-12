@@ -121,9 +121,11 @@
             // 
             // Registration
             // 
+            Registration.Dock = DockStyle.Fill;
             Registration.Location = new Point(0, 0);
+            Registration.Margin = new Padding(4);
             Registration.Name = "Registration";
-            Registration.Size = new Size(1489, 934);
+            Registration.Size = new Size(1479, 907);
             Registration.TabIndex = 7;
             Registration.Visible = false;
             // 
