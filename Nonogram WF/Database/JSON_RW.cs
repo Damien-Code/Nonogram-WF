@@ -39,12 +39,12 @@ namespace Nonogram_WF.Database
         /// </summary>
         /// <param name="fileName"></param>
         /// <returns type="Users"></returns>
-        public static Users GetUsers(string fileName)
-        {
-            using StreamReader streamReader = new StreamReader(fileName);
-            string json = streamReader.ReadToEnd();
-            Users? users = JsonSerializer.Deserialize<Users>(json, _options);
-            return users!;
-        }
+        //public static Users GetUsers(string fileName)
+        //{
+        //    using StreamReader streamReader = new StreamReader(fileName);
+        //    string json = streamReader.ReadToEnd();
+        //    Users? users = JsonSerializer.Deserialize<Users>(json, _options);
+        //    return users!;
+        //}
     }
 }

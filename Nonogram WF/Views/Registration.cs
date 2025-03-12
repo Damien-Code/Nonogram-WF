@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nonogram_WF.Controllers;
 
 namespace Nonogram_WF.Views
 {
@@ -19,6 +20,9 @@ namespace Nonogram_WF.Views
 
         private void buttonRegisterRegister_Click(object sender, EventArgs e)
         {
+            string email = textBoxRegisterEmail.Text;
+
+            UserController.CheckEmail(email);
             this.Hide();
             FindForm().Controls.Find("Instructions", false).First().Show();
         }
