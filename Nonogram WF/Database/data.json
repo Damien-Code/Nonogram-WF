@@ -1,9 +1,24 @@
 {
   "Users": [
     {
-      "Email": "Email:",
-      "Password": "Quo8nebtJ7i78Iy0siQr1gooxcqPxr2sYy5nr3HH4vE=",
-      "Salt": "aIX3SMvzq1DDEMD\u002By29JvA=="
+      "Email": "asdasd",
+      "Password": "qAytgAusaQY4eO\u002Bc/Zj/EcSvniXOngMdbVDWBem3uTU=",
+      "Salt": "8tGkHJos060eh\u002BsU\u002BgzIhQ=="
+    },
+    {
+      "Email": "test@email.com",
+      "Password": "igcarjgQ2M0OuJXPHfg6UTHpGnFI9uN8WUt1khjVPhg=",
+      "Salt": "j8igH3B2F5z/ft3YdpveTg=="
+    },
+    {
+      "Email": "newEmail",
+      "Password": "316CZDlQeWojsPU7UKxpyZdwAltJnVDfnEGSX3W7VY4=",
+      "Salt": "\u002BfBLIw7TtiLe51rkvRSuCg=="
+    },
+    {
+      "Email": "TestEmail2",
+      "Password": "/7mGs2ZTLt8Fo5ll6CL3wtdfx3e7UtPJ08TX3r/JGyQ=",
+      "Salt": "pHC7LBNx3YNHk\u002B0V4jnRfA=="
     }
   ]
 }

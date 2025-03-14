@@ -24,6 +24,7 @@ namespace Nonogram_WF.Controllers
             if (!CheckEmail(email)) return false;//return email error
             if (!CheckPassword(password)) return false ;//return email error
             Users.SetUser(email, Users.CreatePassword(password));
+            Session.SetSession(email);
             return true;
         }
 
