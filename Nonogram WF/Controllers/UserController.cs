@@ -122,7 +122,7 @@ namespace Nonogram_WF.Controllers
         {
             foreach(Users user in JSON_RW.GetUsers().Users)
             {
-                if(user.Email != email) return false;
+                if (user.Email == email) { return false; }
             }
             return true;
         }
