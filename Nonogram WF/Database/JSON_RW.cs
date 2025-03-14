@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Nonogram_WF.Models;
 using static System.Windows.Forms.Design.AxImporter;
 
 namespace Nonogram_WF.Database
@@ -33,18 +34,25 @@ namespace Nonogram_WF.Database
         {
             WriteIndented = true,
         };
+        
         /// <summary>
-        /// Creates new instance of streamreader so it is possible to read the whole data.json file
-        /// Deserialize json to Users object
+        /// Uses streamreader to read through the whole JSON file
+        /// Deserializes the JSON string to the AllUsers object
+        /// Returns the AllUsers object
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns type="Users"></returns>
-        //public static Users GetUsers(string fileName)
-        //{
-        //    using StreamReader streamReader = new StreamReader(fileName);
-        //    string json = streamReader.ReadToEnd();
-        //    Users? users = JsonSerializer.Deserialize<Users>(json, _options);
-        //    return users!;
-        //}
+        /// <returns type="AllUsers"></returns>
+        public static AllUsers GetUsers()
+        {
+            using StreamReader streamReader = new StreamReader(_filePath);
+
+            string json = streamReader.ReadToEnd();
+
+            // if string is empty or null or whitespace
+            // make json valid JSON object
+            // if initialization of JSON was empty, it would result in error
+            if (string.IsNullOrWhiteSpace(json)) json = "{}";
+            AllUsers? users = JsonSerializer.Deserialize<AllUsers>(json, _options);
+            return users!;
+        }
     }
 }

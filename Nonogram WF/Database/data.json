@@ -1,3 +1,9 @@
 {
-  "Email": "hjiuhgfvbnjuygfvb"
+  "Users": [
+    {
+      "Email": "Email:",
+      "Password": "Quo8nebtJ7i78Iy0siQr1gooxcqPxr2sYy5nr3HH4vE=",
+      "Salt": "aIX3SMvzq1DDEMD\u002By29JvA=="
+    }
+  ]
 }
