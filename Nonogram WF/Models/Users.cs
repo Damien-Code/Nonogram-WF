@@ -70,7 +70,7 @@ namespace Nonogram_WF.Models
         /// Then it creates an hashed password by taking the set password from the user together with the created salt
         /// Uses the SHA-256 algorithm to derive a secret key from the password "key"
         /// and does a number of iterations to apply to the process and set a length of the derived key
-        /// Returns the hash en the converted base64 string of the salt
+        /// Returns the hash and the converted base64 string of the salt
         /// </summary>
         /// <param name="password"></param>
         /// <returns></returns>

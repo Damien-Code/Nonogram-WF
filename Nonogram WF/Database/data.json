@@ -98,6 +98,15 @@
         "Theme": "Dark",
         "FontSize": "16"
       }
+    },
+    {
+      "Email": "test@example.nl",
+      "Password": "\u002B097m0Mwn7qzpzwIqMl/Qi0Wuox5hZRMpdK/5Z3CXOY=",
+      "Salt": "9MZEMEMqYnxRTuRzJF1bDw==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "16"
+      }
     }
   ]
 }

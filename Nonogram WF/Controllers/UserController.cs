@@ -18,6 +18,7 @@ namespace Nonogram_WF.Controllers
         /// Validates the user input of email and password
         /// Checks the email, via the CheckEmail method
         /// Checks the password via the CheckPassword method
+        /// Checks the email via the CheckMailExists method
         /// If everything is correct, then it sets that user to JSON via the SetUser method in the model
         /// </summary>
         /// <param name="email"></param>
@@ -61,12 +62,10 @@ namespace Nonogram_WF.Controllers
         }
 
 
-        static Regex ValidEmailRegex = CreateValidEmailRegex();
-
         /// <summary>
         /// A regex method that creates a valid regex for email
         /// </summary>
-        /// <returns></returns>
+        /// <returns type="Regex"></returns>
         private static Regex CreateValidEmailRegex()
         {
             string validEmailPattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
@@ -81,11 +80,10 @@ namespace Nonogram_WF.Controllers
         /// Check if the input of email matches the correct specifications of the regex method
         /// </summary>
         /// <param name="email"></param>
-        /// <returns></returns>
+        /// <returns type="bool"></returns>
         public static bool CheckEmail(string email)
         {
-            bool isValid = ValidEmailRegex.IsMatch(email);
-            return isValid;
+            return CreateValidEmailRegex().IsMatch(email);
         }
 
 
