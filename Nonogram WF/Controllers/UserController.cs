@@ -55,11 +55,11 @@ namespace Nonogram_WF.Controllers
 
 			// check to see if settings work
 			//TODO: change default settings
-			Settings settings = new Settings("Dark", "16");
+			Models.Settings settings = new Models.Settings("Dark", "9");
 
 			// If all the methods return true, then store the email and password(hash and salt)
 			Users.SetUser(email, Users.CreatePassword(password), settings);
-			Session.SetSession(email, settings);
+			Models.Session.SetSession(email, settings);
 			return true;
 		}
 

@@ -38,7 +38,7 @@
 			// buttonSettingsLogout
 			// 
 			buttonSettingsLogout.Location = new Point(656, 14);
-			buttonSettingsLogout.Margin = new Padding(1, 1, 1, 1);
+			buttonSettingsLogout.Margin = new Padding(1);
 			buttonSettingsLogout.Name = "buttonSettingsLogout";
 			buttonSettingsLogout.Size = new Size(80, 22);
 			buttonSettingsLogout.TabIndex = 0;
@@ -49,7 +49,7 @@
 			// buttonSettingsBack
 			// 
 			buttonSettingsBack.Location = new Point(14, 14);
-			buttonSettingsBack.Margin = new Padding(1, 1, 1, 1);
+			buttonSettingsBack.Margin = new Padding(1);
 			buttonSettingsBack.Name = "buttonSettingsBack";
 			buttonSettingsBack.Size = new Size(80, 22);
 			buttonSettingsBack.TabIndex = 1;
@@ -73,7 +73,7 @@
 			comboBoxSettingsTheme.FormattingEnabled = true;
 			comboBoxSettingsTheme.Items.AddRange(new object[] { "Light", "Dark" });
 			comboBoxSettingsTheme.Location = new Point(253, 197);
-			comboBoxSettingsTheme.Margin = new Padding(1, 1, 1, 1);
+			comboBoxSettingsTheme.Margin = new Padding(1);
 			comboBoxSettingsTheme.Name = "comboBoxSettingsTheme";
 			comboBoxSettingsTheme.Size = new Size(196, 23);
 			comboBoxSettingsTheme.TabIndex = 3;
@@ -83,12 +83,14 @@
 			// comboBoxSettingsFont
 			// 
 			comboBoxSettingsFont.FormattingEnabled = true;
+			comboBoxSettingsFont.Items.AddRange(new object[] { "9", "12", "15", "18" });
 			comboBoxSettingsFont.Location = new Point(253, 242);
-			comboBoxSettingsFont.Margin = new Padding(1, 1, 1, 1);
+			comboBoxSettingsFont.Margin = new Padding(1);
 			comboBoxSettingsFont.Name = "comboBoxSettingsFont";
 			comboBoxSettingsFont.Size = new Size(196, 23);
 			comboBoxSettingsFont.TabIndex = 4;
 			comboBoxSettingsFont.Text = "Font size:";
+			comboBoxSettingsFont.SelectedIndexChanged += comboBoxSettingsFont_SelectedIndexChanged;
 			// 
 			// Settings
 			// 
@@ -99,9 +101,10 @@
 			Controls.Add(label1);
 			Controls.Add(buttonSettingsBack);
 			Controls.Add(buttonSettingsLogout);
-			Margin = new Padding(1, 1, 1, 1);
+			Margin = new Padding(1);
 			Name = "Settings";
 			Size = new Size(754, 434);
+			Load += Settings_Load;
 			ResumeLayout(false);
 			PerformLayout();
 		}

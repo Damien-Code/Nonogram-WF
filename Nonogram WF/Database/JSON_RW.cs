@@ -6,6 +6,7 @@ using System.Text.Json;
 using System.Threading.Tasks;
 using Nonogram_WF.Models;
 using static System.Windows.Forms.Design.AxImporter;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Nonogram_WF.Database
 {
@@ -76,6 +77,14 @@ namespace Nonogram_WF.Database
 
 			File.WriteAllText(_sessionPath, JsonString);
             return;
-        }
+		}
+        public static void UpdateUserSettings(AllUsers allUsers) {
+			string JsonString = JsonSerializer.Serialize(allUsers, _options);
+			File.WriteAllText(_filePath, JsonString);
+		}
+        public static void UpdateSessionSettings(Users allUsers) {
+			string JsonString = JsonSerializer.Serialize(allUsers, _options);
+			File.WriteAllText(_sessionPath, JsonString);
+		}
 	}
 }

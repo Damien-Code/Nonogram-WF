@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nonogram_WF.Controllers;
+using Nonogram_WF.Models;
 
 namespace Nonogram_WF.Views
 {
@@ -16,12 +17,13 @@ namespace Nonogram_WF.Views
 		public Settings()
 		{
 			InitializeComponent();
-			SetThemeLabel();
+			//GetThemeLabel();
+			//GetFontLabel();
 		}
 
 		private void buttonSettingsLogout_Click(object sender, EventArgs e)
 		{
-			Session.RemoveSession();
+			Controllers.Session.RemoveSession();
 			Application.Exit();
 		}
 
@@ -30,22 +32,53 @@ namespace Nonogram_WF.Views
 			this.Hide();
 			FindForm().Controls.Find("Home", false).First().Show();
 		}
-		private void SetThemeLabel()
+		private void GetThemeLabel()
 		{
-			string userTheme = GetTheme(); //TODO: Get
-			comboBoxSettingsTheme.Text = (userTheme == "Light" || userTheme == "Theme:") ? "Light" : "Dark";
+			string userTheme = GetTheme();
+			comboBoxSettingsTheme.Text = (userTheme == "Light") ? "Light" : "Dark";
+			return;
+
+		}
+		private void GetFontLabel()
+		{
+			string userFontSize = GetFontSize();
+			comboBoxSettingsFont.Text = userFontSize;
 			return;
 
 		}
 
 		private void comboBoxSettingsTheme_SelectedIndexChanged(object sender, EventArgs e)
 		{
-			SetThemeLabel();
-
+			//MessageBox.Show(comboBoxSettingsTheme.Text);
+			SetTheme(comboBoxSettingsTheme.Text); //change this code to set new theme and call the func again
 		}
-		private string GetTheme() {
-			//Get theme from data.json, return the theme if its there
-			return "Dark";
+		private void comboBoxSettingsFont_SelectedIndexChanged(object sender, EventArgs e)
+		{
+			//MessageBox.Show();
+			SetFontSize(comboBoxSettingsTheme.Text); //change this code to set new theme and call the func again
+		}
+		private string GetTheme()
+		{
+			//Get theme from session.json, return the theme if its there
+			return Controllers.Settings.GetTheme();
+		}
+		private string GetFontSize()
+		{
+			return "";
+			//return Controllers.Settings.GetFontSize();
+		}
+		private void SetTheme(string theme) {
+			Controllers.Settings.SetTheme(theme);
+		}
+		private void SetFontSize(string fontSize) {
+			
+			//Controllers.Settings.SetFontSize(fontSize);
+		}
+
+		private void Settings_Load(object sender, EventArgs e)
+		{
+			GetThemeLabel();
+			GetFontLabel();
 		}
 	}
 }

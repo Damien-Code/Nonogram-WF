@@ -99,5 +99,16 @@ namespace Nonogram_WF.Models
             // Using a string array as its return type would result in less readable code
             return new DPassword(hashed, Convert.ToBase64String(salt));
         }
+        public static void SetTheme(string theme) {
+            AllUsers allUsers = JSON_RW.GetUsers();
+            Users user = JSON_RW.GetSession();
+            Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
+            currentUser.Settings.Theme = theme;
+			JSON_RW.UpdateUserSettings(allUsers);
+			//allUsers.Users.
+			//MessageBox.Show(currentUser.Settings.Theme);
+			//list.Find(x => x.GetId() == "xy")
+
+		}
     }
 }
