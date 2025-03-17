@@ -1,9 +1,13 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
+using System.Net.Mail;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using Nonogram_WF.Database;
 using Nonogram_WF.Models;
 namespace Nonogram_WF.Controllers
 {
@@ -19,31 +23,110 @@ namespace Nonogram_WF.Controllers
         /// <param name="email"></param>
         /// <param name="password"></param>
         /// <returns></returns>
-        public static bool ValidateUserData(string email, string password)
+        public static bool ValidateUserData(string email, string password, string confirmPassword)
         {
-            if (!CheckEmail(email)) return false;//return email error
-            if (!CheckPassword(password)) return false ;//return email error
-            Users.SetUser(email, Users.CreatePassword(password));
-            Session.SetSession(email);
+            // If the email does not match the correct specifications, give error message
+            if (!CheckEmail(email)) 
+            {
+                MessageBox.Show("Please enter a valid email. \n It should be as following: johndoe@example.com ");
+                return false;
+            }
+
+            // If the password does not match the correct specifications, give error message
+            if (!CheckPassword(password))
+            {
+                MessageBox.Show("Please enter a valid password. \n It should contain at least 6 characters");
+                return false;
+            }
+
+            // If the the confirm password does not match the input of password, give error message
+            if (!CheckConfirmPassword(password, confirmPassword))
+            {
+                MessageBox.Show("Please make sure that you confirm the correct password");
+                return false;
+            }
+
+            // If the email already exists give error message
+            if (!CheckEmailExists(email)){
+                MessageBox.Show("This email already exists");
+                return false;
+            }
+
+            // check to see if settings work
+            Settings settings = new Settings("Dark", "16");
+
+            // If all the methods return true, then store the email and password(hash and salt)
+            Users.SetUser(email, Users.CreatePassword(password), settings);
             return true;
         }
 
-        // check if input values are correct
+
+        static Regex ValidEmailRegex = CreateValidEmailRegex();
+
+        /// <summary>
+        /// A regex method that creates a valid regex for email
+        /// </summary>
+        /// <returns></returns>
+        private static Regex CreateValidEmailRegex()
+        {
+            string validEmailPattern = @"^(?!\.)(""([^""\r\\]|\\[""\r\\])*""|"
+                + @"([-a-z0-9!#$%&'*+/=?^_`{|}~]|(?<!\.)\.)*)(?<!\.)"
+                + @"@[a-z0-9][\w\.-]*[a-z0-9]\.[a-z][a-z\.]*[a-z]$";
+
+            return new Regex(validEmailPattern, RegexOptions.IgnoreCase);
+        }
+
+
+        /// <summary>
+        /// Check if the input of email matches the correct specifications of the regex method
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
         public static bool CheckEmail(string email)
         {
-            if(email.Length < 6)
+            bool isValid = ValidEmailRegex.IsMatch(email);
+            return isValid;
+        }
+
+
+        /// <summary>
+        /// Check if the input password matches the correct specifications
+        /// </summary>
+        /// <param name="password"></param>
+        /// <returns></returns>
+        public static bool CheckPassword(string password)
+        {
+            return (password.Length < 6) ? false : true;
+        }
+
+        /// <summary>
+        /// Checks if the input of password is equal to the input of confirm password 
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="confirmPassword"></param>
+        /// <returns></returns>
+        public static bool CheckConfirmPassword(string password, string confirmPassword)
+        {
+            return (password != confirmPassword) ? false : true;
+        }
+
+        /// <summary>
+        /// Goes through the users of the GetUsers method
+        /// Checks if the input email matches one of the already stored emails
+        /// Returns false if so
+        /// Else returns true
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns></returns>
+        public static bool CheckEmailExists(string email)
+        {
+            foreach(Users user in JSON_RW.GetUsers().Users)
             {
-                return false;
+                if (user.Email == email) { return false; }
             }
             return true;
         }
 
-        // Check if input values are correct
-        public static bool CheckPassword(string password)
-        {
-            //if (password.Length < 6) { return false; }
-            //return true;
-            return (password.Length < 6) ? false : true;
-        }
+
     }
 }

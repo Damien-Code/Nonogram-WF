@@ -37,12 +37,15 @@ namespace Nonogram_WF.Models
             get => _salt; set => _salt = value;
         }
 
+        public Settings Settings { get; set; }
+
         // Construct if the Users class is initialized with arguments
-        public Users(string email, string password, string salt)
+        public Users(string email, string password, string salt, Settings settings)
         {
             Email = email;
             Password = password;
             Salt = salt;
+            Settings = settings;
             
         }
 
@@ -54,10 +57,10 @@ namespace Nonogram_WF.Models
         /// </summary>
         /// <param name="email"></param>
         /// <param name="dPassword"></param>
-        public static void SetUser(string email, DPassword dPassword)
+        public static void SetUser(string email, DPassword dPassword, Settings settings)
         {
             AllUsers allUsers = JSON_RW.GetUsers();
-            Users user = new Users(email, dPassword.Hash, dPassword.Salt);
+            Users user = new Users(email, dPassword.Hash, dPassword.Salt, settings);
             allUsers.Users.Add(user);
             JSON_RW.WriteFile(allUsers);
         }

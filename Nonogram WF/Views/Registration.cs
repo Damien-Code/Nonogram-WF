@@ -23,14 +23,15 @@ namespace Nonogram_WF.Views
             // gets the input from the textboxes and sets it to variables
             string email = textBoxRegisterEmail.Text;
             string password = textBoxRegisterPassword.Text;
+            string confirmPassword = textBoxRegisterConfirm.Text;
 
             // if the ValidateUserData method is not true
             // give the user an error and return
-            if (!UserController.ValidateUserData(email, password)) 
+            if (!UserController.ValidateUserData(email, password, confirmPassword)) 
             {
-                MessageBox.Show("Please enter a valid email or password!");
                 return;
             };
+
             // if the UserData is validated, hide the current control and show the instructions
             this.Hide();
             FindForm().Controls.Find("Instructions", false).First().Show();

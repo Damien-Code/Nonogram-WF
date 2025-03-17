@@ -1,24 +1,103 @@
 {
   "Users": [
     {
-      "Email": "asdasd",
-      "Password": "qAytgAusaQY4eO\u002Bc/Zj/EcSvniXOngMdbVDWBem3uTU=",
-      "Salt": "8tGkHJos060eh\u002BsU\u002BgzIhQ=="
+      "Email": "Email:",
+      "Password": "Quo8nebtJ7i78Iy0siQr1gooxcqPxr2sYy5nr3HH4vE=",
+      "Salt": "aIX3SMvzq1DDEMD\u002By29JvA==",
+      "Settings": null
     },
     {
-      "Email": "test@email.com",
-      "Password": "igcarjgQ2M0OuJXPHfg6UTHpGnFI9uN8WUt1khjVPhg=",
-      "Salt": "j8igH3B2F5z/ft3YdpveTg=="
+      "Email": "aaaaaaaaa@aaa",
+      "Password": "FAeN0T5VcMVJMwVooYOqfhwKWWvI\u002B8HfyXXHZ5M\u002BvIg=",
+      "Salt": "gG3ARsL/YcKpPPzT3PE43g==",
+      "Settings": null
     },
     {
-      "Email": "newEmail",
-      "Password": "316CZDlQeWojsPU7UKxpyZdwAltJnVDfnEGSX3W7VY4=",
-      "Salt": "\u002BfBLIw7TtiLe51rkvRSuCg=="
+      "Email": "john@example.com",
+      "Password": "0D\u002BQCVxaWUKcu1EIqhjgr3EPdbbAqsoGxAjYBZ9RtTc=",
+      "Salt": "obQOW1pQgGj06MqrJkOusA==",
+      "Settings": null
     },
     {
-      "Email": "TestEmail2",
-      "Password": "/7mGs2ZTLt8Fo5ll6CL3wtdfx3e7UtPJ08TX3r/JGyQ=",
-      "Salt": "pHC7LBNx3YNHk\u002B0V4jnRfA=="
+      "Email": "test@test.nl",
+      "Password": "zw1YN5Nqti66BgysQVSjQjRYhsHMEbRr0lZqDMUXYGE=",
+      "Salt": "AYBHJOOtfiBqa1HDRqXp4Q==",
+      "Settings": null
+    },
+    {
+      "Email": "test@test.nl",
+      "Password": "ojYgtDASOJs5Oos\u002Bv/YwHd6sWVbkuAtEwkhejEnmzx4=",
+      "Salt": "qIpMPnv/nLYAJbYYbbECQw==",
+      "Settings": null
+    },
+    {
+      "Email": "test@test.nl",
+      "Password": "02m6WiGGDriwz3NktCjy\u002Bq6oCcaik2grmxNl7\u002BcP1QQ=",
+      "Salt": "LDOMIA7plg/\u002By9HEVA8EIQ==",
+      "Settings": null
+    },
+    {
+      "Email": "test@test.nl",
+      "Password": "7yN027s2hQG5biiPVcemnr3hcvZEcUeDrx\u002BOeuT9odA=",
+      "Salt": "QDNJ2t\u002BMIOm2YdYUjMfTXg==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "16"
+      }
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "XGQ0x8eL3Jgb66tLYg8UmJYEAB4UgCfV3pZoXNwulBE=",
+      "Salt": "3NWN6q6pLNemaSplTwdBNQ==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "16"
+      }
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "6YFyg8SxG8HUbe7gqc6CR5sunnGTtFDKjvLpHLg6Yyc=",
+      "Salt": "Wkdvi5Q30DKJIWQ2A4\u002BYDA==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "16"
+      }
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "fXeySxHCmUv3Qd1vR4bqwjzwcuYBx0GwtRAzJ403B0A=",
+      "Salt": "oEBmZDDTTUxCsnoD20D69A==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "16"
+      }
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "z\u002BCdX0r5Mp7yQSOkxNT56ipdAf6wdkv3gsSjHA8M3So=",
+      "Salt": "RjyxgtpFi17V83msC5a5NA==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "16"
+      }
+    },
+    {
+      "Email": "do@do.nl",
+      "Password": "MyVD8ZhU2gFtuAPYkpgRV646G\u002Bo2FW1HWpWMRvALOjg=",
+      "Salt": "OcntTdjLqkAEDD\u002BbFSb7XA==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "16"
+      }
+    },
+    {
+      "Email": "do@do.nl",
+      "Password": "jzmifRb1mDOmOJaPJ0lInhn7wUM73qynL14Joud4l\u002Bg=",
+      "Salt": "RcKxNTe83dDHz/HohXFxKA==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "16"
+      }
     }
   ]
 }

@@ -53,25 +53,26 @@
             // 
             textBoxRegisterEmail.Location = new Point(500, 363);
             textBoxRegisterEmail.Name = "textBoxRegisterEmail";
+            textBoxRegisterEmail.PlaceholderText = "Email:";
             textBoxRegisterEmail.Size = new Size(476, 39);
             textBoxRegisterEmail.TabIndex = 1;
-            textBoxRegisterEmail.Text = "Email:";
             // 
             // textBoxRegisterPassword
             // 
             textBoxRegisterPassword.Location = new Point(500, 475);
             textBoxRegisterPassword.Name = "textBoxRegisterPassword";
+            textBoxRegisterPassword.PlaceholderText = "Password:";
             textBoxRegisterPassword.Size = new Size(475, 39);
             textBoxRegisterPassword.TabIndex = 2;
-            textBoxRegisterPassword.Text = "Password:";
             // 
             // textBoxRegisterConfirm
             // 
             textBoxRegisterConfirm.Location = new Point(500, 575);
             textBoxRegisterConfirm.Name = "textBoxRegisterConfirm";
+            textBoxRegisterConfirm.PasswordChar = '*';
+            textBoxRegisterConfirm.PlaceholderText = "Confirm Password:";
             textBoxRegisterConfirm.Size = new Size(475, 39);
             textBoxRegisterConfirm.TabIndex = 3;
-            textBoxRegisterConfirm.Text = "Confirm Password:";
             // 
             // buttonRegisterRegister
             // 
