@@ -7,20 +7,27 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nonogram_WF.Controllers;
 
 namespace Nonogram_WF.Views
 {
-    public partial class History : UserControl
-    {
-        public History()
-        {
-            InitializeComponent();
-        }
+	public partial class History : UserControl
+	{
+		public History()
+		{
+			InitializeComponent();
+		}
 
-        private void buttonHistoryBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FindForm().Controls.Find("Home", false).First().Show();
-        }
-    }
+		private void buttonHistoryBack_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			FindForm().Controls.Find("Home", false).First().Show();
+		}
+
+		private void buttonHistoryLogout_Click(object sender, EventArgs e)
+		{
+			Session.RemoveSession();
+			Application.Exit();
+		}
+	}
 }

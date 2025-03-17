@@ -13,8 +13,12 @@ namespace Nonogram_WF.Models
 		{
 			JSON_RW.SetSession(email, settings);
 		}
-		public static string GetSession() {
+		public static Users GetSession() {
 			return JSON_RW.GetSession();
+		}
+		public static void RemoveSession() { 
+			JSON_RW.RemoveSession();
+			return;
 		}
 	}
 }

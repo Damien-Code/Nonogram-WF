@@ -60,14 +60,22 @@ namespace Nonogram_WF.Database
 			string JsonString = JsonSerializer.Serialize(UserSession, _options);
 			File.WriteAllText(_sessionPath, JsonString);
 		}
-        public static string GetSession() {
+        public static Users GetSession() {
             using (StreamReader streamReader = new StreamReader(_sessionPath))
             {
                 string json = streamReader.ReadToEnd();
                 if (string.IsNullOrWhiteSpace(json)) json = "{}";
-                string? session = JsonSerializer.Deserialize<string>(json, _options);
+                Users session = JsonSerializer.Deserialize<Users>(json, _options);
                 return session!;
             };
 		}
+        public static void RemoveSession() {
+            Settings settings = new Settings("","");
+            Users user = new Users("", "", "", settings);
+			string JsonString = JsonSerializer.Serialize(user, _options);
+
+			File.WriteAllText(_sessionPath, JsonString);
+            return;
+        }
 	}
 }

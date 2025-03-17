@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nonogram_WF.Controllers;
 
 namespace Nonogram_WF.Views
 {
@@ -20,6 +21,7 @@ namespace Nonogram_WF.Views
 
 		private void buttonSettingsLogout_Click(object sender, EventArgs e)
 		{
+			Session.RemoveSession();
 			Application.Exit();
 		}
 

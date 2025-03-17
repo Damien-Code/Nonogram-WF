@@ -17,6 +17,15 @@
         "Theme": "Dark",
         "FontSize": "16"
       }
+    },
+    {
+      "Email": "asd@asd.asda",
+      "Password": "9tno29phJORKg1L07A6zqxabN6vRHQKDwPxnfhGH1Vo=",
+      "Salt": "Ynrj5mAFQA67E0utsE\u002Bgzg==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "16"
+      }
     }
   ]
 }

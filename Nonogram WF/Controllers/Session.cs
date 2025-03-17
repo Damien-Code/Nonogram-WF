@@ -13,9 +13,13 @@ namespace Nonogram_WF.Controllers
         public static void SetSession(string email,Settings settings) {
             Models.Session.SetSession(email,settings);
         }
-        public static string GetSession()
+        public static Users GetSession()
         {
             return Models.Session.GetSession();
+        }
+        public static void RemoveSession() {
+            Models.Session.RemoveSession();
+            return;
         }
     }
 }
