@@ -9,6 +9,7 @@ using Nonogram_WF.Database;
 using Nonogram_WF.Interfaces;
 using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Nonogram_WF.Controllers;
+using System.Text.Json.Serialization;
 
 namespace Nonogram_WF.Models
 {
@@ -40,6 +41,7 @@ namespace Nonogram_WF.Models
         public Settings Settings { get; set; }
 
         // Construct if the Users class is initialized with arguments
+        [JsonConstructor]
         public Users(string email, string password, string salt, Settings settings)
         {
             Email = email;
@@ -47,6 +49,13 @@ namespace Nonogram_WF.Models
             Salt = salt;
             Settings = settings;
             
+        }
+
+        //Construct for session
+        public Users(string email, Settings settings)
+        {
+            Email = email;
+            Settings = settings;
         }
 
         /// <summary>
@@ -90,5 +99,19 @@ namespace Nonogram_WF.Models
             // Using a string array as its return type would result in less readable code
             return new DPassword(hashed, Convert.ToBase64String(salt));
         }
+        public static void SetTheme(string theme) {
+            AllUsers allUsers = JSON_RW.GetUsers();
+            Users user = JSON_RW.GetSession();
+            Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
+            currentUser.Settings.Theme = theme;
+			JSON_RW.UpdateUserSettings(allUsers);
+		}
+        public static void SetFontSize(string fontSize) {
+            AllUsers allUsers = JSON_RW.GetUsers();
+            Users user = JSON_RW.GetSession();
+            Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
+            currentUser.Settings.FontSize = fontSize;
+			JSON_RW.UpdateUserSettings(allUsers);
+		}
     }
 }
