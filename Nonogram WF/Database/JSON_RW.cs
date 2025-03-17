@@ -71,7 +71,7 @@ namespace Nonogram_WF.Database
 		}
         public static void RemoveSession() {
             Settings settings = new Settings("","");
-            Users user = new Users("", "", "", settings);
+            Users user = new Users("", settings);
 			string JsonString = JsonSerializer.Serialize(user, _options);
 
 			File.WriteAllText(_sessionPath, JsonString);

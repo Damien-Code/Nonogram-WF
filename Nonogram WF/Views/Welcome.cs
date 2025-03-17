@@ -49,16 +49,16 @@ namespace Nonogram_WF
 		{
 			//this.Dock = DockStyle.Fill;
 			if (hasSession())
-			{
-				this.Hide();
-				FindForm().Controls.Find("Home", false).First().Show();
+            {
+                this.Hide();
+                FindForm().Controls.Find("Home", false).First().Show();
 
-			}
+            }
 		}
 		private bool hasSession()
 		{
 			Users user = Controllers.Session.GetSession();
-			return (user.Email != "");
+			return (user.Email == null) ? false : (user.Email == "") ? false : true;
 		}
 
 		private void panelWelcome_Paint(object sender, PaintEventArgs e)
