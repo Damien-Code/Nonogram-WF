@@ -1,1 +1,9 @@
-"TestEmail2"
+{
+  "Email": "asd@asd.asd",
+  "Password": null,
+  "Salt": null,
+  "Settings": {
+    "Theme": "Dark",
+    "FontSize": "16"
+  }
+}

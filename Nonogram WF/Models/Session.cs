@@ -9,9 +9,9 @@ namespace Nonogram_WF.Models
 {
     class Session
     {
-		public static void SetSession(string email)
+		public static void SetSession(string email,Settings settings)
 		{
-			JSON_RW.SetSession(email);
+			JSON_RW.SetSession(email, settings);
 		}
 		public static string GetSession() {
 			return JSON_RW.GetSession();

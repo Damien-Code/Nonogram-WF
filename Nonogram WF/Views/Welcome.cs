@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nonogram_WF.Controllers;
 using Nonogram_WF.Database;
 
 namespace Nonogram_WF
@@ -19,6 +20,11 @@ namespace Nonogram_WF
         public Welcome()
         {
             InitializeComponent();
+            if (hasSession()) {
+				this.Hide();
+				FindForm().Controls.Find("Registration", false).First().Show();
+				return;
+            }
             
             //login = new login();
         }
@@ -45,6 +51,9 @@ namespace Nonogram_WF
         private void Welcome_Load(object sender, EventArgs e)
         {
             //this.Dock = DockStyle.Fill;
+        }
+        private bool hasSession() {
+            return (Session.GetSession() != "");
         }
     }
 }

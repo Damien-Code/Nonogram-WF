@@ -55,8 +55,9 @@ namespace Nonogram_WF.Database
             AllUsers? users = JsonSerializer.Deserialize<AllUsers>(json, _options);
             return users!;
         }
-        public static void SetSession(string email) {
-			string JsonString = JsonSerializer.Serialize(email, _options);
+        public static void SetSession(string email,Settings settings) { //add setting
+            Users UserSession = new Users(email, settings);
+			string JsonString = JsonSerializer.Serialize(UserSession, _options);
 			File.WriteAllText(_sessionPath, JsonString);
 		}
         public static string GetSession() {
