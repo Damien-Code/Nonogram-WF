@@ -47,7 +47,7 @@ namespace Nonogram_WF.Controllers
 			}
 
 			// If the email already exists give error message
-			if (!CheckEmailExists(email))
+			if (CheckEmailExists(email))
 			{
 				MessageBox.Show("This email already exists");
 				return false;
@@ -62,9 +62,6 @@ namespace Nonogram_WF.Controllers
 			Models.Session.SetSession(email, settings);
 			return true;
 		}
-
-
-        static Regex ValidEmailRegex = CreateValidEmailRegex();
 
         /// <summary>
         /// A regex method that creates a valid regex for email
@@ -115,18 +112,19 @@ namespace Nonogram_WF.Controllers
 		/// <summary>
 		/// Goes through the users of the GetUsers method
 		/// Checks if the input email matches one of the already stored emails
-		/// Returns false if so
-		/// Else returns true
+		/// Returns true if so
+		/// Else returns false
 		/// </summary>
 		/// <param name="email"></param>
 		/// <returns></returns>
 		public static bool CheckEmailExists(string email)
 		{
-			foreach (Users user in JSON_RW.GetUsers().Users)
-			{
-				if (user.Email == email) { return false; }
-			}
-			return true;
+			AllUsers allUsers = Users.GetUsers();
+			
+			Users currentUser = allUsers.Users.Find(x => x.Email == email);
+			if (currentUser != null) { return true; }
+			
+			return false;
 		}
 
 

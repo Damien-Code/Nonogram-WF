@@ -57,6 +57,7 @@ namespace Nonogram_WF.Models
             Email = email;
             Settings = settings;
         }
+        public Users() { }
 
         /// <summary>
         /// Reads all users from the GetUsers() method
@@ -99,6 +100,15 @@ namespace Nonogram_WF.Models
             // Using a string array as its return type would result in less readable code
             return new DPassword(hashed, Convert.ToBase64String(salt));
         }
+        public static string hashLoginPassword(string password, string salt)
+        {
+            byte[] saltAsBytes = Convert.FromBase64String(salt);
+
+            byte[] hashToCompare = KeyDerivation.Pbkdf2(password, saltAsBytes, prf:KeyDerivationPrf.HMACSHA256, iterationCount: 100000, numBytesRequested: 256 / 8);
+            return Convert.ToBase64String(hashToCompare);
+        }
+
+
         public static void SetTheme(string theme) {
             AllUsers allUsers = JSON_RW.GetUsers();
             Users user = JSON_RW.GetSession();
@@ -113,5 +123,9 @@ namespace Nonogram_WF.Models
             currentUser.Settings.FontSize = fontSize;
 			JSON_RW.UpdateUserSettings(allUsers);
 		}
+        public static AllUsers GetUsers() 
+        { 
+            return JSON_RW.GetUsers();
+        }
     }
 }
