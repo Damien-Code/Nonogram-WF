@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
+using System.Diagnostics.Metrics;
 using System.Drawing;
 using System.Linq;
 using System.Text;
@@ -14,6 +15,8 @@ namespace Nonogram_WF.Views
 {
 	public partial class Settings : UserControl
 	{
+		private int _themeIndexChangecounter = 0;
+		private int _fontSizeIndexChangecounter = 0;
 		public Settings()
 		{
 			InitializeComponent();
@@ -50,12 +53,18 @@ namespace Nonogram_WF.Views
 		private void comboBoxSettingsTheme_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			//MessageBox.Show(comboBoxSettingsTheme.Text);
-			SetTheme(comboBoxSettingsTheme.Text); //change this code to set new theme and call the func again
+			if (_themeIndexChangecounter > 0) { 
+				SetTheme(comboBoxSettingsTheme.Text); //change this code to set new theme and call the func again
+			}
+			_themeIndexChangecounter++;
 		}
 		private void comboBoxSettingsFont_SelectedIndexChanged(object sender, EventArgs e)
 		{
 			//MessageBox.Show();
-			SetFontSize(comboBoxSettingsTheme.Text); //change this code to set new theme and call the func again
+			if (_fontSizeIndexChangecounter > 0) { 
+			SetFontSize(comboBoxSettingsFont.Text); //change this code to set new theme and call the func again
+			}
+			_fontSizeIndexChangecounter++;
 		}
 		private string GetTheme()
 		{
@@ -64,19 +73,21 @@ namespace Nonogram_WF.Views
 		}
 		private string GetFontSize()
 		{
-			return "";
-			//return Controllers.Settings.GetFontSize();
+			//return "";
+			return Controllers.Settings.GetFontSize();
 		}
 		private void SetTheme(string theme) {
 			Controllers.Settings.SetTheme(theme);
 		}
 		private void SetFontSize(string fontSize) {
 			
-			//Controllers.Settings.SetFontSize(fontSize);
+			Controllers.Settings.SetFontSize(fontSize);
 		}
 
 		private void Settings_Load(object sender, EventArgs e)
 		{
+			_fontSizeIndexChangecounter = 0;
+			_themeIndexChangecounter = 0;
 			GetThemeLabel();
 			GetFontLabel();
 		}

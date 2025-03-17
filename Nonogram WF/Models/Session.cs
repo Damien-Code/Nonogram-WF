@@ -26,5 +26,10 @@ namespace Nonogram_WF.Models
 			currentUser.Settings.Theme = theme;
 			JSON_RW.UpdateSessionSettings(currentUser);
 		}
+		public static void SetFontSize(string fontSize) {
+			Users currentUser = JSON_RW.GetSession();
+			currentUser.Settings.FontSize = fontSize;
+			JSON_RW.UpdateSessionSettings(currentUser);
+		}
 	}
 }

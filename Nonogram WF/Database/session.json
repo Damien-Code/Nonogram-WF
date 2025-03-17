@@ -3,7 +3,7 @@
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "Light",
-    "FontSize": "9"
+    "Theme": "Dark",
+    "FontSize": "15"
   }
 }

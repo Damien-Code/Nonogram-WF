@@ -105,10 +105,13 @@ namespace Nonogram_WF.Models
             Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
             currentUser.Settings.Theme = theme;
 			JSON_RW.UpdateUserSettings(allUsers);
-			//allUsers.Users.
-			//MessageBox.Show(currentUser.Settings.Theme);
-			//list.Find(x => x.GetId() == "xy")
-
+		}
+        public static void SetFontSize(string fontSize) {
+            AllUsers allUsers = JSON_RW.GetUsers();
+            Users user = JSON_RW.GetSession();
+            Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
+            currentUser.Settings.FontSize = fontSize;
+			JSON_RW.UpdateUserSettings(allUsers);
 		}
     }
 }
