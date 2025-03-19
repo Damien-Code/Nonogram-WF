@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using Nonogram_WF.Database;
 using Nonogram_WF.Models;
+using Nonogram_WF.Views;
 
 namespace Nonogram_WF.Controllers
 {
@@ -13,9 +14,13 @@ namespace Nonogram_WF.Controllers
         public static bool CheckUserData(string email, string password)
         {
             var usercheck = CheckEmailExists(email);
-            if (usercheck.Item1) 
+            if (usercheck.Item1)
             {
-                return PasswordCheck(usercheck.Item2, password);
+                if (!PasswordCheck(usercheck.Item2, password)) 
+                {
+                    Session.SetLoginSession(usercheck.Item2);
+                    return false;
+                }
             }
             return true;
         }
@@ -36,7 +41,10 @@ namespace Nonogram_WF.Controllers
         public static bool PasswordCheck(Users user, string password)
         {
             string hashedPassword = Users.hashLoginPassword(password,user.Salt);
-            if (hashedPassword != user.Password) { return true; }
+            if (hashedPassword != user.Password) 
+            { 
+                return true; 
+            }
             return false;
         }
     }
