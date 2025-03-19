@@ -14,27 +14,27 @@ namespace Nonogram_WF.Controllers
         public static bool CheckUserData(string email, string password)
         {
             var usercheck = CheckEmailExists(email);
-            if (usercheck.Item1)
+            if (usercheck.boolean)
             {
-                if (!PasswordCheck(usercheck.Item2, password)) 
+                if (!PasswordCheck(usercheck.user, password)) 
                 {
-                    Session.SetLoginSession(usercheck.Item2);
+                    Session.SetLoginSession(usercheck.user);
                     return false;
                 }
             }
             return true;
         }
 
-        public static Tuple<bool,Users> CheckEmailExists(string email)
+        public static (bool boolean,Users user) CheckEmailExists(string email)
         {
             AllUsers allUsers = Users.GetUsers();
             Users LoggedInUser = allUsers.Users.Find(x => x.Email == email);
             if (LoggedInUser == null)
             {
                 Users emptyUser = new();
-                return Tuple.Create(false, emptyUser);
+                return (false, emptyUser);
             }
-            return Tuple.Create(true, LoggedInUser);
+            return (true, LoggedInUser);
        
         }
 
