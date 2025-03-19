@@ -21,7 +21,12 @@ namespace Nonogram_WF.Controllers
                     Session.SetLoginSession(usercheck.user);
                     return false;
                 }
+                
+                MessageBox.Show("Password is incorrect");
+                return true;
             }
+            
+            MessageBox.Show("Email does not exist");
             return true;
         }
 
