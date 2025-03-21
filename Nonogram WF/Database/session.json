@@ -1,9 +1,9 @@
 {
-  "Email": "",
+  "Email": "damien@damien.nl",
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "",
-    "FontSize": ""
+    "Theme": "Dark",
+    "FontSize": "9"
   }
 }

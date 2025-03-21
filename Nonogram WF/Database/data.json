@@ -170,6 +170,15 @@
         "Theme": "Dark",
         "FontSize": "9"
       }
+    },
+    {
+      "Email": "damien@damien.nl",
+      "Password": "STKxwdT1zVqlQJ/RWX7umyf9oqUBEEBscWhXb60\u002Bi\u002B0=",
+      "Salt": "8n83bIU54v0aSdCyJkP5bw==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "9"
+      }
     }
   ]
 }
