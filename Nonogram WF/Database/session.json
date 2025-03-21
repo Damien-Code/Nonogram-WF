@@ -6,9 +6,9 @@
     "Theme": "Dark",
     "FontSize": "9"
   },
-  "History": {
-    "Level": 5,
-    "HintCount": 2,
-    "UsedSolver": true
-  }
+    "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
+    }
 }
