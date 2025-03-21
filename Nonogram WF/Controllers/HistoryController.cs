@@ -9,22 +9,11 @@ namespace Nonogram_WF.Controllers
 {
     public class HistoryController
     {
-        //public static List<string> RetrieveHistory()
-        //{
-        //    List<string> userHistory = new List<string>();
-        //    Users user = Session.GetSession();
-
-        //    int userLevel = user.History.Level;
-        //    int userHint = user.History.HintCount;
-        //    bool userSolve = user.History.UsedSolver;
-
-        //    userHistory.Add(userLevel.ToString());
-        //    userHistory.Add(userHint.ToString());
-        //    userHistory.Add(userSolve.ToString());
-
-        //    return userHistory;
-        //}
-
+        /// <summary>
+        /// A method that retrieves the user via the users current session
+        /// Only returns the history from that user, because the history is the only part we need to retrieve
+        /// </summary>
+        /// <returns type="History"></returns>
         public static History RetrieveHistory()
         {
             Users user = Session.GetSession();

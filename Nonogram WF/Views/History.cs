@@ -31,10 +31,13 @@ namespace Nonogram_WF.Views
 			Application.Exit();
 		}
 
+		/// <summary>
+		/// Method that populates the datagridview for history
+		/// for each row the level, count and solve is added
+		/// </summary>
 		private void PopulateDataGridView()
 		{
 			dataGridView1.Rows.Add(HistoryController.RetrieveHistory().Level, HistoryController.RetrieveHistory().HintCount, HistoryController.RetrieveHistory().UsedSolver);
-
 		}
 	}
 }

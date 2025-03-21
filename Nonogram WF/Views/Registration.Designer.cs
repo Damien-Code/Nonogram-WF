@@ -61,6 +61,7 @@
             // 
             textBoxRegisterPassword.Location = new Point(500, 475);
             textBoxRegisterPassword.Name = "textBoxRegisterPassword";
+            textBoxRegisterPassword.PasswordChar = '*';
             textBoxRegisterPassword.PlaceholderText = "Password:";
             textBoxRegisterPassword.Size = new Size(475, 39);
             textBoxRegisterPassword.TabIndex = 2;

@@ -29,6 +29,7 @@ namespace Nonogram_WF.Models
             set => _usedSolver = value;
         }
 
+
         public History(int level, int hintCount, bool usedSolver)
         {
             Level = level;

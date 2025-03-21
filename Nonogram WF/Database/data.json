@@ -27,6 +27,20 @@
         "HintCount": 2,
         "UsedSolver": true
       }
+    },
+    {
+      "Email": "tset@tset.com",
+      "Password": "kDb7OBnLHwF4H8sABQwkus\u002BYqdSJppi91T8BUHpzY78=",
+      "Salt": "cSFwpfgjOim98AuWKFzBOw==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "9"
+      },
+      "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
+      }
     }
   ]
 }
