@@ -41,6 +41,20 @@
         "HintCount": 2,
         "UsedSolver": true
       }
+    },
+    {
+      "Email": "do@do.nl",
+      "Password": "M9bbVwgbyUV/xhTj45DqHwP\u002BYFYrt1diZhlocO0XZ7Y=",
+      "Salt": "KWEv9Xvv2qi4gNEMM78gxQ==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "9"
+      },
+      "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
+      }
     }
   ]
 }

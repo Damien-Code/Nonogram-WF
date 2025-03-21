@@ -36,12 +36,14 @@
             HintsUsed = new DataGridViewTextBoxColumn();
             UsedSolver = new DataGridViewTextBoxColumn();
             TimeColumn = new DataGridViewTextBoxColumn();
+            panel1 = new Panel();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // buttonHistoryBack
             // 
-            buttonHistoryBack.Location = new Point(33, 32);
+            buttonHistoryBack.Location = new Point(26, 30);
             buttonHistoryBack.Margin = new Padding(4, 2, 4, 2);
             buttonHistoryBack.Name = "buttonHistoryBack";
             buttonHistoryBack.Size = new Size(150, 47);
@@ -52,7 +54,7 @@
             // 
             // buttonHistoryLogout
             // 
-            buttonHistoryLogout.Location = new Point(1222, 32);
+            buttonHistoryLogout.Location = new Point(1218, 30);
             buttonHistoryLogout.Margin = new Padding(4, 2, 4, 2);
             buttonHistoryLogout.Name = "buttonHistoryLogout";
             buttonHistoryLogout.Size = new Size(150, 47);
@@ -65,7 +67,7 @@
             // 
             labelHistory.AutoSize = true;
             labelHistory.Font = new Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelHistory.Location = new Point(587, 145);
+            labelHistory.Location = new Point(581, 152);
             labelHistory.Margin = new Padding(4, 0, 4, 0);
             labelHistory.Name = "labelHistory";
             labelHistory.Size = new Size(276, 100);
@@ -76,8 +78,9 @@
             // 
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Level, HintsUsed, UsedSolver, TimeColumn });
-            dataGridView1.Location = new Point(277, 315);
+            dataGridView1.Location = new Point(275, 323);
             dataGridView1.Name = "dataGridView1";
+            dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.Size = new Size(884, 459);
             dataGridView1.TabIndex = 3;
@@ -87,6 +90,7 @@
             Level.HeaderText = "Level";
             Level.MinimumWidth = 10;
             Level.Name = "Level";
+            Level.ReadOnly = true;
             Level.Width = 200;
             // 
             // HintsUsed
@@ -94,6 +98,7 @@
             HintsUsed.HeaderText = "Hints used";
             HintsUsed.MinimumWidth = 10;
             HintsUsed.Name = "HintsUsed";
+            HintsUsed.ReadOnly = true;
             HintsUsed.Width = 200;
             // 
             // UsedSolver
@@ -101,6 +106,7 @@
             UsedSolver.HeaderText = "Used solver";
             UsedSolver.MinimumWidth = 10;
             UsedSolver.Name = "UsedSolver";
+            UsedSolver.ReadOnly = true;
             UsedSolver.Width = 200;
             // 
             // TimeColumn
@@ -108,22 +114,33 @@
             TimeColumn.HeaderText = "Total play time";
             TimeColumn.MinimumWidth = 10;
             TimeColumn.Name = "TimeColumn";
+            TimeColumn.ReadOnly = true;
             TimeColumn.Width = 200;
+            // 
+            // panel1
+            // 
+            panel1.Anchor = AnchorStyles.None;
+            panel1.Controls.Add(labelHistory);
+            panel1.Controls.Add(buttonHistoryBack);
+            panel1.Controls.Add(buttonHistoryLogout);
+            panel1.Controls.Add(dataGridView1);
+            panel1.Location = new Point(0, 0);
+            panel1.Name = "panel1";
+            panel1.Size = new Size(1400, 926);
+            panel1.TabIndex = 4;
             // 
             // History
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(dataGridView1);
-            Controls.Add(labelHistory);
-            Controls.Add(buttonHistoryLogout);
-            Controls.Add(buttonHistoryBack);
+            Controls.Add(panel1);
             Margin = new Padding(4, 2, 4, 2);
             Name = "History";
             Size = new Size(1400, 926);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
+            panel1.ResumeLayout(false);
+            panel1.PerformLayout();
             ResumeLayout(false);
-            PerformLayout();
         }
 
         #endregion
@@ -136,5 +153,6 @@
         private DataGridViewTextBoxColumn HintsUsed;
         private DataGridViewTextBoxColumn UsedSolver;
         private DataGridViewTextBoxColumn TimeColumn;
+        private Panel panel1;
     }
 }
