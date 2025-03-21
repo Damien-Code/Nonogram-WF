@@ -121,7 +121,7 @@ namespace Nonogram_WF.Controllers
 		{
 			AllUsers allUsers = Users.GetUsers();
 			
-			Users currentUser = allUsers.Users.Find(x => x.Email == email);
+			Users? currentUser = allUsers.Users.Find(x => x.Email == email);
 			if (currentUser != null) { return true; }
 			
 			return false;
