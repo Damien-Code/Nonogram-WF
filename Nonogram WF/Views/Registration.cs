@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Nonogram_WF.Controllers;
 
 namespace Nonogram_WF.Views
 {
@@ -19,6 +20,19 @@ namespace Nonogram_WF.Views
 
         private void buttonRegisterRegister_Click(object sender, EventArgs e)
         {
+            // gets the input from the textboxes and sets it to variables
+            string email = textBoxRegisterEmail.Text;
+            string password = textBoxRegisterPassword.Text;
+            string confirmPassword = textBoxRegisterConfirm.Text;
+
+            // if the ValidateUserData method is not true
+            // give the user an error and return
+            if (!UserController.ValidateUserData(email, password, confirmPassword)) 
+            {
+                return;
+            };
+
+            // if the UserData is validated, hide the current control and show the instructions
             this.Hide();
             FindForm().Controls.Find("Instructions", false).First().Show();
         }

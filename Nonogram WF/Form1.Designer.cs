@@ -67,6 +67,7 @@
             welcome2.Name = "welcome2";
             welcome2.Size = new Size(1479, 907);
             welcome2.TabIndex = 0;
+            welcome2.Load += welcome2_Load;
             // 
             // Instructions
             // 
@@ -129,7 +130,6 @@
             Registration.TabIndex = 7;
             Registration.Visible = false;
             // 
-
             // Form1
             // 
             AutoScaleDimensions = new SizeF(13F, 32F);

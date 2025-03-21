@@ -4,7 +4,9 @@ using System.Linq;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
+using Nonogram_WF.Models;
 using static System.Windows.Forms.Design.AxImporter;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Nonogram_WF.Database
 {
@@ -12,6 +14,7 @@ namespace Nonogram_WF.Database
     {
         // The relative filepath so data can be stored in the data.json file in the database folder.
         private static readonly string _filePath = "../../../Database/data.json";
+        private static readonly string _sessionPath = "../../../Database/session.json";
 
         /// <summary>
         /// Static method so it is possible to write to data.json everywhere
@@ -33,18 +36,55 @@ namespace Nonogram_WF.Database
         {
             WriteIndented = true,
         };
+        
         /// <summary>
-        /// Creates new instance of streamreader so it is possible to read the whole data.json file
-        /// Deserialize json to Users object
+        /// Uses streamreader to read through the whole JSON file
+        /// Deserializes the JSON string to the AllUsers object
+        /// Returns the AllUsers object
         /// </summary>
-        /// <param name="fileName"></param>
-        /// <returns type="Users"></returns>
-        public static Users GetUsers(string fileName)
+        /// <returns type="AllUsers"></returns>
+        public static AllUsers GetUsers()
         {
-            using StreamReader streamReader = new StreamReader(fileName);
-            string json = streamReader.ReadToEnd();
-            Users? users = JsonSerializer.Deserialize<Users>(json, _options);
+			using StreamReader streamReader = new StreamReader(_filePath);
+
+			string json = streamReader.ReadToEnd();
+
+			// if string is empty or null or whitespace
+			// make json valid JSON object
+			// if initialization of JSON was empty, it would result in error
+			if (string.IsNullOrWhiteSpace(json)) json = "{}";
+            AllUsers? users = JsonSerializer.Deserialize<AllUsers>(json, _options);
             return users!;
         }
-    }
+        public static void SetSession(string email,Settings settings) { //add setting
+            Users UserSession = new Users(email, settings);
+			string JsonString = JsonSerializer.Serialize(UserSession, _options);
+			File.WriteAllText(_sessionPath, JsonString);
+		}
+        public static Users GetSession() {
+            using (StreamReader streamReader = new StreamReader(_sessionPath))
+            {
+                string json = streamReader.ReadToEnd();
+                if (string.IsNullOrWhiteSpace(json)) json = "{}";
+                Users session = JsonSerializer.Deserialize<Users>(json, _options);
+                return session!;
+            };
+		}
+        public static void RemoveSession() {
+            Settings settings = new Settings("","");
+            Users user = new Users("", settings);
+			string JsonString = JsonSerializer.Serialize(user, _options);
+
+			File.WriteAllText(_sessionPath, JsonString);
+            return;
+		}
+        public static void UpdateUserSettings(AllUsers allUsers) {
+			string JsonString = JsonSerializer.Serialize(allUsers, _options);
+			File.WriteAllText(_filePath, JsonString);
+		}
+        public static void UpdateSessionSettings(Users allUsers) {
+			string JsonString = JsonSerializer.Serialize(allUsers, _options);
+			File.WriteAllText(_sessionPath, JsonString);
+		}
+	}
 }
