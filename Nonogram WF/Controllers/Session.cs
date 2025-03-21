@@ -10,11 +10,11 @@ namespace Nonogram_WF.Controllers
 {
     class Session
     {
-        public static void SetSession(string email,Models.Settings settings) {
-            Models.Session.SetSession(email,settings);
+        public static void SetSession(string email,Models.Settings settings, Models.History history) {
+            Models.Session.SetSession(email,settings,history);
         }
         public static void SetLoginSession(Users currentUser) {
-            Models.Session.SetSession(currentUser.Email, currentUser.Settings);
+            Models.Session.SetSession(currentUser.Email, currentUser.Settings, currentUser.History);
         }
         public static Users GetSession()
         {

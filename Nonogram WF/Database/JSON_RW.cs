@@ -56,8 +56,8 @@ namespace Nonogram_WF.Database
             AllUsers? users = JsonSerializer.Deserialize<AllUsers>(json, _options);
             return users!;
         }
-        public static void SetSession(string email,Settings settings) { //add setting
-            Users UserSession = new Users(email, settings);
+        public static void SetSession(string email,Settings settings, History history) { //add setting
+            Users UserSession = new Users(email, settings, history);
 			string JsonString = JsonSerializer.Serialize(UserSession, _options);
 			File.WriteAllText(_sessionPath, JsonString);
 		}
@@ -72,7 +72,8 @@ namespace Nonogram_WF.Database
 		}
         public static void RemoveSession() {
             Settings settings = new Settings("","");
-            Users user = new Users("", settings);
+            History history = new History(1, 1, false);
+            Users user = new Users("", settings, history);
 			string JsonString = JsonSerializer.Serialize(user, _options);
 
 			File.WriteAllText(_sessionPath, JsonString);

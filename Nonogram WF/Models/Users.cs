@@ -40,22 +40,26 @@ namespace Nonogram_WF.Models
 
         public Settings Settings { get; set; }
 
+        public History History { get; set; }
+
         // Construct if the Users class is initialized with arguments
         [JsonConstructor]
-        public Users(string email, string password, string salt, Settings settings)
+        public Users(string email, string password, string salt, Settings settings, History history)
         {
             Email = email;
             Password = password;
             Salt = salt;
             Settings = settings;
-            
+            History = history;
         }
 
         //Construct for session
-        public Users(string email, Settings settings)
+        public Users(string email, Settings settings, History history)
         {
             Email = email;
             Settings = settings;
+            History = history;
+
         }
         public Users() { }
 
@@ -67,10 +71,10 @@ namespace Nonogram_WF.Models
         /// </summary>
         /// <param name="email"></param>
         /// <param name="dPassword"></param>
-        public static void SetUser(string email, DPassword dPassword, Settings settings)
+        public static void SetUser(string email, DPassword dPassword, Settings settings, History history)
         {
             AllUsers allUsers = JSON_RW.GetUsers();
-            Users user = new Users(email, dPassword.Hash, dPassword.Salt, settings);
+            Users user = new Users(email, dPassword.Hash, dPassword.Salt, settings, history);
             allUsers.Users.Add(user);
             JSON_RW.WriteFile(allUsers);
         }
