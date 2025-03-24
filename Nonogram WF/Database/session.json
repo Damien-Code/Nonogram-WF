@@ -1,9 +1,14 @@
 {
-  "Email": "damien@damien.nl",
+  "Email": "dovandenijssel@live.nl",
   "Password": null,
   "Salt": null,
   "Settings": {
     "Theme": "Dark",
     "FontSize": "9"
+  },
+  "History": {
+    "Level": 5,
+    "HintCount": 2,
+    "UsedSolver": true
   }
 }

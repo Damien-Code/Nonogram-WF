@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Nonogram_WF.Database;
 using Nonogram_WF.Interfaces;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Nonogram_WF.Controllers;
 using System.Text.Json.Serialization;
 
@@ -40,22 +39,26 @@ namespace Nonogram_WF.Models
 
         public Settings Settings { get; set; }
 
+        public History History { get; set; }
+
         // Construct if the Users class is initialized with arguments
         [JsonConstructor]
-        public Users(string email, string password, string salt, Settings settings)
+        public Users(string email, string password, string salt, Settings settings, History history)
         {
             Email = email;
             Password = password;
             Salt = salt;
             Settings = settings;
-            
+            History = history;
         }
 
         //Construct for session
-        public Users(string email, Settings settings)
+        public Users(string email, Settings settings, History history)
         {
             Email = email;
             Settings = settings;
+            History = history;
+
         }
         public Users() { }
 
@@ -67,10 +70,10 @@ namespace Nonogram_WF.Models
         /// </summary>
         /// <param name="email"></param>
         /// <param name="dPassword"></param>
-        public static void SetUser(string email, DPassword dPassword, Settings settings)
+        public static void SetUser(string email, DPassword dPassword, Settings settings, History history)
         {
             AllUsers allUsers = JSON_RW.GetUsers();
-            Users user = new Users(email, dPassword.Hash, dPassword.Salt, settings);
+            Users user = new Users(email, dPassword.Hash, dPassword.Salt, settings, history);
             allUsers.Users.Add(user);
             JSON_RW.WriteFile(allUsers);
         }
@@ -78,7 +81,7 @@ namespace Nonogram_WF.Models
         /// <summary>
         /// Creates salt by using a random value generator and stores it in an array
         /// Then it creates an hashed password by taking the set password from the user together with the created salt
-        /// Uses the SHA-256 algorithm to derive a secret key from the password "key"
+        /// Uses the SHA-256 algorithm
         /// and does a number of iterations to apply to the process and set a length of the derived key
         /// Returns the hash and the converted base64 string of the salt
         /// </summary>
@@ -88,23 +91,39 @@ namespace Nonogram_WF.Models
         {
             byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
 
-            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            string hashed = Convert.ToBase64String(Rfc2898DeriveBytes.Pbkdf2(
                 password: password,
                 salt: salt,
-                prf: KeyDerivationPrf.HMACSHA256,
-                iterationCount: 100000,
-                numBytesRequested: 256 / 8
+                hashAlgorithm: HashAlgorithmName.SHA256,
+                iterations: 100000,
+                outputLength: 64
                 ));
 
             // Chose to return a new DPassword object instead of an string array
             // Using a string array as its return type would result in less readable code
             return new DPassword(hashed, Convert.ToBase64String(salt));
         }
+
+        /// <summary>
+        /// Take the salt and store it in a byte array
+        /// Create a new hash for the login password
+        /// Return the converted base64 string of the newly created hash
+        /// This method will check if the already stored password is the same as the newly created hash
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="salt"></param>
+        /// <returns></returns>
         public static string hashLoginPassword(string password, string salt)
         {
             byte[] saltAsBytes = Convert.FromBase64String(salt);
 
-            byte[] hashToCompare = KeyDerivation.Pbkdf2(password, saltAsBytes, prf:KeyDerivationPrf.HMACSHA256, iterationCount: 100000, numBytesRequested: 256 / 8);
+            byte[] hashToCompare = Rfc2898DeriveBytes.Pbkdf2(
+                password, 
+                saltAsBytes,
+                hashAlgorithm: HashAlgorithmName.SHA256,
+                iterations: 100000,
+                outputLength: 64
+                );
             return Convert.ToBase64String(hashToCompare);
         }
 

@@ -1,183 +1,31 @@
 {
   "Users": [
     {
-      "Email": "asd@asd.asd",
-      "Password": "TQ6YgHJcaKyDBHgajRL2E\u002B0pzvK5MgBPuM3kEPEM1hI=",
-      "Salt": "SLjPpUMh\u002Bio6gIlsK60NPw==",
+      "Email": "test@test.com",
+      "Password": "NMpU8AYpgCSkL2KCMaliNa2Z/DiWGHQ6Io6uZFhh\u002BzfqCJBjEbNrY0rpyWQghGjJTsdsuC0QlDpTnJdhj1OMFg==",
+      "Salt": "GQLNW\u002B\u002BHupjbXXujifX5WA==",
       "Settings": {
         "Theme": "Dark",
         "FontSize": "9"
-      }
-    },
-    {
-      "Email": "asd@asdd.asd",
-      "Password": "GZAVwG4eu0hbKW8pzobzFxy4syfQWfAWY7BS9V2sEkw=",
-      "Salt": "FJMYmQfn1riyTzOTTF8rVw==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "wasdfhjk@asd.asd",
-      "Password": "U3Uis761z0UDaVe8dKrS6BKAfbmfimcR3CuA1PoVTpY=",
-      "Salt": "Bu5\u002BsDy/sOqIQ8qJwi4Jwg==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "pweo@asd.asd",
-      "Password": "qzfwnxuykBwvxM/nkLXgYo8GKlIh\u002BfYA6IgfkR5Gq/o=",
-      "Salt": "8VUcvX30FQQ7yeDCr54LMQ==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "plasdp@asd.asd",
-      "Password": "bD6gDoK5DwEqmasuHkqqYTnhhXpNrRCMksgfufmfzG4=",
-      "Salt": "GnyQkiL8NuviX3lLRwCz3w==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "asdasdasd@asd.asd",
-      "Password": "CgBlhdyjW9tnKxEFe/9vXwOqwhm6ZsWBMOVdTIVKrZU=",
-      "Salt": "zNTiwqNDpJrnRMFljzu9IQ==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "asdm@asd.asd",
-      "Password": "Spj6UnM5ET4GbA3n\u002BSFL2Y\u002BapwAKtIpkDbkJuelFvNg=",
-      "Salt": "pqYn7YyTo3kAAHRswxp7LQ==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "15"
-      }
-    },
-    {
-      "Email": "test@example.nl",
-      "Password": "\u002B097m0Mwn7qzpzwIqMl/Qi0Wuox5hZRMpdK/5Z3CXOY=",
-      "Salt": "9MZEMEMqYnxRTuRzJF1bDw==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "16"
-      }
-    },
-    {
-      "Email": "test@tset.nl",
-      "Password": "kos9oPm7RL\u002BOFsRJqCHU3u9\u002B4kIAkz4FjOgjWI\u002B7PQE=",
-      "Salt": "BUEkMNeKsE66lLJT4vXGbQ==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
+      },
+      "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
       }
     },
     {
       "Email": "dovandenijssel@live.nl",
-      "Password": "cEpg1Kx9u2uCruYgBRRzVBLeNRDpFeXKnDyBERl0R1k=",
-      "Salt": "Ddpfwhg0mBU5EZAVR3jbwA==",
+      "Password": "8rNvR\u002B6KBCcWPYBe\u002BhVTjxWV5rRy77u1GCFpUsKqE9QuSi21sRqRNE5ngiq3zm9rehoDno7lxbSKvioMKkUIgA==",
+      "Salt": "sZ2bfDtZy21WYqDAS7gYiQ==",
       "Settings": {
         "Theme": "Dark",
         "FontSize": "9"
-      }
-    },
-    {
-      "Email": "test@tset.nl",
-      "Password": "J/2wbvaf7jiCIuRI0lQY4KRK1iRfaFVSFzSckKxY7oU=",
-      "Salt": "QfzrucAJPy4x8PjCrLSMuQ==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "test@tset.nl",
-      "Password": "ftQQNd7dKHCsDMruoEJPLYCLZcXCOor6kIr92wwuKd8=",
-      "Salt": "o/LlxvYegqv46nXDYnfUwg==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "asdfg@asfdgh.nl",
-      "Password": "4MDZXZq5WAQDxi8pMtgwDjsd797wm4Q6Rl4rWhshyq8=",
-      "Salt": "qiJJHqsuhFb9xy/ColMEHw==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "test@tset.nlb",
-      "Password": "oCvoo\u002BIbAJyx7A9s75ZbsJQH4UTpFMMFFMDUvtMzqBA=",
-      "Salt": "C5gZZV3RqaLIF071VeB05A==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "test@test.test",
-      "Password": "5JONaqFKrTRleG7nKn5/jJ2vT762Gs7d4ozMv8NWjxM=",
-      "Salt": "RM0sCZsAUqGzAZ2\u002BU3Cm0Q==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "test@test.testty",
-      "Password": "mGw58HFkO9g6PIheLoAdgqjO5gv7Ty7sJ/nUdoDkTYA=",
-      "Salt": "EJif7M4Ot5RxuysOcwA7Lw==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "dovandenijssel@live.com",
-      "Password": "2HoOWrvPn\u002BJxV2KuZwS22QgHzHFAmxVwl9p7ZGqoBVo=",
-      "Salt": "p2q1VGoqE7vKsSfENnneHw==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "asd@asd.asds",
-      "Password": "EQ9CpY4C36P2PsGISHax2VFmjNp/3oPiN/3tOKR4/cw=",
-      "Salt": "vQu2hdXrj0hKy4ajXfOPfg==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "asd@asd.asdss",
-      "Password": "vxqTev98LVBRu/NMJDItKzC8/MDwas1/nFUvQckmBrY=",
-      "Salt": "lXk/vmgPlZKzkGBgkFPVJA==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      }
-    },
-    {
-      "Email": "damien@damien.nl",
-      "Password": "STKxwdT1zVqlQJ/RWX7umyf9oqUBEEBscWhXb60\u002Bi\u002B0=",
-      "Salt": "8n83bIU54v0aSdCyJkP5bw==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
+      },
+      "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
       }
     }
   ]

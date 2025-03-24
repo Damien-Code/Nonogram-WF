@@ -16,6 +16,7 @@ namespace Nonogram_WF.Views
 		public History()
 		{
 			InitializeComponent();
+			PopulateDataGridView();
 		}
 
 		private void buttonHistoryBack_Click(object sender, EventArgs e)
@@ -28,6 +29,15 @@ namespace Nonogram_WF.Views
 		{
 			Session.RemoveSession();
 			Application.Exit();
+		}
+
+		/// <summary>
+		/// Method that populates the datagridview for history
+		/// for each row the level, count and solve is added
+		/// </summary>
+		private void PopulateDataGridView()
+		{
+			dataGridView1.Rows.Add(HistoryController.RetrieveHistory().Level, HistoryController.RetrieveHistory().HintCount, HistoryController.RetrieveHistory().UsedSolver);
 		}
 	}
 }
