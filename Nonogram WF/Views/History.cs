@@ -16,7 +16,8 @@ namespace Nonogram_WF.Views
 		public History()
 		{
 			InitializeComponent();
-		}
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
 
 		private void buttonHistoryBack_Click(object sender, EventArgs e)
 		{

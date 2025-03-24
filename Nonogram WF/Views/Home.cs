@@ -16,6 +16,7 @@ namespace Nonogram_WF.Views
         public Home()
         {
             InitializeComponent();
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(),Controls);
         }
 
         private void buttonHomeLogout_Click(object sender, EventArgs e)

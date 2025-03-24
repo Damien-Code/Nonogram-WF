@@ -20,9 +20,11 @@ namespace Nonogram_WF.Views
 		public Settings()
 		{
 			InitializeComponent();
-			//GetThemeLabel();
-			//GetFontLabel();
-		}
+			Invalidate();
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+            //GetThemeLabel();
+            //GetFontLabel();
+        }
 
 		private void buttonSettingsLogout_Click(object sender, EventArgs e)
 		{
@@ -55,7 +57,10 @@ namespace Nonogram_WF.Views
 			//MessageBox.Show(comboBoxSettingsTheme.Text);
 			if (_themeIndexChangecounter > 0) { 
 				SetTheme(comboBoxSettingsTheme.Text); //change this code to set new theme and call the func again
-			}
+				Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+            }
+				MessageBox.Show("change color" + label1.BackColor);
+				Refresh();
 			_themeIndexChangecounter++;
 		}
 		private void comboBoxSettingsFont_SelectedIndexChanged(object sender, EventArgs e)
@@ -90,6 +95,6 @@ namespace Nonogram_WF.Views
 			_themeIndexChangecounter = 0;
 			GetThemeLabel();
 			GetFontLabel();
-		}
+        }
 	}
 }

@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nonogram_WF.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,6 +16,7 @@ namespace Nonogram_WF.Views
         public Instructions()
         {
             InitializeComponent();
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
 
         private void buttonGameInstructions_Click(object sender, EventArgs e)
