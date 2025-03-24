@@ -15,19 +15,13 @@ namespace Nonogram_WF.Controllers
             dynamic t;
             if (themeName == "")
             {
-                //MessageBox.Show("test");
                 t = Type.GetType("Nonogram_WF.Themes.Light");
-
             }
-            //var x = (Theme)Activator.CreateInstance(Type.GetType(themeName))!;
             else { 
                 string currentTheme = "Nonogram_WF.Themes." + themeName;
             t = Type.GetType(currentTheme)!;
             }
-            //if (t == null) { Convert.ChangeType(t, typeof(Light)); }
-            //MessageBox.Show(Type.GetType(objType.AssemblyQualifiedName).ToString());
             return (Theme)Activator.CreateInstance(t)!;
-            //return y;
         }
     }
 }
