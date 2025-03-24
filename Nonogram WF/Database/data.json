@@ -13,6 +13,20 @@
         "HintCount": 2,
         "UsedSolver": true
       }
+    },
+    {
+      "Email": "dovandenijssel@live.nl",
+      "Password": "8rNvR\u002B6KBCcWPYBe\u002BhVTjxWV5rRy77u1GCFpUsKqE9QuSi21sRqRNE5ngiq3zm9rehoDno7lxbSKvioMKkUIgA==",
+      "Salt": "sZ2bfDtZy21WYqDAS7gYiQ==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "9"
+      },
+      "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
+      }
     }
   ]
 }
