@@ -81,7 +81,7 @@ namespace Nonogram_WF.Models
         /// <summary>
         /// Creates salt by using a random value generator and stores it in an array
         /// Then it creates an hashed password by taking the set password from the user together with the created salt
-        /// Uses the SHA-256 algorithm to derive a secret key from the password "key"
+        /// Uses the SHA-256 algorithm
         /// and does a number of iterations to apply to the process and set a length of the derived key
         /// Returns the hash and the converted base64 string of the salt
         /// </summary>
@@ -91,19 +91,11 @@ namespace Nonogram_WF.Models
         {
             byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
 
-            //string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
-            //    password: password,
-            //    salt: salt,
-            //    prf: KeyDerivationPrf.HMACSHA256,
-            //    iterationCount: 100000,
-            //    numBytesRequested: 256 / 8
-            //    ));
-
             string hashed = Convert.ToBase64String(Rfc2898DeriveBytes.Pbkdf2(
                 password: password,
                 salt: salt,
-                iterations: 100000,
                 hashAlgorithm: HashAlgorithmName.SHA256,
+                iterations: 100000,
                 outputLength: 64
                 ));
 
@@ -111,13 +103,26 @@ namespace Nonogram_WF.Models
             // Using a string array as its return type would result in less readable code
             return new DPassword(hashed, Convert.ToBase64String(salt));
         }
+
+        /// <summary>
+        /// Take the salt and store it in a byte array
+        /// Create a new hash for the login password
+        /// Return the converted base64 string of the newly created hash
+        /// This method will check if the already stored password is the same as the newly created hash
+        /// </summary>
+        /// <param name="password"></param>
+        /// <param name="salt"></param>
+        /// <returns></returns>
         public static string hashLoginPassword(string password, string salt)
         {
             byte[] saltAsBytes = Convert.FromBase64String(salt);
 
-            //byte[] hashToCompare = KeyDerivation.Pbkdf2(password, saltAsBytes, prf:KeyDerivationPrf.HMACSHA256, iterationCount: 100000, numBytesRequested: 256 / 8);
             byte[] hashToCompare = Rfc2898DeriveBytes.Pbkdf2(
-                password, saltAsBytes, iterations: 100000, hashAlgorithm: HashAlgorithmName.SHA256, outputLength: 64
+                password, 
+                saltAsBytes,
+                hashAlgorithm: HashAlgorithmName.SHA256,
+                iterations: 100000,
+                outputLength: 64
                 );
             return Convert.ToBase64String(hashToCompare);
         }
