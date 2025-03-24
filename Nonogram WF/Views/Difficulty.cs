@@ -16,7 +16,7 @@ namespace Nonogram_WF.Views
         public Difficulty()
         {
             InitializeComponent();
-            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+            //Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
 
         private void buttonDifficultyHelp_Click(object sender, EventArgs e)
@@ -26,8 +26,8 @@ namespace Nonogram_WF.Views
 
         private void buttonDifficultyLogout_Click(object sender, EventArgs e)
         {
-			Session.RemoveSession();
-			Application.Exit();
+            Session.RemoveSession();
+            Application.Exit();
         }
 
         private void buttonDifficultyBack_Click(object sender, EventArgs e)
@@ -40,6 +40,13 @@ namespace Nonogram_WF.Views
         {
             this.Hide();
             FindForm().Controls.Find("GameScreen", false).First().Show();
+        }
+
+        
+
+        private void Difficulty_VisibleChanged(object sender, EventArgs e)
+        {
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
     }
 }

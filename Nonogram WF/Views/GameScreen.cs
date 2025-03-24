@@ -12,26 +12,31 @@ using Nonogram_WF.Themes;
 
 namespace Nonogram_WF.Views
 {
-	public partial class GameScreen : UserControl
-	{
-		private Theme _theme = ThemeController.GetTheme();
+    public partial class GameScreen : UserControl
+    {
+        private Theme _theme = ThemeController.GetTheme();
 
         public GameScreen()
-		{
-			InitializeComponent();
+        {
+            InitializeComponent();
             Themes.Theme.ChangeTheme(_theme, Controls);
         }
 
-		private void buttonGameScreenBack_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			FindForm().Controls.Find("Difficulty", false).First().Show();
-		}
+        private void buttonGameScreenBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Difficulty", false).First().Show();
+        }
 
-		private void buttonGameScreenLogout_Click(object sender, EventArgs e)
-		{
-			Session.RemoveSession();
-			Application.Exit();
-		}
-	}
+        private void buttonGameScreenLogout_Click(object sender, EventArgs e)
+        {
+            Session.RemoveSession();
+            Application.Exit();
+        }
+
+        private void GameScreen_VisibleChanged(object sender, EventArgs e)
+        {
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
+    }
 }

@@ -11,24 +11,29 @@ using Nonogram_WF.Controllers;
 
 namespace Nonogram_WF.Views
 {
-	public partial class History : UserControl
-	{
-		public History()
-		{
-			InitializeComponent();
+    public partial class History : UserControl
+    {
+        public History()
+        {
+            InitializeComponent();
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
 
-		private void buttonHistoryBack_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			FindForm().Controls.Find("Home", false).First().Show();
-		}
+        private void buttonHistoryBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Home", false).First().Show();
+        }
 
-		private void buttonHistoryLogout_Click(object sender, EventArgs e)
-		{
-			Session.RemoveSession();
-			Application.Exit();
-		}
-	}
+        private void buttonHistoryLogout_Click(object sender, EventArgs e)
+        {
+            Session.RemoveSession();
+            Application.Exit();
+        }
+
+        private void History_VisibleChanged(object sender, EventArgs e)
+        {
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
+    }
 }

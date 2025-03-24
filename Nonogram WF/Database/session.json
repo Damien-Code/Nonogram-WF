@@ -1,9 +1,9 @@
 {
-  "Email": "asdm@asd.asd",
+  "Email": "",
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "Light",
-    "FontSize": "15"
+    "Theme": "",
+    "FontSize": ""
   }
 }

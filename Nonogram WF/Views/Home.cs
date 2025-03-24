@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel;
+using System.ComponentModel.Design.Serialization;
 using System.Data;
 using System.Drawing;
 using System.Linq;
@@ -16,13 +17,13 @@ namespace Nonogram_WF.Views
         public Home()
         {
             InitializeComponent();
-            Themes.Theme.ChangeTheme(ThemeController.GetTheme(),Controls);
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
 
         private void buttonHomeLogout_Click(object sender, EventArgs e)
         {
-			Session.RemoveSession();
-			Application.Exit();
+            Session.RemoveSession();
+            Application.Exit();
         }
 
         private void buttonHomePlayGame_Click(object sender, EventArgs e)
@@ -42,6 +43,11 @@ namespace Nonogram_WF.Views
         {
             this.Hide();
             FindForm().Controls.Find("Settings", false).First().Show();
+        }
+
+        private void Home_VisibleChanged(object sender, EventArgs e)
+        {
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
     }
 }

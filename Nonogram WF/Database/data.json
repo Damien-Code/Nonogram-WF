@@ -59,8 +59,17 @@
       "Password": "Spj6UnM5ET4GbA3n\u002BSFL2Y\u002BapwAKtIpkDbkJuelFvNg=",
       "Salt": "pqYn7YyTo3kAAHRswxp7LQ==",
       "Settings": {
-        "Theme": "Light",
+        "Theme": "Dark",
         "FontSize": "15"
+      }
+    },
+    {
+      "Email": "test@test.test",
+      "Password": "R9xgVK6LNAWUmime1HxqK3e3RVk4FEQlonPWCS/y81M=",
+      "Salt": "Z0rOfuVNklSxGNe8MgrGvQ==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "9"
       }
     }
   ]

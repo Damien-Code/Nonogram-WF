@@ -46,7 +46,7 @@ namespace Nonogram_WF.Themes
 * Textbox
 * Datagrid
 */
-		public static bool ChangeTheme(Theme theme, Control.ControlCollection container) {
+		public static void ChangeTheme(Theme theme, Control.ControlCollection container) {
 			foreach (Control component in container)
 			{
                 if (component is UserControl)
@@ -80,7 +80,6 @@ namespace Nonogram_WF.Themes
                     component.BackColor = theme.DataGridViewBG;
                     component.ForeColor = theme.DataGridViewFG;
                 }
-                return true;
 			}
 		}
     }

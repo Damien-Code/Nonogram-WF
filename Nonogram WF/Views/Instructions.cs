@@ -24,5 +24,10 @@ namespace Nonogram_WF.Views
             this.Hide();
             FindForm().Controls.Find("Home", false).First().Show();
         }
+
+        private void buttonGameInstructions_VisibleChanged(object sender, EventArgs e)
+        {
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
     }
 }
