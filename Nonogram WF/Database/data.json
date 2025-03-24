@@ -2,50 +2,8 @@
   "Users": [
     {
       "Email": "test@test.com",
-      "Password": "V6zgo8pivASA82VcJrGGsrFP52jRal7DThg2rCCxwBQ=",
-      "Salt": "28E0YeY70req6T7\u002ByOTB8Q==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      },
-      "History": {
-        "Level": 5,
-        "HintCount": 2,
-        "UsedSolver": true
-      }
-    },
-    {
-      "Email": "test@tset.com",
-      "Password": "jxBlz01Eu\u002Bwx9UnH7N\u002B9ObWq7/VK/8VgUWQZMFfISms=",
-      "Salt": "f4LS5/V/TS8xhlUnzDMqBg==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      },
-      "History": {
-        "Level": 5,
-        "HintCount": 2,
-        "UsedSolver": true
-      }
-    },
-    {
-      "Email": "tset@tset.com",
-      "Password": "kDb7OBnLHwF4H8sABQwkus\u002BYqdSJppi91T8BUHpzY78=",
-      "Salt": "cSFwpfgjOim98AuWKFzBOw==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      },
-      "History": {
-        "Level": 5,
-        "HintCount": 2,
-        "UsedSolver": true
-      }
-    },
-    {
-      "Email": "do@do.nl",
-      "Password": "M9bbVwgbyUV/xhTj45DqHwP\u002BYFYrt1diZhlocO0XZ7Y=",
-      "Salt": "KWEv9Xvv2qi4gNEMM78gxQ==",
+      "Password": "NMpU8AYpgCSkL2KCMaliNa2Z/DiWGHQ6Io6uZFhh\u002BzfqCJBjEbNrY0rpyWQghGjJTsdsuC0QlDpTnJdhj1OMFg==",
+      "Salt": "GQLNW\u002B\u002BHupjbXXujifX5WA==",
       "Settings": {
         "Theme": "Dark",
         "FontSize": "9"

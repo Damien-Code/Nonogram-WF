@@ -7,7 +7,6 @@ using System.Text;
 using System.Threading.Tasks;
 using Nonogram_WF.Database;
 using Nonogram_WF.Interfaces;
-using Microsoft.AspNetCore.Cryptography.KeyDerivation;
 using Nonogram_WF.Controllers;
 using System.Text.Json.Serialization;
 
@@ -92,12 +91,20 @@ namespace Nonogram_WF.Models
         {
             byte[] salt = RandomNumberGenerator.GetBytes(128 / 8);
 
-            string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            //string hashed = Convert.ToBase64String(KeyDerivation.Pbkdf2(
+            //    password: password,
+            //    salt: salt,
+            //    prf: KeyDerivationPrf.HMACSHA256,
+            //    iterationCount: 100000,
+            //    numBytesRequested: 256 / 8
+            //    ));
+
+            string hashed = Convert.ToBase64String(Rfc2898DeriveBytes.Pbkdf2(
                 password: password,
                 salt: salt,
-                prf: KeyDerivationPrf.HMACSHA256,
-                iterationCount: 100000,
-                numBytesRequested: 256 / 8
+                iterations: 100000,
+                hashAlgorithm: HashAlgorithmName.SHA256,
+                outputLength: 64
                 ));
 
             // Chose to return a new DPassword object instead of an string array
@@ -108,7 +115,10 @@ namespace Nonogram_WF.Models
         {
             byte[] saltAsBytes = Convert.FromBase64String(salt);
 
-            byte[] hashToCompare = KeyDerivation.Pbkdf2(password, saltAsBytes, prf:KeyDerivationPrf.HMACSHA256, iterationCount: 100000, numBytesRequested: 256 / 8);
+            //byte[] hashToCompare = KeyDerivation.Pbkdf2(password, saltAsBytes, prf:KeyDerivationPrf.HMACSHA256, iterationCount: 100000, numBytesRequested: 256 / 8);
+            byte[] hashToCompare = Rfc2898DeriveBytes.Pbkdf2(
+                password, saltAsBytes, iterations: 100000, hashAlgorithm: HashAlgorithmName.SHA256, outputLength: 64
+                );
             return Convert.ToBase64String(hashToCompare);
         }
 

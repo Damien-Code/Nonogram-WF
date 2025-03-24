@@ -1,14 +1,14 @@
 {
-  "Email": "do@do.nl",
+  "Email": "",
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "Dark",
-    "FontSize": "9"
+    "Theme": "",
+    "FontSize": ""
   },
-    "History": {
-        "Level": 5,
-        "HintCount": 2,
-        "UsedSolver": true
-    }
+  "History": {
+    "Level": 1,
+    "HintCount": 1,
+    "UsedSolver": false
+  }
 }
