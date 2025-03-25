@@ -38,15 +38,14 @@
         /// </summary>
         private void InitializeComponent()
         {
-            Login = new Login();
-            welcome2 = new Views.Welcome();
+            Login = new Views.Login();
+            Welcome = new Views.Welcome();
             Instructions = new Views.Instructions();
             Home = new Views.Home();
             Difficulty = new Views.Difficulty();
             GameScreen = new Views.GameScreen();
             Settings = new Views.Settings();
             Registration = new Views.Registration();
-            History = new Views.History();
             SuspendLayout();
             // 
             // Login
@@ -59,16 +58,16 @@
             Login.TabIndex = 0;
             Login.Visible = false;
             // 
-            // welcome2
+            // Welcome
             // 
-            welcome2.BackColor = Color.White;
-            welcome2.Dock = DockStyle.Fill;
-            welcome2.Location = new Point(0, 0);
-            welcome2.Margin = new Padding(1, 0, 1, 0);
-            welcome2.Name = "welcome2";
-            welcome2.Size = new Size(784, 436);
-            welcome2.TabIndex = 0;
-            welcome2.Load += welcome2_Load;
+            Welcome.BackColor = Color.White;
+            Welcome.Dock = DockStyle.Fill;
+            Welcome.Location = new Point(0, 0);
+            Welcome.Margin = new Padding(1, 0, 1, 0);
+            Welcome.Name = "Welcome";
+            Welcome.Size = new Size(784, 436);
+            Welcome.TabIndex = 0;
+            Welcome.Load += welcome2_Load;
             // 
             // Instructions
             // 
@@ -130,22 +129,12 @@
             Registration.TabIndex = 7;
             Registration.Visible = false;
             // 
-            // History
-            // 
-            History.Dock = DockStyle.Fill;
-            History.Location = new Point(0, 0);
-            History.Margin = new Padding(2, 1, 2, 1);
-            History.Name = "History";
-            History.Size = new Size(784, 436);
-            History.TabIndex = 8;
-            History.Visible = false;
-            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 436);
-            Controls.Add(welcome2);
+            Controls.Add(Welcome);
             Controls.Add(Difficulty);
             Controls.Add(Home);
             Controls.Add(Instructions);
@@ -153,7 +142,6 @@
             Controls.Add(GameScreen);
             Controls.Add(Settings);
             Controls.Add(Registration);
-            Controls.Add(History);
             Margin = new Padding(2, 1, 2, 1);
             Name = "Form1";
             Text = "Form1";
@@ -161,7 +149,7 @@
         }
 
         #endregion
-        private Views.Welcome welcome2;
+        private Views.Welcome Welcome;
         private Views.Instructions Instructions;
         private Views.Home Home;
         private Views.Difficulty difficulty1;
@@ -169,7 +157,7 @@
         private Views.GameScreen GameScreen;
         private Views.Settings Settings;
         private Views.Registration Registration;
-        private Login Login;
+        private Views.Login Login;
         private Views.History History;
     }
 

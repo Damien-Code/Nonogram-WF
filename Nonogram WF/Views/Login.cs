@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nonogram_WF.Controllers;
 
-namespace Nonogram_WF
+namespace Nonogram_WF.Views
 {
     public partial class Login : UserControl
     {

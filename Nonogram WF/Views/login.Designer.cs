@@ -1,4 +1,4 @@
-﻿namespace Nonogram_WF
+﻿namespace Nonogram_WF.Views
 {
 	partial class Login
 	{
@@ -81,7 +81,7 @@
             textBoxLoginPassword.Name = "textBoxLoginPassword";
             textBoxLoginPassword.PasswordChar = '*';
             textBoxLoginPassword.PlaceholderText = "Password:";
-            textBoxLoginPassword.Size = new Size(300, 26);
+            textBoxLoginPassword.Size = new Size(300, 23);
             textBoxLoginPassword.TabIndex = 2;
             // 
             // textBoxLoginEmail
@@ -91,7 +91,7 @@
             textBoxLoginEmail.Multiline = true;
             textBoxLoginEmail.Name = "textBoxLoginEmail";
             textBoxLoginEmail.PlaceholderText = "Email:";
-            textBoxLoginEmail.Size = new Size(300, 26);
+            textBoxLoginEmail.Size = new Size(300, 23);
             textBoxLoginEmail.TabIndex = 1;
             // 
             // labelLogin
