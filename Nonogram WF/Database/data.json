@@ -27,6 +27,20 @@
         "HintCount": 2,
         "UsedSolver": true
       }
+    },
+    {
+      "Email": "test@test.nl",
+      "Password": "c2OuTotHJsFucUQjLXfS0I57Id7ejr3s8P4YXYn4vaPWLpF8fhp/zHv6YMEil0G7/f/DkPuyMz6Ah6xP6f20Aw==",
+      "Salt": "0USIqDzY9pi1TMxC4nQNpw==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "9"
+      },
+      "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
+      }
     }
   ]
 }
