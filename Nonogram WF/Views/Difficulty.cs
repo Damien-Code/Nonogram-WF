@@ -16,7 +16,8 @@ namespace Nonogram_WF.Views
         public Difficulty()
         {
             InitializeComponent();
-            //Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+            //all views have this call to prevent flickering if the user has dark mode enabled on startup
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
 
         private void buttonDifficultyHelp_Click(object sender, EventArgs e)
