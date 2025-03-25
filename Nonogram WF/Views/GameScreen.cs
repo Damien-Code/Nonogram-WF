@@ -19,7 +19,9 @@ namespace Nonogram_WF.Views
 		public int GridSize;
 		protected int MaxGridSize = 400;//max length of grid
 		private List<int[]> _grid;
-        private Theme _theme = ThemeController.GetTheme();
+		private Theme _theme = ThemeController.GetTheme();
+		private int _horizontalStartPosition = 375;
+		private int _verticalStartPosition = 175;
 		public GameScreen()
 		{
 			//GridSize = GridSize + 4;
@@ -28,11 +30,11 @@ namespace Nonogram_WF.Views
 			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
 		}
 
-        private void buttonGameScreenBack_Click(object sender, EventArgs e)
-        {
-            this.Hide();
-            FindForm().Controls.Find("Difficulty", false).First().Show();
-        }
+		private void buttonGameScreenBack_Click(object sender, EventArgs e)
+		{
+			this.Hide();
+			FindForm().Controls.Find("Difficulty", false).First().Show();
+		}
 
 		private void buttonGameScreenLogout_Click(object sender, EventArgs e)
 		{
@@ -45,36 +47,60 @@ namespace Nonogram_WF.Views
 			GameController.initializeGrid(GridSize);
 			OnPaint(e);
 		}
-		protected override void OnPaint(PaintEventArgs e) {
+		protected override void OnPaint(PaintEventArgs e)
+		{
 			base.OnPaint(e);
 			Graphics g = e.Graphics;
 
-			Pen p = new(_theme.PenColor); // TODO: make it change depending on theme (light theme is Color.Black)
+			Pen p = new(_theme.PenColor); 
 			int TotalCellsPerRow = GridSize;
 			//int cellSize = 30;
-			int cellSize = (int)Math.Floor(MaxGridSize/(double)GridSize);
-			int horizontalStartPosition = 375;
-			int verticalStartPosition = 175;
+			int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
+			//int horizontalStartPosition = 375;
+			//int verticalStartPosition = 175;
 
-			for (int i = 0; i < TotalCellsPerRow+1; i++)
+			for (int i = 0; i <= TotalCellsPerRow; i++)
 			{
 				// Vertical
-				g.DrawLine(p, (i * cellSize)+horizontalStartPosition, verticalStartPosition, i * cellSize + horizontalStartPosition, TotalCellsPerRow * cellSize + verticalStartPosition);
+				g.DrawLine(p, (i * cellSize) + _horizontalStartPosition, _verticalStartPosition, i * cellSize + _horizontalStartPosition, TotalCellsPerRow * cellSize + _verticalStartPosition);
 				// Horizontal
-				g.DrawLine(p, horizontalStartPosition, (i * cellSize) + verticalStartPosition, TotalCellsPerRow * cellSize + horizontalStartPosition, i * cellSize + verticalStartPosition);
+				g.DrawLine(p, _horizontalStartPosition, (i * cellSize) + _verticalStartPosition, TotalCellsPerRow * cellSize + _horizontalStartPosition, i * cellSize + _verticalStartPosition);
 			}
 		}
 
-        private void GameScreen_VisibleChanged(object sender, EventArgs e)
-        {
+		private void GameScreen_VisibleChanged(object sender, EventArgs e)
+		{
 			_theme = ThemeController.GetTheme();
 
 			Themes.Theme.ChangeTheme(_theme, Controls);
 			Refresh();
-        }
-		public void ThemeChange() {
+		}
+		public void ThemeChange()
+		{
 			_theme = ThemeController.GetTheme();
 			Themes.Theme.ChangeTheme(_theme, Controls);
 		}
-    }
+
+		private void panel1_Click(object sender, EventArgs e)
+		{
+			Point relativePoint = this.PointToClient(Cursor.Position);
+			Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
+			Point gridEnd = new Point(_horizontalStartPosition + MaxGridSize, _verticalStartPosition + MaxGridSize);
+			//int gridPositionStartX = _horizontalStartPosition;
+			//int gridPositionStartY = _verticalStartPosition;
+			//int gridPositionEndX = _horizontalStartPosition + MaxGridSize;
+			//int gridPositionEndY = _verticalStartPosition + MaxGridSize;
+			//Point x = Cursor.Position;
+			int mousePosX = relativePoint.X;
+			int mousePosY = relativePoint.Y;
+			if ((relativePoint.X >= gridStart.X && relativePoint.X <= gridEnd.X) && (relativePoint.Y >= gridStart.Y && relativePoint.Y <= gridEnd.Y))
+			{
+				MessageBox.Show("inside grid");
+			}
+			else { 
+				MessageBox.Show("outside grid");
+			}
+			//MessageBox.Show($"start: {gridPositionStartX}, {gridPositionStartY}\nend: {gridPositionEndX}, {gridPositionEndY}\nMouse: {x}, {y}\nMouseGrid: {x - gridPositionStartX}, {y - gridPositionStartY}\n Relative: {relativePoint.X}, {relativePoint.Y}");
+		}
+	}
 }
