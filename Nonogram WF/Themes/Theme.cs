@@ -1,4 +1,5 @@
-﻿using Nonogram_WF.Interfaces;
+﻿using Nonogram_WF.Controllers;
+using Nonogram_WF.Interfaces;
 using System;
 using System.Collections.Generic;
 using System.Diagnostics.Eventing.Reader;
@@ -9,7 +10,7 @@ using System.Threading.Tasks;
 
 namespace Nonogram_WF.Themes
 {
-    class Theme : ITheme
+    class Theme : ITheme, IPen
     {
         private Color _userControlBG;
         private Color _userControlFG;
@@ -23,6 +24,7 @@ namespace Nonogram_WF.Themes
         private Color _textBoxFG;
         private Color _dataGridViewBG;
         private Color _dataGridViewFG;
+        private Color _penColor;
 		public Color UserControlBG { get { return _userControlBG; } set { _userControlBG = value; } }
 		public Color UserControlFG { get { return _userControlFG; } set { _userControlFG = value; } }
 		public Color PanelBG { get { return _panelBG; } set { _panelBG = value; } }
@@ -35,6 +37,7 @@ namespace Nonogram_WF.Themes
 		public Color TextBoxFG { get { return _textBoxFG; } set { _textBoxFG = value; } }
 		public Color DataGridViewBG { get { return _dataGridViewBG; } set { _dataGridViewBG = value; } }
 		public Color DataGridViewFG { get { return _dataGridViewFG; } set { _dataGridViewFG = value; } }
+		public Color PenColor { get { return _penColor; } set { _penColor = value; } }
         public Theme() { 
             
         }
@@ -82,5 +85,10 @@ namespace Nonogram_WF.Themes
                 }
 			}
 		}
+        public static Color GetPenColor() {
+            Theme chosenTheme = ThemeController.GetTheme();
+
+            return Color.Black;
+        }
     }
 }

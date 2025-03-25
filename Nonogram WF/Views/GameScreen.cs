@@ -19,17 +19,11 @@ namespace Nonogram_WF.Views
 		public int GridSize;
 		protected int MaxGridSize = 400;//max length of grid
 		private List<int[]> _grid;
+        private Theme _theme = ThemeController.GetTheme();
 		public GameScreen()
 		{
 			//GridSize = GridSize + 4;
 			InitializeComponent();
-    public partial class GameScreen : UserControl
-    {
-        private Theme _theme = ThemeController.GetTheme();
-
-        public GameScreen()
-        {
-            InitializeComponent();
 			//all views have this call to prevent flickering if the user has dark mode enabled on startup
 			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
 		}
@@ -55,7 +49,7 @@ namespace Nonogram_WF.Views
 			base.OnPaint(e);
 			Graphics g = e.Graphics;
 
-			Pen p = new(Themes.Theme.GetPenColor()); // TODO: make it change depending on theme (light theme is Color.Black)
+			Pen p = new(_theme.PenColor); // TODO: make it change depending on theme (light theme is Color.Black)
 			int TotalCellsPerRow = GridSize;
 			//int cellSize = 30;
 			int cellSize = (int)Math.Floor(MaxGridSize/(double)GridSize);
@@ -70,16 +64,17 @@ namespace Nonogram_WF.Views
 				g.DrawLine(p, horizontalStartPosition, (i * cellSize) + verticalStartPosition, TotalCellsPerRow * cellSize + horizontalStartPosition, i * cellSize + verticalStartPosition);
 			}
 		}
-	}
-        private void buttonGameScreenLogout_Click(object sender, EventArgs e)
-        {
-            Session.RemoveSession();
-            Application.Exit();
-        }
 
         private void GameScreen_VisibleChanged(object sender, EventArgs e)
         {
-            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+			_theme = ThemeController.GetTheme();
+
+			Themes.Theme.ChangeTheme(_theme, Controls);
+			Refresh();
         }
+		public void ThemeChange() {
+			_theme = ThemeController.GetTheme();
+			Themes.Theme.ChangeTheme(_theme, Controls);
+		}
     }
 }

@@ -17,11 +17,6 @@ namespace Nonogram_WF.Views
 		{
 			InitializeComponent();
 			PopulateDataGridView();
-    public partial class History : UserControl
-    {
-        public History()
-        {
-            InitializeComponent();
 			//all views have this call to prevent flickering if the user has dark mode enabled on startup
 			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
 		}
@@ -44,14 +39,12 @@ namespace Nonogram_WF.Views
 		/// </summary>
 		private void PopulateDataGridView()
 		{
-			dataGridView1.Rows.Add(HistoryController.RetrieveHistory().Level, HistoryController.RetrieveHistory().HintCount, HistoryController.RetrieveHistory().UsedSolver);
+			//dataGridView1.Rows.Add(HistoryController.RetrieveHistory().Level, 
+			//	HistoryController.RetrieveHistory().HintCount, 
+			//	HistoryController.RetrieveHistory().UsedSolver);
 		}
-	}
-        private void buttonHistoryLogout_Click(object sender, EventArgs e)
-        {
-            Session.RemoveSession();
-            Application.Exit();
-        }
+	
+        
 
         private void History_VisibleChanged(object sender, EventArgs e)
         {

@@ -63,7 +63,8 @@
       "Settings": {
         "Theme": "Dark",
         "FontSize": "9"
-      }
+      },
+      "History": null
     },
     {
       "Email": "asdasd@asd.asd",
@@ -72,7 +73,8 @@
       "Settings": {
         "Theme": "DarkBlue",
         "FontSize": "9"
-      }
+      },
+      "History": null
     }
   ]
 }

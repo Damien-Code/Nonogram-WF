@@ -38,7 +38,11 @@ namespace Nonogram_WF.Views
         private void GetThemeLabel()
         {
             string userTheme = GetTheme();
-            comboBoxSettingsTheme.Text = (userTheme == "Light") ? "Light" : "Dark";
+            comboBoxSettingsTheme.Text = 
+                (userTheme == "Light") ? "Light" :
+                (userTheme == "Dark") ? "Dark" : 
+                (userTheme == "DarkBlue") ? "DarkBlue" :
+                "Grey";
             return;
 
         }
