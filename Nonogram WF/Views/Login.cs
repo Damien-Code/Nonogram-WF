@@ -11,9 +11,9 @@ using Nonogram_WF.Controllers;
 
 namespace Nonogram_WF
 {
-    public partial class login : UserControl
+    public partial class Login : UserControl
     {
-        public login()
+        public Login()
         {
             InitializeComponent();
             //this.Dock = DockStyle.Fill;

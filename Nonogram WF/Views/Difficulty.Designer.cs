@@ -49,15 +49,17 @@
             panel1.Controls.Add(buttonDifficultyBack);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2, 1, 2, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1400, 925);
+            panel1.Size = new Size(800, 475);
             panel1.TabIndex = 0;
             // 
             // buttonDifficultyPlayGame
             // 
-            buttonDifficultyPlayGame.Location = new Point(562, 602);
+            buttonDifficultyPlayGame.Location = new Point(303, 282);
+            buttonDifficultyPlayGame.Margin = new Padding(2, 1, 2, 1);
             buttonDifficultyPlayGame.Name = "buttonDifficultyPlayGame";
-            buttonDifficultyPlayGame.Size = new Size(289, 121);
+            buttonDifficultyPlayGame.Size = new Size(156, 57);
             buttonDifficultyPlayGame.TabIndex = 5;
             buttonDifficultyPlayGame.Text = "Play Game";
             buttonDifficultyPlayGame.UseVisualStyleBackColor = true;
@@ -65,9 +67,10 @@
             // 
             // buttonDifficultyHelp
             // 
-            buttonDifficultyHelp.Location = new Point(830, 423);
+            buttonDifficultyHelp.Location = new Point(447, 198);
+            buttonDifficultyHelp.Margin = new Padding(2, 1, 2, 1);
             buttonDifficultyHelp.Name = "buttonDifficultyHelp";
-            buttonDifficultyHelp.Size = new Size(93, 39);
+            buttonDifficultyHelp.Size = new Size(50, 18);
             buttonDifficultyHelp.TabIndex = 4;
             buttonDifficultyHelp.Text = "Help";
             buttonDifficultyHelp.UseVisualStyleBackColor = true;
@@ -75,26 +78,29 @@
             // 
             // numericUpDownDifficulty
             // 
-            numericUpDownDifficulty.Location = new Point(517, 424);
+            numericUpDownDifficulty.Location = new Point(278, 199);
+            numericUpDownDifficulty.Margin = new Padding(2, 1, 2, 1);
             numericUpDownDifficulty.Name = "numericUpDownDifficulty";
-            numericUpDownDifficulty.Size = new Size(254, 39);
+            numericUpDownDifficulty.Size = new Size(137, 23);
             numericUpDownDifficulty.TabIndex = 3;
             // 
             // labelDifficulty
             // 
             labelDifficulty.AutoSize = true;
             labelDifficulty.Font = new Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelDifficulty.Location = new Point(542, 192);
+            labelDifficulty.Location = new Point(292, 90);
+            labelDifficulty.Margin = new Padding(2, 0, 2, 0);
             labelDifficulty.Name = "labelDifficulty";
-            labelDifficulty.Size = new Size(333, 100);
+            labelDifficulty.Size = new Size(171, 51);
             labelDifficulty.TabIndex = 2;
             labelDifficulty.Text = "Difficulty";
             // 
             // buttonDifficultyLogout
             // 
-            buttonDifficultyLogout.Location = new Point(1220, 37);
+            buttonDifficultyLogout.Location = new Point(657, 17);
+            buttonDifficultyLogout.Margin = new Padding(2, 1, 2, 1);
             buttonDifficultyLogout.Name = "buttonDifficultyLogout";
-            buttonDifficultyLogout.Size = new Size(150, 46);
+            buttonDifficultyLogout.Size = new Size(81, 22);
             buttonDifficultyLogout.TabIndex = 1;
             buttonDifficultyLogout.Text = "Logout";
             buttonDifficultyLogout.UseVisualStyleBackColor = true;
@@ -102,9 +108,10 @@
             // 
             // buttonDifficultyBack
             // 
-            buttonDifficultyBack.Location = new Point(34, 37);
+            buttonDifficultyBack.Location = new Point(18, 17);
+            buttonDifficultyBack.Margin = new Padding(2, 1, 2, 1);
             buttonDifficultyBack.Name = "buttonDifficultyBack";
-            buttonDifficultyBack.Size = new Size(150, 46);
+            buttonDifficultyBack.Size = new Size(81, 22);
             buttonDifficultyBack.TabIndex = 0;
             buttonDifficultyBack.Text = "Back";
             buttonDifficultyBack.UseVisualStyleBackColor = true;
@@ -112,11 +119,12 @@
             // 
             // Difficulty
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "Difficulty";
-            Size = new Size(1400, 925);
+            Size = new Size(800, 475);
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ((System.ComponentModel.ISupportInitialize)numericUpDownDifficulty).EndInit();

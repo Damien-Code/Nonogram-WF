@@ -14,8 +14,9 @@ namespace Nonogram_WF.Database
     {
         // The relative filepath so data can be stored in the data.json file in the database folder.
         private static readonly string _filePath = "../../../Database/data.json";
-        private static readonly string _sessionPath = "../../../Database/session.json";
-
+        //private static readonly string _sessionPath = "../../../Database/session.json";
+        private static readonly string _sessionPath = "C:\\Users\\damienocean\\source\\repos\\Nonogram WF\\Nonogram WF\\Database\\session.json";
+        //C:\Users\damienocean\source\repos\Nonogram WF\Nonogram WF\Database\session.json
         /// <summary>
         /// Static method so it is possible to write to data.json everywhere
         /// Serializes the object that is stored and the options
