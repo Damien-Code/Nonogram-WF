@@ -55,6 +55,24 @@
         "HintCount": 2,
         "UsedSolver": true
       }
+    },
+    {
+      "Email": "test@test.test",
+      "Password": "R9xgVK6LNAWUmime1HxqK3e3RVk4FEQlonPWCS/y81M=",
+      "Salt": "Z0rOfuVNklSxGNe8MgrGvQ==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "9"
+      }
+    },
+    {
+      "Email": "asdasd@asd.asd",
+      "Password": "PzNwcL91J2v2F3YiDCo/anstvzQ3alGCIVVrJ/xGfWA=",
+      "Salt": "k\u002BhhcTwyL9yy31vUAKLZyg==",
+      "Settings": {
+        "Theme": "DarkBlue",
+        "FontSize": "9"
+      }
     }
   ]
 }

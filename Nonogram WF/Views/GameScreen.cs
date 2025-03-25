@@ -10,6 +10,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nonogram_WF.Controllers;
+using Nonogram_WF.Themes;
 
 namespace Nonogram_WF.Views
 {
@@ -22,13 +23,22 @@ namespace Nonogram_WF.Views
 		{
 			//GridSize = GridSize + 4;
 			InitializeComponent();
+    public partial class GameScreen : UserControl
+    {
+        private Theme _theme = ThemeController.GetTheme();
+
+        public GameScreen()
+        {
+            InitializeComponent();
+			//all views have this call to prevent flickering if the user has dark mode enabled on startup
+			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
 		}
 
-		private void buttonGameScreenBack_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			FindForm().Controls.Find("Difficulty", false).First().Show();
-		}
+        private void buttonGameScreenBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Difficulty", false).First().Show();
+        }
 
 		private void buttonGameScreenLogout_Click(object sender, EventArgs e)
 		{
@@ -61,4 +71,15 @@ namespace Nonogram_WF.Views
 			}
 		}
 	}
+        private void buttonGameScreenLogout_Click(object sender, EventArgs e)
+        {
+            Session.RemoveSession();
+            Application.Exit();
+        }
+
+        private void GameScreen_VisibleChanged(object sender, EventArgs e)
+        {
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
+    }
 }

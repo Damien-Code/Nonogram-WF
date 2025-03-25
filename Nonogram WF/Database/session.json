@@ -1,14 +1,9 @@
 {
-  "Email": "do@do.nl",
+  "Email": "asdasd@asd.asd",
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "Dark",
+    "Theme": "DarkBlue",
     "FontSize": "9"
-  },
-    "History": {
-        "Level": 5,
-        "HintCount": 2,
-        "UsedSolver": true
-    }
+  }
 }
