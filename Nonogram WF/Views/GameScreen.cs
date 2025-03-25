@@ -15,7 +15,8 @@ namespace Nonogram_WF.Views
 {
 	public partial class GameScreen : UserControl
 	{
-		public int GridSize; //{ get; set; }
+		public int GridSize;
+		protected int MaxGridSize = 400;//max length of grid
 		public GameScreen()
 		{
 			//GridSize = GridSize + 4;
@@ -43,18 +44,19 @@ namespace Nonogram_WF.Views
 			base.OnPaint(e);
 			Graphics g = e.Graphics;
 
-			Pen p = new(Color.Black);
-			int TotalCells = GridSize;
-			int cellSize = 30;
-			int horizontalStartPosition = 100;
+			Pen p = new(Color.Black); // TODO: make it change depending on theme (light theme is Color.Black)
+			int TotalCellsPerRow = GridSize;
+			//int cellSize = 30;
+			int cellSize = (int)Math.Floor(MaxGridSize/(double)GridSize);
+			int horizontalStartPosition = 375;
 			int verticalStartPosition = 150;
 
-			for (int i = 0; i < TotalCells+1; i++)
+			for (int i = 0; i < TotalCellsPerRow+1; i++)
 			{
 				// Vertical
-				g.DrawLine(p, (i * cellSize)+horizontalStartPosition, verticalStartPosition, i * cellSize + horizontalStartPosition, TotalCells * cellSize + verticalStartPosition);
+				g.DrawLine(p, (i * cellSize)+horizontalStartPosition, verticalStartPosition, i * cellSize + horizontalStartPosition, TotalCellsPerRow * cellSize + verticalStartPosition);
 				// Horizontal
-				g.DrawLine(p, horizontalStartPosition, (i * cellSize) + verticalStartPosition, TotalCells * cellSize + horizontalStartPosition, i * cellSize + verticalStartPosition);
+				g.DrawLine(p, horizontalStartPosition, (i * cellSize) + verticalStartPosition, TotalCellsPerRow * cellSize + horizontalStartPosition, i * cellSize + verticalStartPosition);
 			}
 		}
 	}

@@ -81,6 +81,7 @@
 			label1.Size = new Size(269, 234);
 			label1.TabIndex = 2;
 			label1.Text = "Insert grid";
+			label1.Visible = false;
 			// 
 			// buttonGameScreenBack
 			// 
