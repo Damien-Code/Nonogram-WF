@@ -17,6 +17,7 @@ namespace Nonogram_WF.Views
 	{
 		public int GridSize;
 		protected int MaxGridSize = 400;//max length of grid
+		private List<int[]> _grid;
 		public GameScreen()
 		{
 			//GridSize = GridSize + 4;
@@ -44,12 +45,12 @@ namespace Nonogram_WF.Views
 			base.OnPaint(e);
 			Graphics g = e.Graphics;
 
-			Pen p = new(Color.Black); // TODO: make it change depending on theme (light theme is Color.Black)
+			Pen p = new(Themes.Theme.GetPenColor()); // TODO: make it change depending on theme (light theme is Color.Black)
 			int TotalCellsPerRow = GridSize;
 			//int cellSize = 30;
 			int cellSize = (int)Math.Floor(MaxGridSize/(double)GridSize);
 			int horizontalStartPosition = 375;
-			int verticalStartPosition = 150;
+			int verticalStartPosition = 175;
 
 			for (int i = 0; i < TotalCellsPerRow+1; i++)
 			{
