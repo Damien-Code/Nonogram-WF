@@ -78,7 +78,29 @@ namespace Nonogram_WF.Views
 			Themes.Theme.ChangeTheme(_theme, Controls);
 			_solutionGrid = GameController.initializeGrid(GridSize);
 			_currentAttemptGrid = new int[GridSize][];
-			Refresh();
+			 for(int i = 0; i < GridSize; i++)
+			 {
+				_currentAttemptGrid[i] = new int[GridSize];
+				for (int j = 0; j < GridSize; j++)
+				{
+					_currentAttemptGrid[i][j] = Random.Shared.Next(2);
+				}
+			 }
+			List<List<int>> rowNums = GameController.CalculateRow(_currentAttemptGrid);
+			string output = string.Empty;
+			for (int i = 0; i < rowNums.Count; i++)
+			{
+				string tmp = string.Empty;
+				for (int j = 0; j < rowNums[i].Count; j++)
+				{
+					tmp += rowNums[i][j].ToString() + " ";
+				}
+				output += tmp + "\n";
+			}
+
+
+			 MessageBox.Show(output);
+			 Refresh();
 		}
 		public void ThemeChange()
 		{
@@ -113,5 +135,31 @@ namespace Nonogram_WF.Views
 			}
 		}
 		private void DrawCell(int row, int col, EventArgs e) { }
+		public void Test() {
+            _solutionGrid = GameController.initializeGrid(GridSize);
+            _currentAttemptGrid = new int[GridSize][];
+            for (int i = 0; i < GridSize; i++)
+            {
+                _currentAttemptGrid[i] = new int[GridSize];
+                for (int j = 0; j < GridSize; j++)
+                {
+                    _currentAttemptGrid[i][j] = Random.Shared.Next(2);
+                }
+            }
+            List<List<int>> rowNums = GameController.CalculateRow(_currentAttemptGrid);
+            string output = string.Empty;
+            for (int i = 0; i < rowNums.Count; i++)
+            {
+                string tmp = string.Empty;
+                for (int j = 0; j < rowNums[i].Count; j++)
+                {
+                    tmp += rowNums[i][j].ToString() + " ";
+                }
+                output += tmp + "\n";
+            }
+
+
+            MessageBox.Show(output);
+        }
 	}
 }

@@ -48,6 +48,7 @@ namespace Nonogram_WF.Views
 			GameScreen test = (GameScreen)FindForm().Controls.Find("GameScreen", false).First();
 			test.GridSize = level+4;
 			test.ThemeChange();
+			test.Test();
 			test.Show();
 		}
 
