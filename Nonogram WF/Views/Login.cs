@@ -9,11 +9,11 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nonogram_WF.Controllers;
 
-namespace Nonogram_WF
+namespace Nonogram_WF.Views
 {
-    public partial class login : UserControl
+    public partial class Login : UserControl
     {
-        public login()
+        public Login()
         {
             InitializeComponent();
             //this.Dock = DockStyle.Fill;

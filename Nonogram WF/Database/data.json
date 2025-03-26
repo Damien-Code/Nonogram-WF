@@ -41,6 +41,34 @@
         "HintCount": 2,
         "UsedSolver": true
       }
+    },
+    {
+      "Email": "test@test.test",
+      "Password": "HD/5J1ANSF4L44L68mcD5B1GdWj420TT/OT/yOaNi8oM3cHH5bD0pgCgseiUlsPoLO\u002BWCEsPXHoQ3YdxUgDpNg==",
+      "Salt": "Pvv/oAGFKRfZ39WmTmisow==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "9"
+      },
+      "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
+      }
+    },
+    {
+      "Email": "test@damien.nl",
+      "Password": "EGURjj3zu0RTTsldTHiM6H99tcW87zygmkZ4GVu6xp/hiWGK26EEGb8g2aiiRLwlSLL9ABUmwsrBWr42kHfWTw==",
+      "Salt": "efDNVXc0esAEk/rr172Dlg==",
+      "Settings": {
+        "Theme": "Dark",
+        "FontSize": "9"
+      },
+      "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
+      }
     }
   ]
 }

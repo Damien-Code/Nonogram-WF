@@ -44,10 +44,10 @@
             // 
             // buttonHistoryBack
             // 
-            buttonHistoryBack.Location = new Point(26, 30);
-            buttonHistoryBack.Margin = new Padding(4, 2, 4, 2);
+            buttonHistoryBack.Location = new Point(14, 14);
+            buttonHistoryBack.Margin = new Padding(2, 1, 2, 1);
             buttonHistoryBack.Name = "buttonHistoryBack";
-            buttonHistoryBack.Size = new Size(150, 47);
+            buttonHistoryBack.Size = new Size(81, 22);
             buttonHistoryBack.TabIndex = 0;
             buttonHistoryBack.Text = "Back";
             buttonHistoryBack.UseVisualStyleBackColor = true;
@@ -55,10 +55,10 @@
             // 
             // buttonHistoryLogout
             // 
-            buttonHistoryLogout.Location = new Point(1218, 30);
-            buttonHistoryLogout.Margin = new Padding(4, 2, 4, 2);
+            buttonHistoryLogout.Location = new Point(656, 14);
+            buttonHistoryLogout.Margin = new Padding(2, 1, 2, 1);
             buttonHistoryLogout.Name = "buttonHistoryLogout";
-            buttonHistoryLogout.Size = new Size(150, 47);
+            buttonHistoryLogout.Size = new Size(81, 22);
             buttonHistoryLogout.TabIndex = 1;
             buttonHistoryLogout.Text = "Logout";
             buttonHistoryLogout.UseVisualStyleBackColor = true;
@@ -68,10 +68,10 @@
             // 
             labelHistory.AutoSize = true;
             labelHistory.Font = new Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            labelHistory.Location = new Point(581, 152);
-            labelHistory.Margin = new Padding(4, 0, 4, 0);
+            labelHistory.Location = new Point(313, 71);
+            labelHistory.Margin = new Padding(2, 0, 2, 0);
             labelHistory.Name = "labelHistory";
-            labelHistory.Size = new Size(276, 100);
+            labelHistory.Size = new Size(140, 51);
             labelHistory.TabIndex = 2;
             labelHistory.Text = "History";
             // 
@@ -94,14 +94,15 @@
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Level, HintsUsed, UsedSolver, TimeColumn });
             dataGridView1.EnableHeadersVisualStyles = false;
-            dataGridView1.Location = new Point(316, 322);
+            dataGridView1.Location = new Point(170, 151);
+            dataGridView1.Margin = new Padding(2, 1, 2, 1);
             dataGridView1.Name = "dataGridView1";
             dataGridView1.ReadOnly = true;
             dataGridView1.RowHeadersVisible = false;
             dataGridView1.RowHeadersWidth = 82;
             dataGridView1.ShowCellToolTips = false;
             dataGridView1.ShowEditingIcon = false;
-            dataGridView1.Size = new Size(803, 459);
+            dataGridView1.Size = new Size(432, 215);
             dataGridView1.TabIndex = 3;
             // 
             // Level
@@ -138,24 +139,25 @@
             // 
             // panel1
             // 
-            panel1.Anchor = AnchorStyles.None;
             panel1.Controls.Add(labelHistory);
             panel1.Controls.Add(buttonHistoryBack);
             panel1.Controls.Add(buttonHistoryLogout);
             panel1.Controls.Add(dataGridView1);
+            panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
+            panel1.Margin = new Padding(2, 1, 2, 1);
             panel1.Name = "panel1";
-            panel1.Size = new Size(1400, 926);
+            panel1.Size = new Size(800, 475);
             panel1.TabIndex = 4;
             // 
             // History
             // 
-            AutoScaleDimensions = new SizeF(13F, 32F);
+            AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Margin = new Padding(4, 2, 4, 2);
+            Margin = new Padding(2, 1, 2, 1);
             Name = "History";
-            Size = new Size(1400, 926);
+            Size = new Size(800, 475);
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
