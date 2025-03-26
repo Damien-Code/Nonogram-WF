@@ -146,7 +146,7 @@ namespace Nonogram_WF.Views
                     _currentAttemptGrid[i][j] = Random.Shared.Next(2);
                 }
             }
-            List<List<int>> rowNums = GameController.CalculateRow(_currentAttemptGrid);
+            List<List<int>> rowNums = GameController.CalculateCol(_currentAttemptGrid);
             string output = string.Empty;
             for (int i = 0; i < rowNums.Count; i++)
             {
