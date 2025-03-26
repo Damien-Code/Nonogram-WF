@@ -9,14 +9,14 @@ namespace Nonogram_WF.Controllers
 {
     class GameController
     {
-		public static List<int[]> initializeGrid(int size) {
+		public static int[][] initializeGrid(int size) {
 			List<int[]> grid = GenerateGrid(size);
 			/*
 			 * TODO: add new game to user in db
 			 * /code here
 			*/
 			
-			return grid;
+			return grid.ToArray();
 		}
 		private static List<int[]> GenerateGrid(int size)
 		{

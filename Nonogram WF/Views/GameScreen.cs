@@ -5,6 +5,7 @@ using System.Data;
 using System.Drawing;
 using System.Linq;
 using System.Runtime.CompilerServices;
+using System.Security.Cryptography.Xml;
 using System.Security.Policy;
 using System.Text;
 using System.Threading.Tasks;
@@ -16,12 +17,14 @@ namespace Nonogram_WF.Views
 {
 	public partial class GameScreen : UserControl
 	{
-		public int GridSize;
+		private PaintEventArgs _paint;
 		protected int MaxGridSize = 400;//max length of grid
-		private List<int[]> _grid;
+		private int[][] _grid;
 		private Theme _theme = ThemeController.GetTheme();
 		private int _horizontalStartPosition = 375;
 		private int _verticalStartPosition = 175;
+		public int GridSize;
+		public PaintEventArgs Paint { get { return _paint; } set { _paint = value; } }
 		public GameScreen()
 		{
 			//GridSize = GridSize + 4;
@@ -49,15 +52,13 @@ namespace Nonogram_WF.Views
 		}
 		protected override void OnPaint(PaintEventArgs e)
 		{
+			Paint = e;
 			base.OnPaint(e);
 			Graphics g = e.Graphics;
 
 			Pen p = new(_theme.PenColor); 
 			int TotalCellsPerRow = GridSize;
-			//int cellSize = 30;
 			int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
-			//int horizontalStartPosition = 375;
-			//int verticalStartPosition = 175;
 
 			for (int i = 0; i <= TotalCellsPerRow; i++)
 			{
@@ -66,6 +67,7 @@ namespace Nonogram_WF.Views
 				// Horizontal
 				g.DrawLine(p, _horizontalStartPosition, (i * cellSize) + _verticalStartPosition, TotalCellsPerRow * cellSize + _horizontalStartPosition, i * cellSize + _verticalStartPosition);
 			}
+			//fill rectangle
 		}
 
 		private void GameScreen_VisibleChanged(object sender, EventArgs e)
@@ -73,6 +75,7 @@ namespace Nonogram_WF.Views
 			_theme = ThemeController.GetTheme();
 
 			Themes.Theme.ChangeTheme(_theme, Controls);
+			_grid = GameController.initializeGrid(GridSize);
 			Refresh();
 		}
 		public void ThemeChange()
@@ -86,21 +89,27 @@ namespace Nonogram_WF.Views
 			Point relativePoint = this.PointToClient(Cursor.Position);
 			Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
 			Point gridEnd = new Point(_horizontalStartPosition + MaxGridSize, _verticalStartPosition + MaxGridSize);
-			//int gridPositionStartX = _horizontalStartPosition;
-			//int gridPositionStartY = _verticalStartPosition;
-			//int gridPositionEndX = _horizontalStartPosition + MaxGridSize;
-			//int gridPositionEndY = _verticalStartPosition + MaxGridSize;
-			//Point x = Cursor.Position;
+
 			int mousePosX = relativePoint.X;
 			int mousePosY = relativePoint.Y;
 			if ((relativePoint.X >= gridStart.X && relativePoint.X <= gridEnd.X) && (relativePoint.Y >= gridStart.Y && relativePoint.Y <= gridEnd.Y))
 			{
-				MessageBox.Show("inside grid");
+				int row = (int)Math.Floor((relativePoint.X - gridStart.X)/(MaxGridSize / (double)GridSize));
+				int col = (int)Math.Floor((relativePoint.Y - gridStart.Y)/(MaxGridSize / (double)GridSize));
+				int cellStartX = _horizontalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
+				int cellStartY = _verticalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
+				//int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
+				
+				//check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
+
+
+				//redraw
+				Invalidate();
 			}
 			else { 
 				MessageBox.Show("outside grid");
 			}
-			//MessageBox.Show($"start: {gridPositionStartX}, {gridPositionStartY}\nend: {gridPositionEndX}, {gridPositionEndY}\nMouse: {x}, {y}\nMouseGrid: {x - gridPositionStartX}, {y - gridPositionStartY}\n Relative: {relativePoint.X}, {relativePoint.Y}");
 		}
+		
 	}
 }
