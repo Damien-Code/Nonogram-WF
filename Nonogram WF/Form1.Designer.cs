@@ -164,7 +164,6 @@
         private Views.Welcome Welcome;
         private Views.Instructions Instructions;
         private Views.Home Home;
-        private Views.Difficulty difficulty1;
         private Views.Difficulty Difficulty;
         private Views.GameScreen GameScreen;
         private Views.Settings Settings;
