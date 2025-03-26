@@ -33,7 +33,7 @@ namespace Nonogram_WF.Views
         private void buttonHomeHistory_Click(object sender, EventArgs e)
         {
             this.Hide();
-            FindForm().Controls.Find("History", false).First().Show();
+            FindForm().Controls.Find("history1", false).First().Show();
 
         }
 

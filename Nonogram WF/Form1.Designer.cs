@@ -46,6 +46,7 @@
             GameScreen = new Views.GameScreen();
             Settings = new Views.Settings();
             Registration = new Views.Registration();
+            history1 = new Views.History();
             SuspendLayout();
             // 
             // Login
@@ -129,19 +130,30 @@
             Registration.TabIndex = 7;
             Registration.Visible = false;
             // 
+            // history1
+            // 
+            history1.Dock = DockStyle.Fill;
+            history1.Location = new Point(0, 0);
+            history1.Margin = new Padding(2, 1, 2, 1);
+            history1.Name = "history1";
+            history1.Size = new Size(784, 436);
+            history1.TabIndex = 8;
+            history1.Visible = false;
+            // 
             // Form1
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             ClientSize = new Size(784, 436);
             Controls.Add(Welcome);
-            Controls.Add(Difficulty);
             Controls.Add(Home);
             Controls.Add(Instructions);
             Controls.Add(Login);
             Controls.Add(GameScreen);
             Controls.Add(Settings);
             Controls.Add(Registration);
+            Controls.Add(Difficulty);
+            Controls.Add(history1);
             Margin = new Padding(2, 1, 2, 1);
             Name = "Form1";
             Text = "Form1";
@@ -158,7 +170,7 @@
         private Views.Settings Settings;
         private Views.Registration Registration;
         private Views.Login Login;
-        private Views.History History;
+        private Views.History history1;
     }
 
 }
