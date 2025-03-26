@@ -45,11 +45,11 @@ namespace Nonogram_WF.Views
 		{
 			this.Hide();
 			int level = (int)numericUpDownDifficulty.Value;
-			GameScreen test = (GameScreen)FindForm().Controls.Find("GameScreen", false).First();
-			test.GridSize = level+4;
-			test.ThemeChange();
-			test.Test();
-			test.Show();
+			GameScreen game = (GameScreen)FindForm().Controls.Find("GameScreen", false).First();
+			game.GridSize = level+4;
+			game.ThemeChange();
+			game.setGrid();
+			game.Show();
 		}
 
 		private void numericUpDownDifficulty_ValueChanged(object sender, EventArgs e)

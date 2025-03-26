@@ -17,7 +17,7 @@ namespace Nonogram_WF.Views
 {
 	public partial class GameScreen : UserControl
 	{
-		private PaintEventArgs _paint;
+		//private PaintEventArgs _paint;
 		protected int MaxGridSize = 400;//max length of grid
 		private int[][] _solutionGrid;
 		private int[][] _currentAttemptGrid;
@@ -25,11 +25,11 @@ namespace Nonogram_WF.Views
 		private int _horizontalStartPosition = 375;
 		private int _verticalStartPosition = 175;
 		public int GridSize;
-		public PaintEventArgs Paint { get { return _paint; } set { _paint = value; } }
 		public GameScreen()
 		{
 			//GridSize = GridSize + 4;
 			InitializeComponent();
+			DoubleBuffered = true;
 			//all views have this call to prevent flickering if the user has dark mode enabled on startup
 			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
 		}
@@ -48,27 +48,39 @@ namespace Nonogram_WF.Views
 
 		private void panel1_Paint(object sender, PaintEventArgs e)
 		{
-			GameController.initializeGrid(GridSize);
-			OnPaint(e);
-		}
-		protected override void OnPaint(PaintEventArgs e)
-		{
-			Paint = e;
-			base.OnPaint(e);
+			//GameController.initializeGrid(GridSize); // ? wat doet dit in de paint, gebruikt niet eens de return value
+			//OnPaint(e);
+			SuspendLayout();
 			Graphics g = e.Graphics;
 
-			Pen p = new(_theme.PenColor); 
-			int TotalCellsPerRow = GridSize;
+			Pen p = new(_theme.PenColor);
+			int size = GridSize;
 			int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
 
-			for (int i = 0; i <= TotalCellsPerRow; i++)
+			for (int i = 0; i <= size; i++)
 			{
 				// Vertical
-				g.DrawLine(p, (i * cellSize) + _horizontalStartPosition, _verticalStartPosition, i * cellSize + _horizontalStartPosition, TotalCellsPerRow * cellSize + _verticalStartPosition);
+				g.DrawLine(p, (i * cellSize) + _horizontalStartPosition, _verticalStartPosition, i * cellSize + _horizontalStartPosition, size * cellSize + _verticalStartPosition);
 				// Horizontal
-				g.DrawLine(p, _horizontalStartPosition, (i * cellSize) + _verticalStartPosition, TotalCellsPerRow * cellSize + _horizontalStartPosition, i * cellSize + _verticalStartPosition);
+				g.DrawLine(p, _horizontalStartPosition, (i * cellSize) + _verticalStartPosition, size * cellSize + _horizontalStartPosition, i * cellSize + _verticalStartPosition);
 			}
-			//fill rectangle
+
+			//fill rectangle via current sol
+			Color color = _theme.PenColor;
+
+			if (_currentAttemptGrid == null) { return; }
+			for (int i = 0; i < size; i++)
+			{
+				for (int j = 0; j < size; j++)
+				{
+					if (_currentAttemptGrid[i][j] == 1)
+					{
+						e.Graphics.FillRectangle(new SolidBrush(color), cellSize * i + _horizontalStartPosition, cellSize * j + _verticalStartPosition, cellSize, cellSize);
+						
+					}
+				}
+			}
+			ResumeLayout(false);
 		}
 
 		private void GameScreen_VisibleChanged(object sender, EventArgs e)
@@ -125,10 +137,10 @@ namespace Nonogram_WF.Views
 				//int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
 
 				//check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
-				DrawCell(row,col, e);
+				_currentAttemptGrid[row][col] = 1;
 
 				//redraw
-				Invalidate();
+				Refresh();
 			}
 			else { 
 				MessageBox.Show("outside grid");
@@ -161,5 +173,13 @@ namespace Nonogram_WF.Views
 
             MessageBox.Show(output);
         }
+		public void setGrid() {
+			_solutionGrid = GameController.initializeGrid(GridSize);
+			_currentAttemptGrid = new int[GridSize][];
+			for (int i = 0; i < GridSize; i++)
+			{
+				_currentAttemptGrid[i] = new int[GridSize];
+			}
+		}
 	}
 }
