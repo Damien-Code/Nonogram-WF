@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -75,8 +76,7 @@ namespace Nonogram_WF.Views
 				{
 					if (_currentAttemptGrid[i][j] == 1)
 					{
-						e.Graphics.FillRectangle(new SolidBrush(color), cellSize * i + _horizontalStartPosition, cellSize * j + _verticalStartPosition, cellSize, cellSize);
-						
+						e.Graphics.FillRectangle(new SolidBrush(color), cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize, cellSize);
 					}
 				}
 			}
@@ -115,10 +115,14 @@ namespace Nonogram_WF.Views
 				//int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
 
 				//check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
-				_currentAttemptGrid[row][col] = 1;
+				_currentAttemptGrid[col][row] = 1;
 
 				//redraw
 				Refresh();
+
+				//check for win
+				WinCheck();
+				logger();
 			}
 			else { 
 				MessageBox.Show("outside grid");
@@ -126,11 +130,50 @@ namespace Nonogram_WF.Views
 		}
 		public void setGrid() {
 			_solutionGrid = GameController.initializeGrid(GridSize);
+			//insert damien stuff for hints
+
+			//continue
 			_currentAttemptGrid = new int[GridSize][];
 			for (int i = 0; i < GridSize; i++)
 			{
 				_currentAttemptGrid[i] = new int[GridSize];
+				for (int j = 0; j<GridSize;j++)
+				{
+					_currentAttemptGrid[i][j] = 0;
+				}
 			}
+			logger();
+			
+		}
+		private void WinCheck() {
+			if (StructuralComparisons.StructuralEqualityComparer.Equals(_solutionGrid,_currentAttemptGrid))
+			{
+				//MessageBox.Show("Win");
+				Console.WriteLine("Win");
+			}
+			else { Console.WriteLine("not yet"); }
+		}
+		private void logger() {
+			Console.WriteLine("Sol\n");
+			foreach (var item in _solutionGrid)
+			{
+				foreach (var item1 in item)
+				{
+					Console.Write((item1.ToString()));
+				}
+				Console.WriteLine();
+			}
+			Console.WriteLine("cur");
+			//Console.WriteLine();
+			foreach (var item in _currentAttemptGrid)
+			{
+				foreach (var item1 in item)
+				{
+					Console.Write((item1.ToString()));
+				}
+				Console.WriteLine();
+			}
+			WinCheck();
 		}
 	}
 }
