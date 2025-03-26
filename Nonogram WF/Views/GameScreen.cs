@@ -19,7 +19,8 @@ namespace Nonogram_WF.Views
 	{
 		private PaintEventArgs _paint;
 		protected int MaxGridSize = 400;//max length of grid
-		private int[][] _grid;
+		private int[][] _solutionGrid;
+		private int[][] _currentAttemptGrid;
 		private Theme _theme = ThemeController.GetTheme();
 		private int _horizontalStartPosition = 375;
 		private int _verticalStartPosition = 175;
@@ -75,7 +76,8 @@ namespace Nonogram_WF.Views
 			_theme = ThemeController.GetTheme();
 
 			Themes.Theme.ChangeTheme(_theme, Controls);
-			_grid = GameController.initializeGrid(GridSize);
+			_solutionGrid = GameController.initializeGrid(GridSize);
+			_currentAttemptGrid = new int[GridSize][];
 			Refresh();
 		}
 		public void ThemeChange()
@@ -99,9 +101,9 @@ namespace Nonogram_WF.Views
 				int cellStartX = _horizontalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
 				int cellStartY = _verticalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
 				//int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
-				
-				//check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
 
+				//check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
+				DrawCell(row,col, e);
 
 				//redraw
 				Invalidate();
@@ -110,6 +112,6 @@ namespace Nonogram_WF.Views
 				MessageBox.Show("outside grid");
 			}
 		}
-		
+		private void DrawCell(int row, int col, EventArgs e) { }
 	}
 }
