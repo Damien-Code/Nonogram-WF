@@ -127,6 +127,15 @@ namespace Nonogram_WF.Models
             currentUser.Settings.FontSize = fontSize;
 			JSON_RW.UpdateUserSettings(allUsers);
 		}
+
+        public static void setHistory(History gameHistory) {
+			AllUsers allUsers = JSON_RW.GetUsers();
+			Users user = JSON_RW.GetSession();
+			Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
+            //History has to be a list to add the gameHistory to
+            // WIP
+            // TODO: Convert history to list
+		}
         public static AllUsers GetUsers() 
         { 
             return JSON_RW.GetUsers();
