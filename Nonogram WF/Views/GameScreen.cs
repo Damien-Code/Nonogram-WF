@@ -26,6 +26,7 @@ namespace Nonogram_WF.Views
 		private int _horizontalStartPosition = 375;
 		private int _verticalStartPosition = 175;
 		public int GridSize;
+		private int _hintsUsed = 0;
 		public GameScreen()
 		{
 			//GridSize = GridSize + 4;
@@ -115,17 +116,19 @@ namespace Nonogram_WF.Views
 				//int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
 
 				//check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
-				_currentAttemptGrid[col][row] = 1;
+				if (_currentAttemptGrid[col][row] == 1)
+				{
+					_currentAttemptGrid[col][row] = 0;
+				}
+				else { _currentAttemptGrid[col][row] = 1; }
+					//_currentAttemptGrid[col][row] == 0 ? _currentAttemptGrid[col][row] = 1 : _currentAttemptGrid[col][row] = 0;
 
-				//redraw
-				Refresh();
+					//redraw
+					Refresh();
 
 				//check for win
-				WinCheck();
 				logger();
-			}
-			else { 
-				MessageBox.Show("outside grid");
+				WinCheck();
 			}
 		}
 		public void setGrid() {
@@ -148,8 +151,16 @@ namespace Nonogram_WF.Views
 		private void WinCheck() {
 			if (StructuralComparisons.StructuralEqualityComparer.Equals(_solutionGrid,_currentAttemptGrid))
 			{
-				//MessageBox.Show("Win");
-				Console.WriteLine("Win");
+				MessageBox.Show("Win");
+
+				//set win as history in db
+				GameController.SetWin(GridSize-4, _hintsUsed);
+
+				//redirect to home
+				this.Hide();
+				FindForm().Controls.Find("Home", false).First().Show();
+
+
 			}
 			else { Console.WriteLine("not yet"); }
 		}
@@ -173,7 +184,7 @@ namespace Nonogram_WF.Views
 				}
 				Console.WriteLine();
 			}
-			WinCheck();
+			//WinCheck();
 		}
 	}
 }

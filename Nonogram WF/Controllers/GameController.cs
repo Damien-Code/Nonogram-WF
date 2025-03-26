@@ -37,6 +37,10 @@ namespace Nonogram_WF.Controllers
 			}
 			return row;
 		}
+		public static void SetWin(int level,int hintsUsed) {
+			Models.History gameHistory = new(level,hintsUsed,false);
+
+		}
 		
 	}
 }

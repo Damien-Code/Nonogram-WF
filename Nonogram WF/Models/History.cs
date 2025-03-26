@@ -36,5 +36,8 @@ namespace Nonogram_WF.Models
             HintCount = hintCount;
             UsedSolver = usedSolver;
         }
+        public static void SetWin(History gameHistory) {
+            
+        }
     }
 }

@@ -19,12 +19,12 @@ namespace Nonogram_WF
 
         private void welcome2_Load(object sender, EventArgs e)
         {
-            AllocConsole();
+            //AllocConsole();
 
 		}
-		[DllImport("kernel32.dll", SetLastError = true)]
-		[return: MarshalAs(UnmanagedType.Bool)]
-		static extern bool AllocConsole();
+		//[DllImport("kernel32.dll", SetLastError = true)]
+  //      [return: MarshalAs(UnmanagedType.Bool)]
+  //      static extern bool AllocConsole();
 	}
 }
 
