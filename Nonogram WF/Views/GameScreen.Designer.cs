@@ -165,6 +165,7 @@
             buttonGameScreenSolve.TabIndex = 3;
             buttonGameScreenSolve.Text = "Solve";
             buttonGameScreenSolve.UseVisualStyleBackColor = true;
+            buttonGameScreenSolve.Click += buttonGameScreenSolve_Click;
             // 
             // buttonGameScreenBack
             // 

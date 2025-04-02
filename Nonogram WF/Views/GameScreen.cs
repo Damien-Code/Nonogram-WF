@@ -16,10 +16,10 @@ using Nonogram_WF.Themes;
 
 namespace Nonogram_WF.Views
 {
-    
+
     public partial class GameScreen : UserControl
     {
-        protected int MaxGridSize = 250;//max length of grid
+        protected int MaxGridSize = 300;//max length of grid
         private int[][] _solutionGrid;
         private int[][] _currentAttemptGrid;
         private int[][] _currentGridMask;
@@ -65,7 +65,7 @@ namespace Nonogram_WF.Views
             }
 
             //fill rectangle via current sol
-            //Font XFont = new Font("ariel", cellSize-(int)cellSize/8);
+
             Color color = _theme.PenColor;
             if (_currentAttemptGrid == null) { return; }
             for (int i = 0; i < size; i++)
@@ -80,10 +80,9 @@ namespace Nonogram_WF.Views
                     {
                         using (Pen pen = new Pen(Color.Red, 2))
                         {
-                            
-                            g.DrawLine(pen, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition+cellSize, cellSize * i + _verticalStartPosition+cellSize);
-                            g.DrawLine(pen, cellSize * j + _horizontalStartPosition+cellSize, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition+cellSize);
-                        }    
+                            g.DrawLine(pen, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition + cellSize, cellSize * i + _verticalStartPosition + cellSize);
+                            g.DrawLine(pen, cellSize * j + _horizontalStartPosition + cellSize, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition + cellSize);
+                        }
                     }
                 }
             }
@@ -109,7 +108,7 @@ namespace Nonogram_WF.Views
 
             _currentAttemptGrid = new int[GridSize][];
             _currentGridMask = new int[GridSize][];
-            
+
             for (int i = 0; i < GridSize; i++)
             {
                 _currentAttemptGrid[i] = new int[GridSize];
@@ -142,6 +141,9 @@ namespace Nonogram_WF.Views
 
                 //set win as history in db
                 GameController.SetWin(GridSize - 4, _hintsUsed);
+
+                //saves game in db
+
 
                 //redirect to home
                 this.Hide();
@@ -195,6 +197,7 @@ namespace Nonogram_WF.Views
         private void panel1_Click(object sender, EventArgs e)
         {
         }
+
 
 
         private void buttonGameScreenHint_Click(object sender, EventArgs e)
@@ -295,30 +298,44 @@ namespace Nonogram_WF.Views
                         _currentAttemptGrid[col][row] = 0;
                         _currentGridMask[col][row] = 0;
                     }
-                    else { _currentAttemptGrid[col][row] = 1;
+                    else
+                    {
+                        _currentAttemptGrid[col][row] = 1;
                         _currentGridMask[col][row] = 1;
                     }
                 }
-                else if(e.Button == MouseButtons.Right) {
+                else if (e.Button == MouseButtons.Right)
+                {
                     //MessageBox.Show("R");
                     if (_currentAttemptGrid[col][row] == 2)
                     {
                         _currentAttemptGrid[col][row] = 0;
                     }
-                    else { _currentAttemptGrid[col][row] = 2;
+                    else
+                    {
+                        _currentAttemptGrid[col][row] = 2;
                         _currentGridMask[col][row] = 0;
                         //MessageBox.Show(_currentGridMask[col][row].ToString());
                     }
                 }
-                    //_currentAttemptGrid[col][row] == 0 ? _currentAttemptGrid[col][row] = 1 : 0;
+                //_currentAttemptGrid[col][row] == 0 ? _currentAttemptGrid[col][row] = 1 : 0;
 
-                    //redraw
-                    Refresh();
+                //redraw
+                Refresh();
 
                 //check for win
                 logger();
                 WinCheck();
             }
+        }
+
+        private void buttonGameScreenSolve_Click(object sender, EventArgs e)
+        {
+            _currentAttemptGrid = _solutionGrid;
+            Refresh();
+            MessageBox.Show("You did not fully solve it yourself.\nwont advance to the next level");
+            buttonGameScreenBack_Click(sender, e);
+
         }
     }
 }
