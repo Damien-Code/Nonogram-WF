@@ -65,7 +65,7 @@ namespace Nonogram_WF.Views
             }
 
             //fill rectangle via current sol
-            Font XFont = new Font("ariel", cellSize-GridSize);
+            //Font XFont = new Font("ariel", cellSize-(int)cellSize/8);
             Color color = _theme.PenColor;
             if (_currentAttemptGrid == null) { return; }
             for (int i = 0; i < size; i++)
@@ -80,7 +80,9 @@ namespace Nonogram_WF.Views
                     {
                         using (Pen pen = new Pen(Color.Red, 2))
                         {
-                            g.DrawString("X",XFont, new SolidBrush(Color.Red), cellSize * j + _horizontalStartPosition - this.Font.Size/2, cellSize * i + _verticalStartPosition-this.Font.Size);
+                            
+                            g.DrawLine(pen, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition+cellSize, cellSize * i + _verticalStartPosition+cellSize);
+                            g.DrawLine(pen, cellSize * j + _horizontalStartPosition+cellSize, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition+cellSize);
                         }    
                     }
                 }
