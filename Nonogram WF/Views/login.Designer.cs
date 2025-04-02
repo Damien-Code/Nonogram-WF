@@ -80,9 +80,9 @@
             textBoxLoginPassword.Multiline = true;
             textBoxLoginPassword.Name = "textBoxLoginPassword";
             textBoxLoginPassword.PasswordChar = '*';
+            textBoxLoginPassword.PlaceholderText = "Password:";
             textBoxLoginPassword.Size = new Size(293, 26);
             textBoxLoginPassword.TabIndex = 2;
-            textBoxLoginPassword.Text = "Password";
             // 
             // textBoxLoginEmail
             // 
@@ -90,9 +90,9 @@
             textBoxLoginEmail.Margin = new Padding(2, 1, 2, 1);
             textBoxLoginEmail.Multiline = true;
             textBoxLoginEmail.Name = "textBoxLoginEmail";
+            textBoxLoginEmail.PlaceholderText = "Email:";
             textBoxLoginEmail.Size = new Size(293, 26);
             textBoxLoginEmail.TabIndex = 1;
-            textBoxLoginEmail.Text = "Email";
             // 
             // labelLogin
             // 
