@@ -23,7 +23,7 @@ namespace Nonogram_WF.Views
         private int[][] _currentAttemptGrid;
         private Theme _theme = ThemeController.GetTheme();
         private int _horizontalStartPosition = 375;
-        private int _verticalStartPosition = 175;
+        private int _verticalStartPosition = 175+80;
         public int GridSize;
         public GameScreen()
         {

@@ -1,10 +1,14 @@
 {
-  "Email": "asdasd@asd.asd",
+  "Email": "test@demninna.nl",
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "Light",
+    "Theme": "DarkBlue",
     "FontSize": "9"
   },
-  "History": null
+  "History": {
+    "Level": 5,
+    "HintCount": 2,
+    "UsedSolver": true
+  }
 }
