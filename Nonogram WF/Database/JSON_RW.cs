@@ -62,10 +62,12 @@ namespace Nonogram_WF.Database
 			File.WriteAllText(_sessionPath, JsonString);
 		}
         public static Users GetSession() {
+            //TODO: Add try catch
             using (StreamReader streamReader = new StreamReader(_sessionPath))
             {
                 string json = streamReader.ReadToEnd();
                 if (string.IsNullOrWhiteSpace(json)) json = "{}";
+
                 Users session = JsonSerializer.Deserialize<Users>(json, _options);
                 return session!;
             };

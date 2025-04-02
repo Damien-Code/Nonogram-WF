@@ -50,6 +50,14 @@ namespace Nonogram_WF.Views
 			game.ThemeChange();
 			game.setGrid();
 			game.Show();
+
+			game.Controls.Add(new Label()
+			{
+				Text = "Hoi",
+				Location = new Point(50, 50),
+				AutoSize = true,
+
+			});
 		}
 
 		private void numericUpDownDifficulty_ValueChanged(object sender, EventArgs e)

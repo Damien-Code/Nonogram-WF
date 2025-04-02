@@ -19,14 +19,13 @@ namespace Nonogram_WF.Views
 	public partial class GameScreen : UserControl
 	{
 		//private PaintEventArgs _paint;
-		protected int MaxGridSize = 300;//max length of grid
+		protected int MaxGridSize = 400;//max length of grid
 		private int[][] _solutionGrid;
 		private int[][] _currentAttemptGrid;
 		private Theme _theme = ThemeController.GetTheme();
-		private int _horizontalStartPosition = 275;
-		private int _verticalStartPosition = 75;
+		private int _horizontalStartPosition = 375;
+		private int _verticalStartPosition = 175;
 		public int GridSize;
-		private int _hintsUsed = 0;
 		public GameScreen()
 		{
 			//GridSize = GridSize + 4;
@@ -36,39 +35,39 @@ namespace Nonogram_WF.Views
 			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
 		}
 
-		private void buttonGameScreenBack_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			FindForm().Controls.Find("Difficulty", false).First().Show();
-		}
+        private void buttonGameScreenBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Difficulty", false).First().Show();
+        }
 
-		private void buttonGameScreenLogout_Click(object sender, EventArgs e)
-		{
-			Session.RemoveSession();
-			Application.Exit();
-		}
+        private void buttonGameScreenLogout_Click(object sender, EventArgs e)
+        {
+            Session.RemoveSession();
+            Application.Exit();
+        }
 
-		private void panel1_Paint(object sender, PaintEventArgs e)
-		{
-			//GameController.initializeGrid(GridSize); // ? wat doet dit in de paint, gebruikt niet eens de return value
-			//OnPaint(e);
-			SuspendLayout();
-			Graphics g = e.Graphics;
+        private void panel1_Paint(object sender, PaintEventArgs e)
+        {
+            //GameController.initializeGrid(GridSize); // ? wat doet dit in de paint, gebruikt niet eens de return value
+            //OnPaint(e);
+            SuspendLayout();
+            Graphics g = e.Graphics;
 
-			Pen p = new(_theme.PenColor);
-			int size = GridSize;
-			int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
+            Pen p = new(_theme.PenColor);
+            int size = GridSize;
+            int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
 
-			for (int i = 0; i <= size; i++)
-			{
-				// Vertical
-				g.DrawLine(p, (i * cellSize) + _horizontalStartPosition, _verticalStartPosition, i * cellSize + _horizontalStartPosition, size * cellSize + _verticalStartPosition);
-				// Horizontal
-				g.DrawLine(p, _horizontalStartPosition, (i * cellSize) + _verticalStartPosition, size * cellSize + _horizontalStartPosition, i * cellSize + _verticalStartPosition);
-			}
+            for (int i = 0; i <= size; i++)
+            {
+                // Vertical
+                g.DrawLine(p, (i * cellSize) + _horizontalStartPosition, _verticalStartPosition, i * cellSize + _horizontalStartPosition, size * cellSize + _verticalStartPosition);
+                // Horizontal
+                g.DrawLine(p, _horizontalStartPosition, (i * cellSize) + _verticalStartPosition, size * cellSize + _horizontalStartPosition, i * cellSize + _verticalStartPosition);
+            }
 
-			//fill rectangle via current sol
-			Color color = _theme.PenColor;
+            //fill rectangle via current sol
+            Color color = _theme.PenColor;
 
 			if (_currentAttemptGrid == null) { return; }
 			for (int i = 0; i < size; i++)
@@ -77,114 +76,84 @@ namespace Nonogram_WF.Views
 				{
 					if (_currentAttemptGrid[i][j] == 1)
 					{
-						e.Graphics.FillRectangle(new SolidBrush(color), cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize, cellSize);
+						e.Graphics.FillRectangle(new SolidBrush(color), cellSize * i + _horizontalStartPosition, cellSize * j + _verticalStartPosition, cellSize, cellSize);
+						
 					}
 				}
 			}
 			ResumeLayout(false);
 		}
 
-		private void GameScreen_VisibleChanged(object sender, EventArgs e)
-		{
-			_theme = ThemeController.GetTheme();
-			Themes.Theme.ChangeTheme(_theme, Controls);
-			//_solutionGrid = GameController.initializeGrid(GridSize);
-			//_currentAttemptGrid = new int[GridSize][];
-			
-			Refresh();
-		}
-		public void ThemeChange()
-		{
-			_theme = ThemeController.GetTheme();
-			Themes.Theme.ChangeTheme(_theme, Controls);
-		}
+        private void GameScreen_VisibleChanged(object sender, EventArgs e)
+        {
+            _theme = ThemeController.GetTheme();
 
-		private void panel1_Click(object sender, EventArgs e)
-		{
-			Point relativePoint = this.PointToClient(Cursor.Position);
-			Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
-			Point gridEnd = new Point(_horizontalStartPosition + MaxGridSize, _verticalStartPosition + MaxGridSize);
+            Themes.Theme.ChangeTheme(_theme, Controls);
+            _solutionGrid = GameController.initializeGrid(GridSize);
+            _currentAttemptGrid = new int[GridSize][];
+            for (int i = 0; i < GridSize; i++)
+            {
+                _currentAttemptGrid[i] = new int[GridSize];
+                for (int j = 0; j < GridSize; j++)
+                {
+                    _currentAttemptGrid[i][j] = Random.Shared.Next(2);
+                }
+            }
+            List<List<int>> rowNums = GameController.CalculateRow(_currentAttemptGrid);
+            string output = string.Empty;
+            for (int i = 0; i < rowNums.Count; i++)
+            {
+                string tmp = string.Empty;
+                for (int j = 0; j < rowNums[i].Count; j++)
+                {
+                    tmp += rowNums[i][j].ToString() + " ";
+                }
+                output += tmp + "\n";
+            }
 
-			int mousePosX = relativePoint.X;
-			int mousePosY = relativePoint.Y;
-			if ((relativePoint.X >= gridStart.X && relativePoint.X <= gridEnd.X) && (relativePoint.Y >= gridStart.Y && relativePoint.Y <= gridEnd.Y))
-			{
-				int row = (int)Math.Floor((relativePoint.X - gridStart.X)/(MaxGridSize / (double)GridSize));
-				int col = (int)Math.Floor((relativePoint.Y - gridStart.Y)/(MaxGridSize / (double)GridSize));
-				int cellStartX = _horizontalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
-				int cellStartY = _verticalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
-				//int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
+
+            MessageBox.Show(output);
+            Refresh();
+        }
+        public void ThemeChange()
+        {
+            _theme = ThemeController.GetTheme();
+            Themes.Theme.ChangeTheme(_theme, Controls);
+        }
+
+        private void panel1_Click(object sender, EventArgs e)
+        {
+            Point relativePoint = this.PointToClient(Cursor.Position);
+            Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
+            Point gridEnd = new Point(_horizontalStartPosition + MaxGridSize, _verticalStartPosition + MaxGridSize);
+
+            int mousePosX = relativePoint.X;
+            int mousePosY = relativePoint.Y;
+            if ((relativePoint.X >= gridStart.X && relativePoint.X <= gridEnd.X) && (relativePoint.Y >= gridStart.Y && relativePoint.Y <= gridEnd.Y))
+            {
+                int row = (int)Math.Floor((relativePoint.X - gridStart.X) / (MaxGridSize / (double)GridSize));
+                int col = (int)Math.Floor((relativePoint.Y - gridStart.Y) / (MaxGridSize / (double)GridSize));
+                int cellStartX = _horizontalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
+                int cellStartY = _verticalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
+                //int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
 
 				//check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
-				if (_currentAttemptGrid[col][row] == 1)
-				{
-					_currentAttemptGrid[col][row] = 0;
-				}
-				else { _currentAttemptGrid[col][row] = 1; }
-					//_currentAttemptGrid[col][row] == 0 ? _currentAttemptGrid[col][row] = 1 : _currentAttemptGrid[col][row] = 0;
+				_currentAttemptGrid[row][col] = 1;
 
-					//redraw
-					Refresh();
-
-				//check for win
-				logger();
-				WinCheck();
+				//redraw
+				Refresh();
+			}
+			else { 
+				MessageBox.Show("outside grid");
 			}
 		}
 		public void setGrid() {
 			_solutionGrid = GameController.initializeGrid(GridSize);
-			//insert damien stuff for hints
-
-			//continue
 			_currentAttemptGrid = new int[GridSize][];
 			for (int i = 0; i < GridSize; i++)
 			{
 				_currentAttemptGrid[i] = new int[GridSize];
-				for (int j = 0; j<GridSize;j++)
-				{
-					_currentAttemptGrid[i][j] = 0;
-				}
 			}
-			logger();
-			
-		}
-		private void WinCheck() {
-			if (StructuralComparisons.StructuralEqualityComparer.Equals(_solutionGrid,_currentAttemptGrid))
-			{
-				MessageBox.Show("Win");
-
-				//set win as history in db
-				GameController.SetWin(GridSize-4, _hintsUsed);
-
-				//redirect to home
-				this.Hide();
-				FindForm().Controls.Find("Home", false).First().Show();
-
-
-			}
-			else { Console.WriteLine("not yet"); }
-		}
-		private void logger() {
-			Console.WriteLine("Sol\n");
-			foreach (var item in _solutionGrid)
-			{
-				foreach (var item1 in item)
-				{
-					Console.Write((item1.ToString()));
-				}
-				Console.WriteLine();
-			}
-			Console.WriteLine("cur");
-			//Console.WriteLine();
-			foreach (var item in _currentAttemptGrid)
-			{
-				foreach (var item1 in item)
-				{
-					Console.Write((item1.ToString()));
-				}
-				Console.WriteLine();
-			}
-			//WinCheck();
 		}
 	}
 }

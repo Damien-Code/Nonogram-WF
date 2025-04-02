@@ -75,6 +75,20 @@
         "FontSize": "9"
       },
       "History": null
+    },
+    {
+      "Email": "test@demninna.nl",
+      "Password": "n\u002BqdQo9A0XcIXoJ0e8btMChjLksaEefHvjxaE8uVsp0=",
+      "Salt": "OjQ2zicvNfbtZUs16ZvOdw==",
+      "Settings": {
+        "Theme": "DarkBlue",
+        "FontSize": "12"
+      },
+      "History": {
+        "Level": 5,
+        "HintCount": 2,
+        "UsedSolver": true
+      }
     }
   ]
 }
