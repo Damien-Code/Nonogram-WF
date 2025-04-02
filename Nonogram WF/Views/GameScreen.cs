@@ -65,7 +65,7 @@ namespace Nonogram_WF.Views
             }
 
             //fill rectangle via current sol
-
+            Pen Xpen = new Pen(Color.Red, 2);
             Color color = _theme.PenColor;
             if (_currentAttemptGrid == null) { return; }
             for (int i = 0; i < size; i++)
@@ -78,11 +78,8 @@ namespace Nonogram_WF.Views
                     }
                     else if (_currentAttemptGrid[i][j] == 2)
                     {
-                        using (Pen pen = new Pen(Color.Red, 2))
-                        {
-                            g.DrawLine(pen, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition + cellSize, cellSize * i + _verticalStartPosition + cellSize);
-                            g.DrawLine(pen, cellSize * j + _horizontalStartPosition + cellSize, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition + cellSize);
-                        }
+                        g.DrawLine(Xpen, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition + cellSize, cellSize * i + _verticalStartPosition + cellSize);
+                        g.DrawLine(Xpen, cellSize * j + _horizontalStartPosition + cellSize, cellSize * i + _verticalStartPosition, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition + cellSize);
                     }
                 }
             }
@@ -119,10 +116,6 @@ namespace Nonogram_WF.Views
                     _currentGridMask[i][j] = 0;
                 }
             }
-            //add grid mask
-            //_currentGridMask = _currentAttemptGrid;
-
-            //continue
             logger();
 
         }
@@ -286,12 +279,10 @@ namespace Nonogram_WF.Views
                 int col = (int)Math.Floor((relativePoint.Y - gridStart.Y) / (MaxGridSize / (double)GridSize));
                 int cellStartX = _horizontalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
                 int cellStartY = _verticalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
-                //int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
 
                 //check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
                 if (e.Button == MouseButtons.Left)
                 {
-                    //MessageBox.Show("L");
 
                     if (_currentAttemptGrid[col][row] == 1)
                     {
@@ -306,7 +297,6 @@ namespace Nonogram_WF.Views
                 }
                 else if (e.Button == MouseButtons.Right)
                 {
-                    //MessageBox.Show("R");
                     if (_currentAttemptGrid[col][row] == 2)
                     {
                         _currentAttemptGrid[col][row] = 0;
@@ -315,10 +305,8 @@ namespace Nonogram_WF.Views
                     {
                         _currentAttemptGrid[col][row] = 2;
                         _currentGridMask[col][row] = 0;
-                        //MessageBox.Show(_currentGridMask[col][row].ToString());
                     }
                 }
-                //_currentAttemptGrid[col][row] == 0 ? _currentAttemptGrid[col][row] = 1 : 0;
 
                 //redraw
                 Refresh();

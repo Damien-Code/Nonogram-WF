@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nonogram_WF.Models;
+using System;
 using System.Collections.Generic;
 using System.Diagnostics;
 using System.Linq;
@@ -44,7 +45,12 @@ namespace Nonogram_WF.Controllers
         public static void SetWin(int level, int hintsUsed)
         {
             Models.History gameHistory = new(level, hintsUsed, false);
-
+            //get all history of user
+            (Users currentUser, UserHistory userHistory) = HistoryController.RetrieveHistory();
+            Console.WriteLine(userHistory.AllHistory.ToArray()[userHistory.AllHistory.ToArray().Length - 1].Level);
+            userHistory.AllHistory.Add(gameHistory);
+            Console.WriteLine(userHistory.AllHistory.ToArray()[userHistory.AllHistory.ToArray().Length - 1].Level);
+            HistoryController.SetWin(currentUser, new History(level,hintsUsed,false) );
         }
 
 

@@ -1,8 +1,12 @@
-﻿using System;
+﻿using Nonogram_WF.Database;
+using Nonogram_WF.Themes;
+using Nonogram_WF.Views;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
 namespace Nonogram_WF.Models
 {
@@ -36,8 +40,15 @@ namespace Nonogram_WF.Models
             HintCount = hintCount;
             UsedSolver = usedSolver;
         }
-        public static void SetWin(History gameHistory) {
-            
+        public History() { 
+        
+        }
+        public static void SetWin(Users user, History gameHistory) {
+            AllUsers allUsers = JSON_RW.GetUsers();
+            Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
+            currentUser.History.AllHistory.Add(gameHistory);
+            JSON_RW.UpdateUserSettings(allUsers);
+            JSON_RW.UpdateSessionSettings(currentUser);
         }
     }
 }

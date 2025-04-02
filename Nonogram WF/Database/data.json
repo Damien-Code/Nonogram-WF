@@ -1,65 +1,41 @@
 {
   "Users": [
     {
-      "Email": "test@test.com",
-      "Password": "NMpU8AYpgCSkL2KCMaliNa2Z/DiWGHQ6Io6uZFhh\u002BzfqCJBjEbNrY0rpyWQghGjJTsdsuC0QlDpTnJdhj1OMFg==",
-      "Salt": "GQLNW\u002B\u002BHupjbXXujifX5WA==",
+      "Email": "asd@asd.asd",
+      "Password": "wUM6gWh6cVKOLr5AMrr71i1xEYwqwKUpLfp9PXGK9MupRJ4qwt\u002BA9LP3FBoYqFBq8s6yRYmx4T3pkKpal\u002BuPTg==",
+      "Salt": "DRlzp5puzQV99SOkGOMk4Q==",
       "Settings": {
         "Theme": "Dark",
         "FontSize": "9"
       },
       "History": {
-        "Level": 5,
-        "HintCount": 2,
-        "UsedSolver": true
-      }
-    },
-    {
-      "Email": "dovandenijssel@live.nl",
-      "Password": "8rNvR\u002B6KBCcWPYBe\u002BhVTjxWV5rRy77u1GCFpUsKqE9QuSi21sRqRNE5ngiq3zm9rehoDno7lxbSKvioMKkUIgA==",
-      "Salt": "sZ2bfDtZy21WYqDAS7gYiQ==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      },
-      "History": {
-        "Level": 5,
-        "HintCount": 2,
-        "UsedSolver": true
-      }
-    },
-    {
-      "Email": "test@test.test",
-      "Password": "R9xgVK6LNAWUmime1HxqK3e3RVk4FEQlonPWCS/y81M=",
-      "Salt": "Z0rOfuVNklSxGNe8MgrGvQ==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      },
-      "History": null
-    },
-    {
-      "Email": "asdasd@asd.asd",
-      "Password": "PzNwcL91J2v2F3YiDCo/anstvzQ3alGCIVVrJ/xGfWA=",
-      "Salt": "k\u002BhhcTwyL9yy31vUAKLZyg==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      },
-      "History": null
-    },
-    {
-      "Email": "test@demninna.nl",
-      "Password": "n\u002BqdQo9A0XcIXoJ0e8btMChjLksaEefHvjxaE8uVsp0=",
-      "Salt": "OjQ2zicvNfbtZUs16ZvOdw==",
-      "Settings": {
-        "Theme": "Dark",
-        "FontSize": "9"
-      },
-      "History": {
-        "Level": 5,
-        "HintCount": 2,
-        "UsedSolver": true
+        "AllHistory": [
+          {
+            "Level": 0,
+            "HintCount": 0,
+            "UsedSolver": false
+          },
+          {
+            "Level": 1,
+            "HintCount": 0,
+            "UsedSolver": false
+          },
+          {
+            "Level": 2,
+            "HintCount": 0,
+            "UsedSolver": false
+          },
+          {
+            "Level": 2,
+            "HintCount": 0,
+            "UsedSolver": false
+          },
+          {
+            "Level": 1,
+            "HintCount": 0,
+            "UsedSolver": false
+          }
+        ]
       }
     }
   ]

@@ -14,10 +14,13 @@ namespace Nonogram_WF.Controllers
         /// Only returns the history from that user, because the history is the only part we need to retrieve
         /// </summary>
         /// <returns type="History"></returns>
-        public static History RetrieveHistory()
+        public static (Users user, UserHistory history) RetrieveHistory()
         {
             Users user = Session.GetSession();
-            return user.History;
+            return (user, user.History);
+        }
+        public static void SetWin(Users user, History userHistory) {
+            History.SetWin(user, userHistory);
         }
     }
 }
