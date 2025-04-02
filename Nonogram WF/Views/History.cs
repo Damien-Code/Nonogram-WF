@@ -39,9 +39,10 @@ namespace Nonogram_WF.Views
 		/// </summary>
 		private void PopulateDataGridView()
 		{
-			//dataGridView1.Rows.Add(HistoryController.RetrieveHistory().Level, 
-			//	HistoryController.RetrieveHistory().HintCount, 
-			//	HistoryController.RetrieveHistory().UsedSolver);
+      //no clue how much of this is needed, het zat nog in master dus heb ik het maar gelaten
+			Nonogram_WF.Models.History history = HistoryController.RetrieveHistory();
+			dataGridView1.Rows.Add(history.Level, history.HintCount, history.UsedSolver);
+
 		}
 	
         
