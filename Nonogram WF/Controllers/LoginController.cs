@@ -40,7 +40,6 @@ namespace Nonogram_WF.Controllers
                 return (false, emptyUser);
             }
             return (true, LoggedInUser);
-       
         }
 
         public static bool PasswordCheck(Users user, string password)
