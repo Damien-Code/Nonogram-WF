@@ -32,6 +32,16 @@
         "Level": 1,
         "HintCount": 0,
         "UsedSolver": false
+      },
+      {
+        "Level": 3,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 4,
+        "HintCount": 0,
+        "UsedSolver": false
       }
     ]
   }

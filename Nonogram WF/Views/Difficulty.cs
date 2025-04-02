@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nonogram_WF.Controllers;
+using Nonogram_WF.Models;
 
 namespace Nonogram_WF.Views
 {
@@ -27,7 +28,7 @@ namespace Nonogram_WF.Views
 
         private void buttonDifficultyLogout_Click(object sender, EventArgs e)
         {
-            Session.RemoveSession();
+            Controllers.Session.RemoveSession();
             Application.Exit();
         }
 
@@ -39,6 +40,10 @@ namespace Nonogram_WF.Views
         private void Difficulty_VisibleChanged(object sender, EventArgs e)
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+			//set max value of dropdown
+			Users currentSession = Models.Session.GetSession();
+			int currentMaxLevel = currentSession.History.AllHistory.Max(level => level.Level);
+			numericUpDownDifficulty.Maximum = currentMaxLevel+1;
         }
     
 		private void buttonDifficultyPlayGame_Click(object sender, EventArgs e)
@@ -50,14 +55,6 @@ namespace Nonogram_WF.Views
 			game.ThemeChange();
 			game.setGrid();
 			game.Show();
-
-			game.Controls.Add(new Label()
-			{
-				Text = "Hoi",
-				Location = new Point(50, 50),
-				AutoSize = true,
-
-			});
 		}
 
 		private void numericUpDownDifficulty_ValueChanged(object sender, EventArgs e)
