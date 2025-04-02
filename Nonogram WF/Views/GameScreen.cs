@@ -65,8 +65,8 @@ namespace Nonogram_WF.Views
             }
 
             //fill rectangle via current sol
+            Font XFont = new Font("ariel", cellSize-GridSize);
             Color color = _theme.PenColor;
-
             if (_currentAttemptGrid == null) { return; }
             for (int i = 0; i < size; i++)
             {
@@ -77,14 +77,11 @@ namespace Nonogram_WF.Views
                         e.Graphics.FillRectangle(new SolidBrush(color), cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize, cellSize);
                     }
                     else if (_currentAttemptGrid[i][j] == 2)
-                    {//FFFF0000 = red
-                        Color XColor = Color.FromArgb(color.ToArgb() ^ (int)0xFF0000);
-                        using (Pen pen = new Pen(XColor, 2))
                     {
-                            //g.DrawLine(pen, 0, 0, 100, 100);
-                        g.DrawLine(pen, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize, cellSize);
-                        //g.DrawLine(pen, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize, cellSize);
-                    }    
+                        using (Pen pen = new Pen(Color.Red, 2))
+                        {
+                            g.DrawString("X",XFont, new SolidBrush(Color.Red), cellSize * j + _horizontalStartPosition - this.Font.Size/2, cellSize * i + _verticalStartPosition-this.Font.Size);
+                        }    
                     }
                 }
             }
@@ -289,7 +286,7 @@ namespace Nonogram_WF.Views
                 //check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
                 if (e.Button == MouseButtons.Left)
                 {
-                    MessageBox.Show("L");
+                    //MessageBox.Show("L");
 
                     if (_currentAttemptGrid[col][row] == 1)
                     {
@@ -301,7 +298,7 @@ namespace Nonogram_WF.Views
                     }
                 }
                 else if(e.Button == MouseButtons.Right) {
-                    MessageBox.Show("R");
+                    //MessageBox.Show("R");
                     if (_currentAttemptGrid[col][row] == 2)
                     {
                         _currentAttemptGrid[col][row] = 0;
