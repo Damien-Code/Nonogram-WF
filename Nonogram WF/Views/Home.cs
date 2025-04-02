@@ -49,6 +49,12 @@ namespace Nonogram_WF.Views
         private void Home_VisibleChanged(object sender, EventArgs e)
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+            //reload();
+            Refresh(); 
         }
+        //private void reload() {
+        //    this.Hide();
+        //    FindForm().Controls.Find("Home", false).First().Show();
+        //}
     }
 }

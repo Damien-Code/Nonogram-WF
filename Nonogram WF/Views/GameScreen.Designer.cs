@@ -143,6 +143,7 @@
             panel1.TabIndex = 0;
             panel1.Click += panel1_Click;
             panel1.Paint += panel1_Paint;
+            panel1.MouseClick += panel1_MouseClick;
             // 
             // buttonGameScreenHint
             // 

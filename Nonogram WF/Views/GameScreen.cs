@@ -16,24 +16,24 @@ using Nonogram_WF.Themes;
 
 namespace Nonogram_WF.Views
 {
-	public partial class GameScreen : UserControl
-	{
-		//private PaintEventArgs _paint;
-		protected int MaxGridSize = 400;//max length of grid
-		private int[][] _solutionGrid;
-		private int[][] _currentAttemptGrid;
-		private Theme _theme = ThemeController.GetTheme();
-		private int _horizontalStartPosition = 375;
-		private int _verticalStartPosition = 175;
-		public int GridSize;
-		public GameScreen()
-		{
-			//GridSize = GridSize + 4;
-			InitializeComponent();
-			DoubleBuffered = true;
-			//all views have this call to prevent flickering if the user has dark mode enabled on startup
-			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
-		}
+    
+    public partial class GameScreen : UserControl
+    {
+        protected int MaxGridSize = 250;//max length of grid
+        private int[][] _solutionGrid;
+        private int[][] _currentAttemptGrid;
+        private int[][] _currentGridMask;
+        private Theme _theme = ThemeController.GetTheme();
+        private int _horizontalStartPosition = 275;
+        private int _verticalStartPosition = 125;
+        public int GridSize;
+        private int _hintsUsed = 0;
+        public GameScreen()
+        {
+            InitializeComponent();
+            DoubleBuffered = true;
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
 
         private void buttonGameScreenBack_Click(object sender, EventArgs e)
         {
@@ -49,8 +49,6 @@ namespace Nonogram_WF.Views
 
         private void panel1_Paint(object sender, PaintEventArgs e)
         {
-            //GameController.initializeGrid(GridSize); // ? wat doet dit in de paint, gebruikt niet eens de return value
-            //OnPaint(e);
             SuspendLayout();
             Graphics g = e.Graphics;
 
@@ -69,52 +67,126 @@ namespace Nonogram_WF.Views
             //fill rectangle via current sol
             Color color = _theme.PenColor;
 
-			if (_currentAttemptGrid == null) { return; }
-			for (int i = 0; i < size; i++)
-			{
-				for (int j = 0; j < size; j++)
-				{
-					if (_currentAttemptGrid[i][j] == 1)
-					{
-						e.Graphics.FillRectangle(new SolidBrush(color), cellSize * i + _horizontalStartPosition, cellSize * j + _verticalStartPosition, cellSize, cellSize);
-						
-					}
-				}
-			}
-			ResumeLayout(false);
-		}
+            if (_currentAttemptGrid == null) { return; }
+            for (int i = 0; i < size; i++)
+            {
+                for (int j = 0; j < size; j++)
+                {
+                    if (_currentAttemptGrid[i][j] == 1)
+                    {
+                        e.Graphics.FillRectangle(new SolidBrush(color), cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize, cellSize);
+                    }
+                    else if (_currentAttemptGrid[i][j] == 2)
+                    {//FFFF0000 = red
+                        Color XColor = Color.FromArgb(color.ToArgb() ^ (int)0xFF0000);
+                        using (Pen pen = new Pen(XColor, 2))
+                    {
+                            //g.DrawLine(pen, 0, 0, 100, 100);
+                        g.DrawLine(pen, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize, cellSize);
+                        //g.DrawLine(pen, cellSize * j + _horizontalStartPosition, cellSize * i + _verticalStartPosition, cellSize, cellSize);
+                    }    
+                    }
+                }
+            }
+            ResumeLayout(false);
+        }
+
 
         private void GameScreen_VisibleChanged(object sender, EventArgs e)
         {
             _theme = ThemeController.GetTheme();
 
             Themes.Theme.ChangeTheme(_theme, Controls);
+
+        }
+
+
+        public void setGrid()
+        {
             _solutionGrid = GameController.initializeGrid(GridSize);
+            RemoveLabels();
+            SetLabels();
+
+
             _currentAttemptGrid = new int[GridSize][];
+            _currentGridMask = new int[GridSize][];
+            
             for (int i = 0; i < GridSize; i++)
             {
                 _currentAttemptGrid[i] = new int[GridSize];
+                _currentGridMask[i] = new int[GridSize];
                 for (int j = 0; j < GridSize; j++)
                 {
-                    _currentAttemptGrid[i][j] = Random.Shared.Next(2);
+                    _currentAttemptGrid[i][j] = 0;
+                    _currentGridMask[i][j] = 0;
                 }
             }
-            List<List<int>> rowNums = GameController.CalculateRow(_currentAttemptGrid);
-            string output = string.Empty;
-            for (int i = 0; i < rowNums.Count; i++)
-            {
-                string tmp = string.Empty;
-                for (int j = 0; j < rowNums[i].Count; j++)
-                {
-                    tmp += rowNums[i][j].ToString() + " ";
-                }
-                output += tmp + "\n";
-            }
+            //add grid mask
+            //_currentGridMask = _currentAttemptGrid;
 
+            //continue
+            logger();
 
-            MessageBox.Show(output);
-            Refresh();
         }
+        private void SetLabels()
+        {
+            CreateColLabels();
+            CreateRowLabels();
+        }
+
+
+        private void WinCheck()
+        {
+            if (StructuralComparisons.StructuralEqualityComparer.Equals(_solutionGrid, _currentGridMask))
+            {
+                MessageBox.Show("Win");
+
+                //set win as history in db
+                GameController.SetWin(GridSize - 4, _hintsUsed);
+
+                //redirect to home
+                this.Hide();
+                FindForm().Controls.Find("Home", false).First().Show();
+
+
+            }
+            else { Console.WriteLine("not yet"); }
+        }
+        private void logger()
+        {
+            Console.WriteLine("Sol\n");
+            foreach (var item in _solutionGrid)
+            {
+                foreach (var item1 in item)
+                {
+                    Console.Write((item1.ToString()));
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("cur");
+            //Console.WriteLine();
+            foreach (var item in _currentAttemptGrid)
+            {
+                foreach (var item1 in item)
+                {
+                    Console.Write((item1.ToString()));
+                }
+                Console.WriteLine();
+            }
+            Console.WriteLine("mask");
+            //Console.WriteLine();
+            foreach (var item in _currentGridMask)
+            {
+                foreach (var item1 in item)
+                {
+                    Console.Write((item1.ToString()));
+                }
+                Console.WriteLine();
+            }
+            //WinCheck();
+        }
+
+
         public void ThemeChange()
         {
             _theme = ThemeController.GetTheme();
@@ -122,6 +194,83 @@ namespace Nonogram_WF.Views
         }
 
         private void panel1_Click(object sender, EventArgs e)
+        {
+        }
+
+
+        private void buttonGameScreenHint_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        public void CreateRowLabels()
+        {
+            Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
+            int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
+            List<List<int>> RowHints = GameController.CalculateRow(_solutionGrid);
+            Font font = new("ariel", cellSize, FontStyle.Regular, GraphicsUnit.Pixel);
+            for (int i = 0; i < RowHints.Count; i++)
+            {
+
+                int labelStart = gridStart.X - (RowHints[i].Count * (cellSize));
+
+                for (int j = 0; j < RowHints[i].Count; j++)
+                {
+                    Label label = new Label();
+                    label.Size = new Size(cellSize, cellSize);
+                    label.TextAlign = ContentAlignment.MiddleCenter;
+                    label.Font = font;
+                    label.Name = "lblHint";
+
+                    label.Location = new Point(labelStart + (j * cellSize), gridStart.Y + (i * cellSize));
+                    label.Text = RowHints[i][j].ToString();
+
+                    panel1.Controls.Add(label);
+                }
+            }
+        }
+
+        public void CreateColLabels()
+        {
+            Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
+            int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
+
+            List<List<int>> ColHints = GameController.CalculateCol(_solutionGrid);
+            Font font = new("ariel", cellSize, FontStyle.Regular, GraphicsUnit.Pixel);
+
+            for (int i = 0; i < ColHints.Count; i++)
+            {
+
+                int labelStart = gridStart.Y - (ColHints[i].Count * (cellSize));
+
+                for (int j = 0; j < ColHints[i].Count; j++)
+                {
+                    Label label = new Label();
+                    label.Size = new Size(cellSize, cellSize);
+                    label.TextAlign = ContentAlignment.MiddleCenter;
+                    label.Font = font;
+                    label.Name = "lblHint";
+
+                    label.Location = new Point(gridStart.X + (i * cellSize), labelStart + (j * cellSize));
+                    label.Text = ColHints[i][j].ToString();
+
+                    panel1.Controls.Add(label);
+                }
+            }
+        }
+
+        /// <summary>
+        /// Removes the labels because choosing another difficulty would result in hint overlap
+        /// </summary>
+        private void RemoveLabels()
+        {
+
+            panel1.Controls.Find("lblHint", false).ToList().ForEach(x => x.Dispose());
+
+            Refresh();
+        }
+
+        private void panel1_MouseClick(object sender, MouseEventArgs e)
         {
             Point relativePoint = this.PointToClient(Cursor.Position);
             Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
@@ -137,23 +286,40 @@ namespace Nonogram_WF.Views
                 int cellStartY = _verticalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
                 //int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
 
-				//check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
-				_currentAttemptGrid[row][col] = 1;
+                //check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
+                if (e.Button == MouseButtons.Left)
+                {
+                    MessageBox.Show("L");
 
-				//redraw
-				Refresh();
-			}
-			else { 
-				MessageBox.Show("outside grid");
-			}
-		}
-		public void setGrid() {
-			_solutionGrid = GameController.initializeGrid(GridSize);
-			_currentAttemptGrid = new int[GridSize][];
-			for (int i = 0; i < GridSize; i++)
-			{
-				_currentAttemptGrid[i] = new int[GridSize];
-			}
-		}
-	}
+                    if (_currentAttemptGrid[col][row] == 1)
+                    {
+                        _currentAttemptGrid[col][row] = 0;
+                        _currentGridMask[col][row] = 0;
+                    }
+                    else { _currentAttemptGrid[col][row] = 1;
+                        _currentGridMask[col][row] = 1;
+                    }
+                }
+                else if(e.Button == MouseButtons.Right) {
+                    MessageBox.Show("R");
+                    if (_currentAttemptGrid[col][row] == 2)
+                    {
+                        _currentAttemptGrid[col][row] = 0;
+                    }
+                    else { _currentAttemptGrid[col][row] = 2;
+                        _currentGridMask[col][row] = 0;
+                        //MessageBox.Show(_currentGridMask[col][row].ToString());
+                    }
+                }
+                    //_currentAttemptGrid[col][row] == 0 ? _currentAttemptGrid[col][row] = 1 : 0;
+
+                    //redraw
+                    Refresh();
+
+                //check for win
+                logger();
+                WinCheck();
+            }
+        }
+    }
 }

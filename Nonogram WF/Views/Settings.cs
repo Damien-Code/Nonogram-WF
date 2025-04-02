@@ -106,7 +106,7 @@ namespace Nonogram_WF.Views
         private void reload()
         {
             this.Hide();
-            FindForm().Controls.Find("Settings", false).First().Show();
+            FindForm().Controls.Find("Home", false).First().Show();
         }
 
         private void Settings_VisibleChanged(object sender, EventArgs e)

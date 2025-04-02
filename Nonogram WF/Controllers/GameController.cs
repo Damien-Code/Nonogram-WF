@@ -10,76 +10,86 @@ namespace Nonogram_WF.Controllers
 {
     class GameController
     {
-		public static int[][] initializeGrid(int size) {
-			int[][] grid = GenerateGrid(size).ToArray();
-			CalculateRow(grid);
-			/*
+        public static int[][] initializeGrid(int size)
+        {
+            int[][] grid = GenerateGrid(size).ToArray();
+            CalculateRow(grid);
+            /*
 			 * TODO: add new game to user in db
 			 * /code here
 			*/
-			
-			return grid;
-		}
-		private static List<int[]> GenerateGrid(int size)
-		{
-			List<int[]> grid = new();
-			//add a new row to the grid list up to the amount {size}.
-			for (int i = 0; i < size; i++)
-			{
-				grid.Add(GenerateRow(size));
-			}
-			return grid;
-		}
-		private static int[] GenerateRow(int n)
-		{
-			int[] row = new int[n];
-			for (int i = 0; i < n; i++)
-			{
-				row[i] = Random.Shared.Next(0, 2);
-			}
-			return row;
-		}
 
-		public static List<List<int>> CalculateRow(int[][] grid)
-		{
-			List<List<int>> returnList = new List<List<int>>(); 
-			for(int i = 0; i < grid.GetLength(0); i++)
-			{
-				List<int> tmp_list = new List<int>();
-				int sum = 0;
+            return grid;
+        }
+        private static List<int[]> GenerateGrid(int size)
+        {
+            List<int[]> grid = new();
+            //add a new row to the grid list up to the amount {size}.
+            for (int i = 0; i < size; i++)
+            {
+                grid.Add(GenerateRow(size));
+            }
+            return grid;
+        }
+        private static int[] GenerateRow(int n)
+        {
+            int[] row = new int[n];
+            for (int i = 0; i < n; i++)
+            {
+                row[i] = Random.Shared.Next(0, 2);
+            }
+            return row;
+        }
 
-				for (int j = 0; j < grid[i].GetLength(0); j++)
-				{
-					if (grid[i][j] == 1)
-					{
-						sum += 1;
-					}
+        public static void SetWin(int level, int hintsUsed)
+        {
+            Models.History gameHistory = new(level, hintsUsed, false);
 
-					else if (grid[i][j] == 0 && sum > 0)
-					{
-						tmp_list.Add(sum);
-						sum = 0;
-					}
-				}
+        }
 
-				if (sum > 0)
-				{
-					tmp_list.Add(sum);
-				}
-				else if (sum == 0 && tmp_list.Count == 0)
-				{
-					tmp_list.Add(0);
-				}
+
+
+
+        public static List<List<int>> CalculateRow(int[][] grid)
+        {
+            List<List<int>> returnList = new List<List<int>>();
+            for (int i = 0; i < grid.GetLength(0); i++)
+            {
+                List<int> tmp_list = new List<int>();
+                int sum = 0;
+
+                for (int j = 0; j < grid[i].GetLength(0); j++)
+                {
+                    if (grid[i][j] == 1)
+                    {
+                        sum += 1;
+                    }
+
+                    else if (grid[i][j] == 0 && sum > 0)
+                    {
+                        tmp_list.Add(sum);
+                        sum = 0;
+                    }
+                }
+
+                if (sum > 0)
+                {
+                    tmp_list.Add(sum);
+                }
+                else if (sum == 0 && tmp_list.Count == 0)
+                {
+                    tmp_list.Add(0);
+                }
                 returnList.Add(tmp_list);
             }
-			return returnList;
-		}
+            return returnList;
+        }
 
-		public static List<List<int>> CalculateCol(int[][] grid)
-		{
+        public static List<List<int>> CalculateCol(int[][] grid)
+        {
             List<List<int>> returnList = new List<List<int>>();
-			for(int i = 0; i < grid.GetLength(0); i++)
-			{
+            for (int i = 0; i < grid.GetLength(0); i++)
+            {
                 List<int> tmp_list = new List<int>();
                 int sum = 0;
                 for (int j = 0; j < grid[i].GetLength(0); j++)
@@ -105,13 +115,9 @@ namespace Nonogram_WF.Controllers
                 }
                 returnList.Add(tmp_list);
             }
-			return returnList;
+            return returnList;
         }
 
     }
-	public static void SetWin(int level, int hintsUsed)
-        {
-            Models.History gameHistory = new(level, hintsUsed, false);
 
-        }
-    }
+}
