@@ -19,12 +19,12 @@ namespace Nonogram_WF.Views
 	public partial class GameScreen : UserControl
 	{
 		//private PaintEventArgs _paint;
-		protected int MaxGridSize = 400;//max length of grid
+		protected int MaxGridSize = 300;//max length of grid
 		private int[][] _solutionGrid;
 		private int[][] _currentAttemptGrid;
 		private Theme _theme = ThemeController.GetTheme();
-		private int _horizontalStartPosition = 375;
-		private int _verticalStartPosition = 175;
+		private int _horizontalStartPosition = 275;
+		private int _verticalStartPosition = 75;
 		public int GridSize;
 		private int _hintsUsed = 0;
 		public GameScreen()

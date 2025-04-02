@@ -20,9 +20,9 @@ namespace Nonogram_WF.Views
         public Settings()
         {
             InitializeComponent();
-			//all views have this call to prevent flickering if the user has dark mode enabled on startup
-			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
-		}
+            //all views have this call to prevent flickering if the user has dark mode enabled on startup
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
 
         private void buttonSettingsLogout_Click(object sender, EventArgs e)
         {
@@ -38,13 +38,12 @@ namespace Nonogram_WF.Views
         private void GetThemeLabel()
         {
             string userTheme = GetTheme();
-            comboBoxSettingsTheme.Text = 
+            comboBoxSettingsTheme.Text =
                 (userTheme == "Light") ? "Light" :
-                (userTheme == "Dark") ? "Dark" : 
+                (userTheme == "Dark") ? "Dark" :
                 (userTheme == "DarkBlue") ? "DarkBlue" :
                 "Grey";
             return;
-
         }
         private void GetFontLabel()
         {
@@ -59,6 +58,7 @@ namespace Nonogram_WF.Views
             if (_themeIndexChangecounter > 0)
             {
                 SetTheme(comboBoxSettingsTheme.Text, Controls); //change this code to set new theme and call the func again
+                reload();
                                                                 // gets color before it has been changed
                                                                 //Refresh();
             }
@@ -86,11 +86,9 @@ namespace Nonogram_WF.Views
         private void SetTheme(string theme, ControlCollection controls)
         {
             Controllers.Settings.SetTheme(theme);
-            reload();
         }
         private void SetFontSize(string fontSize)
         {
-
             Controllers.Settings.SetFontSize(fontSize);
         }
 
@@ -104,11 +102,16 @@ namespace Nonogram_WF.Views
 
         private void buttonSettingsLogout_VisibleChanged(object sender, EventArgs e)
         {
-            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
-        private void reload() {
+        private void reload()
+        {
             this.Hide();
             FindForm().Controls.Find("Settings", false).First().Show();
+        }
+
+        private void Settings_VisibleChanged(object sender, EventArgs e)
+        {
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
     }
 }
