@@ -71,7 +71,9 @@
             // 
             // buttonHomeLogout
             // 
+
             buttonHomeLogout.Location = new Point(661, 12);
+
             buttonHomeLogout.Margin = new Padding(2, 1, 2, 1);
             buttonHomeLogout.Name = "buttonHomeLogout";
             buttonHomeLogout.Size = new Size(81, 22);
@@ -90,7 +92,9 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2, 1, 2, 1);
             panel1.Name = "panel1";
+
             panel1.Size = new Size(800, 475);
+
             panel1.TabIndex = 4;
             // 
             // Home
@@ -100,7 +104,11 @@
             Controls.Add(panel1);
             Margin = new Padding(2, 1, 2, 1);
             Name = "Home";
+
             Size = new Size(800, 475);
+            VisibleChanged += Home_VisibleChanged;
+
+
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }

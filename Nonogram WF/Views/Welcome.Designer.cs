@@ -46,7 +46,9 @@
             panelWelcome.Location = new Point(0, 0);
             panelWelcome.Margin = new Padding(2, 1, 2, 1);
             panelWelcome.Name = "panelWelcome";
+
             panelWelcome.Size = new Size(800, 475);
+
             panelWelcome.TabIndex = 0;
             panelWelcome.Paint += panelWelcome_Paint;
             // 
@@ -100,7 +102,9 @@
             Controls.Add(panelWelcome);
             Margin = new Padding(2, 1, 2, 1);
             Name = "Welcome";
+
             Size = new Size(800, 475);
+
             Load += Welcome_Load;
             panelWelcome.ResumeLayout(false);
             panelWelcome.PerformLayout();

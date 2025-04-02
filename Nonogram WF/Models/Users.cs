@@ -39,11 +39,12 @@ namespace Nonogram_WF.Models
 
         public Settings Settings { get; set; }
 
-        public History History { get; set; }
+        public UserHistory History { get; set; } = new();
+        
 
         // Construct if the Users class is initialized with arguments
         [JsonConstructor]
-        public Users(string email, string password, string salt, Settings settings, History history)
+        public Users(string email, string password, string salt, Settings settings, UserHistory history)
         {
             Email = email;
             Password = password;
@@ -53,7 +54,7 @@ namespace Nonogram_WF.Models
         }
 
         //Construct for session
-        public Users(string email, Settings settings, History history)
+        public Users(string email, Settings settings, UserHistory history)
         {
             Email = email;
             Settings = settings;
@@ -70,7 +71,7 @@ namespace Nonogram_WF.Models
         /// </summary>
         /// <param name="email"></param>
         /// <param name="dPassword"></param>
-        public static void SetUser(string email, DPassword dPassword, Settings settings, History history)
+        public static void SetUser(string email, DPassword dPassword, Settings settings, UserHistory history)
         {
             AllUsers allUsers = JSON_RW.GetUsers();
             Users user = new Users(email, dPassword.Hash, dPassword.Salt, settings, history);
@@ -141,6 +142,17 @@ namespace Nonogram_WF.Models
             Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
             currentUser.Settings.FontSize = fontSize;
 			JSON_RW.UpdateUserSettings(allUsers);
+		}
+
+        public static void setHistory(History gameHistory) {
+			AllUsers allUsers = JSON_RW.GetUsers();
+			Users user = JSON_RW.GetSession();
+			Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
+            //History has to be a list to add the gameHistory to
+            // WIP
+                //UserHistory AllHistory = currentUser.History;
+            //currentUser.History
+            // TODO: Convert history to list
 		}
         public static AllUsers GetUsers() 
         { 

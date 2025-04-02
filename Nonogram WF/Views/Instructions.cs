@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Nonogram_WF.Controllers;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -15,12 +16,19 @@ namespace Nonogram_WF.Views
         public Instructions()
         {
             InitializeComponent();
-        }
+			//all views have this call to prevent flickering if the user has dark mode enabled on startup
+			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+		}
 
         private void buttonGameInstructions_Click(object sender, EventArgs e)
         {
             this.Hide();
             FindForm().Controls.Find("Home", false).First().Show();
+        }
+
+        private void buttonGameInstructions_VisibleChanged(object sender, EventArgs e)
+        {
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
     }
 }

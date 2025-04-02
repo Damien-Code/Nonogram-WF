@@ -17,13 +17,15 @@ namespace Nonogram_WF.Views
 		{
 			InitializeComponent();
 			PopulateDataGridView();
+			//all views have this call to prevent flickering if the user has dark mode enabled on startup
+			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
 		}
 
-		private void buttonHistoryBack_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			FindForm().Controls.Find("Home", false).First().Show();
-		}
+        private void buttonHistoryBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Home", false).First().Show();
+        }
 
 		private void buttonHistoryLogout_Click(object sender, EventArgs e)
 		{
@@ -37,8 +39,17 @@ namespace Nonogram_WF.Views
 		/// </summary>
 		private void PopulateDataGridView()
 		{
+      //no clue how much of this is needed, het zat nog in master dus heb ik het maar gelaten
 			Nonogram_WF.Models.History history = HistoryController.RetrieveHistory();
 			dataGridView1.Rows.Add(history.Level, history.HintCount, history.UsedSolver);
+
 		}
-	}
+	
+        
+
+        private void History_VisibleChanged(object sender, EventArgs e)
+        {
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
+    }
 }

@@ -15,14 +15,20 @@ namespace Nonogram_WF.Controllers
         /// 
         /// </summary>
         /// <returns type="History"></returns>
-        public static History RetrieveHistory()
+        public static (Users user, UserHistory history) RetrieveHistory()
         {
             Users user = Session.GetSession();
-            if (user.History == null) 
-            { 
-                return new History(0,0,true); 
-            }
-            return user.History;
+            return (user, user.History);
+          //check to make sure the part below isnt needed for history to work
+//           if (user.History == null) 
+//             { 
+//                 return new History(0,0,true); 
+//             }
+//             return user.History;
+        }
+        public static void SetWin(Users user, History userHistory) {
+            History.SetWin(user, userHistory);
+            
         }
     }
 }
