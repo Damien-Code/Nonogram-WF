@@ -26,28 +26,26 @@
         /// Required method for Designer support - do not modify 
         /// the contents of this method with the code editor.
         /// </summary>
-      
+
         private void InitializeComponent()
         {
-			DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
+            DataGridViewCellStyle dataGridViewCellStyle1 = new DataGridViewCellStyle();
             buttonHistoryBack = new Button();
             buttonHistoryLogout = new Button();
             labelHistory = new Label();
-            label1 = new Label();
-
             dataGridView1 = new DataGridView();
             Level = new DataGridViewTextBoxColumn();
             HintsUsed = new DataGridViewTextBoxColumn();
             UsedSolver = new DataGridViewTextBoxColumn();
             TimeColumn = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
+            panel1.SuspendLayout();
             SuspendLayout();
             // 
             // buttonHistoryBack
             // 
-
             buttonHistoryBack.Location = new Point(14, 14);
-
             buttonHistoryBack.Margin = new Padding(2, 1, 2, 1);
             buttonHistoryBack.Name = "buttonHistoryBack";
             buttonHistoryBack.Size = new Size(81, 22);
@@ -58,9 +56,7 @@
             // 
             // buttonHistoryLogout
             // 
-
             buttonHistoryLogout.Location = new Point(656, 14);
-
             buttonHistoryLogout.Margin = new Padding(2, 1, 2, 1);
             buttonHistoryLogout.Name = "buttonHistoryLogout";
             buttonHistoryLogout.Size = new Size(81, 22);
@@ -73,28 +69,16 @@
             // 
             labelHistory.AutoSize = true;
             labelHistory.Font = new Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-
             labelHistory.Location = new Point(313, 71);
-
             labelHistory.Margin = new Padding(2, 0, 2, 0);
             labelHistory.Name = "labelHistory";
             labelHistory.Size = new Size(140, 51);
             labelHistory.TabIndex = 2;
             labelHistory.Text = "History";
             // 
-            // label1
-            // 
-            label1.BackColor = SystemColors.ActiveCaption;
-            label1.Location = new Point(134, 139);
-            label1.Margin = new Padding(2, 0, 2, 0);
-            label1.Name = "label1";
-            label1.Size = new Size(501, 234);
-            label1.TabIndex = 3;
-            label1.Text = "Insert history table";
-            //
             // dataGridView1
-            //
-			dataGridView1.AllowUserToAddRows = false;
+            // 
+            dataGridView1.AllowUserToAddRows = false;
             dataGridView1.AllowUserToDeleteRows = false;
             dataGridView1.AllowUserToResizeColumns = false;
             dataGridView1.AllowUserToResizeRows = false;
@@ -121,33 +105,33 @@
             dataGridView1.ShowEditingIcon = false;
             dataGridView1.Size = new Size(432, 215);
             dataGridView1.TabIndex = 3;
-            //    // 
-            //    // Level
-            //    // 
+            // 
+            // Level
+            // 
             Level.HeaderText = "Level";
             Level.MinimumWidth = 10;
             Level.Name = "Level";
             Level.ReadOnly = true;
             Level.Width = 200;
-            //    // 
-            //    // HintsUsed
-            //    // 
+            // 
+            // HintsUsed
+            // 
             HintsUsed.HeaderText = "Hints used";
             HintsUsed.MinimumWidth = 10;
             HintsUsed.Name = "HintsUsed";
             HintsUsed.ReadOnly = true;
             HintsUsed.Width = 200;
-            //    // 
-            //    // UsedSolver
-            //    // 
+            // 
+            // UsedSolver
+            // 
             UsedSolver.HeaderText = "Used solver";
             UsedSolver.MinimumWidth = 10;
             UsedSolver.Name = "UsedSolver";
             UsedSolver.ReadOnly = true;
             UsedSolver.Width = 200;
-            //    // 
-            //    // TimeColumn
-            //    // 
+            // 
+            // TimeColumn
+            // 
             TimeColumn.HeaderText = "Total play time";
             TimeColumn.MinimumWidth = 10;
             TimeColumn.Name = "TimeColumn";
@@ -156,39 +140,28 @@
             // 
             // panel1
             // 
-
-            panel1.Controls.Add(labelHistory);
-            panel1.Controls.Add(buttonHistoryBack);
-            panel1.Controls.Add(buttonHistoryLogout);
             panel1.Controls.Add(dataGridView1);
-
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2, 1, 2, 1);
             panel1.Name = "panel1";
-
             panel1.Size = new Size(800, 475);
-
             panel1.TabIndex = 4;
             // 
             // History
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(label1);
             Controls.Add(labelHistory);
             Controls.Add(buttonHistoryLogout);
             Controls.Add(buttonHistoryBack);
             Controls.Add(panel1);
             Margin = new Padding(2, 1, 2, 1);
             Name = "History";
-
             Size = new Size(800, 475);
             VisibleChanged += History_VisibleChanged;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);
-            panel1.PerformLayout();
-
             ResumeLayout(false);
             PerformLayout();
         }
@@ -204,7 +177,6 @@
         private DataGridViewTextBoxColumn UsedSolver;
         private DataGridViewTextBoxColumn TimeColumn;
         private Panel panel1;
-        private Label label1;
-        //private Panel panel1;
+        
     }
 }

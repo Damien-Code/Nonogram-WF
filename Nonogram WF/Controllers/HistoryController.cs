@@ -19,12 +19,12 @@ namespace Nonogram_WF.Controllers
         {
             Users user = Session.GetSession();
             return (user, user.History);
-          //check to make sure the part below isnt needed for history to work
-//           if (user.History == null) 
-//             { 
-//                 return new History(0,0,true); 
-//             }
-//             return user.History;
+            //check to make sure the part below isnt needed for history to work
+            //if (user.History == null)
+            //{
+            //    return new History(0, 0, true);
+            //}
+            //return user.History;
         }
         public static void SetWin(Users user, History userHistory) {
             History.SetWin(user, userHistory);

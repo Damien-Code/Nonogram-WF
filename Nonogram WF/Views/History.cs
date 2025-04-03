@@ -43,8 +43,13 @@ namespace Nonogram_WF.Views
       //no clue how much of this is needed, het zat nog in master dus heb ik het maar gelaten
 			(Users user, UserHistory history) = HistoryController.RetrieveHistory();
 			//dataGridView1.Rows.Add(history.AllHistory.Level, history.HintCount, history.UsedSolver);
+			foreach (Models.History userHistory in history.AllHistory)
+			{
+                dataGridView1.Rows.Add(userHistory.Level, userHistory.HintCount, userHistory.UsedSolver);
+            }
+            
 
-		}
+        }
 
 
 
