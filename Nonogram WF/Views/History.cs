@@ -31,7 +31,7 @@ namespace Nonogram_WF.Views
 		private void buttonHistoryLogout_Click(object sender, EventArgs e)
 		{
 			Controllers.Session.RemoveSession();
-			Application.Exit();
+			Application.Exit(); 
 		}
 
 		/// <summary>
