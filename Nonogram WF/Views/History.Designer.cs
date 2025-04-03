@@ -159,6 +159,7 @@
             Margin = new Padding(2, 1, 2, 1);
             Name = "History";
             Size = new Size(800, 475);
+            Load += History_Load;
             VisibleChanged += History_VisibleChanged;
             ((System.ComponentModel.ISupportInitialize)dataGridView1).EndInit();
             panel1.ResumeLayout(false);

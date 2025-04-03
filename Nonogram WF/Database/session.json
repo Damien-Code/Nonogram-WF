@@ -1,12 +1,28 @@
 {
-  "Email": "",
+  "Email": "test@example.com",
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "",
-    "FontSize": ""
+    "Theme": "Dark",
+    "FontSize": "15"
   },
   "History": {
-    "AllHistory": []
+    "AllHistory": [
+      {
+        "Level": 0,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 0,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 1,
+        "HintCount": 0,
+        "UsedSolver": false
+      }
+    ]
   }
 }

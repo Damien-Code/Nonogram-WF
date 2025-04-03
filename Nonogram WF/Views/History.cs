@@ -12,15 +12,15 @@ using Nonogram_WF.Models;
 
 namespace Nonogram_WF.Views
 {
-	public partial class History : UserControl
-	{
-		public History()
-		{
-			InitializeComponent();
-			PopulateDataGridView();
-			//all views have this call to prevent flickering if the user has dark mode enabled on startup
-			Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
-		}
+    public partial class History : UserControl
+    {
+        public History()
+        {
+            InitializeComponent();
+            
+            //all views have this call to prevent flickering if the user has dark mode enabled on startup
+            Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
 
         private void buttonHistoryBack_Click(object sender, EventArgs e)
         {
@@ -28,34 +28,40 @@ namespace Nonogram_WF.Views
             FindForm().Controls.Find("Home", false).First().Show();
         }
 
-		private void buttonHistoryLogout_Click(object sender, EventArgs e)
-		{
-			Controllers.Session.RemoveSession();
-			Application.Exit(); 
-		}
+        private void buttonHistoryLogout_Click(object sender, EventArgs e)
+        {
+            Controllers.Session.RemoveSession();
+            Application.Exit();
+        }
 
-		/// <summary>
-		/// Method that populates the datagridview for history
-		/// for each row the level, count and solve is added
-		/// </summary>
-		private void PopulateDataGridView()
-		{
-      //no clue how much of this is needed, het zat nog in master dus heb ik het maar gelaten
-			(Users user, UserHistory history) = HistoryController.RetrieveHistory();
-			//dataGridView1.Rows.Add(history.AllHistory.Level, history.HintCount, history.UsedSolver);
-			foreach (Models.History userHistory in history.AllHistory)
-			{
+        /// <summary>
+        /// Method that populates the datagridview for history
+        /// for each row the level, count and solve is added
+        /// </summary>
+        private void PopulateDataGridView()
+        {
+            //no clue how much of this is needed, het zat nog in master dus heb ik het maar gelaten
+            (Users user, UserHistory history) = HistoryController.RetrieveHistory();
+            //dataGridView1.Rows.Add(history.AllHistory.Level, history.HintCount, history.UsedSolver);
+            foreach (Models.History userHistory in history.AllHistory)
+            {
                 dataGridView1.Rows.Add(userHistory.Level, userHistory.HintCount, userHistory.UsedSolver);
             }
-            
+
+
 
         }
 
 
 
-		private void History_VisibleChanged(object sender, EventArgs e)
+        private void History_VisibleChanged(object sender, EventArgs e)
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+        }
+
+        private void History_Load(object sender, EventArgs e)
+        {
+            PopulateDataGridView();
         }
     }
 }
