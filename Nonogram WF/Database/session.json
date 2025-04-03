@@ -1,9 +1,9 @@
 {
   "Email": "test@example.com",
-  "Password": null,
-  "Salt": null,
+  "Password": "iYrp7KQLefewbUqU1PB8MW5sdfsdyRkxUj9lfUZGFWbKtrSN5gZ6IXFT3svpGzYNTW6lrJ40Zzl0fuRrelMcYw==",
+  "Salt": "hMuqDf6wTPFTPM3oZAu0NQ==",
   "Settings": {
-    "Theme": "Dark",
+    "Theme": "Light",
     "FontSize": "15"
   },
   "History": {
@@ -20,6 +20,31 @@
       },
       {
         "Level": 1,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 1,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 0,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 0,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 0,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 0,
         "HintCount": 0,
         "UsedSolver": false
       }

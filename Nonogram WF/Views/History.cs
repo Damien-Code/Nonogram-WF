@@ -56,6 +56,7 @@ namespace Nonogram_WF.Views
         private void History_Load(object sender, EventArgs e)
         {
             // Needed to have a Load method because the table would not show items on first load
+            
             PopulateDataGridView();
         }
     }
