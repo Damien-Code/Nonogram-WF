@@ -15,10 +15,14 @@ namespace Nonogram_WF.Controllers
             Users session = Session.GetSession();
             string? themeName = null;
             dynamic t;
-            if (session.Settings == null) { 
+            if (session.Settings == null)
+            {
                 t = Type.GetType("Nonogram_WF.Themes.Light");
             }
-            
+            else if (session.Settings.Theme == "")
+            {
+                t = Type.GetType("Nonogram_WF.Themes.Light");
+            }
             else {
                 themeName = session.Settings.Theme;
                 string currentTheme = "Nonogram_WF.Themes." + themeName;
