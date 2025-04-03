@@ -26,12 +26,18 @@ namespace Nonogram_Tests
         public void Test_AccountCannotBeCreatedIfEmailExists_CheckEmailExists_ReturnsTrue()
         {
             Users user = new Users() { Email = "test@example.com" };
-            JSON_RW.WriteFile(user);
+            Users.SetUser(user.Email, new DPassword("",""), new Settings("",""),new UserHistory());
+            //JSON_RW.WriteFile(user); 
+            //dit is waar je error zit, het is nu geen users list maar een plain user. Allusers is dan empty
+            
             Users user2 = new Users(){ Email = "test@example.com" };
 
             var result = LoginController.CheckEmailExists(user2.Email);
-
-            Assert.IsTrue(result.boolean);
+            if (result.user.Email != null) {
+                Assert.IsTrue(result.boolean);
+                return;
+            }
+            Assert.IsFalse(true);
         }
 
         [TestMethod]

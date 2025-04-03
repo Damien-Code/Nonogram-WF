@@ -10,6 +10,10 @@
 	  <ApplicationHighDpiMode>SystemAware</ApplicationHighDpiMode>
 	  <ForceDesignerDPIUnaware>true</ForceDesignerDPIUnaware>
   </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="System.Runtime.Caching" Version="9.0.3" />
+  </ItemGroup>
 	<ItemGroup>
 		<Compile Update="Views\Login.cs">
 			<SubType>UserControl</SubType>

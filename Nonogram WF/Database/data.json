@@ -1,74 +1,15 @@
 {
   "Users": [
     {
-      "Email": "dovandenijssel@live.nl",
-      "Password": "Uq3C4bAYr\u002BRR4fZqQn/59XuYJ9KehRp5LjOYOxqvKZQM7j\u002BYJunttKI4ya6nJtvAU08qv6876gDee4fmflPG/Q==",
-      "Salt": "fdNCpj1MgoqmhzUAgLknGw==",
-      "Settings": {
-        "Theme": "DarkBlue",
-        "FontSize": "9"
-      },
-      "History": {
-        "AllHistory": [
-          {
-            "Level": 0,
-            "HintCount": 0,
-            "UsedSolver": false
-          }
-        ]
-      }
-    },
-    {
       "Email": "test@example.com",
-      "Password": "iYrp7KQLefewbUqU1PB8MW5sdfsdyRkxUj9lfUZGFWbKtrSN5gZ6IXFT3svpGzYNTW6lrJ40Zzl0fuRrelMcYw==",
-      "Salt": "hMuqDf6wTPFTPM3oZAu0NQ==",
+      "Password": "",
+      "Salt": "",
       "Settings": {
-        "Theme": "DarkBlue",
-        "FontSize": "15"
+        "Theme": "",
+        "FontSize": ""
       },
       "History": {
-        "AllHistory": [
-          {
-            "Level": 0,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 0,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 1,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 1,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 0,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 0,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 0,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 0,
-            "HintCount": 0,
-            "UsedSolver": false
-          }
-        ]
+        "AllHistory": []
       }
     }
   ]
