@@ -117,4 +117,23 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
+  <data name="labelGameInstructions.Text" xml:space="preserve">
+    <value>Nonograms are logic puzzles where you reveal a hidden image by filling in the correct squares on a grid.
+
+Rules:
+Each row and column has numbers that indicate how many consecutive squares must be filled.
+
+Groups of filled squares must be separated by at least one empty space.
+
+How to Play:
+* Start with the largest numbers for easy placements.
+
+* Use logic to mark filled squares and place ‘X’ on empty ones.
+
+* Cross-check rows and columns to find new moves.
+
+* Complete the grid correctly to reveal the hidden image and win!
+
+Enjoy solving!</value>
+  </data>
 </root>

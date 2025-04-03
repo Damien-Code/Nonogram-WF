@@ -42,7 +42,9 @@
             // 
             label1.AutoSize = true;
             label1.Font = new Font("Segoe UI", 28.125F, FontStyle.Regular, GraphicsUnit.Point, 0);
-            label1.Location = new Point(321, 89);
+
+            label1.Location = new Point(330, 62);
+
             label1.Margin = new Padding(0);
             label1.Name = "label1";
             label1.Size = new Size(157, 51);
@@ -51,37 +53,49 @@
             // 
             // textBoxRegisterEmail
             // 
-            textBoxRegisterEmail.Location = new Point(269, 170);
+
+            textBoxRegisterEmail.Location = new Point(264, 159);
             textBoxRegisterEmail.Margin = new Padding(2, 1, 2, 1);
             textBoxRegisterEmail.Name = "textBoxRegisterEmail";
             textBoxRegisterEmail.PlaceholderText = "Email:";
-            textBoxRegisterEmail.Size = new Size(258, 23);
+            textBoxRegisterEmail.Size = new Size(300, 23);
+
             textBoxRegisterEmail.TabIndex = 1;
             // 
             // textBoxRegisterPassword
             // 
-            textBoxRegisterPassword.Location = new Point(269, 223);
+
+            textBoxRegisterPassword.Location = new Point(264, 226);
+
             textBoxRegisterPassword.Margin = new Padding(2, 1, 2, 1);
             textBoxRegisterPassword.Name = "textBoxRegisterPassword";
             textBoxRegisterPassword.PasswordChar = '*';
             textBoxRegisterPassword.PlaceholderText = "Password:";
-            textBoxRegisterPassword.Size = new Size(258, 23);
+
+            textBoxRegisterPassword.Size = new Size(300, 23);
+
             textBoxRegisterPassword.TabIndex = 2;
             // 
             // textBoxRegisterConfirm
             // 
-            textBoxRegisterConfirm.Location = new Point(269, 270);
+
+            textBoxRegisterConfirm.Location = new Point(264, 292);
+
             textBoxRegisterConfirm.Margin = new Padding(2, 1, 2, 1);
             textBoxRegisterConfirm.Name = "textBoxRegisterConfirm";
             textBoxRegisterConfirm.PasswordChar = '*';
             textBoxRegisterConfirm.PlaceholderText = "Confirm Password:";
-            textBoxRegisterConfirm.Size = new Size(258, 23);
+
+            textBoxRegisterConfirm.Size = new Size(300, 23);
+
             textBoxRegisterConfirm.TabIndex = 3;
             // 
             // buttonRegisterRegister
             // 
             buttonRegisterRegister.Anchor = AnchorStyles.None;
-            buttonRegisterRegister.Location = new Point(162, 352);
+
+            buttonRegisterRegister.Location = new Point(189, 363);
+
             buttonRegisterRegister.Margin = new Padding(0);
             buttonRegisterRegister.Name = "buttonRegisterRegister";
             buttonRegisterRegister.Size = new Size(139, 42);
@@ -93,7 +107,9 @@
             // buttonRegisterLogin
             // 
             buttonRegisterLogin.Anchor = AnchorStyles.None;
-            buttonRegisterLogin.Location = new Point(512, 352);
+
+            buttonRegisterLogin.Location = new Point(489, 363);
+
             buttonRegisterLogin.Margin = new Padding(0);
             buttonRegisterLogin.Name = "buttonRegisterLogin";
             buttonRegisterLogin.Size = new Size(139, 42);
@@ -114,7 +130,9 @@
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(754, 434);
+
+            panel1.Size = new Size(800, 475);
+
             panel1.TabIndex = 6;
             // 
             // Registration
@@ -122,9 +140,11 @@
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
             Controls.Add(panel1);
-            Margin = new Padding(2, 2, 2, 2);
+
+            Margin = new Padding(0);
             Name = "Registration";
-            Size = new Size(754, 434);
+            Size = new Size(800, 475);
+
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             ResumeLayout(false);
