@@ -14,8 +14,8 @@ namespace Nonogram_WF.Database
     {
         // The relative filepath so data can be stored in the data.json file in the database folder.
         private static readonly string _filePath = "../../../Database/data.json";
-        //private static readonly string _sessionPath = "../../../Database/session.json";
-        private static readonly string _sessionPath = "C:\\Users\\damienocean\\source\\repos\\Nonogram WF\\Nonogram WF\\Database\\session.json";
+        private static readonly string _sessionPath = "../../../Database/session.json";
+
         /// <summary>
         /// Static method so it is possible to write to data.json everywhere
         /// Serializes the object that is stored and the options
@@ -36,7 +36,7 @@ namespace Nonogram_WF.Database
         {
             WriteIndented = true,
         };
-        
+
         /// <summary>
         /// Uses streamreader to read through the whole JSON file
         /// Deserializes the JSON string to the AllUsers object
@@ -45,23 +45,25 @@ namespace Nonogram_WF.Database
         /// <returns type="AllUsers"></returns>
         public static AllUsers GetUsers()
         {
-			using StreamReader streamReader = new StreamReader(_filePath);
+            using StreamReader streamReader = new StreamReader(_filePath);
 
-			string json = streamReader.ReadToEnd();
+            string json = streamReader.ReadToEnd();
 
-			// if string is empty or null or whitespace
-			// make json valid JSON object
-			// if initialization of JSON was empty, it would result in error
-			if (string.IsNullOrWhiteSpace(json)) json = "{}";
+            // if string is empty or null or whitespace
+            // make json valid JSON object
+            // if initialization of JSON was empty, it would result in error
+            if (string.IsNullOrWhiteSpace(json)) json = "{}";
             AllUsers? users = JsonSerializer.Deserialize<AllUsers>(json, _options);
             return users!;
         }
-        public static void SetSession(string email,Settings settings, UserHistory history) { //add setting
+        public static void SetSession(string email, Settings settings, UserHistory history)
+        { //add setting
             Users UserSession = new Users(email, settings, history);
-			string JsonString = JsonSerializer.Serialize(UserSession, _options);
-			File.WriteAllText(_sessionPath, JsonString);
-		}
-        public static Users GetSession() {
+            string JsonString = JsonSerializer.Serialize(UserSession, _options);
+            File.WriteAllText(_sessionPath, JsonString);
+        }
+        public static Users GetSession()
+        {
             //TODO: Add try catch
             using (StreamReader streamReader = new StreamReader(_sessionPath))
             {
@@ -70,23 +72,27 @@ namespace Nonogram_WF.Database
 
                 Users session = JsonSerializer.Deserialize<Users>(json, _options);
                 return session!;
-            };
-		}
-        public static void RemoveSession() {
-            Settings settings = new Settings("","");
+            }
+            ;
+        }
+        public static void RemoveSession()
+        {
+            Settings settings = new Settings("", "");
             Users user = new Users("", settings, new UserHistory());
-			string JsonString = JsonSerializer.Serialize(user, _options);
+            string JsonString = JsonSerializer.Serialize(user, _options);
 
-			File.WriteAllText(_sessionPath, JsonString);
+            File.WriteAllText(_sessionPath, JsonString);
             return;
-		}
-        public static void UpdateUserSettings(AllUsers allUsers) {
-			string JsonString = JsonSerializer.Serialize(allUsers, _options);
-			File.WriteAllText(_filePath, JsonString);
-		}
-        public static void UpdateSessionSettings(Users allUsers) {
-			string JsonString = JsonSerializer.Serialize(allUsers, _options);
-			File.WriteAllText(_sessionPath, JsonString);
-		}
-	}
+        }
+        public static void UpdateUserSettings(AllUsers allUsers)
+        {
+            string JsonString = JsonSerializer.Serialize(allUsers, _options);
+            File.WriteAllText(_filePath, JsonString);
+        }
+        public static void UpdateSessionSettings(Users allUsers)
+        {
+            string JsonString = JsonSerializer.Serialize(allUsers, _options);
+            File.WriteAllText(_sessionPath, JsonString);
+        }
+    }
 }

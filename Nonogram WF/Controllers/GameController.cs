@@ -50,7 +50,7 @@ namespace Nonogram_WF.Controllers
             Console.WriteLine(userHistory.AllHistory.ToArray()[userHistory.AllHistory.ToArray().Length - 1].Level);
             userHistory.AllHistory.Add(gameHistory);
             Console.WriteLine(userHistory.AllHistory.ToArray()[userHistory.AllHistory.ToArray().Length - 1].Level);
-            HistoryController.SetWin(currentUser, new History(level,hintsUsed,false) );
+            HistoryController.SetWin(currentUser, new History(level, hintsUsed, false));
         }
 
 

@@ -16,21 +16,21 @@ namespace Nonogram_WF.Controllers
             var usercheck = CheckEmailExists(email);
             if (usercheck.boolean)
             {
-                if (!PasswordCheck(usercheck.user, password)) 
+                if (!PasswordCheck(usercheck.user, password))
                 {
                     Session.SetLoginSession(usercheck.user);
                     return false;
                 }
-                
+
                 MessageBox.Show("Password is incorrect");
                 return true;
             }
-            
+
             MessageBox.Show("Email does not exist");
             return true;
         }
 
-        public static (bool boolean,Users user) CheckEmailExists(string email)
+        public static (bool boolean, Users user) CheckEmailExists(string email)
         {
             AllUsers allUsers = Users.GetUsers();
             Users LoggedInUser = allUsers.Users.Find(x => x.Email == email);
@@ -40,14 +40,15 @@ namespace Nonogram_WF.Controllers
                 return (false, emptyUser);
             }
             return (true, LoggedInUser);
+
         }
 
         public static bool PasswordCheck(Users user, string password)
         {
-            string hashedPassword = Users.hashLoginPassword(password,user.Salt);
-            if (hashedPassword != user.Password) 
-            { 
-                return true; 
+            string hashedPassword = Users.hashLoginPassword(password, user.Salt);
+            if (hashedPassword != user.Password)
+            {
+                return true;
             }
             return false;
         }

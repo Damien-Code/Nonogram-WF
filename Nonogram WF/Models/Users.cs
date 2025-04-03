@@ -40,7 +40,7 @@ namespace Nonogram_WF.Models
         public Settings Settings { get; set; }
 
         public UserHistory History { get; set; } = new();
-        
+
 
         // Construct if the Users class is initialized with arguments
         [JsonConstructor]
@@ -119,7 +119,7 @@ namespace Nonogram_WF.Models
             byte[] saltAsBytes = Convert.FromBase64String(salt);
 
             byte[] hashToCompare = Rfc2898DeriveBytes.Pbkdf2(
-                password, 
+                password,
                 saltAsBytes,
                 hashAlgorithm: HashAlgorithmName.SHA256,
                 iterations: 100000,
@@ -129,33 +129,36 @@ namespace Nonogram_WF.Models
         }
 
 
-        public static void SetTheme(string theme) {
+        public static void SetTheme(string theme)
+        {
             AllUsers allUsers = JSON_RW.GetUsers();
             Users user = JSON_RW.GetSession();
             Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
             currentUser.Settings.Theme = theme;
-			JSON_RW.UpdateUserSettings(allUsers);
-		}
-        public static void SetFontSize(string fontSize) {
+            JSON_RW.UpdateUserSettings(allUsers);
+        }
+        public static void SetFontSize(string fontSize)
+        {
             AllUsers allUsers = JSON_RW.GetUsers();
             Users user = JSON_RW.GetSession();
             Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
             currentUser.Settings.FontSize = fontSize;
-			JSON_RW.UpdateUserSettings(allUsers);
-		}
+            JSON_RW.UpdateUserSettings(allUsers);
+        }
 
-        public static void setHistory(History gameHistory) {
-			AllUsers allUsers = JSON_RW.GetUsers();
-			Users user = JSON_RW.GetSession();
-			Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
+        public static void setHistory(History gameHistory)
+        {
+            AllUsers allUsers = JSON_RW.GetUsers();
+            Users user = JSON_RW.GetSession();
+            Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
             //History has to be a list to add the gameHistory to
             // WIP
-                //UserHistory AllHistory = currentUser.History;
+            //UserHistory AllHistory = currentUser.History;
             //currentUser.History
             // TODO: Convert history to list
-		}
-        public static AllUsers GetUsers() 
-        { 
+        }
+        public static AllUsers GetUsers()
+        {
             return JSON_RW.GetUsers();
         }
     }
