@@ -44,7 +44,6 @@
             panel1.Controls.Add(textBoxLoginPassword);
             panel1.Controls.Add(textBoxLoginEmail);
             panel1.Controls.Add(labelLogin);
-            panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(0);
             panel1.Name = "panel1";

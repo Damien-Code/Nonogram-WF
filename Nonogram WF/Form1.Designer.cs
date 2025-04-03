@@ -58,7 +58,7 @@ namespace Nonogram_WF
             login1.Location = new Point(0, 0);
             login1.Margin = new Padding(2);
             login1.Name = "login1";
-            login1.Size = new Size(778, 413);
+            login1.Size = new Size(784, 436);
             login1.TabIndex = 0;
             login1.Visible = false;
             // 
@@ -69,7 +69,7 @@ namespace Nonogram_WF
             welcome2.Location = new Point(0, 0);
             welcome2.Margin = new Padding(1, 0, 1, 0);
             welcome2.Name = "welcome2";
-            welcome2.Size = new Size(796, 425);
+            welcome2.Size = new Size(784, 436);
             welcome2.TabIndex = 0;
             welcome2.Load += welcome2_Load;
             // 
@@ -79,7 +79,7 @@ namespace Nonogram_WF
             Instructions.Location = new Point(0, 0);
             Instructions.Margin = new Padding(1, 0, 1, 0);
             Instructions.Name = "Instructions";
-            Instructions.Size = new Size(778, 413);
+            Instructions.Size = new Size(784, 436);
             Instructions.TabIndex = 1;
             Instructions.Visible = false;
             // 
@@ -89,7 +89,7 @@ namespace Nonogram_WF
             Home.Location = new Point(0, 0);
             Home.Margin = new Padding(1, 0, 1, 0);
             Home.Name = "Home";
-            Home.Size = new Size(778, 413);
+            Home.Size = new Size(784, 436);
             Home.TabIndex = 2;
             Home.Visible = false;
             // 
@@ -123,7 +123,7 @@ namespace Nonogram_WF
             // Settings
             // 
             Settings.Anchor = AnchorStyles.None;
-            Settings.Location = new Point(-3, -7);
+            Settings.Location = new Point(0, 5);
             Settings.Margin = new Padding(1, 0, 1, 0);
             Settings.Name = "Settings";
             Settings.Size = new Size(802, 438);
@@ -136,7 +136,7 @@ namespace Nonogram_WF
             Registration.Location = new Point(0, 0);
             Registration.Margin = new Padding(2);
             Registration.Name = "Registration";
-            Registration.Size = new Size(778, 413);
+            Registration.Size = new Size(784, 436);
             Registration.TabIndex = 7;
             Registration.Visible = false;
             // 
@@ -144,7 +144,7 @@ namespace Nonogram_WF
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            ClientSize = new Size(778, 413);
+            ClientSize = new Size(784, 436);
             Controls.Add(welcome2);
             Controls.Add(history1);
             Controls.Add(Settings);
