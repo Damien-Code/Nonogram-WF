@@ -31,7 +31,7 @@ namespace Nonogram_Tests
 
             var result = LoginController.CheckEmailExists(user2.Email);
 
-            Assert.IsFalse(result.boolean);
+            Assert.IsTrue(result.boolean);
         }
 
         [TestMethod]
