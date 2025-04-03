@@ -40,19 +40,13 @@ namespace Nonogram_WF.Views
         /// </summary>
         private void PopulateDataGridView()
         {
-            //no clue how much of this is needed, het zat nog in master dus heb ik het maar gelaten
             (Users user, UserHistory history) = HistoryController.RetrieveHistory();
             //dataGridView1.Rows.Add(history.AllHistory.Level, history.HintCount, history.UsedSolver);
             foreach (Models.History userHistory in history.AllHistory)
             {
                 dataGridView1.Rows.Add(userHistory.Level, userHistory.HintCount, userHistory.UsedSolver);
             }
-
-
-
         }
-
-
 
         private void History_VisibleChanged(object sender, EventArgs e)
         {
@@ -61,6 +55,7 @@ namespace Nonogram_WF.Views
 
         private void History_Load(object sender, EventArgs e)
         {
+            // Needed to have a Load method because the table would not show items on first load
             PopulateDataGridView();
         }
     }
