@@ -18,12 +18,16 @@ namespace Nonogram_WF.Controllers
             if (session.Settings == null) { 
                 t = Type.GetType("Nonogram_WF.Themes.Light");
             }
-            
+            else if (session.Settings.Theme == "") {
+                t = Type.GetType("Nonogram_WF.Themes.Light");
+            }
+
             else {
                 themeName = session.Settings.Theme;
                 string currentTheme = "Nonogram_WF.Themes." + themeName;
-            t = Type.GetType(currentTheme)!;
+                t = Type.GetType(currentTheme)!;
             }
+                //t = Type.GetType("Nonogram_WF.Themes.Light");
             return (Theme)Activator.CreateInstance(t)!;
         }
     }

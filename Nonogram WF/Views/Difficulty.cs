@@ -40,9 +40,13 @@ namespace Nonogram_WF.Views
         private void Difficulty_VisibleChanged(object sender, EventArgs e)
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+			int currentMaxLevel = 0;
 			//set max value of dropdown
 			Users currentSession = Models.Session.GetSession();
-			int currentMaxLevel = currentSession.History.AllHistory.Max(level => level.Level);
+			if (currentSession.Email != "" && currentSession.Email != null) { 
+		
+			currentMaxLevel = currentSession.History.AllHistory.Max(level => level.Level);
+			}
 			numericUpDownDifficulty.Maximum = currentMaxLevel+1;
         }
     

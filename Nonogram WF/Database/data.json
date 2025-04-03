@@ -1,9 +1,9 @@
 {
   "Users": [
     {
-      "Email": "asd@asd.asd",
-      "Password": "wUM6gWh6cVKOLr5AMrr71i1xEYwqwKUpLfp9PXGK9MupRJ4qwt\u002BA9LP3FBoYqFBq8s6yRYmx4T3pkKpal\u002BuPTg==",
-      "Salt": "DRlzp5puzQV99SOkGOMk4Q==",
+      "Email": "asdk@asd.asd",
+      "Password": "h\u002BcgR0OgR/Sj21sIPBMNAVtP3hsCm7CxpSWBv8r2b0CsC1fumOuoJ5oWPR9kEGBB1xCRynZllnDdt\u002BC1QJn01w==",
+      "Salt": "dA3UyFL2\u002B11LbLMkjLb6rw==",
       "Settings": {
         "Theme": "Dark",
         "FontSize": "9"
@@ -17,31 +17,6 @@
           },
           {
             "Level": 1,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 2,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 2,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 1,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 3,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 4,
             "HintCount": 0,
             "UsedSolver": false
           }
