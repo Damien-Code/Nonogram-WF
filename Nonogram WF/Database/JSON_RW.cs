@@ -1,10 +1,12 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
 using Nonogram_WF.Models;
+using System.Runtime.Caching;
 using static System.Windows.Forms.Design.AxImporter;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
 
@@ -12,6 +14,7 @@ namespace Nonogram_WF.Database
 {
     public class JSON_RW
     {
+        private static ObjectCache _sessionCache = MemoryCache.Default;
         // The relative filepath so data can be stored in the data.json file in the database folder.
         private static readonly string _filePath = "../../../Database/data.json";
         private static readonly string _sessionPath = "../../../Database/session.json";
@@ -67,17 +70,25 @@ namespace Nonogram_WF.Database
             //TODO: Add try catch
             try
             {
-                //if()
-                //using (FileStream file = new FileStream(_sessionPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
-                //{
+                Users? user = _sessionCache["session"] as Users;
+                if (user == null)
+                {
+                    CacheItemPolicy policy = new CacheItemPolicy();
+                    List<string> filePaths = new() { _sessionPath };
+                    policy.ChangeMonitors.Add(new HostFileChangeMonitor(filePaths));
+                    //using (FileStream file = new FileStream(_sessionPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
+                    //{
                     using (StreamReader streamReader = new StreamReader(_sessionPath))
                     {
                         string json = streamReader.ReadToEnd();
                         if (string.IsNullOrWhiteSpace(json)) json = "{}";
 
                         Users session = JsonSerializer.Deserialize<Users>(json, _options);
+                        _sessionCache.Set("session", session,policy);
                         return session!;
                     }
+                }
+                else { return user; }
             }
             catch
             {
