@@ -1,7 +1,7 @@
 {
   "Email": "asd@asd.asd",
-  "Password": "ub9x9HDLK/Q4ZGo/LJpoawH1iYbKpTKOBbbjH71PTyUAnLfkI3aehsOhuYiMdRuRpJcI8SS36tHXQ\u002B0k30cFOw==",
-  "Salt": "wvUkKUjMc6UOWHbNdn9nCA==",
+  "Password": null,
+  "Salt": null,
   "Settings": {
     "Theme": "DarkBlue",
     "FontSize": "9"
@@ -10,11 +10,6 @@
     "AllHistory": [
       {
         "Level": 0,
-        "HintCount": 0,
-        "UsedSolver": false
-      },
-      {
-        "Level": 1,
         "HintCount": 0,
         "UsedSolver": false
       }

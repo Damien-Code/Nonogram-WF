@@ -65,15 +65,29 @@ namespace Nonogram_WF.Database
         public static Users GetSession()
         {
             //TODO: Add try catch
-            using (StreamReader streamReader = new StreamReader(_sessionPath))
+            try
             {
-                string json = streamReader.ReadToEnd();
-                if (string.IsNullOrWhiteSpace(json)) json = "{}";
+                //if()
+                //using (FileStream file = new FileStream(_sessionPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
+                //{
+                    using (StreamReader streamReader = new StreamReader(_sessionPath))
+                    {
+                        string json = streamReader.ReadToEnd();
+                        if (string.IsNullOrWhiteSpace(json)) json = "{}";
 
-                Users session = JsonSerializer.Deserialize<Users>(json, _options);
-                return session!;
+                        Users session = JsonSerializer.Deserialize<Users>(json, _options);
+                        return session!;
+                    }
             }
-            ;
+            catch
+            {
+                //added failsafe if reader dies that the application will close
+                MessageBox.Show("Something went wrong, please restart");
+                Application.Exit();
+            }
+
+            return new Users();
+            
         }
         public static void RemoveSession()
         {
@@ -91,8 +105,17 @@ namespace Nonogram_WF.Database
         }
         public static void UpdateSessionSettings(Users allUsers)
         {
-            string JsonString = JsonSerializer.Serialize(allUsers, _options);
-            File.WriteAllText(_sessionPath, JsonString);
+            try
+            {
+                string JsonString = JsonSerializer.Serialize(allUsers, _options);
+                File.WriteAllText(_sessionPath, JsonString);
+            }
+            catch
+            {
+                //added failsafe if reader dies that the application will close
+                MessageBox.Show("Something went wrong, please restart");
+                Application.Exit();
+            }
         }
     }
 }

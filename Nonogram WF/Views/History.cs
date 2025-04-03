@@ -40,24 +40,28 @@ namespace Nonogram_WF.Views
         /// </summary>
         private void PopulateDataGridView()
         {
-            //    (Users user, UserHistory history) = HistoryController.RetrieveHistory();
-            //    //dataGridView1.Rows.Add(history.AllHistory.Level, history.HintCount, history.UsedSolver);
-            //    foreach (Models.History userHistory in history.AllHistory)
-            //    {
-            //        dataGridView1.Rows.Add(userHistory.Level, userHistory.HintCount, userHistory.UsedSolver);
-            //    }
+
+            (Users user, UserHistory history) = HistoryController.RetrieveHistory();
+            //dataGridView1.Rows.Add(history.AllHistory.Level, history.HintCount, history.UsedSolver);
+            if (history == null) { return; }
+            foreach (Models.History userHistory in history.AllHistory)
+            {
+                dataGridView1.Rows.Add(userHistory.Level, userHistory.HintCount, userHistory.UsedSolver);
+            }
         }
 
         private void History_VisibleChanged(object sender, EventArgs e)
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+            //remove old rows
+            dataGridView1.Rows.Clear();
+            dataGridView1.Refresh();
+            //add rows
+            PopulateDataGridView();
         }
 
         private void History_Load(object sender, EventArgs e)
         {
-            // Needed to have a Load method because the table would not show items on first load
-            
-            PopulateDataGridView();
         }
     }
 }

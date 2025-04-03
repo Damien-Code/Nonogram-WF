@@ -2,8 +2,8 @@
   "Users": [
     {
       "Email": "asd@asd.asd",
-      "Password": "ub9x9HDLK/Q4ZGo/LJpoawH1iYbKpTKOBbbjH71PTyUAnLfkI3aehsOhuYiMdRuRpJcI8SS36tHXQ\u002B0k30cFOw==",
-      "Salt": "wvUkKUjMc6UOWHbNdn9nCA==",
+      "Password": "/oWJn/lv9r0ShhcAFibaHOKuNU7Pqn6aNxpiT1HWHTzMWVNCcUmKcQIdtnHlCzzWVcCz3QWN8TbQob\u002Bw6wZmKQ==",
+      "Salt": "FqNvbjw/Xxb1IUESOnQuQQ==",
       "Settings": {
         "Theme": "DarkBlue",
         "FontSize": "9"
@@ -12,11 +12,6 @@
         "AllHistory": [
           {
             "Level": 0,
-            "HintCount": 0,
-            "UsedSolver": false
-          },
-          {
-            "Level": 1,
             "HintCount": 0,
             "UsedSolver": false
           }
