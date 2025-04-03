@@ -363,5 +363,5 @@ MigrationBackup/
 FodyWeavers.xsd
 
 # 
-data.json
-session.json
+.data.json
+.session.json
