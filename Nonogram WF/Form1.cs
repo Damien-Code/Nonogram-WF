@@ -26,7 +26,7 @@ namespace Nonogram_WF
 		//[DllImport("kernel32.dll", SetLastError = true)]
        // [return: MarshalAs(UnmanagedType.Bool)]
        // static extern bool AllocConsole();
-	}
+	//}
 
 
         private void Form1_Load(object sender, EventArgs e)

@@ -32,7 +32,7 @@
             buttonGameScreenHint = new Button();
             buttonGameScreenSolve = new Button();
 
-            label1 = new Label();
+            //label1 = new Label();
 
             buttonGameScreenBack = new Button();
             buttonGameScreenLogout = new Button();
@@ -44,7 +44,7 @@
             panel1.Controls.Add(buttonGameScreenHint);
             panel1.Controls.Add(buttonGameScreenSolve);
 
-            panel1.Controls.Add(label1);
+            //panel1.Controls.Add(label1);
 
             panel1.Controls.Add(buttonGameScreenBack);
             panel1.Controls.Add(buttonGameScreenLogout);

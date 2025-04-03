@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Nonogram_WF.Controllers;
+using Nonogram_WF.Models;
 
 namespace Nonogram_WF.Views
 {
@@ -29,7 +30,7 @@ namespace Nonogram_WF.Views
 
 		private void buttonHistoryLogout_Click(object sender, EventArgs e)
 		{
-			Session.RemoveSession();
+			Controllers.Session.RemoveSession();
 			Application.Exit();
 		}
 
@@ -40,14 +41,14 @@ namespace Nonogram_WF.Views
 		private void PopulateDataGridView()
 		{
       //no clue how much of this is needed, het zat nog in master dus heb ik het maar gelaten
-			Nonogram_WF.Models.History history = HistoryController.RetrieveHistory();
-			dataGridView1.Rows.Add(history.Level, history.HintCount, history.UsedSolver);
+			(Users user, UserHistory history) = HistoryController.RetrieveHistory();
+			//dataGridView1.Rows.Add(history.AllHistory.Level, history.HintCount, history.UsedSolver);
 
 		}
-	
-        
 
-        private void History_VisibleChanged(object sender, EventArgs e)
+
+
+		private void History_VisibleChanged(object sender, EventArgs e)
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
