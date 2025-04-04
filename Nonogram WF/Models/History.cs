@@ -40,10 +40,12 @@ namespace Nonogram_WF.Models
             HintCount = hintCount;
             UsedSolver = usedSolver;
         }
-        public History() { 
-        
+        public History()
+        {
+
         }
-        public static void SetWin(Users user, History gameHistory) {
+        public static void SetWin(Users user, History gameHistory)
+        {
             AllUsers allUsers = JSON_RW.GetUsers();
             Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
             currentUser.History.AllHistory.Add(gameHistory);

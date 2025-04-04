@@ -10,17 +10,20 @@ namespace Nonogram_WF.Controllers
 {
     class Session
     {
-        public static void SetSession(string email,Models.Settings settings, UserHistory history) {
-            Models.Session.SetSession(email,settings,history);
+        public static void SetSession(string email, Models.Settings settings, UserHistory history)
+        {
+            Models.Session.SetSession(email, settings, history);
         }
-        public static void SetLoginSession(Users currentUser) {
+        public static void SetLoginSession(Users currentUser)
+        {
             Models.Session.SetSession(currentUser.Email, currentUser.Settings, currentUser.History);
         }
         public static Users GetSession()
         {
             return Models.Session.GetSession();
         }
-        public static void RemoveSession() {
+        public static void RemoveSession()
+        {
             Models.Session.RemoveSession();
             return;
         }

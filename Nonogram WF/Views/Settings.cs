@@ -59,8 +59,8 @@ namespace Nonogram_WF.Views
             {
                 SetTheme(comboBoxSettingsTheme.Text, Controls); //change this code to set new theme and call the func again
                 reload();
-                                                                // gets color before it has been changed
-                                                                //Refresh();
+                // gets color before it has been changed
+                //Refresh();
             }
             _themeIndexChangecounter++;
         }

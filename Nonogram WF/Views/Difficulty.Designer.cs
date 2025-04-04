@@ -197,7 +197,12 @@
             numericUpDownDifficulty.Margin = new Padding(2, 1, 2, 1);
             numericUpDownDifficulty.Name = "numericUpDownDifficulty";
             numericUpDownDifficulty.Size = new Size(137, 23);
-            numericUpDownDifficulty.TabIndex = 3;
+            numericUpDownDifficulty.Minimum = 1;
+            numericUpDownDifficulty.Maximum = new decimal(new int[] { 16, 0, 0, 0 });
+            numericUpDownDifficulty.Minimum = new decimal(new int[] { 1, 0, 0, 0 });
+
+            numericUpDownDifficulty.Value = new decimal(new int[] { 1, 0, 0, 0 });
+            numericUpDownDifficulty.ValueChanged += numericUpDownDifficulty_ValueChanged;
             // 
             // labelDifficulty
             // 
@@ -243,6 +248,7 @@
             VisibleChanged += Difficulty_VisibleChanged;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
+            VisibleChanged += Difficulty_VisibleChanged;
             ((System.ComponentModel.ISupportInitialize)numericUpDownDifficulty).EndInit();
             ResumeLayout(false);
 

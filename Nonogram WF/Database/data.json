@@ -1,6 +1,7 @@
 {
   "Users": [
     {
+
       "Email": "test@example.com",
       "Password": "",
       "Salt": "",
@@ -16,6 +17,7 @@
       "Email": "asds@asd.asd",
       "Password": "nXVKhhh3WygBCh4bPALwiMrFQfHNF5voGZ5KMbl36V/4G25X3kMMewoD0vrVdGjBLtR2J/nBcRzRBli2i4gSFw==",
       "Salt": "0xaYKACkMWu743LJKgHbEw==",
+
       "Settings": {
         "Theme": "DarkBlue",
         "FontSize": "9"
@@ -371,6 +373,7 @@
       "History": {
         "AllHistory": []
       }
+
     }
   ]
 }

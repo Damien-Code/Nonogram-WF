@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Net;
 using System.Text;
 using System.Text.Json;
 using System.Threading.Tasks;
@@ -16,10 +17,12 @@ namespace Nonogram_WF.Database
         private static ObjectCache _sessionCache = MemoryCache.Default;
 
 
+
         // The relative filepath so data can be stored in the data.json file in the database folder.
         private static readonly string _filePath = "../../../../Nonogram WF/Database/data.json";
         private static readonly string _sessionPath = "../../../../Nonogram WF/Database/session.json";
         //private static readonly string _sessionPath = "C:\\Users\\damienocean\\source\\repos\\Nonogram WF\\Nonogram WF\\Database\\session.json";
+
         /// <summary>
         /// Static method so it is possible to write to data.json everywhere
         /// Serializes the object that is stored and the options
@@ -63,6 +66,7 @@ namespace Nonogram_WF.Database
         }
         public static void SetSession(string email, Settings settings, UserHistory history)
         { //add setting
+
             Users? user = _sessionCache["session"] as Users;
             Users UserSession = new Users(email, settings, history);
             if (user != null) {
@@ -72,12 +76,14 @@ namespace Nonogram_WF.Database
                 policy.ChangeMonitors.Add(new HostFileChangeMonitor(filePaths));
                 _sessionCache.Set("session", UserSession, policy);
             }
+
             string JsonString = JsonSerializer.Serialize(UserSession, _options);
             File.WriteAllText(_sessionPath, JsonString);
         }
         public static Users GetSession()
         {
             //TODO: Add try catch
+
                 Users? user = _sessionCache["session"] as Users;
                 CacheItemPolicy policy = new CacheItemPolicy();
                 List<string> filePaths = new() { _sessionPath }; 
@@ -94,11 +100,13 @@ namespace Nonogram_WF.Database
                 return session!;   
             }
                 catch
+
             {
                 //added failsafe if reader dies that the application will close
                 MessageBox.Show("Something went wrong, please restart");
                 Application.Exit();
             }
+
                 }
                 else { 
                 
@@ -110,6 +118,7 @@ namespace Nonogram_WF.Database
         public static void RemoveSession()
         {
             Settings settings = new("", "");
+
             Users user = new Users("", settings, new UserHistory());
             string JsonString = JsonSerializer.Serialize(user, _options);
 
@@ -125,6 +134,8 @@ namespace Nonogram_WF.Database
         {
             string JsonString = JsonSerializer.Serialize(allUsers, _options);
             File.WriteAllText(_sessionPath, JsonString);
+
+
         }
     }
 }

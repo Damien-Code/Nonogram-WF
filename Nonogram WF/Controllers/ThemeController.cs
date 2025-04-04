@@ -11,23 +11,25 @@ namespace Nonogram_WF.Controllers
 {
     class ThemeController
     {
-        public static Theme GetTheme() {
+        public static Theme GetTheme()
+        {
             Users session = Session.GetSession();
             string? themeName = null;
             dynamic t;
-            if (session.Settings == null) { 
+            if (session.Settings == null)
+            {
                 t = Type.GetType("Nonogram_WF.Themes.Light");
             }
-            else if (session.Settings.Theme == "") {
+            else if (session.Settings.Theme == "")
+            {
                 t = Type.GetType("Nonogram_WF.Themes.Light");
             }
-
-            else {
+            else
+            {
                 themeName = session.Settings.Theme;
                 string currentTheme = "Nonogram_WF.Themes." + themeName;
                 t = Type.GetType(currentTheme)!;
             }
-                //t = Type.GetType("Nonogram_WF.Themes.Light");
             return (Theme)Activator.CreateInstance(t)!;
         }
     }

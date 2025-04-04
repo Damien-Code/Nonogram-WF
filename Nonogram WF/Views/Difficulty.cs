@@ -21,10 +21,10 @@ namespace Nonogram_WF.Views
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
 
-		private void buttonDifficultyHelp_Click(object sender, EventArgs e)
-		{
-			MessageBox.Show("Here you can choose your difficulty. Ranging from 1 to 16");
-		}
+        private void buttonDifficultyHelp_Click(object sender, EventArgs e)
+        {
+            MessageBox.Show("Here you can choose your difficulty. Ranging from 1 to 16");
+        }
 
         private void buttonDifficultyLogout_Click(object sender, EventArgs e)
         {
@@ -32,14 +32,15 @@ namespace Nonogram_WF.Views
             Application.Exit();
         }
 
-		private void buttonDifficultyBack_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			FindForm().Controls.Find("Home", false).First().Show();
-		}
+        private void buttonDifficultyBack_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            FindForm().Controls.Find("Home", false).First().Show();
+        }
         private void Difficulty_VisibleChanged(object sender, EventArgs e)
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+
 
 			int currentMaxLevel = 0;
 			//set max value of dropdown
@@ -49,22 +50,23 @@ namespace Nonogram_WF.Views
 			currentMaxLevel = currentSession.History.AllHistory.Max(level => level.Level);
 			}
 			numericUpDownDifficulty.Maximum = currentMaxLevel+1;
+
         }
-    
-		private void buttonDifficultyPlayGame_Click(object sender, EventArgs e)
-		{
-			this.Hide();
-			int level = (int)numericUpDownDifficulty.Value;
-			GameScreen game = (GameScreen)FindForm().Controls.Find("GameScreen", false).First();
-			game.GridSize = level+4;
-			game.ThemeChange();
-			game.setGrid();
-			game.Show();
-		}
 
-		private void numericUpDownDifficulty_ValueChanged(object sender, EventArgs e)
-		{
+        private void buttonDifficultyPlayGame_Click(object sender, EventArgs e)
+        {
+            this.Hide();
+            int level = (int)numericUpDownDifficulty.Value;
+            GameScreen game = (GameScreen)FindForm().Controls.Find("GameScreen", false).First();
+            game.GridSize = level + 4;
+            game.ThemeChange();
+            game.setGrid();
+            game.Show();
+        }
 
-		}
-	}
+        private void numericUpDownDifficulty_ValueChanged(object sender, EventArgs e)
+        {
+
+        }
+    }
 }
