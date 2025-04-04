@@ -116,7 +116,7 @@ namespace Nonogram_WF.Views
             _verticalStartPosition   = (int)Math.Floor((decimal)(Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / sizeConversion);
             _maxGridSize = 2000/sizeConversion+50;
 
-            _solutionGrid = GameController.initializeGrid(GridSize);
+            _solutionGrid = GameController.InitializeGrid(GridSize);
             RemoveLabels();
             SetLabels();
 

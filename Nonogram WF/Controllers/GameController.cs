@@ -11,17 +11,23 @@ namespace Nonogram_WF.Controllers
 {
     public class GameController
     {
-        public static int[][] initializeGrid(int size)
+        /// <summary>
+        /// start function to generate grid
+        /// </summary>
+        /// <param name="size"></param>
+        /// <returns>int[][]</returns>
+        public static int[][] InitializeGrid(int size)
         {
             int[][] grid = GenerateGrid(size).ToArray();
             CalculateRow(grid);
-            /*
-			 * TODO: add new game to user in db
-			 * /code here
-			*/
 
             return grid;
         }
+        /// <summary>
+        /// generates grid
+        /// </summary>
+        /// <param name="size"></param>
+        /// <returns>List<int[]></returns>
         private static List<int[]> GenerateGrid(int size)
         {
             List<int[]> grid = new();
@@ -32,6 +38,11 @@ namespace Nonogram_WF.Controllers
             }
             return grid;
         }
+        /// <summary>
+        /// generates row and returns said row
+        /// </summary>
+        /// <param name="n"></param>
+        /// <returns>int[]</returns>
         private static int[] GenerateRow(int n)
         {
             int[] row = new int[n];
@@ -41,21 +52,27 @@ namespace Nonogram_WF.Controllers
             }
             return row;
         }
-
+        /// <summary>
+        /// sets win in data.json
+        /// </summary>
+        /// <param name="level"></param>
+        /// <param name="hintsUsed"></param>
         public static void SetWin(int level, int hintsUsed)
         {
             Models.History gameHistory = new(level, hintsUsed, false);
             //get all history of user
             (Users currentUser, UserHistory userHistory) = HistoryController.RetrieveHistory();
-            Console.WriteLine(userHistory.AllHistory.ToArray()[userHistory.AllHistory.ToArray().Length - 1].Level);
             userHistory.AllHistory.Add(gameHistory);
-            Console.WriteLine(userHistory.AllHistory.ToArray()[userHistory.AllHistory.ToArray().Length - 1].Level);
             HistoryController.SetWin(currentUser, new History(level, hintsUsed, false));
         }
 
 
 
-
+        /// <summary>
+        /// calculates the hints for the rows and returns them as a list of list of ints
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <returns>List<List<int>></returns>
         public static List<List<int>> CalculateRow(int[][] grid)
         {
             List<List<int>> returnList = new List<List<int>>();
@@ -90,7 +107,11 @@ namespace Nonogram_WF.Controllers
             }
             return returnList;
         }
-
+        /// <summary>
+        /// calculates the hints for the columns and returns them as a list of list of ints
+        /// </summary>
+        /// <param name="grid"></param>
+        /// <returns>List<List<int>></returns>
         public static List<List<int>> CalculateCol(int[][] grid)
         {
             List<List<int>> returnList = new List<List<int>>();

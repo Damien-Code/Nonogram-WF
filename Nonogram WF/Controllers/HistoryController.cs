@@ -19,6 +19,11 @@ namespace Nonogram_WF.Controllers
             Users user = Session.GetSession();
             return (user, user.History);
         }
+        /// <summary>
+        /// sets win in data.json
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="userHistory"></param>
         public static void SetWin(Users user, History userHistory)
         {
             History.SetWin(user, userHistory);

@@ -1,0 +1,228 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<ClassDiagram MajorVersion="1" MinorVersion="1">
+  <Class Name="Nonogram_WF.Controllers.GameController">
+    <Position X="12" Y="2.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAABAAAAAAAAAAAQAEAAAAgAAAAAAAAAAAAgABAAA=</HashCode>
+      <FileName>Controllers\GameController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Controllers.HistoryController">
+    <Position X="13.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAEAAAAAAAAAEAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\HistoryController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Controllers.LoginController">
+    <Position X="15.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACACAAAAAAAAAAAAAAAAAAAAAAAIAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\LoginController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Controllers.Session">
+    <Position X="12" Y="5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEAAAAAAAAAAAAAAAAAEAAQAAAAABAAAAAAA=</HashCode>
+      <FileName>Controllers\Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Controllers.Settings">
+    <Position X="13.75" Y="2" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAARAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Controllers.ThemeController">
+    <Position X="15.5" Y="2.25" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAABAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Controllers\ThemeController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Controllers.UserController">
+    <Position X="12" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ACAAAAAAAAAAAAAAQAAAAAAAAAAAAAQCAAAAAIgAAAA=</HashCode>
+      <FileName>Controllers\UserController.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Database.JSON_RW">
+    <Position X="23.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IAAAAEAAEQAAAAAAAAACAAQAAAEABwAAAAAACEAAAAA=</HashCode>
+      <FileName>Database\JSON_RW.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Models.AllUsers">
+    <Position X="19.25" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAACAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\AllUsers.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Models.DPassword">
+    <Position X="19.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AABAAAAAAAIAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\DPassword.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Models.History">
+    <Position X="21" Y="2.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAIAAAAAAAiEAQAAAAAAgAABAAAAAAAAAAA=</HashCode>
+      <FileName>Models\History.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Models.Session">
+    <Position X="19.25" Y="3.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAEQAAAAAAAAAAAAAAAAEAAQAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Session.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Models.Settings">
+    <Position X="21" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAQAAAAAgAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Models.UserHistory">
+    <Position X="21" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Models\UserHistory.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Models.Users" BaseTypeListCollapsed="true">
+    <Position X="19.25" Y="5.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>IARAAAAAASAAAAAAAAAAAAEAIAAAAAACgAADAAAABAE=</HashCode>
+      <FileName>Models\Users.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" Collapsed="true" />
+  </Class>
+  <Class Name="Nonogram_WF.Themes.Dark" Collapsed="true">
+    <Position X="8.75" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Themes\Dark.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Themes.DarkBlue" Collapsed="true">
+    <Position X="13.25" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Themes\DarkBlue.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Themes.Grey" Collapsed="true">
+    <Position X="15.5" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAQAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Themes\Grey.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Themes.Light" Collapsed="true">
+    <Position X="11" Y="8.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Themes\Light.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Themes.Theme" Collapsed="true">
+    <Position X="12" Y="7.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>iAAgAAAAEAEAAAAAIACIiCIiAgAAACIIABQAACACIAA=</HashCode>
+      <FileName>Themes\Theme.cs</FileName>
+    </TypeIdentifier>
+    <Lollipop Position="0.2" />
+  </Class>
+  <Class Name="Nonogram_WF.Views.Difficulty">
+    <Position X="0.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAACAAQACAQAAAAAQAQAAAQQAAAA=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Views.GameScreen">
+    <Position X="4" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABYkAAASACAAAEYAQACAAATqACADiEAAAAEAAQIAAAA=</HashCode>
+      <FileName>Views\GameScreen.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Views.History">
+    <Position X="7.5" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAgAAAACAAAASAAoAAAABAAAAAQAAAAg=</HashCode>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Views.Home">
+    <Position X="0.5" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>BAAAAAAAACAAAAACABCAAAACAAAEAAAgCQEAAQAQEAA=</HashCode>
+      <FileName>Views\Home.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Views.Instructions">
+    <Position X="5.75" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAEAAACAAABICAACAAQAKAAAAAAAAAAAAAAAAAAA=</HashCode>
+      <FileName>Views\Instructions.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Views.Login">
+    <Position X="7.5" Y="4.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>ABAAAAABADAAAAAAAACAAAACAAAAEAgAAFAAAQAAAIA=</HashCode>
+      <FileName>Views\login.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Views.Registration">
+    <Position X="2.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAIAAABACAAABAQAACCAAACACAAAAAIAAAAAQAAAAE=</HashCode>
+      <FileName>Views\Registration.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Views.Settings">
+    <Position X="5.75" Y="4" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAATAAABABAACAgAAiAIIAAAgACCBAASAAAQA=</HashCode>
+      <FileName>Views\Settings.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Class Name="Nonogram_WF.Views.Welcome">
+    <Position X="9.25" Y="0.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAASAAABAAACCAAAQCIAAICACAAAEAAgAAAAA=</HashCode>
+      <FileName>Views\Welcome.cs</FileName>
+    </TypeIdentifier>
+  </Class>
+  <Interface Name="Nonogram_WF.Interfaces.IPen">
+    <Position X="0.5" Y="8.5" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAQAAAAAAAA=</HashCode>
+      <FileName>Interfaces\IPen.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Nonogram_WF.Interfaces.ITheme">
+    <Position X="2.25" Y="6.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>CAAAAAAAAAAAAAAAAAAIgCIiAgAAAAAIAAAAAAAAAAA=</HashCode>
+      <FileName>Interfaces\ITheme.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Interface Name="Nonogram_WF.Interfaces.IUser">
+    <Position X="2.25" Y="4.75" Width="1.5" />
+    <TypeIdentifier>
+      <HashCode>AAAAAAAAACAAAAAAAAAAAAAAAAAAAAACAAABAAAAAAA=</HashCode>
+      <FileName>Interfaces\IUser.cs</FileName>
+    </TypeIdentifier>
+  </Interface>
+  <Font Name="Segoe UI" Size="9" />
+</ClassDiagram>
