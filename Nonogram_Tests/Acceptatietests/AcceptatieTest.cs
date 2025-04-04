@@ -35,11 +35,10 @@ namespace Nonogram_Tests
             Users.SetUser(user.Email, new DPassword("", ""), new Nonogram_WF.Models.Settings("", ""), new UserHistory());
             
             Nonogram_WF.Views.History ViewHistory = new Nonogram_WF.Views.History();
-            DataGridView dataGridView = new DataGridView();
-
-            Assert.IsInstanceOfType(ViewHistory, ViewHistory.GetType());
-            Assert.IsTrue(ModelHistory.HintCount == dataGridView.Rows.Count);
- 
+            
+            DataGridViewRow Row =  ViewHistory.dataGridView1.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["HintsUsed"].Value.Equals(ModelHistory.HintCount)).FirstOrDefault();
+            Assert.IsNotNull(Row);
+            
 
         }
 
