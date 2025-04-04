@@ -30,5 +30,18 @@ namespace Nonogram_Tests
 
             Assert.IsTrue(cellCount == (gridSize*gridSize));
         }
+
+        [TestMethod]
+        public void Test_UserCanBeCreated()
+        {
+            Users user = new Users();
+            Users.SetUser(user.Email, new DPassword("", ""), new Settings("", ""), new UserHistory());
+          
+            var AllUsers = JSON_RW.GetUsers();
+
+            Assert.IsNotNull(AllUsers);
+            Assert.IsTrue(AllUsers.Users.Count == 1);
+            Assert.AreEqual(AllUsers.Users.Last(), user);
+        }
     }
 }

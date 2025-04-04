@@ -185,6 +185,29 @@
       "History": {
         "AllHistory": []
       }
+    },
+    {
+      "Email": "dovandenijssel@live.nl",
+      "Password": "xqN\u002BDKyD/zxd\u002BdnSPyuP3BYJEYnAEYzJYcTT7IvYBHTDMeFTC1UBGpSdz\u002BuZKN0i8gQlk/jetY/9561jHBf1kQ==",
+      "Salt": "3HjNU8sTDxjimFNssZBGJQ==",
+      "Settings": {
+        "Theme": "DarkBlue",
+        "FontSize": "9"
+      },
+      "History": {
+        "AllHistory": [
+          {
+            "Level": 0,
+            "HintCount": 0,
+            "UsedSolver": false
+          },
+          {
+            "Level": 0,
+            "HintCount": 0,
+            "UsedSolver": false
+          }
+        ]
+      }
     }
   ]
 }

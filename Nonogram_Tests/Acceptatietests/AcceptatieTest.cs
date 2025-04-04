@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
+using System.Windows.Forms;
 
 namespace Nonogram_Tests
 {
@@ -25,5 +26,23 @@ namespace Nonogram_Tests
 
             Assert.IsTrue(y.Email == "" && y.Password == null);
         }
+
+        [TestMethod]
+        public void Test_HistoryTableHasContent()
+        {
+            Users user = new Users();
+            Nonogram_WF.Models.History ModelHistory = new Nonogram_WF.Models.History(1, 1, false);
+            Users.SetUser(user.Email, new DPassword("", ""), new Nonogram_WF.Models.Settings("", ""), new UserHistory());
+            
+            Nonogram_WF.Views.History ViewHistory = new Nonogram_WF.Views.History();
+            DataGridView dataGridView = new DataGridView();
+
+            Assert.IsInstanceOfType(ViewHistory, ViewHistory.GetType());
+            Assert.IsTrue(ModelHistory.HintCount == dataGridView.Rows.Count);
+ 
+
+        }
+
+       
     }
 }
