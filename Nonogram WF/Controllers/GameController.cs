@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 
 namespace Nonogram_WF.Controllers
 {
-    class GameController
+    public class GameController
     {
         public static int[][] initializeGrid(int size)
         {

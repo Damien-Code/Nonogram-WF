@@ -40,6 +40,7 @@ namespace Nonogram_WF.Views
         private void Difficulty_VisibleChanged(object sender, EventArgs e)
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
+
 			int currentMaxLevel = 0;
 			//set max value of dropdown
 			Users currentSession = Models.Session.GetSession();
