@@ -49,7 +49,13 @@ namespace Nonogram_WF.Views
 		
 			currentMaxLevel = currentSession.History.AllHistory.Max(level => level.Level);
 			}
-			numericUpDownDifficulty.Maximum = currentMaxLevel+1;
+            if (currentMaxLevel < 16)
+            {
+                numericUpDownDifficulty.Maximum = currentMaxLevel + 1;
+            }
+            else {
+                numericUpDownDifficulty.Maximum = 16;
+            }
 
         }
 
