@@ -41,19 +41,6 @@ namespace Nonogram_WF.Controllers
 
             return settings != null ? settings.FontSize : "9";
         }
-        public static void SetFontSize(string fontSize)
-        {
-            Thread AddToDB = new Thread(new ThreadStart(() => {
-                //add method call to put set theme into db
-                Models.Users.SetFontSize(fontSize);
-            }));
-            Thread AddToSession = new Thread(new ThreadStart(() => {
-
-                //add method call to put set theme into sessionstore
-                Models.Session.SetFontSize(fontSize);
-            }));
-            AddToDB.Start();
-            AddToSession.Start();
-        }
+        
     }
 }

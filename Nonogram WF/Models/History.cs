@@ -44,6 +44,11 @@ namespace Nonogram_WF.Models
         {
 
         }
+        /// <summary>
+        /// Sets the game in the gamehistory and sets this in the users profile in data.json and in its session
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="gameHistory"></param>
         public static void SetWin(Users user, History gameHistory)
         {
             AllUsers allUsers = JSON_RW.GetUsers();

@@ -3,7 +3,7 @@
   "Password": "pTIh8zeqqFdHpm9xs9z7b2BM0uEF8C\u002BoqdjqOysqw4lBXlLZuL4BoUSty\u002BPDEWucZxi4kQahYBrQBFJMSEuwPA==",
   "Salt": "qxhL8mX8ixblsYbwzjcrpA==",
   "Settings": {
-    "Theme": "DarkBlue",
+    "Theme": "Dark",
     "FontSize": "9"
   },
   "History": {
@@ -19,7 +19,12 @@
         "UsedSolver": false
       },
       {
-        "Level": 20,
+        "Level": 1,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 1,
         "HintCount": 0,
         "UsedSolver": false
       }

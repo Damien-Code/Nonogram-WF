@@ -29,8 +29,6 @@ namespace Nonogram_WF.Database
         private static readonly string _filePath = prefix + "/Nonogram WF/Database/data.json";
         private static readonly string _sessionPath = prefix + "/Nonogram WF/Database/session.json";
 
-        //private static readonly string _filePath    = "../../../../Nonogram WF/Database/data.json";
-        //private static readonly string _sessionPath = "../../../../Nonogram WF/Database/session.json";
 
         /// <summary>
         /// Static method so it is possible to write to data.json everywhere
@@ -73,6 +71,12 @@ namespace Nonogram_WF.Database
             AllUsers? users = JsonSerializer.Deserialize<AllUsers>(json, _options);
             return users!;
         }
+        /// <summary>
+        /// Sets the given params as type user in the session. Also sets this user in a cache
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="settings"></param>
+        /// <param name="history"></param>
         public static void SetSession(string email, Settings settings, UserHistory history)
         { //add setting
 
@@ -89,6 +93,11 @@ namespace Nonogram_WF.Database
             string JsonString = JsonSerializer.Serialize(UserSession, _options);
             File.WriteAllText(_sessionPath, JsonString);
         }
+
+        /// <summary>
+        /// gets current session as user
+        /// </summary>
+        /// <returns>Users</returns>
         public static Users GetSession()
         {
             Users? user = _sessionCache["session"] as Users;
@@ -115,13 +124,12 @@ namespace Nonogram_WF.Database
             }
 
                 }
-                else { 
-                
-                return user; }
-
+                else { return user; }
             return new Users();
-
         }
+        /// <summary>
+        /// removes the current session (sets it as an empty user)
+        /// </summary>
         public static void RemoveSession()
         {
             Settings settings = new("", "");
@@ -132,17 +140,24 @@ namespace Nonogram_WF.Database
             File.WriteAllText(_sessionPath, JsonString);
             return;
         }
+
+        /// <summary>
+        /// Updates users settings and writes all users (including updated user) to data.json
+        /// </summary>
+        /// <param name="allUsers"></param>
         public static void UpdateUserSettings(AllUsers allUsers)
         {
             string JsonString = JsonSerializer.Serialize(allUsers, _options);
             File.WriteAllText(_filePath, JsonString);
         }
+        /// <summary>
+        /// Updates the users settings and writes this into session
+        /// </summary>
+        /// <param name="allUsers"></param>
         public static void UpdateSessionSettings(Users allUsers)
         {
             string JsonString = JsonSerializer.Serialize(allUsers, _options);
             File.WriteAllText(_sessionPath, JsonString);
-
-
         }
     }
 }

@@ -16,22 +16,14 @@ namespace Nonogram_WF.Views
 	public partial class Welcome : UserControl
 	{
 
-		//UserControl register;
-		//UserControl login;
 		public Welcome()
 		{
 			InitializeComponent();
-
-
-			//login = new login();
 		}
 
 		private void buttonWelcomeLogin_Click(object sender, EventArgs e)
 		{
 			this.Hide();
-			//this.Parent.Controls.Add(login);
-			//login.Dock = DockStyle.Fill;
-			//login.Show();
 
 			// finds the form where the control is on.
 			// searches all the controls with the given name.
@@ -45,17 +37,26 @@ namespace Nonogram_WF.Views
 			FindForm().Controls.Find("Registration", false).First().Show();
 		}
 
+		/// <summary>
+		/// Checks if a session exist, if so it will redirect the user to Home
+		/// </summary>
+		/// <param name="sender"></param>
+		/// <param name="e"></param>
 		private void Welcome_Load(object sender, EventArgs e)
 		{
-			//this.Dock = DockStyle.Fill;
-			if (hasSession())
+			if (HasSession())
             {
                 this.Hide();
                 FindForm().Controls.Find("Home", false).First().Show();
 
             }
 		}
-		private bool hasSession()
+
+		/// <summary>
+		/// Checks if email is set, if so then it'll return true, else false
+		/// </summary>
+		/// <returns>bool</returns>
+		private bool HasSession()
 		{
 			Users user = Controllers.Session.GetSession();
 			return (user.Email == null) ? false : (user.Email == "") ? false : true;

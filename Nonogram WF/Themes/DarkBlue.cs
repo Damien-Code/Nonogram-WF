@@ -10,7 +10,10 @@ namespace Nonogram_WF.Themes
     class DarkBlue : Theme
     {
 		private Int32 colorChangeAmount = 0xead5b2;
-		public DarkBlue()
+        /// <summary>
+        /// sets specific colors for this specific theme
+        /// </summary>
+        public DarkBlue()
 		{
 			UserControlBG = Color.FromArgb(UserControl.DefaultBackColor.ToArgb() ^ colorChangeAmount);
 			UserControlFG = Color.FromArgb(UserControl.DefaultForeColor.ToArgb() ^ colorChangeAmount);

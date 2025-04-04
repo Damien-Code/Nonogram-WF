@@ -49,9 +49,16 @@ namespace Nonogram_WF.Views
         private void Home_VisibleChanged(object sender, EventArgs e)
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
-            //reload();
+           
             Refresh(); 
         }
+        /// <summary>
+        /// This method is created specifically for testing purposes. 
+        /// The code that has been commented out would redirect the user to the page Difficulty
+        /// Because this is impossible during an automated test, 
+        /// we opted to use a return string with the name of the file that the user would be redirected to.
+        /// </summary>
+        /// <returns>string</returns>
         public string AcceptatieTestButtonTest() {
             //Would normally call this but cant during testing so we just return the name of the UserControl that Find tries to find
 
@@ -59,12 +66,7 @@ namespace Nonogram_WF.Views
             //FindForm().Controls.Find("Difficulty", false).First().Show();
 
 
-
             return "Difficulty";
         }
-        //private void reload() {
-        //    this.Hide();
-        //    FindForm().Controls.Find("Home", false).First().Show();
-        //}
     }
 }

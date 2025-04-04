@@ -22,7 +22,7 @@ namespace Nonogram_Tests
         {
             Nonogram_WF.Views.Settings x = new Nonogram_WF.Views.Settings();
             //assert
-            x.testLogout();
+            x.TestLogout();
             Users? y = Session.GetSession();
 
             Assert.IsTrue(y.Email == "" && y.Password == null);
