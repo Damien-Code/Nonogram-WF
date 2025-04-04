@@ -102,7 +102,7 @@ namespace Nonogram_WF.Views
         public void setGrid(int dpi)
         {
             int sizeConversion = 960 / dpi;
-            _horizontalStartPosition = (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / sizeConversion;
+            _horizontalStartPosition = (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / sizeConversion + 50;
             _verticalStartPosition = (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / sizeConversion;
             MaxGridSize = 2000/sizeConversion+50;
 
@@ -199,12 +199,6 @@ namespace Nonogram_WF.Views
         {
         }
 
-
-
-        private void buttonGameScreenHint_Click(object sender, EventArgs e)
-        {
-
-        }
 
         public void CreateRowLabels()
         {

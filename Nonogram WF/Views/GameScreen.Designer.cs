@@ -29,11 +29,7 @@
         private void InitializeComponent()
         {
             panel1 = new Panel();
-            buttonGameScreenHint = new Button();
             buttonGameScreenSolve = new Button();
-
-            //label1 = new Label();
-
             buttonGameScreenBack = new Button();
             buttonGameScreenLogout = new Button();
             panel1.SuspendLayout();
@@ -41,39 +37,18 @@
             // 
             // panel1
             // 
-            panel1.Controls.Add(buttonGameScreenHint);
             panel1.Controls.Add(buttonGameScreenSolve);
-
-            //panel1.Controls.Add(label1);
-
             panel1.Controls.Add(buttonGameScreenBack);
             panel1.Controls.Add(buttonGameScreenLogout);
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Margin = new Padding(2, 1, 2, 1);
             panel1.Name = "panel1";
-
-            
+            panel1.Size = new Size(800, 475);
+            panel1.TabIndex = 0;
             panel1.Click += panel1_Click;
             panel1.Paint += panel1_Paint;
             panel1.MouseClick += panel1_MouseClick;
-           
-            panel1.Size = new Size(800, 475);
-            panel1.TabIndex = 0;
-            // 
-            // buttonGameScreenHint
-            // 
-            buttonGameScreenHint.Location = new Point(403, 375);
-
-            buttonGameScreenHint.Margin = new Padding(2, 1, 2, 1);
-            buttonGameScreenHint.Name = "buttonGameScreenHint";
-            buttonGameScreenHint.Size = new Size(118, 44);
-            buttonGameScreenHint.TabIndex = 4;
-            buttonGameScreenHint.Text = "Hint";
-            buttonGameScreenHint.UseVisualStyleBackColor = true;
-
-            buttonGameScreenHint.Click += buttonGameScreenHint_Click;
-
             // 
             // buttonGameScreenSolve
             // 
@@ -84,20 +59,7 @@
             buttonGameScreenSolve.TabIndex = 3;
             buttonGameScreenSolve.Text = "Solve";
             buttonGameScreenSolve.UseVisualStyleBackColor = true;
-
             buttonGameScreenSolve.Click += buttonGameScreenSolve_Click;
-
-            // 
-            // label1
-            // 
-//             label1.BackColor = SystemColors.ActiveCaption;
-//             label1.Location = new Point(252, 90);
-//             label1.Margin = new Padding(2, 0, 2, 0);
-//             label1.Name = "label1";
-//             label1.Size = new Size(269, 234);
-//             label1.TabIndex = 2;
-//             label1.Text = "Insert grid";
-
             // 
             // buttonGameScreenBack
             // 
@@ -128,9 +90,7 @@
             Controls.Add(panel1);
             Margin = new Padding(2, 1, 2, 1);
             Name = "GameScreen";
-
             Size = new Size(800, 475);
-
             panel1.ResumeLayout(false);
             ResumeLayout(false);
         }
@@ -139,7 +99,6 @@
 
         private Panel panel1;
         private Button buttonGameScreenLogout;
-        private Button buttonGameScreenHint;
         private Button buttonGameScreenSolve;
         private Button buttonGameScreenBack;
     }
