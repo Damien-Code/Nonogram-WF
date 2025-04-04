@@ -32,16 +32,38 @@ namespace Nonogram_Tests
         }
 
         [TestMethod]
-        public void Test_UserCanBeCreated()
+        public void Test_AccountCannotBeCreatedIf_PasswordIsLessThan6Char_CheckPassword_ReturnsFalse()
         {
-            Users user = new Users();
-            Users.SetUser(user.Email, new DPassword("", ""), new Settings("", ""), new UserHistory());
-          
-            var AllUsers = JSON_RW.GetUsers();
-
-            Assert.IsNotNull(AllUsers);
-            Assert.IsTrue(AllUsers.Users.Count == 1);
-            Assert.AreEqual(AllUsers.Users.Last(), user);
+            string TestPassword = "test";
+            
+            Assert.IsFalse(UserController.CheckPassword(TestPassword));  
         }
+
+        [TestMethod]
+        public void Test_AccountCanBeCreatedIf_PasswordIsMoreThan6Char_CheckPassword_ReturnsTrue()
+        {
+            string TestPassword = "testing";
+
+            Assert.IsTrue(UserController.CheckPassword(TestPassword));
+        }
+
+        [TestMethod]
+        public void Test_AccountCannotBeCreatedIf_EmailDoesNotMatchSpecifications_CheckEmail_ReturnsFalse()
+        {
+            // Does not contain @
+            string TestEmail = "testingemail.nl";
+
+            Assert.IsFalse(UserController.CheckEmail(TestEmail));
+        }
+
+        [TestMethod]
+        public void Test_AccountCanBeCreatedIf_EmailDoesMatchSpecifications_CheckEmail_ReturnsTrue()
+        {
+            
+            string TestEmail = "testing@email.nl";
+
+            Assert.IsTrue(UserController.CheckEmail(TestEmail));
+        }
+
     }
 }

@@ -32,7 +32,7 @@ namespace Nonogram_Tests
         {
             Users user = new Users();
             Nonogram_WF.Models.History ModelHistory = new Nonogram_WF.Models.History(1, 1, false);
-            Users.SetUser(user.Email, new DPassword("", ""), new Nonogram_WF.Models.Settings("", ""), new UserHistory());
+            //Users.SetUser(user.Email, new DPassword("", ""), new Nonogram_WF.Models.Settings("", ""), new UserHistory());
             
             Nonogram_WF.Views.History ViewHistory = new Nonogram_WF.Views.History();
             
