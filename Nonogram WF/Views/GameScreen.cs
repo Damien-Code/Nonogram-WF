@@ -19,14 +19,21 @@ namespace Nonogram_WF.Views
 
     public partial class GameScreen : UserControl
     {
-        protected int MaxGridSize = 200;//max length of grid
+        private int MaxGridSize; //max length of grid
         private int[][] _solutionGrid;
         private int[][] _currentAttemptGrid;
         private int[][] _currentGridMask;
         private Theme _theme = ThemeController.GetTheme();
-        private int _horizontalStartPosition = (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / 5;
-        private int _verticalStartPosition = (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / 5;
-      
+        
+        private int _horizontalStartPosition;
+        //= (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / dpiMult;
+        private int _verticalStartPosition;
+        //= (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / dpiMult;
+        /*
+         * 192/5     ->MaxSize 400
+         * 96 / 10   ->MaxSize 200
+         *
+         */
         
         public int GridSize;
         private int _hintsUsed = 0;
@@ -98,8 +105,11 @@ namespace Nonogram_WF.Views
         }
 
 
-        public void setGrid()
+        public void setGrid(int dpi)
         {
+            _horizontalStartPosition = (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / (960/dpi);
+            _verticalStartPosition = (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / (960/dpi);
+            MaxGridSize = 2000/(960/dpi);
             _solutionGrid = GameController.initializeGrid(GridSize);
             RemoveLabels();
             SetLabels();
@@ -322,7 +332,7 @@ namespace Nonogram_WF.Views
         private void buttonGameScreenSolve_Click(object sender, EventArgs e)
         {
             Graphics g = this.CreateGraphics();
-            MessageBox.Show($"X:{g.DpiX}\nY:{g.DpiY}");
+           
             _currentAttemptGrid = _solutionGrid;
             Refresh();
             MessageBox.Show("You did not fully solve it yourself.\nwont advance to the next level");

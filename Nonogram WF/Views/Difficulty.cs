@@ -60,7 +60,8 @@ namespace Nonogram_WF.Views
             GameScreen game = (GameScreen)FindForm().Controls.Find("GameScreen", false).First();
             game.GridSize = level + 4;
             game.ThemeChange();
-            game.setGrid();
+            Graphics dpi = this.CreateGraphics();
+            game.setGrid((int)dpi.DpiX);
             game.Show();
         }
 
