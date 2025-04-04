@@ -1,0 +1,33 @@
+{
+  "Email": "asd@asd.asd",
+  "Password": "92h6u7O5iYWFzS5hVIGl/rZKQSQ18M48heq6vVYGyHMf7QKrOk\u002BvRXaazrz1cz7T2URUcBb3yWkTIGNU7iPncA==",
+  "Salt": "xwQkz4Hd48SrSs2yy/QOtA==",
+  "Settings": {
+    "Theme": "DarkBlue",
+    "FontSize": "9"
+  },
+  "History": {
+    "AllHistory": [
+      {
+        "Level": 0,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 1,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 1,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 1,
+        "HintCount": 0,
+        "UsedSolver": false
+      }
+    ]
+  }
+}

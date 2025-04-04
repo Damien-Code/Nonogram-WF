@@ -152,7 +152,7 @@ namespace Nonogram_WF.Views
         {
             if (StructuralComparisons.StructuralEqualityComparer.Equals(_solutionGrid, _currentGridMask))
             {
-                MessageBox.Show("Win");
+                MessageBox.Show("You Win!");
 
                 //set win as history in db
                 GameController.SetWin(GridSize - 4, _hintsUsed);
