@@ -1,9 +1,9 @@
 {
-  "Email": "test@testing.nl",
-  "Password": "INrE2utKQYMZjzeo6PH2va4f990JSLGqUaKumddXDrlwKrdVRAkIuV6wGcKHq9Gfqj26HgbS69mZ5Km23\u002B\u002Bo/w==",
-  "Salt": "uJEOozhO4BEq0YDt5QHpZA==",
+  "Email": "asd@asdasd.asd",
+  "Password": "pTIh8zeqqFdHpm9xs9z7b2BM0uEF8C\u002BoqdjqOysqw4lBXlLZuL4BoUSty\u002BPDEWucZxi4kQahYBrQBFJMSEuwPA==",
+  "Salt": "qxhL8mX8ixblsYbwzjcrpA==",
   "Settings": {
-    "Theme": "Grey",
+    "Theme": "DarkBlue",
     "FontSize": "9"
   },
   "History": {

@@ -26,14 +26,8 @@ namespace Nonogram_WF.Views
         private Theme _theme = ThemeController.GetTheme();
         
         private int _horizontalStartPosition;
-        //= (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / dpiMult;
         private int _verticalStartPosition;
-        //= (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / dpiMult;
-        /*
-         * 192/5     ->MaxSize 400
-         * 96 / 10   ->MaxSize 200
-         *
-         */
+     
         
         public int GridSize;
         private int _hintsUsed = 0;
@@ -107,9 +101,11 @@ namespace Nonogram_WF.Views
 
         public void setGrid(int dpi)
         {
-            _horizontalStartPosition = (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / (960/dpi);
-            _verticalStartPosition = (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / (960/dpi);
-            MaxGridSize = 2000/(960/dpi);
+            int sizeConversion = 960 / dpi;
+            _horizontalStartPosition = (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / sizeConversion;
+            _verticalStartPosition = (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / sizeConversion;
+            MaxGridSize = 2000/sizeConversion+50;
+
             _solutionGrid = GameController.initializeGrid(GridSize);
             RemoveLabels();
             SetLabels();

@@ -45,13 +45,7 @@ namespace Nonogram_WF.Views
                 "Grey";
             return;
         }
-        private void GetFontLabel()
-        {
-            string userFontSize = GetFontSize();
-            comboBoxSettingsFont.Text = userFontSize;
-            return;
-
-        }
+       
 
         private void comboBoxSettingsTheme_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -64,40 +58,24 @@ namespace Nonogram_WF.Views
             }
             _themeIndexChangecounter++;
         }
-        private void comboBoxSettingsFont_SelectedIndexChanged(object sender, EventArgs e)
-        {
-            //MessageBox.Show();
-            if (_fontSizeIndexChangecounter > 0)
-            {
-                SetFontSize(comboBoxSettingsFont.Text); //change this code to set new theme and call the func again
-            }
-            _fontSizeIndexChangecounter++;
-        }
+       
         private string GetTheme()
         {
             //Get theme from session.json, return the theme if its there
             return Controllers.Settings.GetTheme();
         }
-        private string GetFontSize()
-        {
-            //return "";
-            return Controllers.Settings.GetFontSize();
-        }
+        
         private void SetTheme(string theme, ControlCollection controls)
         {
             Controllers.Settings.SetTheme(theme);
         }
-        private void SetFontSize(string fontSize)
-        {
-            Controllers.Settings.SetFontSize(fontSize);
-        }
+        
 
         private void Settings_Load(object sender, EventArgs e)
         {
             _fontSizeIndexChangecounter = 0;
             _themeIndexChangecounter = 0;
             GetThemeLabel();
-            GetFontLabel();
         }
 
         private void buttonSettingsLogout_VisibleChanged(object sender, EventArgs e)
