@@ -1,15 +1,20 @@
 {
-  "Email": "test@testing.nl",
-  "Password": null,
-  "Salt": null,
+  "Email": "asd@asdasd.asd",
+  "Password": "pTIh8zeqqFdHpm9xs9z7b2BM0uEF8C\u002BoqdjqOysqw4lBXlLZuL4BoUSty\u002BPDEWucZxi4kQahYBrQBFJMSEuwPA==",
+  "Salt": "qxhL8mX8ixblsYbwzjcrpA==",
   "Settings": {
-    "Theme": "Light",
+    "Theme": "DarkBlue",
     "FontSize": "9"
   },
   "History": {
     "AllHistory": [
       {
         "Level": 0,
+        "HintCount": 0,
+        "UsedSolver": false
+      },
+      {
+        "Level": 15,
         "HintCount": 0,
         "UsedSolver": false
       }

@@ -32,7 +32,6 @@
             buttonSettingsBack = new Button();
             label1 = new Label();
             comboBoxSettingsTheme = new ComboBox();
-            comboBoxSettingsFont = new ComboBox();
             panel1 = new Panel();
             SuspendLayout();
             // 
@@ -82,18 +81,6 @@
             comboBoxSettingsTheme.Text = "Theme:";
             comboBoxSettingsTheme.SelectedIndexChanged += comboBoxSettingsTheme_SelectedIndexChanged;
             // 
-            // comboBoxSettingsFont
-            // 
-            comboBoxSettingsFont.FormattingEnabled = true;
-            comboBoxSettingsFont.Items.AddRange(new object[] { "9", "12", "15", "18" });
-            comboBoxSettingsFont.Location = new Point(253, 242);
-            comboBoxSettingsFont.Margin = new Padding(1);
-            comboBoxSettingsFont.Name = "comboBoxSettingsFont";
-            comboBoxSettingsFont.Size = new Size(196, 23);
-            comboBoxSettingsFont.TabIndex = 4;
-            comboBoxSettingsFont.Text = "Font size:";
-            comboBoxSettingsFont.SelectedIndexChanged += comboBoxSettingsFont_SelectedIndexChanged;
-            // 
             // panel1
             // 
             panel1.Dock = DockStyle.Fill;
@@ -106,7 +93,6 @@
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
             AutoScaleMode = AutoScaleMode.Font;
-            Controls.Add(comboBoxSettingsFont);
             Controls.Add(comboBoxSettingsTheme);
             Controls.Add(label1);
             Controls.Add(buttonSettingsBack);
@@ -127,7 +113,6 @@
         private Button buttonSettingsBack;
         private Label label1;
         private ComboBox comboBoxSettingsTheme;
-        private ComboBox comboBoxSettingsFont;
         private Panel panel1;
     }
 }
