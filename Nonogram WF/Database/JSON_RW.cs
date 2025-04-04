@@ -26,7 +26,7 @@ namespace Nonogram_WF.Database
 
         //inspiration from https://stackoverflow.com/questions/30991331/how-to-navigate-one-folder-up-from-current-file-path
         static string prefix = Convert.ToString(Directory.GetParent(Convert.ToString(Directory.GetParent(Convert.ToString(Directory.GetParent(Convert.ToString(Directory.GetParent(Environment.CurrentDirectory))))))));
-        private static readonly string _filePath = prefix + "/Nonogram WF/Database/data.json";
+        private static readonly string _filePath    = prefix + "/Nonogram WF/Database/data.json";
         private static readonly string _sessionPath = prefix + "/Nonogram WF/Database/session.json";
 
 

@@ -11,6 +11,12 @@ namespace Nonogram_WF.Controllers
 {
     public class LoginController
     {
+        /// <summary>
+        /// Takes users login data and checks it to see if its valid data, else returns message boxes
+        /// </summary>
+        /// <param name="email"></param>
+        /// <param name="password"></param>
+        /// <returns>bool</returns>
         public static bool CheckUserData(string email, string password)
         {
             var usercheck = CheckEmailExists(email);
@@ -29,7 +35,11 @@ namespace Nonogram_WF.Controllers
             MessageBox.Show("Email does not exist");
             return true;
         }
-
+        /// <summary>
+        /// Checks if email already exists, if so returns the user and true, else false and empty user
+        /// </summary>
+        /// <param name="email"></param>
+        /// <returns>(bool. Users)</returns>
         public static (bool boolean, Users user) CheckEmailExists(string email)
         {
             AllUsers allUsers = Users.GetUsers();
@@ -42,7 +52,12 @@ namespace Nonogram_WF.Controllers
             return (true, LoggedInUser);
 
         }
-
+        /// <summary>
+        /// Checks if password is correct
+        /// </summary>
+        /// <param name="user"></param>
+        /// <param name="password"></param>
+        /// <returns>bool</returns>
         public static bool PasswordCheck(Users user, string password)
         {
             string hashedPassword = Users.hashLoginPassword(password, user.Salt);

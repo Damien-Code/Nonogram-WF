@@ -10,6 +10,8 @@ namespace Nonogram_WF
 
         { 
             InitializeComponent();
+            // Positions the form to the centre of the users screen
+            CenterToScreen();
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -19,11 +21,7 @@ namespace Nonogram_WF
 
         private void welcome2_Load(object sender, EventArgs e)
         {
-            //AllocConsole();
-            
-            // Positions the form to the centre of the users screen
-            this.Top = (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / 4;
-            this.Left = (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / 4;
+            //removes ability to resize
             this.FormBorderStyle = FormBorderStyle.FixedSingle;
             this.MaximizeBox = false;
         }

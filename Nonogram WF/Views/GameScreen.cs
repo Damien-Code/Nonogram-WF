@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.Xml;
 using System.Security.Policy;
@@ -34,7 +35,10 @@ namespace Nonogram_WF.Views
         public GameScreen()
         {
             InitializeComponent();
-            DoubleBuffered = true;
+            // https://stackoverflow.com/questions/8046560/how-to-stop-flickering-c-sharp-winforms
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+                null, panel1, [true]);
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
 
@@ -107,9 +111,9 @@ namespace Nonogram_WF.Views
         /// <param name="dpi"></param>
         public void SetGrid(int dpi)
         {
-            int sizeConversion = 960 / dpi;
-            _horizontalStartPosition = (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / sizeConversion + 50;
-            _verticalStartPosition = (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / sizeConversion;
+            int sizeConversion = (int)Math.Floor(960F / dpi);
+            _horizontalStartPosition = (int)Math.Floor((decimal)(Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / sizeConversion) + 50;
+            _verticalStartPosition   = (int)Math.Floor((decimal)(Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / sizeConversion);
             _maxGridSize = 2000/sizeConversion+50;
 
             _solutionGrid = GameController.initializeGrid(GridSize);
@@ -253,7 +257,7 @@ namespace Nonogram_WF.Views
 
             int mousePosX = relativePoint.X;
             int mousePosY = relativePoint.Y;
-            if ((relativePoint.X >= gridStart.X && relativePoint.X <= gridEnd.X) && (relativePoint.Y >= gridStart.Y && relativePoint.Y <= gridEnd.Y))
+            if ((relativePoint.X >= gridStart.X && relativePoint.X <= gridEnd.X-1) && (relativePoint.Y >= gridStart.Y && relativePoint.Y <= gridEnd.Y-1))
             {
                 int row = (int)Math.Floor((relativePoint.X - gridStart.X) / (_maxGridSize / (double)GridSize));
                 int col = (int)Math.Floor((relativePoint.Y - gridStart.Y) / (_maxGridSize / (double)GridSize));

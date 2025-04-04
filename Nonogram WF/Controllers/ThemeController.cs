@@ -11,6 +11,10 @@ namespace Nonogram_WF.Controllers
 {
     class ThemeController
     {
+        /// <summary>
+        /// gets current theme
+        /// </summary>
+        /// <returns>Theme</returns>
         public static Theme GetTheme()
         {
             Users session = Session.GetSession();

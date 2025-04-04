@@ -16,7 +16,7 @@ namespace Nonogram_WF.Views
     public partial class Settings : UserControl
     {
         private int _themeIndexChangecounter = 0;
-        private int _fontSizeIndexChangecounter = 0;
+        //private int _fontSizeIndexChangecounter = 0;
         public Settings()
         {
             InitializeComponent();
@@ -85,7 +85,7 @@ namespace Nonogram_WF.Views
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            _fontSizeIndexChangecounter = 0;
+            //_fontSizeIndexChangecounter = 0;
             _themeIndexChangecounter = 0;
             GetThemeLabel();
         }
