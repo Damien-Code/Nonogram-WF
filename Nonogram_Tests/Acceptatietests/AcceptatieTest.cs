@@ -27,16 +27,6 @@ namespace Nonogram_Tests
             Assert.IsTrue(y.Email == "" && y.Password == null);
         }
 
-        [TestMethod]
-        public void Test_HistoryTableHasContent()
-        {
-            Nonogram_WF.Views.Home ViewHome = new Nonogram_WF.Views.Home();
-
-            ViewHome.
-            
-
-        }
-
        
     }
 }

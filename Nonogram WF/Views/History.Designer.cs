@@ -172,7 +172,7 @@
         private Button buttonHistoryBack;
         private Button buttonHistoryLogout;
         private Label labelHistory;
-        private DataGridView dataGridView1;
+        public DataGridView dataGridView1;
         private DataGridViewTextBoxColumn Level;
         private DataGridViewTextBoxColumn HintsUsed;
         private DataGridViewTextBoxColumn UsedSolver;
