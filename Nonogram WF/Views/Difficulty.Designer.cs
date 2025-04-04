@@ -245,6 +245,7 @@
             Margin = new Padding(2, 1, 2, 1);
             Name = "Difficulty";
             Size = new Size(800, 475);
+            VisibleChanged += Difficulty_VisibleChanged;
             panel1.ResumeLayout(false);
             panel1.PerformLayout();
             VisibleChanged += Difficulty_VisibleChanged;

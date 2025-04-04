@@ -10,8 +10,11 @@ namespace Nonogram_WF.Controllers
 {
     class Settings
     {
-        public static string GetTheme()
-        {
+
+        public Settings() { }
+        public static string GetTheme() {
+
+
             Models.Settings settings = Models.Session.GetSession().Settings;
             return settings != null ? settings.Theme : "";
 

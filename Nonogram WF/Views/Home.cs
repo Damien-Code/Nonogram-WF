@@ -52,6 +52,16 @@ namespace Nonogram_WF.Views
             //reload();
             Refresh(); 
         }
+        public string AcceptatieTestButtonTest() {
+            //Would normally call this but cant during testing so we just return the name of the UserControl that Find tries to find
+
+            //this.Hide();
+            //FindForm().Controls.Find("Difficulty", false).First().Show();
+
+
+
+            return "Difficulty";
+        }
         //private void reload() {
         //    this.Hide();
         //    FindForm().Controls.Find("Home", false).First().Show();

@@ -5,7 +5,6 @@ VisualStudioVersion = 17.12.35707.178
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nonogram WF", "Nonogram WF\Nonogram WF.csproj", "{BACD1A39-A09E-4DBC-8D77-8F30BDB9F503}"
 EndProject
-
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Nonogram_Tests", "Nonogram_Tests\Nonogram_Tests.csproj", "{54D2271B-3F28-474C-B32B-FE6E4C0A8AAF}"
 EndProject
 Global

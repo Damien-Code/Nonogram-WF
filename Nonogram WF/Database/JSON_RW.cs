@@ -15,9 +15,13 @@ namespace Nonogram_WF.Database
     public class JSON_RW
     {
         private static ObjectCache _sessionCache = MemoryCache.Default;
+
+
+
         // The relative filepath so data can be stored in the data.json file in the database folder.
-        private static readonly string _filePath = "../../../Database/data.json";
-        private static readonly string _sessionPath = "../../../Database/session.json";
+        private static readonly string _filePath = "../../../../Nonogram WF/Database/data.json";
+        private static readonly string _sessionPath = "../../../../Nonogram WF/Database/session.json";
+        //private static readonly string _sessionPath = "C:\\Users\\damienocean\\source\\repos\\Nonogram WF\\Nonogram WF\\Database\\session.json";
 
         /// <summary>
         /// Static method so it is possible to write to data.json everywhere
@@ -28,6 +32,7 @@ namespace Nonogram_WF.Database
         public static void WriteFile(object obj)
         {
             string JsonString = JsonSerializer.Serialize(obj, _options);
+            
             File.WriteAllText(_filePath, JsonString);
         }
 
@@ -61,48 +66,59 @@ namespace Nonogram_WF.Database
         }
         public static void SetSession(string email, Settings settings, UserHistory history)
         { //add setting
+
+            Users? user = _sessionCache["session"] as Users;
             Users UserSession = new Users(email, settings, history);
+            if (user != null) {
+                _sessionCache.Remove("session");
+                CacheItemPolicy policy = new CacheItemPolicy();
+                List<string> filePaths = new() { _sessionPath };
+                policy.ChangeMonitors.Add(new HostFileChangeMonitor(filePaths));
+                _sessionCache.Set("session", UserSession, policy);
+            }
+
             string JsonString = JsonSerializer.Serialize(UserSession, _options);
             File.WriteAllText(_sessionPath, JsonString);
         }
         public static Users GetSession()
         {
             //TODO: Add try catch
+
+                Users? user = _sessionCache["session"] as Users;
+                CacheItemPolicy policy = new CacheItemPolicy();
+                List<string> filePaths = new() { _sessionPath }; 
+                string json = "";
+            if (user == null || user.Email == "")
+            {
+                policy.ChangeMonitors.Add(new HostFileChangeMonitor(filePaths));
             try
             {
-                Users? user = _sessionCache["session"] as Users;
-                if (user == null)
-                {
-                    CacheItemPolicy policy = new CacheItemPolicy();
-                    List<string> filePaths = new() { _sessionPath };
-                    policy.ChangeMonitors.Add(new HostFileChangeMonitor(filePaths));
-                    //using (FileStream file = new FileStream(_sessionPath, FileMode.OpenOrCreate, FileAccess.ReadWrite, FileShare.ReadWrite))
-                    //{
-                    using (StreamReader streamReader = new StreamReader(_sessionPath))
-                    {
-                        string json = streamReader.ReadToEnd();
-                        if (string.IsNullOrWhiteSpace(json)) json = "{}";
-
-                        Users session = JsonSerializer.Deserialize<Users>(json, _options);
-                        _sessionCache.Set("session", session,policy);
-                        return session!;
-                    }
-                }
-                else { return user; }
+                json = File.ReadAllText(_sessionPath);
+                if (string.IsNullOrWhiteSpace(json)) json = "{}";
+                Users session = JsonSerializer.Deserialize<Users>(json, _options);
+                _sessionCache.Set("session", session, policy);
+                return session!;   
             }
-            catch
+                catch
+
             {
                 //added failsafe if reader dies that the application will close
                 MessageBox.Show("Something went wrong, please restart");
                 Application.Exit();
             }
 
+                }
+                else { 
+                
+                return user; }
+
             return new Users();
-            
+
         }
         public static void RemoveSession()
         {
-            Settings settings = new Settings("", "");
+            Settings settings = new("", "");
+
             Users user = new Users("", settings, new UserHistory());
             string JsonString = JsonSerializer.Serialize(user, _options);
 
@@ -116,17 +132,10 @@ namespace Nonogram_WF.Database
         }
         public static void UpdateSessionSettings(Users allUsers)
         {
-            try
-            {
-                string JsonString = JsonSerializer.Serialize(allUsers, _options);
-                File.WriteAllText(_sessionPath, JsonString);
-            }
-            catch
-            {
-                //added failsafe if reader dies that the application will close
-                MessageBox.Show("Something went wrong, please restart");
-                Application.Exit();
-            }
+            string JsonString = JsonSerializer.Serialize(allUsers, _options);
+            File.WriteAllText(_sessionPath, JsonString);
+
+
         }
     }
 }

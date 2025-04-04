@@ -1,18 +1,13 @@
 {
-  "Email": "asd@asd.asd",
+  "Email": "",
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "DarkBlue",
-    "FontSize": "9"
+    "Theme": "",
+    "FontSize": ""
   },
   "History": {
-    "AllHistory": [
-      {
-        "Level": 0,
-        "HintCount": 0,
-        "UsedSolver": false
-      }
-    ]
+    "AllHistory": []
+
   }
 }

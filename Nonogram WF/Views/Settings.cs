@@ -113,5 +113,9 @@ namespace Nonogram_WF.Views
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
+        public void testLogout() {
+            Controllers.Session.RemoveSession();
+            Application.Exit();
+        }
     }
 }
