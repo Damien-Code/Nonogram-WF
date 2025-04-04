@@ -1,13 +1,18 @@
 {
-  "Email": "",
+  "Email": "test@testing.nl",
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "",
-    "FontSize": ""
+    "Theme": "Light",
+    "FontSize": "9"
   },
   "History": {
-    "AllHistory": []
-
+    "AllHistory": [
+      {
+        "Level": 0,
+        "HintCount": 0,
+        "UsedSolver": false
+      }
+    ]
   }
 }
