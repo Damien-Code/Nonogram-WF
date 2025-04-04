@@ -30,14 +30,9 @@ namespace Nonogram_Tests
         [TestMethod]
         public void Test_HistoryTableHasContent()
         {
-            Users user = new Users();
-            Nonogram_WF.Models.History ModelHistory = new Nonogram_WF.Models.History(1, 1, false);
-            //Users.SetUser(user.Email, new DPassword("", ""), new Nonogram_WF.Models.Settings("", ""), new UserHistory());
-            
-            Nonogram_WF.Views.History ViewHistory = new Nonogram_WF.Views.History();
-            
-            DataGridViewRow Row =  ViewHistory.dataGridView1.Rows.Cast<DataGridViewRow>().Where(x => x.Cells["HintsUsed"].Value.Equals(ModelHistory.HintCount)).FirstOrDefault();
-            Assert.IsNotNull(Row);
+            Nonogram_WF.Views.Home ViewHome = new Nonogram_WF.Views.Home();
+
+            ViewHome.
             
 
         }
