@@ -378,63 +378,21 @@
       }
     },
     {
-      "Email": "test@example.com",
-      "Password": "",
-      "Salt": "",
+      "Email": "test@testing.nl",
+      "Password": "INrE2utKQYMZjzeo6PH2va4f990JSLGqUaKumddXDrlwKrdVRAkIuV6wGcKHq9Gfqj26HgbS69mZ5Km23\u002B\u002Bo/w==",
+      "Salt": "uJEOozhO4BEq0YDt5QHpZA==",
       "Settings": {
-        "Theme": "",
-        "FontSize": ""
+        "Theme": "Light",
+        "FontSize": "9"
       },
       "History": {
-        "AllHistory": []
-      }
-    },
-    {
-      "Email": "test@example.com",
-      "Password": "",
-      "Salt": "",
-      "Settings": {
-        "Theme": "",
-        "FontSize": ""
-      },
-      "History": {
-        "AllHistory": []
-      }
-    },
-    {
-      "Email": "test@example.com",
-      "Password": "",
-      "Salt": "",
-      "Settings": {
-        "Theme": "",
-        "FontSize": ""
-      },
-      "History": {
-        "AllHistory": []
-      }
-    },
-    {
-      "Email": "test@example.com",
-      "Password": "",
-      "Salt": "",
-      "Settings": {
-        "Theme": "",
-        "FontSize": ""
-      },
-      "History": {
-        "AllHistory": []
-      }
-    },
-    {
-      "Email": "test@example.com",
-      "Password": "",
-      "Salt": "",
-      "Settings": {
-        "Theme": "",
-        "FontSize": ""
-      },
-      "History": {
-        "AllHistory": []
+        "AllHistory": [
+          {
+            "Level": 0,
+            "HintCount": 0,
+            "UsedSolver": false
+          }
+        ]
       }
     }
   ]

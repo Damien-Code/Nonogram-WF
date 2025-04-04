@@ -1,20 +1,15 @@
 {
-  "Email": "asd@asd.asd",
+  "Email": "test@testing.nl",
   "Password": null,
   "Salt": null,
   "Settings": {
-    "Theme": "DarkBlue",
+    "Theme": "Light",
     "FontSize": "9"
   },
   "History": {
     "AllHistory": [
       {
         "Level": 0,
-        "HintCount": 0,
-        "UsedSolver": false
-      },
-      {
-        "Level": 1,
         "HintCount": 0,
         "UsedSolver": false
       }
