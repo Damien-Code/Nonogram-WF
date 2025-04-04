@@ -1,7 +1,6 @@
 {
   "Users": [
     {
-
       "Email": "test@example.com",
       "Password": "",
       "Salt": "",
@@ -17,7 +16,6 @@
       "Email": "asds@asd.asd",
       "Password": "nXVKhhh3WygBCh4bPALwiMrFQfHNF5voGZ5KMbl36V/4G25X3kMMewoD0vrVdGjBLtR2J/nBcRzRBli2i4gSFw==",
       "Salt": "0xaYKACkMWu743LJKgHbEw==",
-
       "Settings": {
         "Theme": "DarkBlue",
         "FontSize": "9"
@@ -202,6 +200,11 @@
             "Level": 0,
             "HintCount": 0,
             "UsedSolver": false
+          },
+          {
+            "Level": 1,
+            "HintCount": 0,
+            "UsedSolver": false
           }
         ]
       }
@@ -373,7 +376,66 @@
       "History": {
         "AllHistory": []
       }
-
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "",
+      "Salt": "",
+      "Settings": {
+        "Theme": "",
+        "FontSize": ""
+      },
+      "History": {
+        "AllHistory": []
+      }
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "",
+      "Salt": "",
+      "Settings": {
+        "Theme": "",
+        "FontSize": ""
+      },
+      "History": {
+        "AllHistory": []
+      }
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "",
+      "Salt": "",
+      "Settings": {
+        "Theme": "",
+        "FontSize": ""
+      },
+      "History": {
+        "AllHistory": []
+      }
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "",
+      "Salt": "",
+      "Settings": {
+        "Theme": "",
+        "FontSize": ""
+      },
+      "History": {
+        "AllHistory": []
+      }
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "",
+      "Salt": "",
+      "Settings": {
+        "Theme": "",
+        "FontSize": ""
+      },
+      "History": {
+        "AllHistory": []
+      }
     }
   ]
 }

@@ -19,13 +19,16 @@ namespace Nonogram_WF.Views
 
     public partial class GameScreen : UserControl
     {
-        protected int MaxGridSize = 300;//max length of grid
+        protected int MaxGridSize = 200;//max length of grid
         private int[][] _solutionGrid;
         private int[][] _currentAttemptGrid;
         private int[][] _currentGridMask;
         private Theme _theme = ThemeController.GetTheme();
-        private int _horizontalStartPosition = 275;
-        private int _verticalStartPosition = 125;
+        //private int _horizontalStartPosition = 275;
+        //private int _verticalStartPosition = 125;
+        private int _horizontalStartPosition = (Screen.PrimaryScreen.Bounds.Left + Screen.PrimaryScreen.Bounds.Width)/5;
+        private int _verticalStartPosition = (Screen.PrimaryScreen.Bounds.Top + Screen.PrimaryScreen.Bounds.Height) / 5;
+
         public int GridSize;
         private int _hintsUsed = 0;
         public GameScreen()
@@ -51,7 +54,7 @@ namespace Nonogram_WF.Views
         {
             SuspendLayout();
             Graphics g = e.Graphics;
-
+            
             Pen p = new(_theme.PenColor);
             int size = GridSize;
             int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
@@ -319,6 +322,8 @@ namespace Nonogram_WF.Views
 
         private void buttonGameScreenSolve_Click(object sender, EventArgs e)
         {
+            Graphics g = this.CreateGraphics();
+            MessageBox.Show($"X:{g.DpiX}\nY:{g.DpiY}");
             _currentAttemptGrid = _solutionGrid;
             Refresh();
             MessageBox.Show("You did not fully solve it yourself.\nwont advance to the next level");

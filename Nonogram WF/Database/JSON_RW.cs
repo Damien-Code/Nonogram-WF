@@ -9,6 +9,7 @@ using Nonogram_WF.Models;
 using System.Runtime.Caching;
 using static System.Windows.Forms.Design.AxImporter;
 using static System.Windows.Forms.VisualStyles.VisualStyleElement.ListView;
+using System.Net.Security;
 
 namespace Nonogram_WF.Database
 {
@@ -19,9 +20,17 @@ namespace Nonogram_WF.Database
 
 
         // The relative filepath so data can be stored in the data.json file in the database folder.
-        private static readonly string _filePath = "../../../../Nonogram WF/Database/data.json";
-        private static readonly string _sessionPath = "../../../../Nonogram WF/Database/session.json";
-        //private static readonly string _sessionPath = "C:\\Users\\damienocean\\source\\repos\\Nonogram WF\\Nonogram WF\\Database\\session.json";
+
+
+        //--THIS IS NEEDED FOR TESTING, YOU CANT ADD USERCONTROLS WITHOUT PROPER PATHSETTING--
+
+        //inspiration from https://stackoverflow.com/questions/30991331/how-to-navigate-one-folder-up-from-current-file-path
+        static string prefix = Convert.ToString(Directory.GetParent(Convert.ToString(Directory.GetParent(Convert.ToString(Directory.GetParent(Convert.ToString(Directory.GetParent(Environment.CurrentDirectory))))))));
+        private static readonly string _filePath = prefix + "/Nonogram WF/Database/data.json";
+        private static readonly string _sessionPath = prefix + "/Nonogram WF/Database/session.json";
+
+        //private static readonly string _filePath    = "../../../../Nonogram WF/Database/data.json";
+        //private static readonly string _sessionPath = "../../../../Nonogram WF/Database/session.json";
 
         /// <summary>
         /// Static method so it is possible to write to data.json everywhere
@@ -82,9 +91,7 @@ namespace Nonogram_WF.Database
         }
         public static Users GetSession()
         {
-            //TODO: Add try catch
-
-                Users? user = _sessionCache["session"] as Users;
+            Users? user = _sessionCache["session"] as Users;
                 CacheItemPolicy policy = new CacheItemPolicy();
                 List<string> filePaths = new() { _sessionPath }; 
                 string json = "";

@@ -33,9 +33,7 @@
             label1 = new Label();
             comboBoxSettingsTheme = new ComboBox();
             comboBoxSettingsFont = new ComboBox();
-
             panel1 = new Panel();
-
             SuspendLayout();
             // 
             // buttonSettingsLogout
@@ -47,9 +45,7 @@
             buttonSettingsLogout.TabIndex = 0;
             buttonSettingsLogout.Text = "Logout";
             buttonSettingsLogout.UseVisualStyleBackColor = true;
-
             buttonSettingsLogout.VisibleChanged += buttonSettingsLogout_VisibleChanged;
-
             buttonSettingsLogout.Click += buttonSettingsLogout_Click;
             // 
             // buttonSettingsBack
@@ -77,9 +73,7 @@
             // comboBoxSettingsTheme
             // 
             comboBoxSettingsTheme.FormattingEnabled = true;
-
             comboBoxSettingsTheme.Items.AddRange(new object[] { "Light", "Dark", "DarkBlue", "Grey" });
-
             comboBoxSettingsTheme.Location = new Point(253, 197);
             comboBoxSettingsTheme.Margin = new Padding(1);
             comboBoxSettingsTheme.Name = "comboBoxSettingsTheme";
@@ -100,16 +94,14 @@
             comboBoxSettingsFont.Text = "Font size:";
             comboBoxSettingsFont.SelectedIndexChanged += comboBoxSettingsFont_SelectedIndexChanged;
             // 
-
             // panel1
             // 
             panel1.Dock = DockStyle.Fill;
             panel1.Location = new Point(0, 0);
             panel1.Name = "panel1";
-            panel1.Size = new Size(754, 434);
+            panel1.Size = new Size(800, 475);
             panel1.TabIndex = 5;
             // 
-
             // Settings
             // 
             AutoScaleDimensions = new SizeF(7F, 15F);
@@ -119,14 +111,12 @@
             Controls.Add(label1);
             Controls.Add(buttonSettingsBack);
             Controls.Add(buttonSettingsLogout);
-
             Controls.Add(panel1);
             Margin = new Padding(1);
             Name = "Settings";
             Size = new Size(800, 475);
             Load += Settings_Load;
             VisibleChanged += Settings_VisibleChanged;
-
             ResumeLayout(false);
             PerformLayout();
         }
