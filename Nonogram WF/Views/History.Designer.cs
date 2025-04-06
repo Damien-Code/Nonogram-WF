@@ -35,11 +35,9 @@
             buttonHistoryLogout = new Button();
             labelHistory = new Label();
             dataGridView1 = new DataGridView();
-            Level = new DataGridViewTextBoxColumn();
-            HintsUsed = new DataGridViewTextBoxColumn();
-            UsedSolver = new DataGridViewTextBoxColumn();
-            TimeColumn = new DataGridViewTextBoxColumn();
             panel1 = new Panel();
+            Level = new DataGridViewTextBoxColumn();
+            UsedSolver = new DataGridViewTextBoxColumn();
             ((System.ComponentModel.ISupportInitialize)dataGridView1).BeginInit();
             panel1.SuspendLayout();
             SuspendLayout();
@@ -97,7 +95,7 @@
             dataGridViewCellStyle2.WrapMode = DataGridViewTriState.True;
             dataGridView1.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle2;
             dataGridView1.ColumnHeadersHeightSizeMode = DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Level, HintsUsed, UsedSolver, TimeColumn });
+            dataGridView1.Columns.AddRange(new DataGridViewColumn[] { Level, UsedSolver });
             dataGridView1.EnableHeadersVisualStyles = false;
             dataGridView1.Location = new Point(170, 151);
             dataGridView1.Margin = new Padding(2, 1, 2, 1);
@@ -110,38 +108,6 @@
             dataGridView1.Size = new Size(432, 215);
             dataGridView1.TabIndex = 3;
             // 
-            // Level
-            // 
-            Level.HeaderText = "Level";
-            Level.MinimumWidth = 10;
-            Level.Name = "Level";
-            Level.ReadOnly = true;
-            Level.Width = 200;
-            // 
-            // HintsUsed
-            // 
-            HintsUsed.HeaderText = "Hints used";
-            HintsUsed.MinimumWidth = 10;
-            HintsUsed.Name = "HintsUsed";
-            HintsUsed.ReadOnly = true;
-            HintsUsed.Width = 200;
-            // 
-            // UsedSolver
-            // 
-            UsedSolver.HeaderText = "Used solver";
-            UsedSolver.MinimumWidth = 10;
-            UsedSolver.Name = "UsedSolver";
-            UsedSolver.ReadOnly = true;
-            UsedSolver.Width = 200;
-            // 
-            // TimeColumn
-            // 
-            TimeColumn.HeaderText = "Total play time";
-            TimeColumn.MinimumWidth = 10;
-            TimeColumn.Name = "TimeColumn";
-            TimeColumn.ReadOnly = true;
-            TimeColumn.Width = 200;
-            // 
             // panel1
             // 
             panel1.Controls.Add(dataGridView1);
@@ -151,6 +117,22 @@
             panel1.Name = "panel1";
             panel1.Size = new Size(800, 475);
             panel1.TabIndex = 4;
+            // 
+            // Level
+            // 
+            Level.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            Level.HeaderText = "Level";
+            Level.MinimumWidth = 10;
+            Level.Name = "Level";
+            Level.ReadOnly = true;
+            // 
+            // UsedSolver
+            // 
+            UsedSolver.AutoSizeMode = DataGridViewAutoSizeColumnMode.Fill;
+            UsedSolver.HeaderText = "Used solver";
+            UsedSolver.MinimumWidth = 10;
+            UsedSolver.Name = "UsedSolver";
+            UsedSolver.ReadOnly = true;
             // 
             // History
             // 
@@ -177,11 +159,8 @@
         private Button buttonHistoryLogout;
         private Label labelHistory;
         private DataGridView dataGridView1;
-        private DataGridViewTextBoxColumn Level;
-        private DataGridViewTextBoxColumn HintsUsed;
-        private DataGridViewTextBoxColumn UsedSolver;
-        private DataGridViewTextBoxColumn TimeColumn;
         private Panel panel1;
-        
+        private DataGridViewTextBoxColumn Level;
+        private DataGridViewTextBoxColumn UsedSolver;
     }
 }

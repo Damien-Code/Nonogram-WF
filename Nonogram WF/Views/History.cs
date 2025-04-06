@@ -40,13 +40,11 @@ namespace Nonogram_WF.Views
         /// </summary>
         private void PopulateDataGridView()
         {
-
             (Users user, UserHistory history) = HistoryController.RetrieveHistory();
-            //dataGridView1.Rows.Add(history.AllHistory.Level, history.HintCount, history.UsedSolver);
             if (history == null) { return; }
             foreach (Models.History userHistory in history.AllHistory)
             {
-                dataGridView1.Rows.Add(userHistory.Level, userHistory.HintCount, userHistory.UsedSolver);
+                dataGridView1.Rows.Add(userHistory.Level, userHistory.UsedSolver);
             }
         }
 
