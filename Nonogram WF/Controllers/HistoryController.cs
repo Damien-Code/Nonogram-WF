@@ -16,7 +16,7 @@ namespace Nonogram_WF.Controllers
         /// <returns type="History"></returns>
         public static (Users user, UserHistory history) RetrieveHistory()
         {
-            Users user = Session.GetSession();
+            Users user = SessionController.GetSession();
             return (user, user.History);
         }
         /// <summary>

@@ -17,7 +17,7 @@ namespace Nonogram_WF.Controllers
         /// <returns>Theme</returns>
         public static Theme GetTheme()
         {
-            Users session = Session.GetSession();
+            Users session = SessionController.GetSession();
             string? themeName = null;
             dynamic t;
             if (session.Settings == null)

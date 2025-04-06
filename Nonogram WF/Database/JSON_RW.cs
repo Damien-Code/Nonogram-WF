@@ -107,23 +107,21 @@ namespace Nonogram_WF.Database
             if (user == null || user.Email == "")
             {
                 policy.ChangeMonitors.Add(new HostFileChangeMonitor(filePaths));
-            try
-            {
-                json = File.ReadAllText(_sessionPath);
-                if (string.IsNullOrWhiteSpace(json)) json = "{}";
-                Users session = JsonSerializer.Deserialize<Users>(json, _options);
-                _sessionCache.Set("session", session, policy);
-                return session!;   
-            }
-                catch
-
-            {
-                //added failsafe if reader dies that the application will close
-                MessageBox.Show("Something went wrong, please restart");
-                Application.Exit();
-            }
-
+                try
+                {
+                    json = File.ReadAllText(_sessionPath);
+                    if (string.IsNullOrWhiteSpace(json)) json = "{}";
+                    Users session = JsonSerializer.Deserialize<Users>(json, _options);
+                    _sessionCache.Set("session", session, policy);
+                    return session!;   
                 }
+                catch
+                {
+                    //added failsafe if reader dies that the application will close
+                    MessageBox.Show("Something went wrong, please restart");
+                    Application.Exit();
+                }
+            }
                 else { return user; }
             return new Users();
         }

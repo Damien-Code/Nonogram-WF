@@ -34,10 +34,7 @@ namespace Nonogram_WF.Models
             Level = level;
             UsedSolver = usedSolver;
         }
-        public History()
-        {
-
-        }
+     
         /// <summary>
         /// Sets the game in the gamehistory and sets this in the users profile in data.json and in its session
         /// </summary>

@@ -49,7 +49,7 @@ namespace Nonogram_WF.Views
 
         private void buttonGameScreenLogout_Click(object sender, EventArgs e)
         {
-            Session.RemoveSession();
+            SessionController.RemoveSession();
             Application.Exit();
         }
 

@@ -24,7 +24,7 @@ namespace Nonogram_WF.Controllers
             {
                 if (!PasswordCheck(usercheck.user, password))
                 {
-                    Session.SetLoginSession(usercheck.user);
+                    SessionController.SetLoginSession(usercheck.user);
                     return false;
                 }
 

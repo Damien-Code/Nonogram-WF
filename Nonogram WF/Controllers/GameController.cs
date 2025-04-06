@@ -77,7 +77,7 @@ namespace Nonogram_WF.Controllers
             List<List<int>> returnList = new List<List<int>>();
             for (int i = 0; i < grid.GetLength(0); i++)
             {
-                List<int> tmp_list = new List<int>();
+                List<int> tmpList = new List<int>();
                 int sum = 0;
 
                 for (int j = 0; j < grid[i].GetLength(0); j++)
@@ -89,20 +89,20 @@ namespace Nonogram_WF.Controllers
 
                     else if (grid[i][j] == 0 && sum > 0)
                     {
-                        tmp_list.Add(sum);
+                        tmpList.Add(sum);
                         sum = 0;
                     }
                 }
 
                 if (sum > 0)
                 {
-                    tmp_list.Add(sum);
+                    tmpList.Add(sum);
                 }
-                else if (sum == 0 && tmp_list.Count == 0)
+                else if (sum == 0 && tmpList.Count == 0)
                 {
-                    tmp_list.Add(0);
+                    tmpList.Add(0);
                 }
-                returnList.Add(tmp_list);
+                returnList.Add(tmpList);
             }
             return returnList;
         }
@@ -116,7 +116,7 @@ namespace Nonogram_WF.Controllers
             List<List<int>> returnList = new List<List<int>>();
             for (int i = 0; i < grid.GetLength(0); i++)
             {
-                List<int> tmp_list = new List<int>();
+                List<int> tmpList = new List<int>();
                 int sum = 0;
                 for (int j = 0; j < grid[i].GetLength(0); j++)
                 {
@@ -127,19 +127,19 @@ namespace Nonogram_WF.Controllers
 
                     else if (grid[j][i] == 0 && sum > 0)
                     {
-                        tmp_list.Add(sum);
+                        tmpList.Add(sum);
                         sum = 0;
                     }
                 }
                 if (sum > 0)
                 {
-                    tmp_list.Add(sum);
+                    tmpList.Add(sum);
                 }
-                else if (sum == 0 && tmp_list.Count == 0)
+                else if (sum == 0 && tmpList.Count == 0)
                 {
-                    tmp_list.Add(0);
+                    tmpList.Add(0);
                 }
-                returnList.Add(tmp_list);
+                returnList.Add(tmpList);
             }
             return returnList;
         }

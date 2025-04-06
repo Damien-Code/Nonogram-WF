@@ -8,7 +8,7 @@ using Nonogram_WF.Models;
 
 namespace Nonogram_WF.Controllers
 {
-    class Session
+    class SessionController
     {
         /// <summary>
         /// sets session
