@@ -24,7 +24,7 @@ namespace Nonogram_WF.Controllers
             {
                 t = Type.GetType("Nonogram_WF.Themes.Light");
             }
-            else if (session.Settings.Theme == "")
+            else if (session.Settings.Theme == "" || session.Settings.Theme == null)
             {
                 t = Type.GetType("Nonogram_WF.Themes.Light");
             }

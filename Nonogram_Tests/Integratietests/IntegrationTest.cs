@@ -29,6 +29,7 @@ namespace Nonogram_Tests
         public void Test_IntegrationTest_AccountCannotBeCreatedIfEmailExists_CheckEmailExists_ReturnsTrue()
         {
             Users user = new Users() { Email = "test@example.com" };
+            //THIS DOES NOT CHECK THE EMAIL EXISTS SO MULTIPLE USERS WILL BE ADDED WHEN RUNNING THIS TEST MORE OFTEN.
             Users.SetUser(user.Email, new DPassword("", ""), new Settings("", ""), new UserHistory());
             //JSON_RW.WriteFile(user); 
             //dit is waar je error zit, het is nu geen users list maar een plain user. Allusers is dan empty
