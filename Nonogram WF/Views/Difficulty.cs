@@ -4,6 +4,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection.Emit;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
@@ -47,7 +48,7 @@ namespace Nonogram_WF.Views
 			Users currentSession = Models.Session.GetSession();
 			if (currentSession.Email != "" && currentSession.Email != null) { 
 		
-			currentMaxLevel = currentSession.History.AllHistory.Max(level => level.Level);
+			currentMaxLevel = currentSession.History.AllHistory.Where(level => level.UsedSolver == false).Max(level => level.Level);
 			}
             if (currentMaxLevel < 16)
             {

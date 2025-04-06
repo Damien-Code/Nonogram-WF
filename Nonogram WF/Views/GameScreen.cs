@@ -155,7 +155,7 @@ namespace Nonogram_WF.Views
                 MessageBox.Show("You Win!");
 
                 //set win as history in db
-                GameController.SetWin(GridSize - 4, _hintsUsed);
+                GameController.SetWin(GridSize - 4, _hintsUsed, false);
                 //redirect to home
                 this.Hide();
                 FindForm().Controls.Find("Home", false).First().Show();
@@ -306,6 +306,7 @@ namespace Nonogram_WF.Views
            
             _currentAttemptGrid = _solutionGrid;
             Refresh();
+            GameController.SetWin(GridSize - 4, _hintsUsed, true);
             MessageBox.Show("You did not fully solve it yourself.\nwont advance to the next level");
             buttonGameScreenBack_Click(sender, e);
 

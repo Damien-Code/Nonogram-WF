@@ -57,13 +57,13 @@ namespace Nonogram_WF.Controllers
         /// </summary>
         /// <param name="level"></param>
         /// <param name="hintsUsed"></param>
-        public static void SetWin(int level, int hintsUsed)
+        public static void SetWin(int level, int hintsUsed, bool solverUsed)
         {
-            Models.History gameHistory = new(level, hintsUsed, false);
+            Models.History gameHistory = new(level, hintsUsed, solverUsed);
             //get all history of user
             (Users currentUser, UserHistory userHistory) = HistoryController.RetrieveHistory();
             userHistory.AllHistory.Add(gameHistory);
-            HistoryController.SetWin(currentUser, new History(level, hintsUsed, false));
+            HistoryController.SetWin(currentUser, new History(level, hintsUsed, solverUsed));
         }
 
 
