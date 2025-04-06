@@ -16,7 +16,7 @@ namespace Nonogram_WF.Views
     public partial class Settings : UserControl
     {
         private int _themeIndexChangecounter = 0;
-        private int _fontSizeIndexChangecounter = 0;
+        //private int _fontSizeIndexChangecounter = 0;
         public Settings()
         {
             InitializeComponent();
@@ -35,6 +35,9 @@ namespace Nonogram_WF.Views
             this.Hide();
             FindForm().Controls.Find("Home", false).First().Show();
         }
+        /// <summary>
+        /// Sets the Theme combobox text to the type that is currently selected
+        /// </summary>
         private void GetThemeLabel()
         {
             string userTheme = GetTheme();
@@ -52,19 +55,28 @@ namespace Nonogram_WF.Views
             if (_themeIndexChangecounter > 0)
             {
                 SetTheme(comboBoxSettingsTheme.Text, Controls); //change this code to set new theme and call the func again
-                reload();
+                Reload();
                 // gets color before it has been changed
                 //Refresh();
             }
             _themeIndexChangecounter++;
         }
        
+        /// <summary>
+        /// Gets the current theme
+        /// </summary>
+        /// <returns>string</returns>
         private string GetTheme()
         {
             //Get theme from session.json, return the theme if its there
             return Controllers.Settings.GetTheme();
         }
         
+        /// <summary>
+        /// sets the current theme
+        /// </summary>
+        /// <param name="theme"></param>
+        /// <param name="controls"></param>
         private void SetTheme(string theme, ControlCollection controls)
         {
             Controllers.Settings.SetTheme(theme);
@@ -73,7 +85,7 @@ namespace Nonogram_WF.Views
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            _fontSizeIndexChangecounter = 0;
+            //_fontSizeIndexChangecounter = 0;
             _themeIndexChangecounter = 0;
             GetThemeLabel();
         }
@@ -81,7 +93,10 @@ namespace Nonogram_WF.Views
         private void buttonSettingsLogout_VisibleChanged(object sender, EventArgs e)
         {
         }
-        private void reload()
+        /// <summary>
+        /// redirects the user to Home
+        /// </summary>
+        private void Reload()
         {
             this.Hide();
             FindForm().Controls.Find("Home", false).First().Show();
@@ -91,7 +106,10 @@ namespace Nonogram_WF.Views
         {
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
-        public void testLogout() {
+        /// <summary>
+        /// Method specifically created for testing hte logout function
+        /// </summary>
+        public void TestLogout() {
             Controllers.Session.RemoveSession();
             Application.Exit();
         }

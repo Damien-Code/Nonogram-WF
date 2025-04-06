@@ -11,6 +11,10 @@ namespace Nonogram_WF.Controllers
 {
     class ThemeController
     {
+        /// <summary>
+        /// gets current theme
+        /// </summary>
+        /// <returns>Theme</returns>
         public static Theme GetTheme()
         {
             Users session = Session.GetSession();
@@ -20,7 +24,7 @@ namespace Nonogram_WF.Controllers
             {
                 t = Type.GetType("Nonogram_WF.Themes.Light");
             }
-            else if (session.Settings.Theme == "")
+            else if (session.Settings.Theme == "" || session.Settings.Theme == null)
             {
                 t = Type.GetType("Nonogram_WF.Themes.Light");
             }

@@ -12,6 +12,10 @@ namespace Nonogram_WF.Controllers
     {
 
         public Settings() { }
+        /// <summary>
+        /// Gets current session, checks if its not empty, then returns the sessions theme, else returns empty string
+        /// </summary>
+        /// <returns>string</returns>
         public static string GetTheme() {
 
 
@@ -19,6 +23,10 @@ namespace Nonogram_WF.Controllers
             return settings != null ? settings.Theme : "";
 
         }
+        /// <summary>
+        /// sets the theme in data and session using multithreading
+        /// </summary>
+        /// <param name="theme"></param>
         public static void SetTheme(string theme)
         {
             //to be added
@@ -30,27 +38,6 @@ namespace Nonogram_WF.Controllers
 
                 //add method call to put set theme into sessionstore
                 Models.Session.SetTheme(theme);
-            }));
-            AddToDB.Start();
-            AddToSession.Start();
-        }
-
-        public static string GetFontSize()
-        {
-            Models.Settings settings = Models.Session.GetSession().Settings;
-
-            return settings != null ? settings.FontSize : "9";
-        }
-        public static void SetFontSize(string fontSize)
-        {
-            Thread AddToDB = new Thread(new ThreadStart(() => {
-                //add method call to put set theme into db
-                Models.Users.SetFontSize(fontSize);
-            }));
-            Thread AddToSession = new Thread(new ThreadStart(() => {
-
-                //add method call to put set theme into sessionstore
-                Models.Session.SetFontSize(fontSize);
             }));
             AddToDB.Start();
             AddToSession.Start();

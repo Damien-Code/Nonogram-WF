@@ -16,7 +16,6 @@ namespace Nonogram_WF.Models
     {
         // private properties 
 
-        //private string _name;
         private string _email;
         private string _password;
         private string _salt;
@@ -128,7 +127,10 @@ namespace Nonogram_WF.Models
             return Convert.ToBase64String(hashToCompare);
         }
 
-
+        /// <summary>
+        /// Gets the current user and changes their theme, after which updates its settings 
+        /// </summary>
+        /// <param name="theme"></param>
         public static void SetTheme(string theme)
         {
             AllUsers allUsers = JSON_RW.GetUsers();
@@ -137,26 +139,11 @@ namespace Nonogram_WF.Models
             currentUser.Settings.Theme = theme;
             JSON_RW.UpdateUserSettings(allUsers);
         }
-        public static void SetFontSize(string fontSize)
-        {
-            AllUsers allUsers = JSON_RW.GetUsers();
-            Users user = JSON_RW.GetSession();
-            Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
-            currentUser.Settings.FontSize = fontSize;
-            JSON_RW.UpdateUserSettings(allUsers);
-        }
 
-        public static void setHistory(History gameHistory)
-        {
-            AllUsers allUsers = JSON_RW.GetUsers();
-            Users user = JSON_RW.GetSession();
-            Users currentUser = allUsers.Users.Find(x => x.Email == user.Email);
-            //History has to be a list to add the gameHistory to
-            // WIP
-            //UserHistory AllHistory = currentUser.History;
-            //currentUser.History
-            // TODO: Convert history to list
-        }
+        /// <summary>
+        /// gets all users
+        /// </summary>
+        /// <returns>AllUsers</returns>
         public static AllUsers GetUsers()
         {
             return JSON_RW.GetUsers();

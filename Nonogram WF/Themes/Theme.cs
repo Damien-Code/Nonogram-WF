@@ -42,13 +42,11 @@ namespace Nonogram_WF.Themes
             
         }
 
-		/* all components
-* UserControl
-* Button
-* Label
-* Textbox
-* Datagrid
-*/
+		/// <summary>
+        /// goes through all of the current components and changes their fore and back color depending on the theme.
+        /// </summary>
+        /// <param name="theme"></param>
+        /// <param name="container"></param>
 		public static void ChangeTheme(Theme theme, Control.ControlCollection container) {
 			foreach (Control component in container)
 			{
@@ -79,16 +77,11 @@ namespace Nonogram_WF.Themes
                     component.ForeColor = theme.TextBoxFG;
                 }
                 else if (component is DataGridView)
-                { //datagrid can be changed if needed, this is only used in the history view.    
+                {   
                     component.BackColor = theme.DataGridViewBG;
                     component.ForeColor = theme.DataGridViewFG;
                 }
 			}
 		}
-        public static Color GetPenColor() {
-            Theme chosenTheme = ThemeController.GetTheme();
-
-            return Color.Black;
-        }
     }
 }

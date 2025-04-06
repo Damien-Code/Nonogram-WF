@@ -8,6 +8,9 @@ namespace Nonogram_WF.Themes
 {
     class Light : Theme
     {
+        /// <summary>
+        /// sets specific colors for this specific theme
+        /// </summary>
         public Light() { 
             UserControlBG = UserControl.DefaultBackColor;
             UserControlFG = UserControl.DefaultForeColor;

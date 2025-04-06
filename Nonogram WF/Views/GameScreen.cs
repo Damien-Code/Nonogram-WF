@@ -5,6 +5,7 @@ using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Linq;
+using System.Reflection;
 using System.Runtime.CompilerServices;
 using System.Security.Cryptography.Xml;
 using System.Security.Policy;
@@ -19,7 +20,7 @@ namespace Nonogram_WF.Views
 
     public partial class GameScreen : UserControl
     {
-        private int MaxGridSize; //max length of grid
+        private int _maxGridSize; //max length of grid
         private int[][] _solutionGrid;
         private int[][] _currentAttemptGrid;
         private int[][] _currentGridMask;
@@ -34,7 +35,10 @@ namespace Nonogram_WF.Views
         public GameScreen()
         {
             InitializeComponent();
-            DoubleBuffered = true;
+            // https://stackoverflow.com/questions/8046560/how-to-stop-flickering-c-sharp-winforms
+            typeof(Panel).InvokeMember("DoubleBuffered",
+                BindingFlags.SetProperty | BindingFlags.Instance | BindingFlags.NonPublic,
+                null, panel1, [true]);
             Themes.Theme.ChangeTheme(ThemeController.GetTheme(), Controls);
         }
 
@@ -57,7 +61,7 @@ namespace Nonogram_WF.Views
             
             Pen p = new(_theme.PenColor);
             int size = GridSize;
-            int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
+            int cellSize = (int)Math.Floor(_maxGridSize / (double)GridSize);
 
             for (int i = 0; i <= size; i++)
             {
@@ -98,15 +102,21 @@ namespace Nonogram_WF.Views
 
         }
 
-
-        public void setGrid(int dpi)
+        /// <summary>
+        /// This method sets the grid just before the user enters the game page.
+        /// It also sets the starting location of the game grid, its labels and sets a mask.
+        /// This mask is used to check clicks, while the attemptgrid checks for clicks and marked cells, 
+        /// so it wont intervene with the win check.
+        /// </summary>
+        /// <param name="dpi"></param>
+        public void SetGrid(int dpi)
         {
-            int sizeConversion = 960 / dpi;
-            _horizontalStartPosition = (Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / sizeConversion + 50;
-            _verticalStartPosition = (Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / sizeConversion;
-            MaxGridSize = 2000/sizeConversion+50;
+            int sizeConversion = (int)Math.Floor(960F / dpi);
+            _horizontalStartPosition = (int)Math.Floor((decimal)(Screen.PrimaryScreen.WorkingArea.Left + Screen.PrimaryScreen.WorkingArea.Width) / sizeConversion) + 50;
+            _verticalStartPosition   = (int)Math.Floor((decimal)(Screen.PrimaryScreen.WorkingArea.Top + Screen.PrimaryScreen.WorkingArea.Height) / sizeConversion);
+            _maxGridSize = 2000/sizeConversion+50;
 
-            _solutionGrid = GameController.initializeGrid(GridSize);
+            _solutionGrid = GameController.InitializeGrid(GridSize);
             RemoveLabels();
             SetLabels();
 
@@ -124,71 +134,39 @@ namespace Nonogram_WF.Views
                     _currentGridMask[i][j] = 0;
                 }
             }
-            logger();
 
         }
+        /// <summary>
+        /// calls methods that create column and row hints
+        /// </summary>
         private void SetLabels()
         {
             CreateColLabels();
             CreateRowLabels();
         }
 
-
+        /// <summary>
+        /// checks if the mask and solution are equal. if so, shows a messagebox, sets the win in db/session and redirects home
+        /// </summary>
         private void WinCheck()
         {
             if (StructuralComparisons.StructuralEqualityComparer.Equals(_solutionGrid, _currentGridMask))
             {
-                MessageBox.Show("Win");
+                MessageBox.Show("You Win!");
 
                 //set win as history in db
-                GameController.SetWin(GridSize - 4, _hintsUsed);
-
-                //saves game in db
-
-
+                GameController.SetWin(GridSize - 4, _hintsUsed, false);
                 //redirect to home
                 this.Hide();
                 FindForm().Controls.Find("Home", false).First().Show();
 
 
             }
-            else { Console.WriteLine("not yet"); }
         }
-        private void logger()
-        {
-            Console.WriteLine("Sol\n");
-            foreach (var item in _solutionGrid)
-            {
-                foreach (var item1 in item)
-                {
-                    Console.Write((item1.ToString()));
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("cur");
-            //Console.WriteLine();
-            foreach (var item in _currentAttemptGrid)
-            {
-                foreach (var item1 in item)
-                {
-                    Console.Write((item1.ToString()));
-                }
-                Console.WriteLine();
-            }
-            Console.WriteLine("mask");
-            //Console.WriteLine();
-            foreach (var item in _currentGridMask)
-            {
-                foreach (var item1 in item)
-                {
-                    Console.Write((item1.ToString()));
-                }
-                Console.WriteLine();
-            }
-            //WinCheck();
-        }
-
-
+      
+        /// <summary>
+        /// changes theme
+        /// </summary>
         public void ThemeChange()
         {
             _theme = ThemeController.GetTheme();
@@ -199,11 +177,13 @@ namespace Nonogram_WF.Views
         {
         }
 
-
+        /// <summary>
+        /// checks the rows of the grid to add hints to a list which eventually gets turned into labels.
+        /// </summary>
         public void CreateRowLabels()
         {
             Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
-            int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
+            int cellSize = (int)Math.Floor(_maxGridSize / (double)GridSize);
             List<List<int>> RowHints = GameController.CalculateRow(_solutionGrid);
             Font font = new("ariel", cellSize, FontStyle.Regular, GraphicsUnit.Pixel);
             for (int i = 0; i < RowHints.Count; i++)
@@ -226,11 +206,13 @@ namespace Nonogram_WF.Views
                 }
             }
         }
-
+        /// <summary>
+        /// checks the columns of the grid to add hints to a list which eventually gets turned into labels.
+        /// </summary>
         public void CreateColLabels()
         {
             Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
-            int cellSize = (int)Math.Floor(MaxGridSize / (double)GridSize);
+            int cellSize = (int)Math.Floor(_maxGridSize / (double)GridSize);
 
             List<List<int>> ColHints = GameController.CalculateCol(_solutionGrid);
             Font font = new("ariel", cellSize, FontStyle.Regular, GraphicsUnit.Pixel);
@@ -271,16 +253,16 @@ namespace Nonogram_WF.Views
         {
             Point relativePoint = this.PointToClient(Cursor.Position);
             Point gridStart = new Point(_horizontalStartPosition, _verticalStartPosition);
-            Point gridEnd = new Point(_horizontalStartPosition + MaxGridSize, _verticalStartPosition + MaxGridSize);
+            Point gridEnd = new Point(_horizontalStartPosition + _maxGridSize, _verticalStartPosition + _maxGridSize);
 
             int mousePosX = relativePoint.X;
             int mousePosY = relativePoint.Y;
-            if ((relativePoint.X >= gridStart.X && relativePoint.X <= gridEnd.X) && (relativePoint.Y >= gridStart.Y && relativePoint.Y <= gridEnd.Y))
+            if ((relativePoint.X >= gridStart.X && relativePoint.X <= gridEnd.X-1) && (relativePoint.Y >= gridStart.Y && relativePoint.Y <= gridEnd.Y-1))
             {
-                int row = (int)Math.Floor((relativePoint.X - gridStart.X) / (MaxGridSize / (double)GridSize));
-                int col = (int)Math.Floor((relativePoint.Y - gridStart.Y) / (MaxGridSize / (double)GridSize));
-                int cellStartX = _horizontalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
-                int cellStartY = _verticalStartPosition + (int)Math.Floor(MaxGridSize / (double)GridSize);
+                int row = (int)Math.Floor((relativePoint.X - gridStart.X) / (_maxGridSize / (double)GridSize));
+                int col = (int)Math.Floor((relativePoint.Y - gridStart.Y) / (_maxGridSize / (double)GridSize));
+                int cellStartX = _horizontalStartPosition + (int)Math.Floor(_maxGridSize / (double)GridSize);
+                int cellStartY = _verticalStartPosition + (int)Math.Floor(_maxGridSize / (double)GridSize);
 
                 //check for position of cell and set it in the list/array as 1 for fill square / 2 for cross.
                 if (e.Button == MouseButtons.Left)
@@ -313,8 +295,7 @@ namespace Nonogram_WF.Views
                 //redraw
                 Refresh();
 
-                //check for win
-                logger();
+                //check for win 
                 WinCheck();
             }
         }
@@ -325,6 +306,7 @@ namespace Nonogram_WF.Views
            
             _currentAttemptGrid = _solutionGrid;
             Refresh();
+            GameController.SetWin(GridSize - 4, _hintsUsed, true);
             MessageBox.Show("You did not fully solve it yourself.\nwont advance to the next level");
             buttonGameScreenBack_Click(sender, e);
 

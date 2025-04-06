@@ -11,6 +11,9 @@ namespace Nonogram_WF.Themes
     {
         //Int32 colorChangeAmount = 0xbababa; //grey
         private Int32 colorChangeAmount = 0xffffff;
+        /// <summary>
+        /// sets specific colors for this specific theme
+        /// </summary>
         public Dark() {
             UserControlBG = Color.FromArgb(UserControl.DefaultBackColor.ToArgb() ^ colorChangeAmount);
             UserControlFG = Color.FromArgb(UserControl.DefaultForeColor.ToArgb() ^ colorChangeAmount);

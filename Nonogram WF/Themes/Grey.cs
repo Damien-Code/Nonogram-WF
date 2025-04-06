@@ -10,7 +10,10 @@ namespace Nonogram_WF.Themes
     class Grey : Theme
     {
         private Int32 colorChangeAmount = 0xbababa;
-		public Grey()
+        /// <summary>
+        /// sets specific colors for this specific theme
+        /// </summary>
+        public Grey()
 		{
 			UserControlBG = Color.FromArgb(UserControl.DefaultBackColor.ToArgb() ^ colorChangeAmount);
 			UserControlFG = Color.FromArgb(UserControl.DefaultForeColor.ToArgb() ^ colorChangeAmount);

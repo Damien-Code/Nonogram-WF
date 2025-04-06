@@ -18,7 +18,7 @@ namespace Nonogram_Tests
         {
             int gridSize = 7;
             int cellCount = 0;
-            int[][] testGrid = GameController.initializeGrid(gridSize);
+            int[][] testGrid = GameController.InitializeGrid(gridSize);
             
             foreach (int[] row in testGrid)
             {

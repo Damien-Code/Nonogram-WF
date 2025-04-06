@@ -16,7 +16,6 @@ namespace Nonogram_WF.Views
         public Login()
         {
             InitializeComponent();
-            //this.Dock = DockStyle.Fill;
         }
 
         private void login_Load(object sender, EventArgs e)
@@ -37,7 +36,7 @@ namespace Nonogram_WF.Views
             this.Hide();
 
             FindForm().Controls.Find("Instructions", false).First().Show();
-            // add login functionality
+          
 
         }
         private void buttonLoginRegister_Click(object sender, EventArgs e)
