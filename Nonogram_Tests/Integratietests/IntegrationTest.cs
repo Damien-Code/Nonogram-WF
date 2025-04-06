@@ -8,9 +8,7 @@ using System.Threading.Tasks;
 
 namespace Nonogram_Tests
 {
-    /*
-     * een type softwaretesten waarbij de verschillende eenheden, modules of componenten van een softwaretoepassing als een gecombineerd geheel worden getest
-     */
+    
 
     [TestClass]
     public sealed class IntegrationTest
