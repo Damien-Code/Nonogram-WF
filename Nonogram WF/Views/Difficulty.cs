@@ -24,7 +24,7 @@ namespace Nonogram_WF.Views
 
         private void buttonDifficultyHelp_Click(object sender, EventArgs e)
         {
-            MessageBox.Show("Here you can choose your difficulty. Ranging from 1 to 16");
+            MessageBox.Show("Here you can choose your level! \n * Your level ranges from your last beaten level up to a maximum of level 16. \n * Left click to mark a cell as correct.\n * Right click to mark a cell as incorrect.");
         }
 
         private void buttonDifficultyLogout_Click(object sender, EventArgs e)
