@@ -1,0 +1,11 @@
+{
+  "Email": "",
+  "Password": null,
+  "Salt": null,
+  "Settings": {
+    "Theme": ""
+  },
+  "History": {
+    "AllHistory": []
+  }
+}

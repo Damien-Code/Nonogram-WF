@@ -55,7 +55,7 @@ namespace Nonogram_WF.Controllers
 
             // check to see if settings work
             //TODO: change default settings and history
-            Models.Settings settings = new Models.Settings("Light", "9");
+            Models.Settings settings = new Models.Settings("Light");
 
             //test history
             UserHistory history = new UserHistory();

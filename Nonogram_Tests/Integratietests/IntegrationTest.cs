@@ -30,7 +30,7 @@ namespace Nonogram_Tests
         {
             Users user = new Users() { Email = "test@example.com" };
             //THIS DOES NOT CHECK THE EMAIL EXISTS SO MULTIPLE USERS WILL BE ADDED WHEN RUNNING THIS TEST MORE OFTEN.
-            Users.SetUser(user.Email, new DPassword("", ""), new Settings("", ""), new UserHistory());
+            Users.SetUser(user.Email, new DPassword("", ""), new Settings(""), new UserHistory());
             //JSON_RW.WriteFile(user); 
             //dit is waar je error zit, het is nu geen users list maar een plain user. Allusers is dan empty
 
@@ -47,7 +47,7 @@ namespace Nonogram_Tests
 
         [TestMethod]
         public void Test_IntegrationTest_SessionCanBeChecked() {
-            Users user = new Users() { Email = "test@example.com", Settings = new Settings("Light", ""), History = new UserHistory() };
+            Users user = new Users() { Email = "test@example.com", Settings = new Settings("Light"), History = new UserHistory() };
             Session.SetSession(user.Email, user.Settings, user.History);
             //change theme
             Users currentUser = Session.GetSession();

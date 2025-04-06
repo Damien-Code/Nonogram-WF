@@ -1,0 +1,35 @@
+{
+  "Users": [
+    {
+      "Email": "asd@asd.asd",
+      "Password": "UTVgFLpF4kfj32Btkfez5SyJB9oYi8kDFxevxlO2\u002BJXCppAKNRmIO18uFQEGDESmQCSKPUG99W90vmctkLlgKA==",
+      "Salt": "sw6HRowQ\u002B\u002BoMuyHN8Q3\u002BRw==",
+      "Settings": {
+        "Theme": "DarkBlue"
+      },
+      "History": {
+        "AllHistory": [
+          {
+            "Level": 0,
+            "UsedSolver": false
+          },
+          {
+            "Level": 1,
+            "UsedSolver": false
+          }
+        ]
+      }
+    },
+    {
+      "Email": "test@example.com",
+      "Password": "",
+      "Salt": "",
+      "Settings": {
+        "Theme": ""
+      },
+      "History": {
+        "AllHistory": []
+      }
+    }
+  ]
+}
