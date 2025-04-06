@@ -14,15 +14,6 @@ namespace Nonogram_Tests
     public sealed class IntegrationTest
     {
 
-        //template
-        [TestMethod]
-        public void Test_Integration()
-        {
-            Assert.IsTrue(true);
-        }
-
-        //actual tests
-
         [TestMethod]
         public void Test_IntegrationTest_AccountCannotBeCreatedIfEmailExists_CheckEmailExists_ReturnsTrue()
         {
