@@ -25,8 +25,6 @@ namespace Nonogram_WF.Themes
 			LabelFG = Color.FromArgb(Label.DefaultForeColor.ToArgb() ^ colorChangeAmount);
 			TextBoxBG = Color.FromArgb(TextBox.DefaultBackColor.ToArgb() ^ colorChangeAmount);
 			TextBoxFG = Color.FromArgb(TextBox.DefaultForeColor.ToArgb() ^ colorChangeAmount);
-			//DataGridViewBG = Color.FromArgb(DataGridView.DefaultBackColor.ToArgb() ^ colorChangeAmount);
-			//DataGridViewFG = Color.FromArgb(DataGridView.DefaultForeColor.ToArgb() ^ colorChangeAmount);
 			PenColor = Color.FromArgb(Color.Black.ToArgb() ^ colorChangeAmount);
 		}
 	}

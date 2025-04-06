@@ -23,7 +23,7 @@ namespace Nonogram_WF.Themes
             TextBoxBG = TextBox.DefaultBackColor;
             TextBoxFG = TextBox.DefaultForeColor;
             DataGridViewBG = DataGridView.DefaultBackColor;
-            DataGridViewFG = DataGridView.DefaultForeColor;
+            
 			PenColor = Color.Black;
 		}
     }

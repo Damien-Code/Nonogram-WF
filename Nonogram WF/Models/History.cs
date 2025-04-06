@@ -13,8 +13,7 @@ namespace Nonogram_WF.Models
     public class History
     {
         private int _level;
-        //private TimeSpan _time;
-        private int _hintCount;
+        
         private bool _usedSolver;
 
         public int Level
@@ -22,11 +21,7 @@ namespace Nonogram_WF.Models
             get => _level;
             set => _level = value;
         }
-        public int HintCount
-        {
-            get => _hintCount;
-            set => _hintCount = value;
-        }
+       
         public bool UsedSolver
         {
             get => _usedSolver;
@@ -34,10 +29,9 @@ namespace Nonogram_WF.Models
         }
 
 
-        public History(int level, int hintCount, bool usedSolver)
+        public History(int level, bool usedSolver)
         {
             Level = level;
-            HintCount = hintCount;
             UsedSolver = usedSolver;
         }
         public History()

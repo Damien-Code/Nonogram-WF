@@ -79,7 +79,8 @@ namespace Nonogram_WF.Themes
                 else if (component is DataGridView)
                 {   
                     component.BackColor = theme.DataGridViewBG;
-                    component.ForeColor = theme.DataGridViewFG;
+                    component.ForeColor = Color.Black;
+                    
                 }
 			}
 		}
