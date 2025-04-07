@@ -23,7 +23,7 @@ namespace Nonogram_WF.Views
 
         private void buttonHomeLogout_Click(object sender, EventArgs e)
         {
-            Session.RemoveSession();
+            SessionController.RemoveSession();
             Application.Exit();
         }
 

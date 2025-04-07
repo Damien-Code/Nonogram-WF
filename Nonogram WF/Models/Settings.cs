@@ -9,12 +9,10 @@ namespace Nonogram_WF.Models
     public class Settings
     {
         public string Theme { get; set; }
-        public string FontSize { get; set; }
 
-        public Settings(string theme, string fontSize)
+        public Settings(string theme)
         {
             Theme = theme;
-            FontSize = fontSize;
         }
 
     }

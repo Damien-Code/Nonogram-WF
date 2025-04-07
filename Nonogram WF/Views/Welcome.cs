@@ -58,7 +58,7 @@ namespace Nonogram_WF.Views
 		/// <returns>bool</returns>
 		private bool HasSession()
 		{
-			Users user = Controllers.Session.GetSession();
+			Users user = Controllers.SessionController.GetSession();
 			return (user.Email == null) ? false : (user.Email == "") ? false : true;
 		}
 

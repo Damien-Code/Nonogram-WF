@@ -9,9 +9,7 @@ namespace Nonogram_Tests
     [TestClass]
     public sealed class UnitTest
     {
-        /*
-         * een codeblok dat de nauwkeurigheid van een kleiner, geïsoleerd blok applicatiecode verifieert, meestal een functie of methode
-         */
+        
 
         [TestMethod]
         public void Test_UnitTest_CellCountIsGridSizeTimesGridSize()

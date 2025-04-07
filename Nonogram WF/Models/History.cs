@@ -34,6 +34,7 @@ namespace Nonogram_WF.Models
             Level = level;
             UsedSolver = usedSolver;
         }
+
         public History()
         {
 

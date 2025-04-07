@@ -16,7 +16,6 @@ namespace Nonogram_WF.Views
     public partial class Settings : UserControl
     {
         private int _themeIndexChangecounter = 0;
-        //private int _fontSizeIndexChangecounter = 0;
         public Settings()
         {
             InitializeComponent();
@@ -26,7 +25,7 @@ namespace Nonogram_WF.Views
 
         private void buttonSettingsLogout_Click(object sender, EventArgs e)
         {
-            Controllers.Session.RemoveSession();
+            Controllers.SessionController.RemoveSession();
             Application.Exit();
         }
 
@@ -69,7 +68,7 @@ namespace Nonogram_WF.Views
         private string GetTheme()
         {
             //Get theme from session.json, return the theme if its there
-            return Controllers.Settings.GetTheme();
+            return Controllers.SettingsController.GetTheme();
         }
         
         /// <summary>
@@ -79,13 +78,12 @@ namespace Nonogram_WF.Views
         /// <param name="controls"></param>
         private void SetTheme(string theme, ControlCollection controls)
         {
-            Controllers.Settings.SetTheme(theme);
+            Controllers.SettingsController.SetTheme(theme);
         }
         
 
         private void Settings_Load(object sender, EventArgs e)
         {
-            //_fontSizeIndexChangecounter = 0;
             _themeIndexChangecounter = 0;
             GetThemeLabel();
         }
@@ -110,7 +108,7 @@ namespace Nonogram_WF.Views
         /// Method specifically created for testing hte logout function
         /// </summary>
         public void TestLogout() {
-            Controllers.Session.RemoveSession();
+            Controllers.SessionController.RemoveSession();
             Application.Exit();
         }
     }

@@ -8,10 +8,10 @@ using Nonogram_WF.Themes;
 
 namespace Nonogram_WF.Controllers
 {
-    class Settings
+    class SettingsController
     {
 
-        public Settings() { }
+        public SettingsController() { }
         /// <summary>
         /// Gets current session, checks if its not empty, then returns the sessions theme, else returns empty string
         /// </summary>

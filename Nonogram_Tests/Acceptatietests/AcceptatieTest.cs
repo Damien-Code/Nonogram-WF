@@ -13,9 +13,7 @@ namespace Nonogram_Tests
     [TestClass]
     public sealed class AcceptatieTest
     {
-        /*
-         * geschreven vanuit de blik van de user 
-         */
+        
 
         [TestMethod]
         public void Test_Acceptatie_SessionEmptyAfterLogout()
